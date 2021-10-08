@@ -22,7 +22,7 @@
                     <input type="text" autofocus
                     name="nombre" 
                     class="form-control @error('nombre') is-invalid @enderror" id="nombre" placeholder="Ingrese un nombre"
-                        value="">
+                        value="{{old('nombre')}}">
                     @error('nombre')
                     <span class="invalid-feedback d-block" role="alert">
                         <strong>{{ $message }}</strong>

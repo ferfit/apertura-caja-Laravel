@@ -12,4 +12,10 @@ class Empleado extends Model
     protected $fillable = [
         'nombre'
     ];
+
+    //Relación 1 a n
+    public function ventas()
+    {
+        $this->hasMany('App\Models\Venta');
+    }
 }

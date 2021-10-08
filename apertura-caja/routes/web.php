@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\VentaController;
+use App\Http\Controllers\Controller;
 
 
 /*
@@ -38,3 +40,9 @@ Route::resource('empleados', EmpleadoController::class)->names('empleados');
 |--------------------------------------------------------------------------
 */
 Route::resource('servicios', ServicioController::class)->names('servicios'); 
+/*
+|--------------------------------------------------------------------------
+| Ventas
+|--------------------------------------------------------------------------
+*/
+Route::resource('ventas', VentaController::class)->names('ventas'); 

@@ -12,4 +12,11 @@ class Servicio extends Model
     protected $fillable = [
         'nombre'
     ];
+
+    //1 a n
+
+    public function ventas()
+    {
+        return $this->hasMany('App\Models\Venta');
+    }
 }

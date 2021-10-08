@@ -255,7 +255,7 @@ return [
         ],
         [
             'text'        => 'Ventas',
-            'url'         => 'admin/pages',
+            'url'         => 'ventas',
             'icon'        => 'fas fa-shopping-cart',
             'label'       => 4,
             'label_color' => 'success',
