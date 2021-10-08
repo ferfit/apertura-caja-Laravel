@@ -7,11 +7,10 @@
 @stop
 
 @section('content')
-    <p class="">PANEL DE CONTROL GENERAL</p>
+    <p class=""></p>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
