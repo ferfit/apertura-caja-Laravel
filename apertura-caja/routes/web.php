@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\ServicioController;
 
 
 /*
@@ -31,3 +32,9 @@ require __DIR__.'/auth.php';
 |--------------------------------------------------------------------------
 */
 Route::resource('empleados', EmpleadoController::class)->names('empleados'); 
+/*
+|--------------------------------------------------------------------------
+| Servicios
+|--------------------------------------------------------------------------
+*/
+Route::resource('servicios', ServicioController::class)->names('servicios'); 

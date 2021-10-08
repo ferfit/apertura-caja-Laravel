@@ -248,7 +248,7 @@ return [
         ],
         [
             'text'        => 'Servicios',
-            'url'         => 'admin/pages',
+            'url'         => 'servicios',
             'icon'        => 'fas fa-tag',
             'label'       => 4,
             'label_color' => 'success',
