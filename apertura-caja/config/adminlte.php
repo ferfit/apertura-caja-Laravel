@@ -232,10 +232,16 @@ return [
         ],
 
         // Sidebar items:
+        [
+            'text'        => 'Escritorio',
+            'route'         => 'dashboard',
+            'icon'        => 'fas fa-fw fa-tachometer-alt',
+            
+        ],
         
         [
             'text'        => 'Empleados',
-            'url'         => 'admin/pages',
+            'url'         => 'empleados',
             'icon'        => 'fas fa-user-tie',
             'label'       => 4,
             'label_color' => 'success',

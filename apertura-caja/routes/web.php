@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmpleadoController;
 
 
 /*
@@ -22,3 +23,11 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+/*
+|--------------------------------------------------------------------------
+| Empleados
+|--------------------------------------------------------------------------
+*/
+Route::resource('empleados', EmpleadoController::class)->names('empleados'); 

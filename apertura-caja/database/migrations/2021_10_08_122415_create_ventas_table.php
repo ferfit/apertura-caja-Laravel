@@ -15,11 +15,17 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('empleado_id');
-            $table->foreign('empleado_id')->references('id')->on('empleados');
+            $table->string('cliente');
+
             $table->unsignedBigInteger('servicio_id');
             $table->foreign('servicio_id')->references('id')->on('servicios');
+
+            $table->string('medio_pago');
             $table->decimal('precio',10);
+            
+            $table->unsignedBigInteger('empleado_id');
+            $table->foreign('empleado_id')->references('id')->on('empleados');
+            
             $table->timestamps();
         });
     }

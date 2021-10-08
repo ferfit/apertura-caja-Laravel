@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Empleado;
+
 use Illuminate\Http\Request;
+use App\Models\Empleado;
+use PhpParser\Node\Stmt\TryCatch;
 
 class EmpleadoController extends Controller
 {
@@ -14,7 +16,8 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleados = Empleado::all();
+        return view('admin.empleados.index', compact('empleados'));
     }
 
     /**
@@ -24,7 +27,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.empleados.create');
     }
 
     /**
@@ -35,7 +38,25 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validación
+        $data = request()->validate([
+            'nombre' => 'required'
+        ]);
+
+
+
+        try {
+            //Crear empleado
+            Empleado::create([
+                'nombre' => $data['nombre']
+            ]);
+
+            //Redirección
+            return redirect()->route('empleados.index')->with('ok', 'Empleado creado exitosamente.');
+
+        } catch (\Throwable $th) {
+            return redirect()->route('empleados.index')->with('error', 'Hubo un error en la carga, vuelta a intentarlo.');
+        }
     }
 
     /**
@@ -57,7 +78,7 @@ class EmpleadoController extends Controller
      */
     public function edit(Empleado $empleado)
     {
-        //
+        return view('admin.empleados.edit',compact('empleado'));
     }
 
     /**
@@ -69,7 +90,23 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
-        //
+        //Validación 
+        $data = request()->validate([
+            'nombre' => 'required'
+        ]);
+
+        try {
+            //Actualizar empleado
+            $empleado->nombre = $data['nombre'];
+            $empleado->save();
+            
+            //Redirección
+            return redirect()->route('empleados.index')->with('ok', 'Empleado actualizado exitosamente.');
+
+        } catch (\Throwable $th) {
+            return redirect()->route('empleados.index')->with('error', 'Hubo un error en la actualización, vuelta a intentarlo.');
+        }
+
     }
 
     /**
@@ -80,6 +117,16 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        //
+        $empleado = Empleado::find($empleado);
+
+        
+        
+        try {
+            $empleado->first()->delete();
+            return redirect()->route('empleados.index')->with('ok','Empleado borrado exitosamente.');
+
+        } catch (\Throwable $th) {
+            return redirect()->route('empleados.index')->with('error','Hubo un error, vuelta a intentarlo.');
+        }
     }
 }
