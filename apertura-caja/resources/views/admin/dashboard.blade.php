@@ -3,11 +3,11 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1 class="text-center">PANEL DE CONTROL GENERAL</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p class="">PANEL DE CONTROL GENERAL</p>
 @stop
 
 @section('css')
@@ -15,5 +15,4 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
 @stop
