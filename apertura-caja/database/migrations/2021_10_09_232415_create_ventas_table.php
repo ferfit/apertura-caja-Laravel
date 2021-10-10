@@ -25,6 +25,9 @@ class CreateVentasTable extends Migration
             
             $table->unsignedBigInteger('empleado_id');
             $table->foreign('empleado_id')->references('id')->on('empleados');
+
+            $table->unsignedBigInteger('caja_id');
+            $table->foreign('caja_id')->references('id')->on('cajas');
             
             $table->timestamps();
         });

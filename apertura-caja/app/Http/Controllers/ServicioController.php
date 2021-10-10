@@ -42,6 +42,7 @@ class ServicioController extends Controller
             'nombre' => 'required'
         ]);
 
+        
         //Crea servicios
         try {
             Servicio::create([
@@ -118,11 +119,11 @@ class ServicioController extends Controller
 
             $servicio->first()->delete();
         
-            return redirect()->route('servicios.index')->with('Borrado','El servicio se borro exitosamente.');
+            return redirect()->route('servicios.index')->with('Borrado','El servicio se borró exitosamente.');
 
         } catch (\Throwable $th) {
             
-            return redirect()->route('servicios.index')->with('Error','Hubo un problema, vuelta a intentarlo.');
+            return redirect()->route('servicios.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
 
         }
         
