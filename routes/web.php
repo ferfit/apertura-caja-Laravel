@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\CajaController;
 use App\Http\Controllers\Controller;
 
 
@@ -46,3 +47,9 @@ Route::resource('servicios', ServicioController::class)->names('servicios');
 |--------------------------------------------------------------------------
 */
 Route::resource('ventas', VentaController::class)->names('ventas'); 
+/*
+|--------------------------------------------------------------------------
+| Ventas
+|--------------------------------------------------------------------------
+*/
+Route::resource('cajas', CajaController::class)->names('cajas'); 

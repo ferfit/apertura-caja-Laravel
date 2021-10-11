@@ -14,7 +14,9 @@ class CajaController extends Controller
      */
     public function index()
     {
-        //
+        $cajas = Caja::orderBy('id', 'DESC')->get();
+
+        return view('admin.cajas.index',compact('cajas'));
     }
 
     /**

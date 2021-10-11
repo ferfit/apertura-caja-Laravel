@@ -262,7 +262,7 @@ return [
         ],
         [
             'text'        => 'Caja',
-            'url'         => 'admin/pages',
+            'url'         => 'cajas',
             'icon'        => 'fas fa-cash-register',
             'label'       => 4,
             'label_color' => 'success',

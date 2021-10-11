@@ -19,6 +19,7 @@ class CreateCajasTable extends Migration
             $table->decimal('total',10,2)->nullable();
             $table->decimal('efectivo_caja',10,2)->nullable();
             $table->enum('estado',['abierto','cerrado']);
+            $table->timestamp('cierre');
             $table->timestamps();
         });
     }
