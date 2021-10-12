@@ -12,7 +12,7 @@
             <div class="card-header d-flex justify-content-start align-items-center">
                 <h3 class="card-title mr-3">Cajas</h3>
                 <a href="{{ route('cajas.create') }}" class="btn btn-success mr-2"><i
-                        class="far fa-plus-square mr-1"></i>Crear</a>
+                        class="far fa-plus-square mr-1"></i>Abrir caja</a>
 
             </div>
             <!-- /.card-header -->
@@ -35,18 +35,30 @@
                             <tr>
                                 <td>{{ $caja->id }}</td>
                                 <td>{{ date('d-m-Y', strtotime($caja->created_at)) }}</td>
-                                <td>{{$caja->nombre}}</td>
-                                <td>${{$caja->total}}</td>
-                                <td>${{$caja->efectivo_caja}}</td>
-                                <td>{{$caja->estado}}</td>
-                                <td>{{ date('d-m-Y', strtotime($caja->cierre)) }}</td>
-                                
+                                <td>{{ $caja->nombre }}</td>
+                                <td>${{ $caja->total }}</td>
+                                <td>${{ $caja->efectivo_caja }}</td>
                                 <td>
+                                    @if ($caja->estado == 'abierto')
+                                        <small class="badge badge-success"> {{ $caja->estado }}</small>
+                                    @else
+                                        <small class="badge badge-danger"> {{ $caja->estado }}</small>
+                                    @endif
+                                </td>
+
+                                <td>
+                                    @if ($caja->cierre)
+                                        {{ date('d-m-Y', strtotime($caja->cierre)) }}
+                                    @endif
+                                </td>
+
+                                <td class="">
                                     <div class="row mx-auto">
-                                        <a href="{{ route('cajas.edit', $caja ) }}" class="btn btn-primary mr-2"><i
+                                        <a href="{{ route('cajas.show', $caja) }}" class="btn btn-success mr-2"><i class="far fa-eye"></i></a>
+                                        <a href="{{ route('cajas.edit', $caja) }}" class="btn btn-primary mr-2"><i
                                                 class="fas fa-edit"></i></a>
 
-                                        <form action="{{ route('cajas.destroy',$caja ) }}" method="POST"
+                                        <form action="{{ route('cajas.destroy', $caja) }}" method="POST"
                                             class="formulario-eliminar">
                                             @csrf
                                             @method('DELETE')
@@ -78,7 +90,7 @@
 @stop
 
 @section('css')
-   
+
 @stop
 
 @section('js')
@@ -90,7 +102,7 @@
     @if (session('Creado'))
         <script>
             Swal.fire(
-                'Creado!',
+                'Caja abierta!',
                 '{{ session('Creado') }}',
                 'success'
             )
@@ -100,7 +112,7 @@
     @if (session('Actualizado'))
         <script>
             Swal.fire(
-                'Actualizado!',
+                'Caja cerrada!',
                 '{{ session('Actualizado') }}',
                 'success'
             )
@@ -150,7 +162,7 @@
                         'Your file has been deleted.',
                         'success'
                     ) */
-                
+
                     this.submit();
                 }
 

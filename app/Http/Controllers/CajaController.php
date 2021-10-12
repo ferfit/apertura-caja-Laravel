@@ -16,7 +16,7 @@ class CajaController extends Controller
     {
         $cajas = Caja::orderBy('id', 'DESC')->get();
 
-        return view('admin.cajas.index',compact('cajas'));
+        return view('admin.cajas.index', compact('cajas'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CajaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.cajas.create');
     }
 
     /**
@@ -37,7 +37,26 @@ class CajaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validación
+        $data = request()->validate([
+            'nombre' => 'required',
+            'efectivo_caja' => 'required'
+        ]);
+
+        //Crear caja
+        try {
+            Caja::create([
+                'nombre' => $data['nombre'],
+                'efectivo_caja' => $data['efectivo_caja'],
+                'estado' => 'abierto'
+            ]);
+
+            //Redirección
+            return redirect()->route('cajas.index')->with('Creado', 'Apertura de caja con exito.');
+        } catch (\Throwable $th) {
+            //Redirección
+            return redirect()->route('cajas.index')->with('Error', 'Hubo un problema en la apertura de caja, vuelta a intentarlo.');
+        }
     }
 
     /**
@@ -48,7 +67,7 @@ class CajaController extends Controller
      */
     public function show(Caja $caja)
     {
-        //
+        return view('admin.cajas.show');
     }
 
     /**
@@ -59,7 +78,7 @@ class CajaController extends Controller
      */
     public function edit(Caja $caja)
     {
-        //
+        return view('admin.cajas.edit', compact('caja'));
     }
 
     /**
@@ -71,9 +90,23 @@ class CajaController extends Controller
      */
     public function update(Request $request, Caja $caja)
     {
-        //
-    }
+        $hoy = today();
 
+        try {
+            $caja->estado = 'cerrado';
+            $caja->cierre = $hoy;
+
+
+            $caja->save();
+
+            return redirect()->route('cajas.index')->with('Actualizado','Caja cerrada con exito.');
+            
+        } catch (\Throwable $th) {
+            
+            return redirect()->route('cajas.index')->with('Error','Hubo un problema al intentar cerrar la caja, vuelta a intentarlo.');
+        }
+    }
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -82,6 +115,16 @@ class CajaController extends Controller
      */
     public function destroy(Caja $caja)
     {
-        //
+        try {
+            $caja = Caja::find($caja);
+            $caja->first->delete();
+        
+            return redirect()->route('cajas.index')->with('Borrado','Caja eliminada con exito.');
+            
+        } catch (\Throwable $th) {
+            
+            return redirect()->route('cajas.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
+        }
+        
     }
 }

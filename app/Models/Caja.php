@@ -10,6 +10,9 @@ class Caja extends Model
     use HasFactory;
 
 
+    protected $fillable = [
+        'nombre', 'total','efectivo_caja','estado','cierre'
+    ];
     //Relación 1 a n
     public function ventas()
     {
