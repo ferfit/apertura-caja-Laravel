@@ -67,7 +67,7 @@ class CajaController extends Controller
      */
     public function show(Caja $caja)
     {
-        return view('admin.cajas.show');
+        return view('admin.cajas.show',compact('caja'));
     }
 
     /**

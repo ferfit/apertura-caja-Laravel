@@ -65,7 +65,19 @@ class VentaController extends Controller
                 'empleado_id' => $data['empleado_id'],
                 'caja_id' => $data['caja_id']
             ]);
+
+            //Aumento total caja
+            $caja = Caja::find($data['caja_id']);
+            $caja->total = $caja->total + $data['precio']; 
+                
+            //Aumento efectivo
+            if($data['medio_pago'] == "Efectivo"){
+                $caja->efectivo_caja = $caja->efectivo_caja + $data['precio']; 
+            }
+
+            $caja->save();
     
+            //retorno
             return redirect()->route('ventas.index')->with('Creado', 'La venta se creó exitosamente.');
             
         } catch (\Throwable $th) {
