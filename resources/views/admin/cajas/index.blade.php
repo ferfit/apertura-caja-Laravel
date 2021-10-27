@@ -23,8 +23,9 @@
                             <th style="width: 10px">#</th>
                             <th>Apertura</th>
                             <th>Nombre</th>
+                            <th>Tarjeta</th>
+                            <th>Efectivo</th>
                             <th>Total</th>
-                            <th>Efectivo Caja</th>
                             <th>Estado</th>
                             <th>Cierre</th>
                             <th class="col-2">Acciones</th>
@@ -36,8 +37,9 @@
                                 <td>{{ $caja->id }}</td>
                                 <td>{{ date('d-m-Y', strtotime($caja->created_at)) }}</td>
                                 <td>{{ $caja->nombre }}</td>
-                                <td>${{ $caja->total }}</td>
+                                <td>${{ $caja->tarjeta }}</td>
                                 <td>${{ $caja->efectivo_caja }}</td>
+                                <td>${{ $caja->total }}</td>
                                 <td>
                                     @if ($caja->estado == 'abierto')
                                         <small class="badge badge-success"> {{ $caja->estado }}</small>

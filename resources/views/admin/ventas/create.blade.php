@@ -111,7 +111,7 @@
                     
 
                     @if (count($cajas) == 0)
-                        <p>hola</p>
+                        <p>Debe abrir una caja</p>
                     @endif
 
                     <select name="caja_id" id="" class="form-control @error('caja_id') is-invalid @enderror">
@@ -133,7 +133,7 @@
               <!-- /.card-body -->
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1"></i>Crear</button>
+                <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1 " ></i>Crear</button>
                 <a href="{{ route('ventas.index')}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a>
               </div>
             </form>

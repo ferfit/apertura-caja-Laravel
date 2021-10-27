@@ -41,7 +41,8 @@
                 
             </div>
             <div class="card-footer d-flex flex-column justify-content-between">
-                <span class="h3">Efectivo en caja: ${{$caja->efectivo_caja}}</span>
+                <span class="h3">Tarjeta: ${{$caja->tarjeta}}</span>
+                <span class="h3">Efectivo: ${{$caja->efectivo_caja}}</span>
                 <span class="h2">Total: ${{$caja->total}}</span>
                 <div class="mt-3">
                 <a href="{{ route('cajas.index')}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a></div>

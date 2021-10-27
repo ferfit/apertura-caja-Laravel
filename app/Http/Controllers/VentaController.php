@@ -75,6 +75,11 @@ class VentaController extends Controller
                 $caja->efectivo_caja = $caja->efectivo_caja + $data['precio']; 
             }
 
+            //Aumento tarjeta
+            if($data['medio_pago'] == "Debito" || $data['medio_pago'] == "Trans MP" || $data['medio_pago'] == "Credito" ){
+                $caja->tarjeta = $caja->tarjeta + $data['precio']; 
+            }
+
             $caja->save();
     
             //retorno
