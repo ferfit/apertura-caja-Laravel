@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1 class="text-center">PANEL DE CONTROL DE CAJAS</h1>
+    <h1 class="text-center">{{strtoupper($caja->nombre)}}</h1>
 @stop
 
 @section('content')
@@ -22,6 +22,8 @@
                             <th>Medio de pago</th>
                             <th>Empleado</th>
                             <th>Precio</th>
+                            <th>Porcentaje</th>
+                            <th>Comisión E</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +34,8 @@
                                 <td>{{ $venta->medio_pago }}</td>
                                 <td>{{ $venta->empleado->nombre }}</td>
                                 <td>${{ $venta->precio }}</td>
+                                <td>${{ $venta->porcentaje }}%</td>
+                                <td>${{ $venta->comision_empleado}}</td>
                         @endforeach
 
                         </tr>
@@ -47,6 +51,8 @@
                 <div class="mt-3">
                 <a href="{{ route('cajas.index')}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a></div>
             </div>
+
+            
             
         </div>
     </div>

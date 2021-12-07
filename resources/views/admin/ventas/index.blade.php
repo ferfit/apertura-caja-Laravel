@@ -25,6 +25,7 @@
                             <th>Servicio</th>
                             <th>Metodo Pago</th>
                             <th>Precio</th>
+                            <th>Porcentaje</th>
                             <th>Empleado</th>
                             <th class="col-2">Acciones</th>
                         </tr>
@@ -37,6 +38,7 @@
                                 <td>{{$venta->servicio->nombre}}</td>
                                 <td>{{$venta->medio_pago}}</td>
                                 <td>${{$venta->precio}}</td>
+                                <td>{{$venta->porcentaje}}%</td>
                                 <td>{{$venta->empleado->nombre}}</td>
                                 <td>
                                     <div class="row mx-auto">

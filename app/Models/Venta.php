@@ -14,6 +14,8 @@ class Venta extends Model
         'servicio_id',
         'medio_pago',
         'precio',
+        'porcentaje',
+        'comision_empleado',
         'empleado_id',
         'caja_id'
     ];

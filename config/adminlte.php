@@ -267,6 +267,13 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Reportes',
+            'url'         => 'reportes',
+            'icon'        => 'fas fa-chart-bar',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
         
         
         /*

@@ -22,6 +22,8 @@ class CreateVentasTable extends Migration
 
             $table->string('medio_pago');
             $table->decimal('precio',10);
+            $table->float('porcentaje',10,2);
+            $table->float('comision_empleado',10,2)->nullable();
             
             $table->unsignedBigInteger('empleado_id');
             $table->foreign('empleado_id')->references('id')->on('empleados');

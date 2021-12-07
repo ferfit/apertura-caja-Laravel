@@ -82,6 +82,20 @@
                     </span>
                     @enderror
                 </div>
+
+                {{-- Porcentaje --}}
+                <div class="form-group my-5 mx-2">
+                    <label for="porcentaje">Porcentaje</label>
+                    <input type="number" min="0"
+                    name="porcentaje" 
+                    class="form-control @error('porcentaje') is-invalid @enderror" id="porcentaje"
+                    value="">
+                    @error('porcentaje')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
                 
                 {{-- Empleado --}}
                 <div class="form-group">
@@ -111,7 +125,7 @@
                     
 
                     @if (count($cajas) == 0)
-                        <p>Debe abrir una caja</p>
+                        <p class="bg-danger p-1 rounded">Debe abrir una caja</p>
                     @endif
 
                     <select name="caja_id" id="" class="form-control @error('caja_id') is-invalid @enderror">

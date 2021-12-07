@@ -49,7 +49,7 @@ Route::resource('servicios', ServicioController::class)->names('servicios');
 Route::resource('ventas', VentaController::class)->names('ventas'); 
 /*
 |--------------------------------------------------------------------------
-| Ventas
+| Caja
 |--------------------------------------------------------------------------
 */
 Route::resource('cajas', CajaController::class)->names('cajas'); 

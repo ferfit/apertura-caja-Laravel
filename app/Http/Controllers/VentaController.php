@@ -42,6 +42,8 @@ class VentaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    
     public function store(Request $request)
     {
 
@@ -51,10 +53,11 @@ class VentaController extends Controller
             'servicio_id' => 'required',
             'medio_pago' => 'required',
             'precio' => 'required',
+            'porcentaje' => 'required',
             'empleado_id' => 'required',
             'caja_id' => 'required'
         ]);
-
+        
         try {
             //Creacion de venta
             Venta::create([
@@ -62,6 +65,8 @@ class VentaController extends Controller
                 'servicio_id' => $data['servicio_id'],
                 'medio_pago' => $data['medio_pago'],
                 'precio' => $data['precio'],
+                'porcentaje' => $data['porcentaje'],
+                'comision_empleado' => ($data['precio']*$data['porcentaje'])/100,
                 'empleado_id' => $data['empleado_id'],
                 'caja_id' => $data['caja_id']
             ]);
@@ -84,7 +89,7 @@ class VentaController extends Controller
     
             //retorno
             return redirect()->route('ventas.index')->with('Creado', 'La venta se creó exitosamente.');
-            
+           
         } catch (\Throwable $th) {
             return redirect()->route('ventas.index')->with('Error', 'Hubo un problema al crear la venta, vuelta a intentarlo.');
         }
