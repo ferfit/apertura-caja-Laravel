@@ -31,7 +31,7 @@ class VentaController extends Controller
     {
         $servicios = Servicio::all();
         $empleados = Empleado::all();
-        $cajas = Caja::all();
+        $cajas = Caja::where('estado',1)->get();
 
         return view('admin.ventas.create',compact('servicios','empleados','cajas'));
     }

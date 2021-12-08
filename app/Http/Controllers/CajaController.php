@@ -67,7 +67,7 @@ class CajaController extends Controller
      */
     public function show(Caja $caja)
     {
-        //$ventas = $caja->ventas;
+        $ventas = $caja->ventas;
 
 
         return view('admin.cajas.show',compact('caja','ventas'));
