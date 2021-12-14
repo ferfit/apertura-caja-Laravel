@@ -86,7 +86,7 @@
                 
                 {{-- Empleado --}}
                 <div class="form-group">
-                    <label for="empleado_id">Empleado</label>
+                    <label for="empleado_id">Empleada</label>
                     
                     <select name="empleado_id" id="" class="form-control @error('empleado_id') is-invalid @enderror">
                         <option value="{{ $venta->empleado_id}}">{{ $venta->empleado->nombre}}</option>

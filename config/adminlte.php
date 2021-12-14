@@ -240,38 +240,38 @@ return [
         ],
         
         [
-            'text'        => 'Empleados',
+            'text'        => 'Empleadas',
             'url'         => 'empleados',
             'icon'        => 'fas fa-user-tie',
-            'label'       => 4,
+           
             'label_color' => 'success',
         ],
         [
             'text'        => 'Servicios',
             'url'         => 'servicios',
             'icon'        => 'fas fa-tag',
-            'label'       => 4,
+            
             'label_color' => 'success',
         ],
         [
             'text'        => 'Ventas',
             'url'         => 'ventas',
             'icon'        => 'fas fa-shopping-cart',
-            'label'       => 4,
+            
             'label_color' => 'success',
         ],
         [
             'text'        => 'Caja',
             'url'         => 'cajas',
             'icon'        => 'fas fa-cash-register',
-            'label'       => 4,
+            
             'label_color' => 'success',
         ],
         [
             'text'        => 'Reportes',
             'url'         => 'reportes',
             'icon'        => 'fas fa-chart-bar',
-            'label'       => 4,
+            
             'label_color' => 'success',
         ],
         

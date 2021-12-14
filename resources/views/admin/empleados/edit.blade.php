@@ -3,14 +3,14 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1 class="text-center">EMPLEADOS</h1>
+    <h1 class="text-center">EMPLEADA</h1>
 @stop
 
 @section('content')
     <div class="container">
         <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Editar empleado</h3>
+              <h3 class="card-title">Editar empleada</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -34,7 +34,7 @@
               <!-- /.card-body -->
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1"></i>Crear</button>
+                <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1"></i>Actualizar</button>
                 <a href="{{ route('empleados.index')}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a>
               </div>
             </form>

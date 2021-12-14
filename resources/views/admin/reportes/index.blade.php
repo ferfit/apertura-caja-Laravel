@@ -43,7 +43,7 @@
 
                             {{-- Empleado --}}
                             <div class="form-group col-4">
-                                <label for="empleado_id">Empleado</label>
+                                <label for="empleado_id">Empleada</label>
 
                                 <select name="empleado_id" id=""
                                     class="form-control @error('empleado_id') is-invalid @enderror">

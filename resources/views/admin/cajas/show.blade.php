@@ -20,7 +20,7 @@
                             <th>Cliente</th>
                             <th>Servicio</th>
                             <th>Medio de pago</th>
-                            <th>Empleado</th>
+                            <th>Empleada</th>
                             <th>Precio</th>
                             <th>Porcentaje</th>
                             <th>Comisión E</th>

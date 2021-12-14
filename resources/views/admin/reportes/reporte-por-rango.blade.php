@@ -40,7 +40,7 @@
                             <th>Metodo Pago</th>
                             <th>Precio</th>
                             <th>Porcentaje</th>
-                            <th>Empleado</th>
+                            <th>Empleada</th>
                             <th>Comisión</th>
                         </tr>
                     </thead>

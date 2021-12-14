@@ -3,14 +3,14 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1 class="text-center">PANEL DE CONTROL DE EMPLEADOS</h1>
+    <h1 class="text-center">PANEL DE CONTROL DE EMPLEADAS</h1>
 @stop
 
 @section('content')
     <div class="container">
         <div class="card">
             <div class="card-header d-flex justify-content-start align-items-center">
-                <h3 class="card-title mr-3">Empleados</h3>
+                <h3 class="card-title mr-3">Empleadas</h3>
                 <a href="{{ route('empleados.create') }}" class="btn btn-success mr-2"><i
                         class="far fa-plus-square mr-1"></i>Crear</a>
 

@@ -20,20 +20,20 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th style="width: 10px">#</th>
+                            <th >Fecha</th>
                             <th>Cliente</th>
                             <th>Servicio</th>
                             <th>Metodo Pago</th>
                             <th>Precio</th>
                             <th>Porcentaje</th>
-                            <th>Empleado</th>
+                            <th>Empleada</th>
                             <th class="col-2">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($ventas as $venta)
                             <tr>
-                                <td>{{ $venta->id }}</td>
+                                <td>{{ date('d-m-Y', strtotime($venta->created_at)) }}</td>
                                 <td>{{$venta->cliente}}</td>
                                 <td>{{$venta->servicio->nombre}}</td>
                                 <td>{{$venta->medio_pago}}</td>
