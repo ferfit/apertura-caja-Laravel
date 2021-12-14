@@ -17,7 +17,7 @@ class VentaController extends Controller
      */
     public function index()
     {
-        $ventas = Venta::orderby('id','DESC')->get();
+        $ventas = Venta::orderby('id','DESC')->paginate(10);
 
         return view('admin.ventas.index',compact('ventas'));
     }

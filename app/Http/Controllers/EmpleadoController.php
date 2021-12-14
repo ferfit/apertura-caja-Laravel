@@ -16,7 +16,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        $empleados = Empleado::orderBy('id','DESC')->get();
+        $empleados = Empleado::orderBy('id','DESC')->paginate(10);
         return view('admin.empleados.index', compact('empleados'));
     }
 
