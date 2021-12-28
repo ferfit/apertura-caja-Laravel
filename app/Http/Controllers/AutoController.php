@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Auto;
+use App\Models\Condicion;
+use App\Models\Marca;
+use App\Models\Modelo;
+use App\Models\Version;
+use App\Models\Ciudad;
+use App\Models\Provincia;
 use Illuminate\Http\Request;
 
 class AutoController extends Controller
@@ -24,7 +30,14 @@ class AutoController extends Controller
      */
     public function create()
     {
-        return view('admin.autos.create');
+        $condiciones= Condicion::all();
+        $marcas= Marca::all();
+        $modelos= Modelo::all();
+        $versiones= Version::all();
+        $ciudades= Ciudad::all();
+        $provincias= Provincia::all();
+
+        return view('admin.autos.create',compact('condiciones','marcas','modelos','versiones','ciudades','provincias'));
     }
 
     /**
@@ -35,7 +48,38 @@ class AutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validación
+        $data = request()->validate([
+            'condicion' => 'required',
+            'marca' => 'required',
+            'modelo' => 'required',
+            'version' => 'required',
+            'año' => 'required',
+            'precio' => 'required',
+            'precio' => 'required',
+            'ciudad' => 'required',
+            'provincia' => 'required'
+        ]);
+        
+        try {
+            //Creacion 
+            Auto::create([
+                'condicion' => $data['condicion'],
+                'marca' => $data['marca'],
+                'modelo' => $data['modelo'],
+                'version' => $data['version'],
+                'año' => $data['año'],
+                'precio' => $data['precio'],
+                'ciudad' => $data['ciudad'],
+                'provincia' => $data['provincia']
+                ]);
+    
+            //retorno
+            return redirect()->route('autos.index')->with('Creado', 'El auto se creó exitosamente.');
+          
+        } catch (\Throwable $th) {
+            return redirect()->route('autos.index')->with('Error', 'Hubo un problema al crear el auto, vuelta a intentarlo.');
+        }
     }
 
     /**

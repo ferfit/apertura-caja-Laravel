@@ -45,8 +45,8 @@ class ClienteController extends Controller
             'nota' => 'required',
             'estado' => 'required'
         ]);
-        /*
-        try {*/
+        
+        try {
             //Creacion 
             Cliente::create([
                 'nombre' => $data['nombre'],
@@ -60,10 +60,10 @@ class ClienteController extends Controller
     
             //retorno
             return redirect()->route('clientes.index')->with('Creado', 'El cliente se creó exitosamente.');
-         /*  
+          
         } catch (\Throwable $th) {
             return redirect()->route('clientes.index')->with('Error', 'Hubo un problema al crear el cliente, vuelta a intentarlo.');
-        }*/
+        }
     }
 
     /**
