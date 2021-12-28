@@ -23,5 +23,15 @@ class DatabaseSeeder extends Seeder
         $this->call(VersionSeeder::class);
         $this->call(CiudadSeeder::class);
         $this->call(ProvinciaSeeder::class);
+        $this->call(TipoSeeder::class);
+        $this->call(CombustibleSeeder::class);
+        $this->call(TipomotorSeeder::class);
+        $this->call(TraccionSeeder::class);
+        $this->call(CajaautoSeeder::class);
+        $this->call(ColorSeeder::class);
+        $this->call(TapizadoSeeder::class);
+        $this->call(DireccionSeeder::class);
+        $this->call(ValorSeeder::class);
+        $this->call(PermutaSeeder::class);
     }
 }
