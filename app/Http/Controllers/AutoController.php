@@ -135,7 +135,7 @@ class AutoController extends Controller
      */
     public function show(Auto $auto)
     {
-        //
+        return view('admin.autos.show',compact('auto'));
     }
 
     /**
