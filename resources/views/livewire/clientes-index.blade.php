@@ -1,7 +1,10 @@
 <div class="table-responsive">
+    <input class="form-control mb-3" wire:model="search" type="search" placeholder="Buscar...">
+
     <table class="table table-bordered ">
         <thead>
             <tr>
+                <th>Fecha</th>
                 <th>Nombre</th>
                 <th>Celular</th>
                 <th>Email</th>
@@ -15,6 +18,7 @@
         <tbody>
             @foreach ($clientes as $cliente)
                 <tr>
+                    <td>{{ date('d-m-Y', strtotime($cliente->created_at)) }}</td>
                     <td>{{ $cliente->nombre }}</td>
                     <td>{{ $cliente->celular }}</td>
                     <td>{{ $cliente->email }}</td>

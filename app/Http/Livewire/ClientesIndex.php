@@ -11,7 +11,15 @@ class ClientesIndex extends Component
 {
     use WithPagination;
 
+    public $search = '';
+
     protected $paginationTheme = 'bootstrap';
+
+    //Resetea pagina cuando se escribe en el input search
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
@@ -20,7 +28,9 @@ class ClientesIndex extends Component
         //return view('livewire.clientes-index',compact('clientes'));
 
         return view('livewire.clientes-index', [
-            'clientes' => Cliente::paginate(3),
+            //'clientes' => Cliente::paginate(3),
+            'clientes' => Cliente::where('nota', 'like', '%'.$this->search.'%')->paginate(3),
+
         ]);
     }
 }
