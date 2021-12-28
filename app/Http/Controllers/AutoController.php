@@ -101,7 +101,14 @@ class AutoController extends Controller
      */
     public function edit(Auto $auto)
     {
-        //
+        $condiciones= Condicion::all();
+        $marcas= Marca::all();
+        $modelos= Modelo::all();
+        $versiones= Version::all();
+        $ciudades= Ciudad::all();
+        $provincias= Provincia::all();
+
+        return view('admin.autos.edit',compact('auto','condiciones','marcas','modelos','versiones','ciudades','provincias'));
     }
 
     /**
@@ -113,7 +120,35 @@ class AutoController extends Controller
      */
     public function update(Request $request, Auto $auto)
     {
-        //
+        //Validación
+        $data = request()->validate([
+            'condicion' => 'required',
+            'marca' => 'required',
+            'modelo' => 'required',
+            'version' => 'required',
+            'año' => 'required',
+            'precio' => 'required',
+            'precio' => 'required',
+            'ciudad' => 'required',
+            'provincia' => 'required'
+        ]);
+
+        //Actualización
+        try {
+            $auto->condicion = $data['condicion'];
+            $auto->marca = $data['marca'];
+            $auto->modelo = $data['modelo'];
+            $auto->version = $data['version'];
+            $auto->año = $data['año'];
+            $auto->precio = $data['precio'];
+            $auto->ciudad = $data['ciudad'];
+            $auto->provincia = $data['provincia'];
+            $auto->save();
+
+            return redirect()->route('autos.index')->with('Actualizado','Auto actualizado exitosamente.');
+        } catch (\Throwable $th) {
+            return redirect()->route('autos.index')->with('Error','Hubo un problema al actualizar el auto, vuelva a intentarlo.');
+        }
     }
 
     /**
@@ -124,6 +159,18 @@ class AutoController extends Controller
      */
     public function destroy(Auto $auto)
     {
-        //
+        $auto = Auto::find($auto);
+        
+        try {
+
+            $auto->first()->delete();
+        
+            return redirect()->route('autos.index')->with('Borrado','El auto se borró exitosamente.');
+
+        } catch (\Throwable $th) {
+            
+            return redirect()->route('autos.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
+
+        }
     }
 }
