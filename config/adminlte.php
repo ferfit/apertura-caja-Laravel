@@ -280,6 +280,12 @@ return [
             'icon'        => 'fas fa-car',
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Usuarios',
+            'url'         => 'users',
+            'icon'        => 'fas fa-users',
+            'label_color' => 'success',
+        ],
         
         
         /*

@@ -9,6 +9,7 @@ use App\Http\Controllers\CajaController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\AutoController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
 
 
@@ -68,6 +69,16 @@ Route::resource('clientes', ClienteController::class)->names('clientes');
 |--------------------------------------------------------------------------
 */
 Route::resource('autos', AutoController::class)->names('autos'); 
+/*
+|--------------------------------------------------------------------------
+| Users
+|--------------------------------------------------------------------------
+*/
+Route::resource('users', UserController::class)->names('users'); 
+
+Route::get('/users/password/{user}',  [UserController::class,'password'])->name('password');
+Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePassword'])->name('updatePassword');
+
 /*
 |--------------------------------------------------------------------------
 | Reportes
