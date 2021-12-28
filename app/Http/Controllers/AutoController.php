@@ -9,6 +9,16 @@ use App\Models\Modelo;
 use App\Models\Version;
 use App\Models\Ciudad;
 use App\Models\Provincia;
+use App\Models\Tipo;
+use App\Models\Combustible;
+use App\Models\Tipomotor;
+use App\Models\Traccion;
+use App\Models\Cajaauto;
+use App\Models\Color;
+use App\Models\Tapizado;
+use App\Models\Direccion;
+use App\Models\Valor;
+use App\Models\Permuta;
 use Illuminate\Http\Request;
 
 class AutoController extends Controller
@@ -37,7 +47,20 @@ class AutoController extends Controller
         $ciudades= Ciudad::all();
         $provincias= Provincia::all();
 
-        return view('admin.autos.create',compact('condiciones','marcas','modelos','versiones','ciudades','provincias'));
+        $tipos= Tipo::all();
+        $combustibles= Combustible::all();
+        $tipomotores= Tipomotor::all();
+        $tracciones= Traccion::all();
+        $cajaautos= Cajaauto::all();
+        $colores= Color::all();
+        $tapizados= Tapizado::all();
+        $direcciones= Direccion::all();
+        $valores= Valor::all();
+        $permutas= Permuta::all();
+
+        return view('admin.autos.create',compact(   'condiciones','marcas','modelos','versiones','ciudades','provincias',
+                                                    'tipos','combustibles','tipomotores','tracciones','cajaautos','colores','tapizados','direcciones',
+                                                    'valores','permutas' ));
     }
 
     /**
@@ -58,7 +81,18 @@ class AutoController extends Controller
             'precio' => 'required',
             'precio' => 'required',
             'ciudad' => 'required',
-            'provincia' => 'required'
+            'provincia' => 'required',
+            'tipo' => 'required',
+            'kilometraje' => 'required',
+            'combustible' => 'required',
+            'tipomotor' => 'required',
+            'traccion' => 'required',
+            'cajaauto' => 'required',
+            'color' => 'required',
+            'tapizado' => 'required',
+            'direccion' => 'required',
+            'valor' => 'required',
+            'permuta' => 'required'
         ]);
         
         try {
@@ -71,12 +105,23 @@ class AutoController extends Controller
                 'año' => $data['año'],
                 'precio' => $data['precio'],
                 'ciudad' => $data['ciudad'],
-                'provincia' => $data['provincia']
+                'provincia' => $data['provincia'],
+                'tipo' => $data['tipo'],
+                'kilometraje' => $data['kilometraje'],
+                'combustible' => $data['combustible'],
+                'tipomotor' => $data['tipomotor'],
+                'traccion' => $data['traccion'],
+                'cajaauto' => $data['cajaauto'],
+                'color' => $data['color'],
+                'tapizado' => $data['tapizado'],
+                'direccion' => $data['direccion'],
+                'valor' => $data['valor'],
+                'permuta' => $data['permuta'],
                 ]);
     
             //retorno
             return redirect()->route('autos.index')->with('Creado', 'El auto se creó exitosamente.');
-          
+        
         } catch (\Throwable $th) {
             return redirect()->route('autos.index')->with('Error', 'Hubo un problema al crear el auto, vuelta a intentarlo.');
         }
@@ -108,7 +153,20 @@ class AutoController extends Controller
         $ciudades= Ciudad::all();
         $provincias= Provincia::all();
 
-        return view('admin.autos.edit',compact('auto','condiciones','marcas','modelos','versiones','ciudades','provincias'));
+        $tipos= Tipo::all();
+        $combustibles= Combustible::all();
+        $tipomotores= Tipomotor::all();
+        $tracciones= Traccion::all();
+        $cajaautos= Cajaauto::all();
+        $colores= Color::all();
+        $tapizados= Tapizado::all();
+        $direcciones= Direccion::all();
+        $valores= Valor::all();
+        $permutas= Permuta::all();
+
+        return view('admin.autos.edit',compact( 'auto','condiciones','marcas','modelos','versiones','ciudades','provincias',
+                                                'tipos','combustibles','tipomotores','tracciones','cajaautos','colores','tapizados','direcciones',
+                                                'valores','permutas'));
     }
 
     /**

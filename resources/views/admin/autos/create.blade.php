@@ -157,6 +157,197 @@
                         @enderror
 
                     </div>
+                    {{-- Tipo --}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="tipo">Tipo</label>
+
+                        <select name="tipo" id="" class="form-control @error('tipo') is-invalid @enderror">
+                            <option value="">Seleccione</option>
+                            @foreach ($tipos as $tipo)
+                                <option value="{{ $tipo->nombre }}">{{ $tipo->nombre }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('tipo')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+                    {{-- Kilometraje --}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="kilometraje">Kilometraje</label>
+                        <input type="number" name="kilometraje" class="form-control @error('kilometraje') is-invalid @enderror"
+                            id="kilometraje" value="">
+                        @error('kilometraje')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    {{-- Tipo --}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="combustible">Combustible</label>
+
+                        <select name="combustible" id="" class="form-control @error('combustible') is-invalid @enderror">
+                            <option value="">Seleccione</option>
+                            @foreach ($combustibles as $combustible)
+                                <option value="{{ $combustible->nombre }}">{{ $combustible->nombre }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('combustible')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+                    {{-- Tipo de motor--}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="tipomotor">Tipo de motor</label>
+
+                        <select name="tipomotor" id="" class="form-control @error('tipomotor') is-invalid @enderror">
+                            <option value="">Seleccione</option>
+                            @foreach ($tipomotores as $tipomotor)
+                                <option value="{{ $tipomotor->nombre }}">{{ $tipomotor->nombre }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('tipomotor')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+                    {{-- Traccion--}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="traccion">Tracción</label>
+
+                        <select name="traccion" id="" class="form-control @error('traccion') is-invalid @enderror">
+                            <option value="">Seleccione</option>
+                            @foreach ($tracciones as $traccion)
+                                <option value="{{ $traccion->nombre }}">{{ $traccion->nombre }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('traccion')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+                    {{-- Traccion--}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="cajaauto">Caja</label>
+
+                        <select name="cajaauto" id="" class="form-control @error('cajaauto') is-invalid @enderror">
+                            <option value="">Seleccione</option>
+                            @foreach ($cajaautos as $cajaauto)
+                                <option value="{{ $cajaauto->nombre }}">{{ $cajaauto->nombre }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('cajaauto')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+                    {{-- Colores--}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="color">Color</label>
+
+                        <select name="color" id="" class="form-control @error('color') is-invalid @enderror">
+                            <option value="">Seleccione</option>
+                            @foreach ($colores as $color)
+                                <option value="{{ $color->nombre }}">{{ $color->nombre }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('color')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+                    {{-- Tapizado --}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="tapizado">tapizado</label>
+
+                        <select name="tapizado" id="" class="form-control @error('tapizado') is-invalid @enderror">
+                            <option value="">Seleccione</option>
+                            @foreach ($tapizados as $tapizado)
+                                <option value="{{ $tapizado->nombre }}">{{ $tapizado->nombre }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('tapizado')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+                    {{-- Direccion --}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="direccion">Dirección</label>
+
+                        <select name="direccion" id="" class="form-control @error('direccion') is-invalid @enderror">
+                            <option value="">Seleccione</option>
+                            @foreach ($direcciones as $direccion)
+                                <option value="{{ $direccion->nombre }}">{{ $direccion->nombre }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('direccion')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+                    {{-- Valor --}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="valor">Valor</label>
+
+                        <select name="valor" id="" class="form-control @error('valor') is-invalid @enderror">
+                            <option value="">Seleccione</option>
+                            @foreach ($valores as $valor)
+                                <option value="{{ $valor->nombre }}">{{ $valor->nombre }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('valor')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
+                    {{-- Permuta --}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="permuta">Permuta</label>
+
+                        <select name="permuta" id="" class="form-control @error('permuta') is-invalid @enderror">
+                            <option value="">Seleccione</option>
+                            @foreach ($permutas as $permuta)
+                                <option value="{{ $permuta->nombre }}">{{ $permuta->nombre }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('permuta')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                    </div>
 
                 </div>
                 <!-- /.card-body -->

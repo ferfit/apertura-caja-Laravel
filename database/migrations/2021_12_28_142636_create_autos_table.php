@@ -23,6 +23,17 @@ class CreateAutosTable extends Migration
             $table->float('precio',10,2);
             $table->string('ciudad');
             $table->string('provincia');
+            $table->string('tipo')->nullable();
+            $table->bigInteger('kilometraje')->nullable();
+            $table->string('combustible')->nullable();
+            $table->string('tipomotor')->nullable();
+            $table->string('traccion')->nullable();
+            $table->string('cajaauto')->nullable();
+            $table->string('color')->nullable();
+            $table->string('tapizado')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('valor')->nullable();
+            $table->string('permuta')->nullable();
             $table->timestamps();
         });
     }

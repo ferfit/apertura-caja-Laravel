@@ -16,7 +16,18 @@ class Auto extends Model
         'año',
         'precio',
         'ciudad',
-        'provincia'
+        'provincia',
+        'tipo',
+        'kilometraje',
+        'combustible',
+        'tipomotor',
+        'traccion',
+        'cajaauto',
+        'color',
+        'tapizado',
+        'direccion',
+        'valor',
+        'permuta'
     ];
     
     use HasFactory;
