@@ -17,6 +17,10 @@ class ClientesIndex extends Component
     {
 
         $clientes = Cliente::all();
-        return view('livewire.clientes-index',compact('clientes'));
+        //return view('livewire.clientes-index',compact('clientes'));
+
+        return view('livewire.clientes-index', [
+            'clientes' => Cliente::paginate(3),
+        ]);
     }
 }

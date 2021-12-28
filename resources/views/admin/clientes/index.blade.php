@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="card">
             <div class="card-header d-flex justify-content-start align-items-center">
                 <h3 class="card-title mr-3">Clientes</h3>
@@ -17,51 +17,26 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                
 
-                        @livewire('clientes-index')
-                        {{-- @foreach ($ventas as $venta)
-                            <tr>
-                                <td>{{ date('d-m-Y', strtotime($venta->created_at)) }}</td>
-                                <td>{{$venta->cliente}}</td>
-                                <td>{{$venta->servicio->nombre}}</td>
-                                <td>{{$venta->medio_pago}}</td>
-                                <td>${{$venta->precio}}</td>
-                                <td>{{$venta->porcentaje}}%</td>
-                                <td>{{$venta->empleado->nombre}}</td>
-                                <td>
-                                    <div class="row mx-auto">
-                                        <a href="{{ route('ventas.edit', $venta ) }}" class="btn btn-primary mr-2"><i
-                                                class="fas fa-edit"></i></a>
 
-                                        <form action="{{ route('ventas.destroy',$venta ) }}" method="POST"
-                                            class="formulario-eliminar">
-                                            @csrf
-                                            @method('DELETE')
+                @livewire('clientes-index')
 
-                                            <button type="submit" class="btn btn-danger">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                        @endforeach --}}
 
-                        
+
             </div>
             <!-- /.card-body -->
             <div class="card-footer clearfix">
-{{--               {{$ventas->links()}}
- --}}            </div>
+                {{-- {{$ventas->links()}} --}} </div>
         </div>
     </div>
 @stop
 
 @section('css')
-   
+    @livewireStyles
 @stop
 
 @section('js')
+    @livewireScripts
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -130,7 +105,7 @@
                         'Your file has been deleted.',
                         'success'
                     ) */
-                
+
                     this.submit();
                 }
 

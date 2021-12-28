@@ -24,7 +24,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.clientes.create');
     }
 
     /**
@@ -35,7 +35,35 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validación
+        $data = request()->validate([
+            'nombre' => 'required',
+            'celular' => 'required',
+            'email' => 'required',
+            'ciudad' => 'required',
+            'provincia' => 'required',
+            'nota' => 'required',
+            'estado' => 'required'
+        ]);
+        /*
+        try {*/
+            //Creacion 
+            Cliente::create([
+                'nombre' => $data['nombre'],
+                'celular' => $data['celular'],
+                'email' => $data['email'],
+                'ciudad' => $data['ciudad'],
+                'provincia' => $data['provincia'],
+                'nota' => $data['nota'],
+                'estado' => $data['estado']
+                ]);
+    
+            //retorno
+            return redirect()->route('clientes.index')->with('Creado', 'El cliente se creó exitosamente.');
+         /*  
+        } catch (\Throwable $th) {
+            return redirect()->route('clientes.index')->with('Error', 'Hubo un problema al crear el cliente, vuelta a intentarlo.');
+        }*/
     }
 
     /**
@@ -46,7 +74,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        return view('admin.clientes.show',compact('cliente'));
     }
 
     /**
@@ -57,7 +85,7 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        //
+        return view('admin.clientes.edit',compact('cliente'));
     }
 
     /**
@@ -69,7 +97,32 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        //Validación
+        $data = request()->validate([
+            'nombre' => 'required',
+            'celular' => 'required',
+            'email' => 'required',
+            'ciudad' => 'required',
+            'provincia' => 'required',
+            'nota' => 'required',
+            'estado' => 'required'
+        ]);
+
+        //Actualización
+        try {
+            $cliente->nombre = $data['nombre'];
+            $cliente->celular = $data['celular'];
+            $cliente->email = $data['email'];
+            $cliente->ciudad = $data['ciudad'];
+            $cliente->provincia = $data['provincia'];
+            $cliente->nota = $data['nota'];
+            $cliente->estado = $data['estado'];
+            $cliente->save();
+
+            return redirect()->route('clientes.index')->with('Actualizado','Cliente actualizado exitosamente.');
+        } catch (\Throwable $th) {
+            return redirect()->route('clientes.index')->with('Error','Hubo un problema al actualizar el cliente, vuelva a intentarlo.');
+        }
     }
 
     /**
@@ -80,6 +133,18 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $cliente = Cliente::find($cliente);
+        
+        try {
+
+            $cliente->first()->delete();
+        
+            return redirect()->route('clientes.index')->with('Borrado','El cliente se borró exitosamente.');
+
+        } catch (\Throwable $th) {
+            
+            return redirect()->route('clientes.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
+
+        }
     }
 }
