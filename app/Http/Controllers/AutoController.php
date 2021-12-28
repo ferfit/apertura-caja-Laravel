@@ -82,17 +82,17 @@ class AutoController extends Controller
             'precio' => 'required',
             'ciudad' => 'required',
             'provincia' => 'required',
-            'tipo' => 'required',
-            'kilometraje' => 'required',
-            'combustible' => 'required',
-            'tipomotor' => 'required',
-            'traccion' => 'required',
-            'cajaauto' => 'required',
-            'color' => 'required',
-            'tapizado' => 'required',
-            'direccion' => 'required',
-            'valor' => 'required',
-            'permuta' => 'required'
+            'tipo' => 'nullable',
+            'kilometraje' => 'nullable',
+            'combustible' => 'nullable',
+            'tipomotor' => 'nullable',
+            'traccion' => 'nullable',
+            'cajaauto' => 'nullable',
+            'color' => 'nullable',
+            'tapizado' => 'nullable',
+            'direccion' => 'nullable',
+            'valor' => 'nullable',
+            'permuta' => 'nullable'
         ]);
         
         try {
@@ -188,7 +188,18 @@ class AutoController extends Controller
             'precio' => 'required',
             'precio' => 'required',
             'ciudad' => 'required',
-            'provincia' => 'required'
+            'provincia' => 'required',
+            'tipo' => 'nullable',
+            'kilometraje' => 'nullable',
+            'combustible' => 'nullable',
+            'tipomotor' => 'nullable',
+            'traccion' => 'nullable',
+            'cajaauto' => 'nullable',
+            'color' => 'nullable',
+            'tapizado' => 'nullable',
+            'direccion' => 'nullable',
+            'valor' => 'nullable',
+            'permuta' => 'nullable'
         ]);
 
         //Actualización
@@ -201,9 +212,21 @@ class AutoController extends Controller
             $auto->precio = $data['precio'];
             $auto->ciudad = $data['ciudad'];
             $auto->provincia = $data['provincia'];
+            $auto->tipo = $data['tipo'];
+            $auto->kilometraje = $data['kilometraje'];
+            $auto->combustible = $data['combustible'];
+            $auto->tipomotor = $data['tipomotor'];
+            $auto->traccion = $data['traccion'];
+            $auto->cajaauto = $data['cajaauto'];
+            $auto->color = $data['color'];
+            $auto->tapizado = $data['tapizado'];
+            $auto->direccion = $data['direccion'];
+            $auto->valor = $data['valor'];
+            $auto->permuta = $data['permuta'];
             $auto->save();
 
             return redirect()->route('autos.index')->with('Actualizado','Auto actualizado exitosamente.');
+            
         } catch (\Throwable $th) {
             return redirect()->route('autos.index')->with('Error','Hubo un problema al actualizar el auto, vuelva a intentarlo.');
         }
