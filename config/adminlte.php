@@ -274,6 +274,12 @@ return [
             'icon'        => 'far fa-address-book',
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Stock Autos',
+            'url'         => 'autos',
+            'icon'        => 'fas fa-car',
+            'label_color' => 'success',
+        ],
         
         
         /*

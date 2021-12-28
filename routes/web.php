@@ -8,6 +8,7 @@ use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CajaController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\AutoController;
 use App\Http\Controllers\Controller;
 
 
@@ -51,19 +52,25 @@ Route::resource('servicios', ServicioController::class)->names('servicios');
 Route::resource('ventas', VentaController::class)->names('ventas'); 
 /*
 |--------------------------------------------------------------------------
-| Caja
+| Cajas
 |--------------------------------------------------------------------------
 */
 Route::resource('cajas', CajaController::class)->names('cajas'); 
 /*
 |--------------------------------------------------------------------------
-| Caja
+| Clientes
 |--------------------------------------------------------------------------
 */
 Route::resource('clientes', ClienteController::class)->names('clientes'); 
 /*
 |--------------------------------------------------------------------------
-| Reporte
+| Autos
+|--------------------------------------------------------------------------
+*/
+Route::resource('autos', AutoController::class)->names('autos'); 
+/*
+|--------------------------------------------------------------------------
+| Reportes
 |--------------------------------------------------------------------------
 */
 Route::get('/reportes', [ReporteController::class,'reportePorFecha'])->name('reporte');
