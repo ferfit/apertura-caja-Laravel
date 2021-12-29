@@ -11,6 +11,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\AutoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -32,31 +33,33 @@ Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware([
 
 require __DIR__.'/auth.php';
 
+Auth::routes(['register' => false]);
+
 
 /*
 |--------------------------------------------------------------------------
 | Empleados
 |--------------------------------------------------------------------------
 */
-Route::resource('empleados', EmpleadoController::class)->names('empleados'); 
+//Route::resource('empleados', EmpleadoController::class)->names('empleados'); 
 /*
 |--------------------------------------------------------------------------
 | Servicios
 |--------------------------------------------------------------------------
 */
-Route::resource('servicios', ServicioController::class)->names('servicios'); 
+//Route::resource('servicios', ServicioController::class)->names('servicios'); 
 /*
 |--------------------------------------------------------------------------
 | Ventas
 |--------------------------------------------------------------------------
 */
-Route::resource('ventas', VentaController::class)->names('ventas'); 
+//Route::resource('ventas', VentaController::class)->names('ventas'); 
 /*
 |--------------------------------------------------------------------------
 | Cajas
 |--------------------------------------------------------------------------
 */
-Route::resource('cajas', CajaController::class)->names('cajas'); 
+//Route::resource('cajas', CajaController::class)->names('cajas'); 
 /*
 |--------------------------------------------------------------------------
 | Clientes
@@ -84,5 +87,5 @@ Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePasswo
 | Reportes
 |--------------------------------------------------------------------------
 */
-Route::get('/reportes', [ReporteController::class,'reportePorFecha'])->name('reporte');
-Route::post('/reportes-por-fecha', [ReporteController::class,'filtrarRangoFecha'])->name('filtrarRangoFecha');
+//Route::get('/reportes', [ReporteController::class,'reportePorFecha'])->name('reporte');
+//Route::post('/reportes-por-fecha', [ReporteController::class,'filtrarRangoFecha'])->name('filtrarRangoFecha');

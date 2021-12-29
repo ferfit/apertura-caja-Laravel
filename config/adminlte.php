@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Academy</b>POS',
+    'logo' => '<b>Sistema </b>CONTROL',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -236,7 +236,7 @@ return [
             'text'        => 'Escritorio',
             'route'         => 'dashboard',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
-        ],
+        ],/*
         
         [
             'text'        => 'Empleadas',
@@ -267,7 +267,7 @@ return [
             'url'         => 'reportes',
             'icon'        => 'fas fa-chart-bar',
             'label_color' => 'success',
-        ],
+        ],*/
         [
             'text'        => 'Clientes',
             'url'         => 'clientes',
