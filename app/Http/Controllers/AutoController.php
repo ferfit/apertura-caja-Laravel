@@ -7,7 +7,7 @@ use App\Models\Condicion;
 use App\Models\Marca;
 use App\Models\Modelo;
 use App\Models\Version;
-use App\Models\Ciudad;
+use App\Models\ciudad;
 use App\Models\Provincia;
 use App\Models\Tipo;
 use App\Models\Combustible;
@@ -44,7 +44,7 @@ class AutoController extends Controller
         $marcas= Marca::all();
         $modelos= Modelo::all();
         $versiones= Version::all();
-        $ciudades= Ciudad::all();
+        $ciudades= ciudad::all();
         $provincias= Provincia::all();
 
         $tipos= Tipo::all();
@@ -150,7 +150,7 @@ class AutoController extends Controller
         $marcas= Marca::all();
         $modelos= Modelo::all();
         $versiones= Version::all();
-        $ciudades= Ciudad::all();
+        $ciudades= ciudad::all();
         $provincias= Provincia::all();
 
         $tipos= Tipo::all();
