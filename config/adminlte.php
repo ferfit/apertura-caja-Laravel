@@ -235,7 +235,7 @@ return [
         [
             'text'        => 'Escritorio',
             'route'         => 'dashboard',
-            'icon'        => 'fas fa-fw fa-tachometer-alt',
+            'icon'        => 'fas fa-fw fa-tachometer-alt ',
         ],/*
         
         [

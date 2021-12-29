@@ -11,7 +11,6 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\AutoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -33,7 +32,6 @@ Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware([
 
 require __DIR__.'/auth.php';
 
-Auth::routes(['register' => false]);
 
 
 /*
