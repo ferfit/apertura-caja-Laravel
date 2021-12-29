@@ -20,6 +20,8 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
+                            
+                            <th >Nro</th>
                             <th >Fecha</th>
                             <th>Cliente</th>
                             <th>Servicio</th>
@@ -31,8 +33,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($ventas as $venta)
+                        @foreach ($ventas as $key=> $venta)
                             <tr>
+                                <td>{{$key+1}}</td>
                                 <td>{{ date('d-m-Y', strtotime($venta->created_at)) }}</td>
                                 <td>{{$venta->cliente}}</td>
                                 <td>{{$venta->servicio->nombre}}</td>

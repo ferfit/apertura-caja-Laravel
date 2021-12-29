@@ -22,7 +22,7 @@
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Nombre</th>
-                            <th>Acciones</th>
+                            <th class="col-2">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>

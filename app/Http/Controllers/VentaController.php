@@ -7,6 +7,7 @@ use App\Models\Caja;
 use App\Models\Servicio;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
+use Carbon\Carbon; 
 
 class VentaController extends Controller
 {
@@ -17,9 +18,11 @@ class VentaController extends Controller
      */
     public function index()
     {
-        $ventas = Venta::orderby('id','DESC')->paginate(10);
+        $hoy = today();
 
-        return view('admin.ventas.index',compact('ventas'));
+        $ventas = Venta::orderby('id','DESC')->whereDate('created_at', '=', Carbon::now())->paginate(20);
+
+        return view('admin.ventas.index',compact('ventas','hoy'));
     }
 
     /**
