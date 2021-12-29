@@ -39,7 +39,7 @@ class ClienteController extends Controller
         $data = request()->validate([
             'nombre' => 'required',
             'celular' => 'required',
-            'email' => 'required',
+            'email' => 'nullable',
             'ciudad' => 'required',
             'provincia' => 'required',
             'nota' => 'required',
@@ -101,7 +101,7 @@ class ClienteController extends Controller
         $data = request()->validate([
             'nombre' => 'required',
             'celular' => 'required',
-            'email' => 'required',
+            'email' => 'nullable',
             'ciudad' => 'required',
             'provincia' => 'required',
             'nota' => 'required',

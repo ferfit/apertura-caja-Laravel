@@ -28,8 +28,7 @@ class ClientesIndex extends Component
         //return view('livewire.clientes-index',compact('clientes'));
 
         return view('livewire.clientes-index', [
-            //'clientes' => Cliente::paginate(3),
-            'clientes' => Cliente::where('nota', 'like', '%'.$this->search.'%')->paginate(3),
+            'clientes' => Cliente::where('nota', 'like', '%'.$this->search.'%')->paginate(10)
 
         ]);
     }

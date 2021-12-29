@@ -17,7 +17,7 @@ class CreateClientesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->bigInteger('celular');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('ciudad');
             $table->string('provincia');
             $table->text('nota');
