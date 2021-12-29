@@ -55,11 +55,17 @@ class VentaController extends Controller
             'cliente' => 'required',
             'servicio_id' => 'required',
             'medio_pago' => 'required',
-            'precio' => 'required',
             'porcentaje' => 'required',
             'empleado_id' => 'required',
             'caja_id' => 'required'
         ]);
+        
+        
+        //Trae precio servicio
+        $servicio= Servicio::where('id','=',$data['servicio_id'])->get();
+        
+        $precio = $servicio->first()->precio;
+        
         
         try {
             //Creacion de venta
@@ -67,25 +73,25 @@ class VentaController extends Controller
                 'cliente' => $data['cliente'],
                 'servicio_id' => $data['servicio_id'],
                 'medio_pago' => $data['medio_pago'],
-                'precio' => $data['precio'],
+                'precio' => $precio,
                 'porcentaje' => $data['porcentaje'],
-                'comision_empleado' => ($data['precio']*$data['porcentaje'])/100,
+                'comision_empleado' => ($precio*$data['porcentaje'])/100,
                 'empleado_id' => $data['empleado_id'],
                 'caja_id' => $data['caja_id']
             ]);
 
             //Aumento total caja
             $caja = Caja::find($data['caja_id']);
-            $caja->total = $caja->total + $data['precio']; 
+            $caja->total = $caja->total + $precio; 
                 
             //Aumento efectivo
             if($data['medio_pago'] == "Efectivo"){
-                $caja->efectivo_caja = $caja->efectivo_caja + $data['precio']; 
+                $caja->efectivo_caja = $caja->efectivo_caja + $precio; 
             }
 
             //Aumento tarjeta
             if($data['medio_pago'] == "Debito" || $data['medio_pago'] == "Trans MP" || $data['medio_pago'] == "Credito" ){
-                $caja->tarjeta = $caja->tarjeta + $data['precio']; 
+                $caja->tarjeta = $caja->tarjeta + $precio; 
             }
 
             $caja->save();
@@ -151,7 +157,6 @@ class VentaController extends Controller
             $venta->cliente = $data['cliente'];
             $venta->servicio_id = $data['servicio_id'];
             $venta->medio_pago = $data['medio_pago'];
-            $venta->precio = $data['precio'];
             $venta->empleado_id = $data['empleado_id'];
             $venta->caja_id = $data['caja_id'];
 

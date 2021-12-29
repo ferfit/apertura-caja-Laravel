@@ -30,6 +30,17 @@
                     </span>
                     @enderror
                 </div>
+                 {{-- Precio --}}
+                 <div class="form-group">
+                  <label for="precio">Precio</label>
+                  <input type="number" min="0" name="precio"
+                      class="form-control @error('precio') is-invalid @enderror" id="precio" value="{{$servicio->precio}}">
+                  @error('precio')
+                      <span class="invalid-feedback d-block" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+              </div>
               </div>
               <!-- /.card-body -->
 

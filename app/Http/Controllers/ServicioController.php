@@ -93,12 +93,14 @@ class ServicioController extends Controller
     {
         //Validación
         $data = request()->validate([
-            'nombre' => 'required'
+            'nombre' => 'required',
+            'precio' => 'required'
         ]);
 
         //Actualización
         try {
             $servicio->nombre = $data['nombre'];
+            $servicio->precio = $data['precio'];
             $servicio->save();
 
             return redirect()->route('servicios.index')->with('Actualizado','Servicio actualizado exitosamente.');

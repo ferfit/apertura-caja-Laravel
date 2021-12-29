@@ -67,52 +67,85 @@
 @stop
 
 @section('js')
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    @if (session('ok'))
+    @if (session('Creado'))
         <script>
-            toastr.success('{{ session('ok') }}')
+            Swal.fire(
+                'Creado!',
+                '{{ session('Creado') }}',
+                'success'
+            )
         </script>
     @endif
-    @if (session('error'))
+
+    @if (session('Actualizado'))
         <script>
-            toastr.error('{{ session('error') }}')
+            Swal.fire(
+                'Actualizado!',
+                '{{ session('Actualizado') }}',
+                'success'
+            )
         </script>
     @endif
 
-    
+    @if (session('Borrado'))
+        <script>
+            Swal.fire(
+                'Borrado!',
+                '{{ session('Borrado') }}',
+                'success'
+            )
+        </script>
+    @endif
+
+
+    @if (session('Error'))
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: '{{ session('Error') }}',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            })
+        </script>
+    @endif
+
+
     <script>
         $('.formulario-eliminar').submit(function(e) {
             e.preventDefault();
 
             Swal.fire({
-                title: 'Esta seguro?',
-                text: "¡No podrás revertir esto!",
+                title: 'Estas seguro?',
+                text: "No podras revertir esto.",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Si, Borrar!',
-                cancelButtonText: 'Cancelar',
+                cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {
                     /* Swal.fire(
-                        'Borrado!',
-                        'Se ha borrado exitosamente.',
+                        'Deleted!',
+                        'Your file has been deleted.',
                         'success'
                     ) */
-
+                
                     this.submit();
                 }
+
             })
-
-
 
         });
     </script>
+
+
+
+
 
 @stop

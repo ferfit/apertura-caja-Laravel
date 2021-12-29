@@ -52,10 +52,10 @@ class EmpleadoController extends Controller
             ]);
 
             //Redirección
-            return redirect()->route('empleados.index')->with('ok', 'Empleado creado exitosamente.');
+            return redirect()->route('empleados.index')->with('Creado', 'Empleado creado exitosamente.');
 
         } catch (\Throwable $th) {
-            return redirect()->route('empleados.index')->with('error', 'Hubo un problema al crear el empleado, vuelta a intentarlo.');
+            return redirect()->route('empleados.index')->with('Error', 'Hubo un problema al crear el empleado, vuelta a intentarlo.');
         }
     }
 
@@ -101,10 +101,10 @@ class EmpleadoController extends Controller
             $empleado->save();
             
             //Redirección
-            return redirect()->route('empleados.index')->with('ok', 'Empleado actualizado exitosamente.');
+            return redirect()->route('empleados.index')->with('Actualizado', 'Empleado actualizado exitosamente.');
 
         } catch (\Throwable $th) {
-            return redirect()->route('empleados.index')->with('error', 'Hubo un error al actualización el empleado, vuelta a intentarlo.');
+            return redirect()->route('empleados.index')->with('Error', 'Hubo un error al actualización el empleado, vuelta a intentarlo.');
         }
 
     }
@@ -123,10 +123,10 @@ class EmpleadoController extends Controller
         
         try {
             $empleado->first()->delete();
-            return redirect()->route('empleados.index')->with('ok','Empleado borrado exitosamente.');
+            return redirect()->route('empleados.index')->with('Borrado','Empleado borrado exitosamente.');
 
         } catch (\Throwable $th) {
-            return redirect()->route('empleados.index')->with('error','Hubo un problema, vuelta a intentarlo.');
+            return redirect()->route('empleados.index')->with('Error','Hubo un problema, vuelta a intentarlo.');
         }
     }
 }

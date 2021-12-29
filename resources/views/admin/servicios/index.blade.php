@@ -22,6 +22,7 @@
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Nombre</th>
+                            <th>Precio</th>
                             <th class="col-2">Acciones</th>
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                             <tr>
                                 <td>{{ $servicio->id }}</td>
                                 <td>{{ $servicio->nombre }}</td>
+                                <td>${{ $servicio->precio }}</td>
                                 <td>
                                     <div class="row mx-auto">
                                         <a href="{{ route('servicios.edit', $servicio) }}" class="btn btn-primary mr-2"><i

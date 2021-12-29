@@ -76,7 +76,7 @@
                     <input type="number" min="0"
                     name="precio" 
                     class="form-control @error('precio') is-invalid @enderror" id="precio"
-                    value="{{ $venta->precio }}">
+                    value="{{ $venta->precio }}" readonly>
                     @error('precio')
                     <span class="invalid-feedback d-block" role="alert">
                         <strong>{{ $message }}</strong>
