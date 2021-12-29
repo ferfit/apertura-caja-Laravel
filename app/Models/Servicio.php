@@ -10,7 +10,8 @@ class Servicio extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombre'
+        'nombre',
+        'precio'
     ];
 
     //1 a n

@@ -21,5 +21,10 @@ class UsuarioSeeder extends Seeder
             'email'=>'fer@correo.com',
             'password'=>hash::make('laesquina')              
         ]);
+        $user = User::create([
+            'name'=>'Aye',
+            'email'=>'International.lashacademy@gmail.con',
+            'password'=>hash::make('Almagalvan420')              
+        ]);
     }
 }

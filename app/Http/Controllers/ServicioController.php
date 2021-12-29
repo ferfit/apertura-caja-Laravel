@@ -39,14 +39,16 @@ class ServicioController extends Controller
     {
         //Validación
         $data = request()->validate([
-            'nombre' => 'required'
+            'nombre' => 'required',
+            'precio' => 'required'
         ]);
 
         
         //Crea servicios
         try {
             Servicio::create([
-                'nombre' => $data['nombre']
+                'nombre' => $data['nombre'],
+                'precio' => $data['precio']
             ]);
 
             //Redirección
