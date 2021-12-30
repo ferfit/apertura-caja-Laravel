@@ -55,7 +55,7 @@ class MarcaSeeder extends Seeder
             'nombre'=>'Jeep'
         ]);  
         $Marca = Marca::create([
-            'nombre'=>'Peuget'
+            'nombre'=>'Peugeot'
         ]);  
         $Marca = Marca::create([
             'nombre'=>'Suzuki'

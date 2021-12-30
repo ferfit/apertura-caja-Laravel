@@ -9,6 +9,7 @@ use App\Http\Controllers\CajaController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\AutoController;
+use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
 
@@ -70,6 +71,12 @@ Route::resource('clientes', ClienteController::class)->names('clientes');
 |--------------------------------------------------------------------------
 */
 Route::resource('autos', AutoController::class)->names('autos'); 
+/*
+|--------------------------------------------------------------------------
+| Modelos
+|--------------------------------------------------------------------------
+*/
+Route::resource('modelos', ModeloController::class)->names('modelos'); 
 /*
 |--------------------------------------------------------------------------
 | Users

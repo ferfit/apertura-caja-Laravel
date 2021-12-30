@@ -286,8 +286,22 @@ return [
             'icon'        => 'fas fa-users',
             'label_color' => 'success',
         ],
-        
-        
+
+        [
+            'text'    => 'Ajustes',
+            'icon'    => 'fas fa-cogs',
+            'submenu' => [
+                [
+                    'text' => 'Modelos',
+                    'url'  => 'modelos'
+                ],
+                [
+                    'text' => 'Versiones',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+
         /*
         [
             'text'    => 'multilevel',
@@ -326,8 +340,8 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
-        */
+        ],*/
+
     ],
 
     /*
