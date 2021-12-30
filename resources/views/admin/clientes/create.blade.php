@@ -32,10 +32,10 @@
                 </div>
                 {{-- Celular --}}
                 <div class="form-group">
-                    <label for="celular">Celular</label>
+                    <label for="celular">Celular (escribir sin guiones, paréntesis, ni ningún carácter especial.</label>
                     <input type="text" autofocus
                     name="celular" 
-                    class="form-control @error('celular') is-invalid @enderror" id="celular" placeholder="Ingrese un celular"
+                    class="form-control @error('celular') is-invalid @enderror" id="celular" placeholder="Ej: 1141774343"
                         value="{{old('celular')}}">
                     @error('celular')
                     <span class="invalid-feedback d-block" role="alert">

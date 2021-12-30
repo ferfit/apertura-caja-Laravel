@@ -47,7 +47,7 @@
                     </td>
                     <td class="">
                         <div class="row mx-auto">
-                            <a href="{{ route('clientes.show', $cliente) }}" class="btn btn-success mr-2"><i
+                            <a href="{{ route('clientes.show', $cliente) }}" class="btn btn-secondary mr-2"><i
                                     class="far fa-eye"></i></a>
                             <a href="{{ route('clientes.edit', $cliente) }}" class="btn btn-primary mr-2"><i
                                     class="fas fa-edit"></i></a>
@@ -61,6 +61,8 @@
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                             </form>
+                            <a href="https://api.whatsapp.com/send?phone=549{{$cliente->celular}}" target="_blank" class="btn btn-success ml-xl-2"><i
+                                class="fab fa-whatsapp"></i></a>
                         </div>
                     </td>
                 </tr>
