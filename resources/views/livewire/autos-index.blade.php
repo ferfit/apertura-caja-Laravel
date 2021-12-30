@@ -4,6 +4,7 @@
     <table class="table table-bordered ">
         <thead>
             <tr>
+                <th>Nro.</th>
                 <th>Fecha</th>
                 <th>Condición</th>
                 <th>Marca</th>
@@ -19,6 +20,8 @@
         <tbody>
             @foreach ($autos as $auto)
                 <tr>
+                    
+                    <td>{{ $auto->id }}</td>
                     <td>{{ date('d-m-Y', strtotime($auto->created_at)) }}</td>
                     <td>{{ $auto->condicion }}</td>
                     <td>{{ $auto->marca }}</td>
