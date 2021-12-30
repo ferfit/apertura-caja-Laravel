@@ -297,7 +297,7 @@ return [
                 ],
                 [
                     'text' => 'Versiones',
-                    'url'  => '#',
+                    'url'  => 'versiones',
                 ],
             ],
         ],

@@ -14,7 +14,7 @@ class VersionController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.versiones.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class VersionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.versiones.create');
     }
 
     /**
@@ -35,7 +35,25 @@ class VersionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validación
+        $data = request()->validate([
+            'nombre' => 'required'
+        ]);
+
+
+
+        try {
+            //Crear 
+            Version::create([
+                'nombre' => $data['nombre']
+            ]);
+
+            //Redirección
+            return redirect()->route('versiones.index')->with('Creado', 'versión creada exitosamente.');
+
+        } catch (\Throwable $th) {
+            return redirect()->route('versiones.index')->with('Error', 'Hubo un problema al crear la versión, vuelta a intentarlo.');
+        }
     }
 
     /**
@@ -55,9 +73,9 @@ class VersionController extends Controller
      * @param  \App\Models\Version  $version
      * @return \Illuminate\Http\Response
      */
-    public function edit(Version $version)
+    public function edit(Version $versione)
     {
-        //
+        return view('admin.versiones.edit',compact('versione'));
     }
 
     /**
@@ -67,9 +85,26 @@ class VersionController extends Controller
      * @param  \App\Models\Version  $version
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Version $version)
+    public function update(Request $request, Version $versione)
     {
-        //
+        //Validación
+        $data = request()->validate([
+            'nombre' => 'required'
+        ]);
+
+
+
+        try {
+            //Actualiza
+            $versione->nombre = $data['nombre'];
+            $versione->save();
+
+            //Redirección
+            return redirect()->route('versiones.index')->with('Actualizado', 'Versión actualizada exitosamente.');
+
+        } catch (\Throwable $th) {
+            return redirect()->route('versiones.index')->with('Error', 'Hubo un error al actualización la versión, vuelta a intentarlo.');
+        }
     }
 
     /**
@@ -78,8 +113,18 @@ class VersionController extends Controller
      * @param  \App\Models\Version  $version
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Version $version)
+    public function destroy(Version $versione)
     {
-        //
+        $version = Version::find($versione);
+
+        
+        
+        try {
+            $version->first()->delete();
+            return redirect()->route('versiones.index')->with('Borrado','versión borrada exitosamente.');
+
+        } catch (\Throwable $th) {
+            return redirect()->route('versiones.index')->with('Error','Hubo un problema, vuelta a intentarlo.');
+        }
     }
 }

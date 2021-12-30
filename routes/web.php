@@ -10,6 +10,7 @@ use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\AutoController;
 use App\Http\Controllers\ModeloController;
+use App\Http\Controllers\VersionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
 
@@ -77,6 +78,12 @@ Route::resource('autos', AutoController::class)->names('autos');
 |--------------------------------------------------------------------------
 */
 Route::resource('modelos', ModeloController::class)->names('modelos'); 
+/*
+|--------------------------------------------------------------------------
+| Versiones
+|--------------------------------------------------------------------------
+*/
+Route::resource('versiones', VersionController::class)->names('versiones'); 
 /*
 |--------------------------------------------------------------------------
 | Users
