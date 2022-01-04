@@ -43,11 +43,12 @@ class ClienteController extends Controller
             'ciudad' => 'required',
             'provincia' => 'required',
             'nota' => 'required',
-            'estado' => 'required'
+            'estado' => 'required',
+            'origencliente' => 'required',
         ]);
-        
+
         try {
-            //Creacion 
+            //Creacion
             Cliente::create([
                 'nombre' => $data['nombre'],
                 'celular' => $data['celular'],
@@ -55,12 +56,13 @@ class ClienteController extends Controller
                 'ciudad' => $data['ciudad'],
                 'provincia' => $data['provincia'],
                 'nota' => $data['nota'],
-                'estado' => $data['estado']
+                'estado' => $data['estado'],
+                'origencliente' => $data['origencliente'],
                 ]);
-    
+
             //retorno
             return redirect()->route('clientes.index')->with('Creado', 'El cliente se creó exitosamente.');
-          
+
         } catch (\Throwable $th) {
             return redirect()->route('clientes.index')->with('Error', 'Hubo un problema al crear el cliente, vuelta a intentarlo.');
         }
@@ -105,7 +107,8 @@ class ClienteController extends Controller
             'ciudad' => 'required',
             'provincia' => 'required',
             'nota' => 'required',
-            'estado' => 'required'
+            'estado' => 'required',
+            'origencliente' => 'required',
         ]);
 
         //Actualización
@@ -117,6 +120,7 @@ class ClienteController extends Controller
             $cliente->provincia = $data['provincia'];
             $cliente->nota = $data['nota'];
             $cliente->estado = $data['estado'];
+            $cliente->origen = $data['origen'];
             $cliente->save();
 
             return redirect()->route('clientes.index')->with('Actualizado','Cliente actualizado exitosamente.');
@@ -134,15 +138,15 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente = Cliente::find($cliente);
-        
+
         try {
 
             $cliente->first()->delete();
-        
+
             return redirect()->route('clientes.index')->with('Borrado','El cliente se borró exitosamente.');
 
         } catch (\Throwable $th) {
-            
+
             return redirect()->route('clientes.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
 
         }

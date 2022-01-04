@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<div class="container my-4">    
+<div class="container my-4">
 </div>
 
 
@@ -28,37 +28,39 @@
                 <dd>{{$cliente->ciudad}}</dd>
                 <dt>Provincia</dt>
                 <dd>{{$cliente->provincia}}</dd>
-                
+
                 <dt>Nota</dt>
                 <dd>{{$cliente->nota}}</dd>
                 <dt>Estado</dt>
                 @switch( $cliente->estado )
-                                @case('compra')
-                                    <small class="badge badge-warning text-white"> compra</small>
-                                    @break
-                                @case('venta')
-                                    <small class="badge badge-primary"> venta</small>
-                                    @break
-                                @case('compra-venta')
-                                    <small class="badge badge-success"> compra-venta</small>
-                                    @break
-                                @default
-                                    
+                @case('compra')
+                <small class="badge badge-warning text-white"> compra</small>
+                @break
+                @case('venta')
+                <small class="badge badge-primary"> venta</small>
+                @break
+                @case('compra-venta')
+                <small class="badge badge-success"> compra-venta</small>
+                @break
+                @default
+
                 @endswitch
+                <dt>Metodo de captación:</dt>
+                <dd>{{$cliente->origencliente}}</dd>
               </dl>
             </div>
             <!-- /.card-body -->
         </div>
 
-        
+
         <div class="mx-auto">
             <div class="row mx-auto mt-3">
                  <a href="{{ route('clientes.index' )}}" class="btn btn-secondary mr-2 shadow">Volver</a>
             </div>
         </div>
     </div>
-    
-    
+
+
 </div>
 
 @stop

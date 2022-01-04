@@ -22,6 +22,7 @@ class CreateClientesTable extends Migration
             $table->string('provincia');
             $table->text('nota');
             $table->enum('estado',['compra','venta','compra-venta']);
+            $table->enum('origencliente',['facebook','instagram','google','directo']);
             $table->timestamps();
         });
     }
