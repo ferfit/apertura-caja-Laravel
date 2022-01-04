@@ -20,6 +20,7 @@ class CreateAutosTable extends Migration
             $table->string('modelo');
             $table->string('version');
             $table->integer('año');
+            $table->float('preciocosto',10,2);
             $table->float('precio',10,2);
             $table->string('ciudad');
             $table->string('provincia');

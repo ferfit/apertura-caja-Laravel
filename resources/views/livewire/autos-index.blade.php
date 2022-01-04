@@ -11,7 +11,7 @@
                 <th>Modelo</th>
                 <th>Versión</th>
                 <th>Año</th>
-                <th>Precio</th>
+                <th>Precio Venta</th>
                 <th>Ciudad</th>
                 <th>Provincia</th>
                 <th>Acciones</th>
@@ -20,7 +20,7 @@
         <tbody>
             @foreach ($autos as $auto)
                 <tr>
-                    
+
                     <td>{{ $auto->id }}</td>
                     <td>{{ date('d-m-Y', strtotime($auto->created_at)) }}</td>
                     <td>{{ $auto->condicion }}</td>
@@ -31,7 +31,7 @@
                     <td>${{ $auto->precio }}</td>
                     <td>{{ $auto->ciudad }}</td>
                     <td>{{ $auto->provincia}}</td>
-                    
+
                     <td class="">
                         <div class="row mx-auto">
                             <a href="{{ route('autos.show', $auto) }}" class="btn btn-success mr-2"><i
@@ -53,7 +53,7 @@
                 </tr>
             @endforeach
 
-            
+
 
         </tbody>
     </table>

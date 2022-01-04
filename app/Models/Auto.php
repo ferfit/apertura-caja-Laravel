@@ -15,6 +15,7 @@ class Auto extends Model
         'version',
         'año',
         'precio',
+        'preciocosto',
         'ciudad',
         'provincia',
         'tipo',
@@ -29,6 +30,6 @@ class Auto extends Model
         'valor',
         'permuta'
     ];
-    
+
     use HasFactory;
 }

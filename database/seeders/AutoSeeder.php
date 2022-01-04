@@ -21,6 +21,7 @@ class AutoSeeder extends Seeder
             'modelo'=>'Focus',
             'version'=>'1.6',
             'año'=>'2015',
+            'preciocosto' =>'0',
             'precio'=>'1340000',
             'ciudad'=>'Reconquista',
             'provincia'=>'Santa Fe'
@@ -31,6 +32,7 @@ class AutoSeeder extends Seeder
             'modelo'=>'207',
             'version'=>'1.4',
             'año'=>'2010',
+            'preciocosto' =>'0',
             'precio'=>'800000',
             'ciudad'=>'Tigre',
             'provincia'=>'Buenos Aires'
@@ -41,6 +43,7 @@ class AutoSeeder extends Seeder
             'modelo'=>'208',
             'version'=>'1.4',
             'año'=>'2015',
+            'preciocosto' =>'0',
             'precio'=>'1500000',
             'ciudad'=>'Tigre',
             'provincia'=>'Buenos Aires'
@@ -51,6 +54,7 @@ class AutoSeeder extends Seeder
             'modelo'=>'Toro',
             'version'=>'1.8',
             'año'=>'2021',
+            'preciocosto' =>'0',
             'precio'=>'800000',
             'ciudad'=>'Reconquista',
             'provincia'=>'Santa Fe'

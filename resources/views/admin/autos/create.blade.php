@@ -108,9 +108,20 @@
 
                     </div>
 
+                    {{-- Precio Costo --}}
+                    <div class="form-group col-12 col-md-4 col-xl-3">
+                        <label for="preciocosto">Precio Costo</label>
+                        <input type="number" name="preciocosto" class="form-control @error('preciocosto') is-invalid @enderror"
+                            id="preciocosto" value="">
+                        @error('preciocosto')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                     {{-- Precio --}}
                     <div class="form-group col-12 col-md-4 col-xl-3">
-                        <label for="precio">Precio</label>
+                        <label for="precio">Precio Venta</label>
                         <input type="number" name="precio" class="form-control @error('precio') is-invalid @enderror"
                             id="precio" value="">
                         @error('precio')

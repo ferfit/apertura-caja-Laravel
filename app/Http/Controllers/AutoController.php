@@ -81,6 +81,7 @@ class AutoController extends Controller
             'version' => 'required',
             'año' => 'required',
             'precio' => 'required',
+            'preciocosto' => 'required',
             'precio' => 'required',
             'ciudad' => 'required',
             'provincia' => 'required',
@@ -105,6 +106,7 @@ class AutoController extends Controller
                 'modelo' => $data['modelo'],
                 'version' => $data['version'],
                 'año' => $data['año'],
+                'preciocosto' => $data['preciocosto'],
                 'precio' => $data['precio'],
                 'ciudad' => $data['ciudad'],
                 'provincia' => $data['provincia'],
@@ -187,7 +189,7 @@ class AutoController extends Controller
             'modelo' => 'required',
             'version' => 'required',
             'año' => 'required',
-            'precio' => 'required',
+            'preciocosto' => 'required',
             'precio' => 'required',
             'ciudad' => 'required',
             'provincia' => 'required',
@@ -211,6 +213,7 @@ class AutoController extends Controller
             $auto->modelo = $data['modelo'];
             $auto->version = $data['version'];
             $auto->año = $data['año'];
+            $auto->preciocosto = $data['preciocosto'];
             $auto->precio = $data['precio'];
             $auto->ciudad = $data['ciudad'];
             $auto->provincia = $data['provincia'];

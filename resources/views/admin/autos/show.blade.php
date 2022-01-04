@@ -39,8 +39,12 @@
                             <dd>{{ $auto->año }}</dd>
                         </div>
                         <div class="col-6 col-xl-3">
-                            <dt>Precio</dt>
-                            <dd>{{ $auto->precio }}</dd>
+                            <dt>Precio Costo</dt>
+                            <dd>${{ $auto->preciocosto }}</dd>
+                        </div>
+                        <div class="col-6 col-xl-3">
+                            <dt>Precio Venta</dt>
+                            <dd>${{ $auto->precio }}</dd>
                         </div>
                         <div class="col-6 col-xl-3">
                             <dt>Ciudad</dt>
