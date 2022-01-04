@@ -20,6 +20,8 @@ use App\Models\Direccion;
 use App\Models\Valor;
 use App\Models\Permuta;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
+
 
 class AutoController extends Controller
 {
@@ -94,9 +96,9 @@ class AutoController extends Controller
             'valor' => 'nullable',
             'permuta' => 'nullable'
         ]);
-        
+
         try {
-            //Creacion 
+            //Creacion
             Auto::create([
                 'condicion' => $data['condicion'],
                 'marca' => $data['marca'],
@@ -118,10 +120,10 @@ class AutoController extends Controller
                 'valor' => $data['valor'],
                 'permuta' => $data['permuta'],
                 ]);
-    
+
             //retorno
             return redirect()->route('autos.index')->with('Creado', 'El auto se creó exitosamente.');
-        
+
         } catch (\Throwable $th) {
             return redirect()->route('autos.index')->with('Error', 'Hubo un problema al crear el auto, vuelta a intentarlo.');
         }
@@ -226,7 +228,7 @@ class AutoController extends Controller
             $auto->save();
 
             return redirect()->route('autos.index')->with('Actualizado','Auto actualizado exitosamente.');
-            
+
         } catch (\Throwable $th) {
             return redirect()->route('autos.index')->with('Error','Hubo un problema al actualizar el auto, vuelva a intentarlo.');
         }
@@ -241,17 +243,23 @@ class AutoController extends Controller
     public function destroy(Auto $auto)
     {
         $auto = Auto::find($auto);
-        
+
         try {
 
             $auto->first()->delete();
-        
+
             return redirect()->route('autos.index')->with('Borrado','El auto se borró exitosamente.');
 
         } catch (\Throwable $th) {
-            
+
             return redirect()->route('autos.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
 
         }
+    }
+
+    public function pdf(Auto $auto){
+        //return $auto->marca;die();
+        $pdf= PDF::loadView('admin.autos.pdf',compact('auto'));
+        return $pdf->download('vehiculo.pdf');
     }
 }

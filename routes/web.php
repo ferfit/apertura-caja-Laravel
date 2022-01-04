@@ -13,6 +13,7 @@ use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\VersionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade as PDF;
 
 
 /*
@@ -41,55 +42,55 @@ require __DIR__.'/auth.php';
 | Empleados
 |--------------------------------------------------------------------------
 */
-//Route::resource('empleados', EmpleadoController::class)->names('empleados'); 
+//Route::resource('empleados', EmpleadoController::class)->names('empleados');
 /*
 |--------------------------------------------------------------------------
 | Servicios
 |--------------------------------------------------------------------------
 */
-//Route::resource('servicios', ServicioController::class)->names('servicios'); 
+//Route::resource('servicios', ServicioController::class)->names('servicios');
 /*
 |--------------------------------------------------------------------------
 | Ventas
 |--------------------------------------------------------------------------
 */
-//Route::resource('ventas', VentaController::class)->names('ventas'); 
+//Route::resource('ventas', VentaController::class)->names('ventas');
 /*
 |--------------------------------------------------------------------------
 | Cajas
 |--------------------------------------------------------------------------
 */
-//Route::resource('cajas', CajaController::class)->names('cajas'); 
+//Route::resource('cajas', CajaController::class)->names('cajas');
 /*
 |--------------------------------------------------------------------------
 | Clientes
 |--------------------------------------------------------------------------
 */
-Route::resource('clientes', ClienteController::class)->names('clientes'); 
+Route::resource('clientes', ClienteController::class)->names('clientes');
 /*
 |--------------------------------------------------------------------------
 | Autos
 |--------------------------------------------------------------------------
 */
-Route::resource('autos', AutoController::class)->names('autos'); 
+Route::resource('autos', AutoController::class)->names('autos');
 /*
 |--------------------------------------------------------------------------
 | Modelos
 |--------------------------------------------------------------------------
 */
-Route::resource('modelos', ModeloController::class)->names('modelos'); 
+Route::resource('modelos', ModeloController::class)->names('modelos');
 /*
 |--------------------------------------------------------------------------
 | Versiones
 |--------------------------------------------------------------------------
 */
-Route::resource('versiones', VersionController::class)->names('versiones'); 
+Route::resource('versiones', VersionController::class)->names('versiones');
 /*
 |--------------------------------------------------------------------------
 | Users
 |--------------------------------------------------------------------------
 */
-Route::resource('users', UserController::class)->names('users'); 
+Route::resource('users', UserController::class)->names('users');
 
 Route::get('/users/password/{user}',  [UserController::class,'password'])->name('password');
 Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePassword'])->name('updatePassword');
@@ -101,3 +102,11 @@ Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePasswo
 */
 //Route::get('/reportes', [ReporteController::class,'reportePorFecha'])->name('reporte');
 //Route::post('/reportes-por-fecha', [ReporteController::class,'filtrarRangoFecha'])->name('filtrarRangoFecha');
+
+Route::get('/pdf/{auto}',  [AutoController::class,'pdf'])->name('autoPdf');
+
+
+/* Route::get('/pdf/{auto}', function () {
+    $pdf= PDF::loadView('admin.autos.pdf');
+    return $pdf->stream();
+})->name('pdf'); */

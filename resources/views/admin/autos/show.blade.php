@@ -56,7 +56,7 @@
                 <!-- /.card-body -->
             </div>
             <div class="card shadow">
-                
+
                 <!-- /.card-header -->
                 <div class="card-body">
                     <dl class="row">
@@ -114,6 +114,7 @@
             <div class="mx-auto">
                 <div class="row mx-auto mt-3">
                     <a href="{{ route('autos.index') }}" class="btn btn-secondary mr-2 shadow">Volver</a>
+                    <a href="{{route('autoPdf', $auto)}}" class="btn btn-primary mr-2 shadow"><i class="fas fa-download mr-1"></i>PDF</a>
                 </div>
             </div>
         </div>
