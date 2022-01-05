@@ -7,7 +7,7 @@ use App\Models\Caja;
 use App\Models\Servicio;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
-use Carbon\Carbon; 
+use Carbon\Carbon;
 
 class VentaController extends Controller
 {
@@ -46,7 +46,7 @@ class VentaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    
+
     public function store(Request $request)
     {
 
@@ -59,14 +59,14 @@ class VentaController extends Controller
             'empleado_id' => 'required',
             'caja_id' => 'required'
         ]);
-        
-        
+
+
         //Trae precio servicio
         $servicio= Servicio::where('id','=',$data['servicio_id'])->get();
-        
+
         $precio = $servicio->first()->precio;
-        
-        
+
+
         try {
             //Creacion de venta
             Venta::create([
@@ -82,29 +82,29 @@ class VentaController extends Controller
 
             //Aumento total caja
             $caja = Caja::find($data['caja_id']);
-            $caja->total = $caja->total + $precio; 
-                
+            $caja->total = $caja->total + $precio;
+
             //Aumento efectivo
             if($data['medio_pago'] == "Efectivo"){
-                $caja->efectivo_caja = $caja->efectivo_caja + $precio; 
+                $caja->efectivo_caja = $caja->efectivo_caja + $precio;
             }
 
             //Aumento tarjeta
             if($data['medio_pago'] == "Debito" || $data['medio_pago'] == "Trans MP" || $data['medio_pago'] == "Credito" ){
-                $caja->tarjeta = $caja->tarjeta + $precio; 
+                $caja->tarjeta = $caja->tarjeta + $precio;
             }
 
             $caja->save();
-    
+
             //retorno
             return redirect()->route('ventas.index')->with('Creado', 'La venta se creó exitosamente.');
-           
+
         } catch (\Throwable $th) {
             return redirect()->route('ventas.index')->with('Error', 'Hubo un problema al crear la venta, vuelta a intentarlo.');
         }
-        
-            
-        
+
+
+
     }
 
     /**
@@ -161,10 +161,10 @@ class VentaController extends Controller
             $venta->caja_id = $data['caja_id'];
 
             $venta->save();
-            
-    
+
+
             return redirect()->route('ventas.index')->with('Actualizado', 'La venta se actualizó exitosamente.');
-            
+
         } catch (\Throwable $th) {
             return redirect()->route('ventas.index')->with('Error', 'Hubo un problema al actualizar la venta, vuelta a intentarlo.');
         }
@@ -178,15 +178,33 @@ class VentaController extends Controller
      */
     public function destroy(Venta $venta)
     {
+
+        //Descuenta del total de caja
+        $caja = Caja::find($venta->caja_id);
+        $caja->total = $caja->total - $venta->precio;
+
+        //Descuenta campo metodo de pago
+        if($venta->medio_pago == "Efectivo"){
+            $caja->efectivo_caja = $caja->efectivo_caja - $venta->precio ;
+        }
+
+        if($venta->medio_pago == "Debito" || $venta->medio_pago == "Trans MP" || $venta->medio_pago == "Credito" ){
+            $caja->tarjeta = $caja->tarjeta - $venta->precio;
+        }
+
+        $caja->save();
+
+
+        //Elimina venta
         $venta = Venta::find($venta);
 
         try {
             $venta->first()->delete();
-    
+
             return redirect()->route('ventas.index')->with('Borrado','La venta se borró exitosamente.');
-            
+
         } catch (\Throwable $th) {
-            
+
             return redirect()->route('ventas.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
         }
     }
