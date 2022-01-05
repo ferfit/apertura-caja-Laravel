@@ -413,7 +413,7 @@
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                <img src="/imagenes/logo.png" alt="">
+                <img src="/imagenes/agentcar.png" alt="" style="width: 60%;display:block; margin:auto;">
             </div>
             <div class="flex justify-center">
                 @if (Route::has('login'))
@@ -423,7 +423,8 @@
                                 class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                         @else
                             <a href="{{ route('login') }}"
-                                class="text-sm text-gray-700 dark:text-gray-500 underline">Ingresar</a>
+                                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Ingresar</a>
+
 
                             {{-- @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>

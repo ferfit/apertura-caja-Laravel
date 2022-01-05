@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-           <img src="/imagenes/logo.png" style="width:60%; display:block; margin:auto;" alt="">
+           <img src="/imagenes/agentcar.png" style="width:30%; display:block; margin:auto;" alt="">
         </x-slot>
 
         <!-- Session Status -->
