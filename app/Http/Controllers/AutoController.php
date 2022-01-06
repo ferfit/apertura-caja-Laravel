@@ -43,27 +43,42 @@ class AutoController extends Controller
      */
     public function create()
     {
-        $condiciones= Condicion::all();
-        $marcas= Marca::all();
-        $modelos= Modelo::all();
-        $versiones= Version::all();
-        $ciudades= ciudad::all();
-        $provincias= Provincia::all();
+        $condiciones = Condicion::all();
+        $marcas = Marca::all();
+        $modelos = Modelo::all();
+        $versiones = Version::all();
+        $ciudades = ciudad::all();
+        $provincias = Provincia::all();
 
-        $tipos= Tipo::all();
-        $combustibles= Combustible::all();
-        $tipomotores= Tipomotor::all();
-        $tracciones= Traccion::all();
-        $cajaautos= Cajaauto::all();
-        $colores= Color::all();
-        $tapizados= Tapizado::all();
-        $direcciones= Direccion::all();
-        $valores= Valor::all();
-        $permutas= Permuta::all();
+        $tipos = Tipo::all();
+        $combustibles = Combustible::all();
+        $tipomotores = Tipomotor::all();
+        $tracciones = Traccion::all();
+        $cajaautos = Cajaauto::all();
+        $colores = Color::all();
+        $tapizados = Tapizado::all();
+        $direcciones = Direccion::all();
+        $valores = Valor::all();
+        $permutas = Permuta::all();
 
-        return view('admin.autos.create',compact(   'condiciones','marcas','modelos','versiones','ciudades','provincias',
-                                                    'tipos','combustibles','tipomotores','tracciones','cajaautos','colores','tapizados','direcciones',
-                                                    'valores','permutas' ));
+        return view('admin.autos.create', compact(
+            'condiciones',
+            'marcas',
+            'modelos',
+            'versiones',
+            'ciudades',
+            'provincias',
+            'tipos',
+            'combustibles',
+            'tipomotores',
+            'tracciones',
+            'cajaautos',
+            'colores',
+            'tapizados',
+            'direcciones',
+            'valores',
+            'permutas'
+        ));
     }
 
     /**
@@ -122,11 +137,10 @@ class AutoController extends Controller
                 'direccion' => $data['direccion'],
                 'valor' => $data['valor'],
                 'permuta' => $data['permuta'],
-                ]);
+            ]);
 
             //retorno
             return redirect()->route('autos.index')->with('Creado', 'El auto se creó exitosamente.');
-
         } catch (\Throwable $th) {
             return redirect()->route('autos.index')->with('Error', 'Hubo un problema al crear el auto, vuelta a intentarlo.');
         }
@@ -140,7 +154,7 @@ class AutoController extends Controller
      */
     public function show(Auto $auto)
     {
-        return view('admin.autos.show',compact('auto'));
+        return view('admin.autos.show', compact('auto'));
     }
 
     /**
@@ -151,27 +165,43 @@ class AutoController extends Controller
      */
     public function edit(Auto $auto)
     {
-        $condiciones= Condicion::all();
-        $marcas= Marca::all();
-        $modelos= Modelo::all();
-        $versiones= Version::all();
-        $ciudades= ciudad::all();
-        $provincias= Provincia::all();
+        $condiciones = Condicion::all();
+        $marcas = Marca::all();
+        $modelos = Modelo::all();
+        $versiones = Version::all();
+        $ciudades = ciudad::all();
+        $provincias = Provincia::all();
 
-        $tipos= Tipo::all();
-        $combustibles= Combustible::all();
-        $tipomotores= Tipomotor::all();
-        $tracciones= Traccion::all();
-        $cajaautos= Cajaauto::all();
-        $colores= Color::all();
-        $tapizados= Tapizado::all();
-        $direcciones= Direccion::all();
-        $valores= Valor::all();
-        $permutas= Permuta::all();
+        $tipos = Tipo::all();
+        $combustibles = Combustible::all();
+        $tipomotores = Tipomotor::all();
+        $tracciones = Traccion::all();
+        $cajaautos = Cajaauto::all();
+        $colores = Color::all();
+        $tapizados = Tapizado::all();
+        $direcciones = Direccion::all();
+        $valores = Valor::all();
+        $permutas = Permuta::all();
 
-        return view('admin.autos.edit',compact( 'auto','condiciones','marcas','modelos','versiones','ciudades','provincias',
-                                                'tipos','combustibles','tipomotores','tracciones','cajaautos','colores','tapizados','direcciones',
-                                                'valores','permutas'));
+        return view('admin.autos.edit', compact(
+            'auto',
+            'condiciones',
+            'marcas',
+            'modelos',
+            'versiones',
+            'ciudades',
+            'provincias',
+            'tipos',
+            'combustibles',
+            'tipomotores',
+            'tracciones',
+            'cajaautos',
+            'colores',
+            'tapizados',
+            'direcciones',
+            'valores',
+            'permutas'
+        ));
     }
 
     /**
@@ -231,10 +261,9 @@ class AutoController extends Controller
             $auto->permuta = $data['permuta'];
             $auto->save();
 
-            return redirect()->route('autos.index')->with('Actualizado','Auto actualizado exitosamente.');
-
+            return redirect()->route('autos.index')->with('Actualizado', 'Auto actualizado exitosamente.');
         } catch (\Throwable $th) {
-            return redirect()->route('autos.index')->with('Error','Hubo un problema al actualizar el auto, vuelva a intentarlo.');
+            return redirect()->route('autos.index')->with('Error', 'Hubo un problema al actualizar el auto, vuelva a intentarlo.');
         }
     }
 
@@ -252,19 +281,27 @@ class AutoController extends Controller
 
             $auto->first()->delete();
 
-            return redirect()->route('autos.index')->with('Borrado','El auto se borró exitosamente.');
-
+            return redirect()->route('autos.index')->with('Borrado', 'El auto se borró exitosamente.');
         } catch (\Throwable $th) {
 
-            return redirect()->route('autos.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
-
+            return redirect()->route('autos.index')->with('Error', 'Hubo un problema, vuelva a intentarlo.');
         }
     }
 
-    public function pdf(Auto $auto){
-        $dato = Dato::first();
-        //return $auto->marca;die();
-        $pdf= PDF::loadView('admin.autos.pdf',compact('auto','dato'));
-        return $pdf->download('vehiculo.pdf');
+    public function pdf(Auto $auto)
+    {
+
+
+        try {
+
+
+            $dato = Dato::first();
+            //return $auto->marca;die();
+            $pdf = PDF::loadView('admin.autos.pdf', compact('auto', 'dato'));
+            return $pdf->download('vehiculo.pdf');
+        } catch (\Throwable $th) {
+
+            return redirect()->route('datos.index')->with('Error', 'Debe configurar los datos generales de la empresa.');
+        }
     }
 }

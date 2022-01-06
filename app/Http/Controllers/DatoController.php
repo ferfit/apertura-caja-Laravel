@@ -46,6 +46,9 @@ class DatoController extends Controller
             'email' => 'required'
         ]);
 
+        //obtenemos la ruta de la imagen y la almacenamos con el metodo "store"
+        //$ruta_imagen = $request['imagen']->store('datos-generales','public');
+
         try {
             //Creacion
             Dato::create([
@@ -104,6 +107,8 @@ class DatoController extends Controller
             'direccion' => 'required',
             'email' => 'required'
         ]);
+
+
 
         //Actualización
         try {
