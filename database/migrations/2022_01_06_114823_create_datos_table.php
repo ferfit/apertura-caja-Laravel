@@ -20,6 +20,7 @@ class CreateDatosTable extends Migration
             $table->string('telefonowhatsapp');
             $table->string('direccion');
             $table->string('email');
+            $table->string('imagen')->nullable();
             $table->timestamps();
         });
     }

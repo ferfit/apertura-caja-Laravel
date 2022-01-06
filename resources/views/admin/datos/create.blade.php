@@ -14,7 +14,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" action="{{route('datos.store')}}" novalidate>
+            <form method="POST" action="{{route('datos.store')}}" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="card-body">
                 {{-- Nombre --}}
@@ -83,6 +83,15 @@
                     @enderror
                 </div>
 
+                <div class="form-group">
+                    <label for="imagen">Elige una imagén</label>
+                    <input type="file" id="imagen" name="imagen" class="form-control overflow-hidden @error('imagen') is-invalid @enderror">
+                    @error('imagen')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
 
               </div>
               <!-- /.card-body -->

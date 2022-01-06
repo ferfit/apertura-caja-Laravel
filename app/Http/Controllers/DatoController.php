@@ -43,29 +43,31 @@ class DatoController extends Controller
             'telefonofijo' => 'required',
             'telefonowhatsapp' => 'required',
             'direccion' => 'required',
-            'email' => 'required'
+            'email' => 'required',
+            'imagen' => 'nullable'
         ]);
 
         //obtenemos la ruta de la imagen y la almacenamos con el metodo "store"
-        //$ruta_imagen = $request['imagen']->store('datos-generales','public');
+        $ruta_imagen = $request['imagen']->store('datos-generales','public');
 
-        try {
+        /*try {*/
             //Creacion
             Dato::create([
                 'nombre' => $data['nombre'],
                 'telefonofijo' => $data['telefonofijo'],
                 'telefonowhatsapp' => $data['telefonowhatsapp'],
                 'direccion' => $data['direccion'],
-                'email' => $data['email']
+                'email' => $data['email'],
+                'imagen' => $ruta_imagen
 
             ]);
 
             //retorno
             return redirect()->route('datos.index')->with('Creado', 'Los datos se guardaron exitosamente.');
-
+/*
         } catch (\Throwable $th) {
             return redirect()->route('datos.index')->with('Error', 'Hubo un problema al guardar los datos, vuelta a intentarlo.');
-        }
+        }*/
     }
 
     /**

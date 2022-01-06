@@ -12,7 +12,8 @@ class Dato extends Model
         'telefonofijo',
         'telefonowhatsapp',
         'direccion',
-        'email'
+        'email',
+        'imagen'
     ];
 
     use HasFactory;
