@@ -59,6 +59,12 @@
                                 <td>{{$dato->email}}</td>
                             </tr>
 
+                            <tr>
+                                <th>Logo:</th>
+                                <td><img src="/storage/{{ $dato->imagen}}" alt="" class="w-50"></td>
+
+                            </tr>
+
 
                         @endforeach
 
