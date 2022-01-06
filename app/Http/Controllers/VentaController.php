@@ -153,7 +153,7 @@ class VentaController extends Controller
 
             $venta->cliente = $data['cliente'];
             $venta->servicio_id = $data['servicio_id'];
-
+            /*
             if ($venta->medio_pago ==  $data['medio_pago']) {
 
                 //$venta->medio_pago = $data['medio_pago'];
@@ -206,6 +206,7 @@ class VentaController extends Controller
 
 
             }
+            */
 
             $venta->medio_pago = $data['medio_pago'];
 
@@ -234,7 +235,7 @@ class VentaController extends Controller
         $caja = Caja::find($venta->caja_id);
         $caja->total = $caja->total - $venta->precio;
 
-        //Descuenta campo metodo de pago
+        //Descuenta del campo segun metodo de pago
         if ($venta->medio_pago == "Efectivo") {
             $caja->efectivo_caja = $caja->efectivo_caja - $venta->precio;
         }

@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label for="cliente">Cliente</label>
                     <input type="text" autofocus
-                    name="cliente" 
+                    name="cliente"
                     class="form-control @error('cliente') is-invalid @enderror" id="cliente" placeholder="Ingrese un cliente"
                         value="{{old('cliente')}}">
                     @error('cliente')
@@ -37,7 +37,7 @@
                     <select name="servicio_id" id="" class="form-control @error('servicio_id') is-invalid @enderror">
                         <option value="">Seleccione</option>
                         @foreach ($servicios as $servicio)
-                            <option value="{{$servicio->id}}"> 
+                            <option value="{{$servicio->id}}">
                                 {{ $servicio->nombre}}
                             </option>
                         @endforeach
@@ -48,7 +48,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    
+
                 </div>
                 {{-- Medio de pago --}}
                 <div class="form-group">
@@ -67,50 +67,50 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    
+
                 </div>
-                
+
 
                 {{-- Porcentaje --}}
                 <div class="form-group my-5 mx-2">
                     <label for="porcentaje">Porcentaje</label>
                     <input type="number" min="0"
-                    name="porcentaje" 
+                    name="porcentaje"
                     class="form-control @error('porcentaje') is-invalid @enderror" id="porcentaje"
-                    value="">
+                    value="{{old('porcentaje')}}">
                     @error('porcentaje')
                     <span class="invalid-feedback d-block" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
                 </div>
-                
+
                 {{-- Empleado --}}
                 <div class="form-group">
                     <label for="empleado_id">Empleada</label>
-                    
+
                     <select name="empleado_id" id="" class="form-control @error('empleado_id') is-invalid @enderror">
                         <option value="">Seleccione</option>
                         @foreach ($empleados as $empleado)
-                        <option value="{{$empleado->id}}"> 
+                        <option value="{{$empleado->id}}">
                             {{ $empleado->nombre}}
                         </option>
                         @endforeach
                     </select>
-                    
+
                     @error('empleado_id')
                     <span class="invalid-feedback d-block" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    
+
                 </div>
-                
+
                 {{-- Caja --}}
                 <div class="form-group">
                     <label for="caja_id">Caja</label>
 
-                    
+
 
                     @if (count($cajas) == 0)
                         <p class="bg-danger p-1 rounded">Debe abrir una caja</p>
@@ -128,7 +128,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    
+
                 </div>
 
               </div>

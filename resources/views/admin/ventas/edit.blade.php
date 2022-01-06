@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label for="cliente">Cliente</label>
                     <input type="text" autofocus
-                    name="cliente" 
+                    name="cliente"
                     class="form-control @error('cliente') is-invalid @enderror" id="cliente" placeholder="Ingrese un cliente"
                         value="{{ $venta->cliente }}">
                     @error('cliente')
@@ -35,10 +35,10 @@
                 <div class="form-group">
                     <label for="servicio_id">Servicio</label>
 
-                    <select name="servicio_id" id="" class="form-control @error('servicio_id') is-invalid @enderror">
+                    <select name="servicio_id" id="" class="form-control @error('servicio_id') is-invalid @enderror" readonly>
                         <option value="{{$venta->servicio_id}}">{{$venta->servicio->nombre}}</option>
                         @foreach ($servicios as $servicio)
-                            <option value="{{$servicio->id}}"> 
+                            <option value="{{$servicio->id}}">
                                 {{ $servicio->nombre}}
                             </option>
                         @endforeach
@@ -49,13 +49,13 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    
+
                 </div>
                 {{-- Medio de pago --}}
                 <div class="form-group">
                     <label for="medio_pago">Medio de pago</label>
 
-                    <select name="medio_pago" id="" class="form-control @error('medio_pago') is-invalid @enderror">
+                    <select name="medio_pago" id="" class="form-control @error('medio_pago') is-invalid @enderror" readonly>
                         <option value="{{ $venta->medio_pago}}">{{ $venta->medio_pago}}</option>
                         <option value="Efectivo">Efectivo</option>
                         <option value="Debito">Debito</option>
@@ -68,13 +68,13 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    
+
                 </div>
                 {{-- Precio --}}
                 <div class="form-group my-5 mx-2">
                     <label for="precio">Precio</label>
                     <input type="number" min="0"
-                    name="precio" 
+                    name="precio"
                     class="form-control @error('precio') is-invalid @enderror" id="precio"
                     value="{{ $venta->precio }}" readonly>
                     @error('precio')
@@ -83,33 +83,33 @@
                     </span>
                     @enderror
                 </div>
-                
+
                 {{-- Empleado --}}
                 <div class="form-group">
                     <label for="empleado_id">Empleada</label>
-                    
+
                     <select name="empleado_id" id="" class="form-control @error('empleado_id') is-invalid @enderror">
                         <option value="{{ $venta->empleado_id}}">{{ $venta->empleado->nombre}}</option>
                         @foreach ($empleados as $empleado)
-                        <option value="{{$empleado->id}}"> 
+                        <option value="{{$empleado->id}}">
                             {{ $empleado->nombre}}
                         </option>
                         @endforeach
                     </select>
-                    
+
                     @error('empleado_id')
                     <span class="invalid-feedback d-block" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    
+
                 </div>
-                
+
                 {{-- Caja --}}
                 <div class="form-group">
                     <label for="caja_id">Caja</label>
 
-                    
+
 
                     @if (count($cajas) == 0)
                         <p>hola</p>
@@ -127,7 +127,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    
+
                 </div>
 
               </div>
