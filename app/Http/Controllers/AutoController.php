@@ -19,6 +19,7 @@ use App\Models\Tapizado;
 use App\Models\Direccion;
 use App\Models\Valor;
 use App\Models\Permuta;
+use App\Models\Dato;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -261,8 +262,9 @@ class AutoController extends Controller
     }
 
     public function pdf(Auto $auto){
+        $dato = Dato::first();
         //return $auto->marca;die();
-        $pdf= PDF::loadView('admin.autos.pdf',compact('auto'));
+        $pdf= PDF::loadView('admin.autos.pdf',compact('auto','dato'));
         return $pdf->download('vehiculo.pdf');
     }
 }

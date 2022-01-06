@@ -237,7 +237,7 @@ return [
             'route'         => 'dashboard',
             'icon'        => 'fas fa-fw fa-tachometer-alt ',
         ],/*
-        
+
         [
             'text'        => 'Empleadas',
             'url'         => 'empleados',
@@ -298,6 +298,10 @@ return [
                 [
                     'text' => 'Versiones',
                     'url'  => 'versiones',
+                ],
+                [
+                    'text' => 'Generales',
+                    'url'  => 'datos',
                 ],
             ],
         ],

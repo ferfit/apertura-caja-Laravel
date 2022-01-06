@@ -33,12 +33,12 @@
 <body>
 
 
-    <h1>Concesionaria</h1>
+    <h1>{{$dato->nombre}}</h1>
 
-    <h3>Dirección: Juan B. Justo N° 5180 - C.A.B.A.</h3>
-    <h3>Teléfono:4545-9000</h3>
-    <h3>Whatsapp:011-1234-1234</h3>
-    <h3>Email:correo@correo.com</h3>
+    <h3>Dirección: {{$dato->direccion}}</h3>
+    <h3>Teléfono: {{$dato->telefonofijo}}</h3>
+    <h3>Whatsapp: {{$dato->telefonowhatsapp}}</h3>
+    <h3>Email: {{$dato->email}}</h3>
 
     <hr>
 

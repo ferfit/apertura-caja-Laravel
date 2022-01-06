@@ -12,6 +12,7 @@ use App\Http\Controllers\AutoController;
 use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\VersionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DatoController;
 use App\Http\Controllers\Controller;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -85,6 +86,12 @@ Route::resource('modelos', ModeloController::class)->names('modelos');
 |--------------------------------------------------------------------------
 */
 Route::resource('versiones', VersionController::class)->names('versiones');
+/*
+|--------------------------------------------------------------------------
+| Datos Generales
+|--------------------------------------------------------------------------
+*/
+Route::resource('datos', DatoController::class)->names('datos');
 /*
 |--------------------------------------------------------------------------
 | Users
