@@ -16,7 +16,7 @@ class DatoController extends Controller
     {
         $datos = Dato::all();
 
-        return view('admin.datos.index',compact('datos'));
+        return view('admin.datos.index', compact('datos'));
     }
 
     /**
@@ -48,9 +48,9 @@ class DatoController extends Controller
         ]);
 
         //obtenemos la ruta de la imagen y la almacenamos con el metodo "store"
-        $ruta_imagen = $request['imagen']->store('datos-generales','public');
+        $ruta_imagen = $request['imagen']->store('datos-generales', 'public');
 
-        /*try {*/
+        try {
             //Creacion
             Dato::create([
                 'nombre' => $data['nombre'],
@@ -64,10 +64,9 @@ class DatoController extends Controller
 
             //retorno
             return redirect()->route('datos.index')->with('Creado', 'Los datos se guardaron exitosamente.');
-/*
         } catch (\Throwable $th) {
             return redirect()->route('datos.index')->with('Error', 'Hubo un problema al guardar los datos, vuelta a intentarlo.');
-        }*/
+        }
     }
 
     /**
@@ -89,7 +88,7 @@ class DatoController extends Controller
      */
     public function edit(Dato $dato)
     {
-        return view('admin.datos.edit',compact('dato'));
+        return view('admin.datos.edit', compact('dato'));
     }
 
     /**
@@ -107,14 +106,26 @@ class DatoController extends Controller
             'telefonofijo' => 'required',
             'telefonowhatsapp' => 'required',
             'direccion' => 'required',
-            'email' => 'required'
+            'email' => 'required',
+            'imagen' => 'image'
         ]);
 
+       /* try {*/
+            //si el usuario sube una nueva imagen
+            if (request('imagen')) {
+
+                //$imagen_actual = "storage/app/public/datos-generales/".$request['imagen_actual'];
+                //nlink(storage_path('app/public/datos-general/'.$request['imagen_actual']));
+
+                //Storage::delete($imagen_actual);
 
 
-        //Actualización
-        try {
+                $ruta_imagen = $request['imagen']->store('datos-generales', 'public');
+                //asignamos la imagen
+                $dato->imagen = $ruta_imagen;
+            }
 
+            //Actualización
             $dato->nombre = $data['nombre'];
             $dato->telefonofijo = $data['telefonofijo'];
             $dato->telefonowhatsapp = $data['telefonowhatsapp'];
@@ -122,10 +133,10 @@ class DatoController extends Controller
             $dato->email = $data['email'];
             $dato->save();
 
-            return redirect()->route('datos.index')->with('Actualizado','Datos actualizados exitosamente.');
-        } catch (\Throwable $th) {
-            return redirect()->route('datos.index')->with('Error','Hubo un problema al actualizar los datos, vuelva a intentarlo.');
-        }
+            return redirect()->route('datos.index')->with('Actualizado', 'Datos actualizados exitosamente.');
+       /* } catch (\Throwable $th) {
+            return redirect()->route('datos.index')->with('Error', 'Hubo un problema al actualizar los datos, vuelva a intentarlo.');
+        }*/
     }
 
     /**

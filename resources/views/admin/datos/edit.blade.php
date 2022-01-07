@@ -10,90 +10,105 @@
     <div class="container pt-5">
         <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Datos generales de la empresa</h3>
+                <h3 class="card-title">Datos generales de la empresa</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" action="{{route('datos.update',$dato)}}" novalidate>
-              @csrf
-              @method('PUT')
-              <div class="card-body">
-                {{-- Nombre --}}
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" autofocus
-                    name="nombre"
-                    class="form-control @error('nombre') is-invalid @enderror" id="nombre" placeholder="Ingrese un nombre"
-                        value="{{$dato->nombre}}">
-                    @error('nombre')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                {{-- Telefono fijo --}}
-                <div class="form-group">
-                    <label for="telefonofijo">Teléfono fijo</label>
-                    <input type="text" autofocus
-                    name="telefonofijo"
-                    class="form-control @error('telefonofijo') is-invalid @enderror" id="telefonofijo" placeholder="Ingrese su teléfono fijo"
-                        value="{{$dato->telefonofijo}}">
-                    @error('telefonofijo')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                {{-- Telefono fijo --}}
-                <div class="form-group">
-                    <label for="telefonowhatsapp">Whatsapp</label>
-                    <input type="text" autofocus
-                    name="telefonowhatsapp"
-                    class="form-control @error('telefonowhatsapp') is-invalid @enderror" id="telefonowhatsapp" placeholder="Ingrese su teléfono whatsapp"
-                        value="{{$dato->telefonowhatsapp}}">
-                    @error('telefonowhatsapp')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                {{-- Direccion --}}
-                <div class="form-group">
-                    <label for="direccion">Dirección</label>
-                    <input type="text" autofocus
-                    name="direccion"
-                    class="form-control @error('direccion') is-invalid @enderror" id="direccion" placeholder="Ingrese un dirección"
-                        value="{{$dato->direccion}}">
-                    @error('direccion')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                {{-- Email --}}
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" autofocus
-                    name="email"
-                    class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Ingrese un email"
-                        value="{{$dato->email}}">
-                    @error('email')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
+            <form method="POST" action="{{ route('datos.update', $dato) }}" enctype="multipart/form-data" novalidate>
+                @csrf
+                @method('PUT')
+                <div class="card-body">
+                    {{-- Nombre --}}
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" autofocus name="nombre" class="form-control @error('nombre') is-invalid @enderror"
+                            id="nombre" placeholder="Ingrese un nombre" value="{{ $dato->nombre }}">
+                        @error('nombre')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    {{-- Telefono fijo --}}
+                    <div class="form-group">
+                        <label for="telefonofijo">Teléfono fijo</label>
+                        <input type="text" autofocus name="telefonofijo"
+                            class="form-control @error('telefonofijo') is-invalid @enderror" id="telefonofijo"
+                            placeholder="Ingrese su teléfono fijo" value="{{ $dato->telefonofijo }}">
+                        @error('telefonofijo')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    {{-- Telefono fijo --}}
+                    <div class="form-group">
+                        <label for="telefonowhatsapp">Whatsapp</label>
+                        <input type="text" autofocus name="telefonowhatsapp"
+                            class="form-control @error('telefonowhatsapp') is-invalid @enderror" id="telefonowhatsapp"
+                            placeholder="Ingrese su teléfono whatsapp" value="{{ $dato->telefonowhatsapp }}">
+                        @error('telefonowhatsapp')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    {{-- Direccion --}}
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" autofocus name="direccion"
+                            class="form-control @error('direccion') is-invalid @enderror" id="direccion"
+                            placeholder="Ingrese un dirección" value="{{ $dato->direccion }}">
+                        @error('direccion')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    {{-- Email --}}
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" autofocus name="email" class="form-control @error('email') is-invalid @enderror"
+                            id="email" placeholder="Ingrese un email" value="{{ $dato->email }}">
+                        @error('email')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    @if ($dato->imagen)
+                        <div class="form-grup">
+                            <label for="">Imagen actual:</label> <br>
+                            <img src="/storage/{{ $dato->imagen }}" alt="" class="w-50">
+                        </div>
+                    @endif
+
+                    <input type="hidden" value="{{ $dato->imagen }}" name="imagen_actual">
 
 
-              </div>
-              <!-- /.card-body -->
+                    <div class="form-group">
+                        <label for="imagen">Elige una imagén</label>
+                        <input type="file" id="imagen" name="imagen"
+                            class="form-control overflow-hidden @error('imagen') is-invalid @enderror">
+                        @error('imagen')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-              <div class="card-footer">
-                <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1 " ></i>Guardar</button>
-                <a href="{{ route('datos.index')}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a>
-              </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1 "></i>Guardar</button>
+                    <a href="{{ route('datos.index') }}" class="ml-1 btn btn-secondary"> <i
+                            class="fas fa-undo-alt mr-1"></i>Volver</a>
+                </div>
             </form>
-          </div>
+        </div>
     </div>
 @stop
 

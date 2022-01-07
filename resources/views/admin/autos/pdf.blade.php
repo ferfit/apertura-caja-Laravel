@@ -33,6 +33,7 @@
 <body>
 
 
+
     <h1>{{$dato->nombre}}</h1>
 
     <h3>Dirección: {{$dato->direccion}}</h3>
