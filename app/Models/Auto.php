@@ -32,4 +32,10 @@ class Auto extends Model
     ];
 
     use HasFactory;
+
+    //Relacion 1 a muchos
+    public function gastos()
+    {
+        return $this->hasMany('App\Models\Gasto');
+    }
 }

@@ -13,6 +13,7 @@ use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\VersionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DatoController;
+use App\Http\Controllers\GastoController;
 use App\Http\Controllers\Controller;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -117,3 +118,37 @@ Route::get('/pdf/{auto}',  [AutoController::class,'pdf'])->name('autoPdf');
     $pdf= PDF::loadView('admin.autos.pdf');
     return $pdf->stream();
 })->name('pdf'); */
+
+
+/*
+|--------------------------------------------------------------------------
+| Gastos
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/gastos/{auto}', [GastoController::class,'index'])->name('gastos.index');
+Route::get('/gastos/{gasto}/edit/{auto}', [GastoController::class,'edit'])->name('gastos.edit');
+Route::put('/gastos/{gasto}/{auto}', [GastoController::class,'update'])->name('gastos.update');
+Route::delete('/gastos/{gasto}/{auto}', [GastoController::class,'destroy'])->name('gastos.destroy');
+Route::get('/crear/{auto}', [GastoController::class,'create'])->name('gastos.create');
+Route::post('/gastos/{auto}', [GastoController::class,'store'])->name('gastos.store');
+
+
+/*
+|--------------------------------------------------------------------------
+| Storage link
+|--------------------------------------------------------------------------
+*/
+Route::get('/storage-link',function(){
+
+    if(file_exists(public_path('storage'))){
+        return 'el directorio ya existe';
+    }
+
+    app('files')->link(
+        storage_path('app/public'), public_path('storage')
+    );
+
+    return 'directorio creado correctamente.';
+});
+

@@ -33,5 +33,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DireccionSeeder::class);
         $this->call(ValorSeeder::class);
         $this->call(PermutaSeeder::class);
+        $this->call(GastosSeeder::class);
     }
 }

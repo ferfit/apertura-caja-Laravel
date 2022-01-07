@@ -18,6 +18,7 @@
             </tr>
         </thead>
         <tbody>
+
             @foreach ($autos as $auto)
                 <tr>
 
@@ -30,7 +31,7 @@
                     <td>{{ $auto->año }}</td>
                     <td>${{ $auto->precio }}</td>
                     <td>{{ $auto->ciudad }}</td>
-                    <td>{{ $auto->provincia}}</td>
+                    <td>{{ $auto->provincia }}</td>
 
                     <td class="">
                         <div class="row mx-auto">
@@ -38,6 +39,8 @@
                                     class="far fa-eye"></i></a>
                             <a href="{{ route('autos.edit', $auto) }}" class="btn btn-primary mr-2"><i
                                     class="fas fa-edit"></i></a>
+                            <a href="{{ route('gastos.index', $auto) }}" class="btn btn-secondary mr-2"><i
+                                    class="fas fa-search-dollar"></i></a>
 
                             <form action="{{ route('autos.destroy', $auto) }}" method="POST"
                                 class="formulario-eliminar">
@@ -53,11 +56,10 @@
                 </tr>
             @endforeach
 
-
-
         </tbody>
     </table>
     <div class="card-footer clearfix">
+
         {{ $autos->links() }}
     </div>
 </div>
