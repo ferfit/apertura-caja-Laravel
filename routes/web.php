@@ -14,6 +14,7 @@ use App\Http\Controllers\VersionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DatoController;
 use App\Http\Controllers\GastoController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\Controller;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -99,7 +100,6 @@ Route::resource('datos', DatoController::class)->names('datos');
 |--------------------------------------------------------------------------
 */
 Route::resource('users', UserController::class)->names('users');
-
 Route::get('/users/password/{user}',  [UserController::class,'password'])->name('password');
 Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePassword'])->name('updatePassword');
 
@@ -113,27 +113,17 @@ Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePasswo
 
 Route::get('/pdf/{auto}',  [AutoController::class,'pdf'])->name('autoPdf');
 
-
-/* Route::get('/pdf/{auto}', function () {
-    $pdf= PDF::loadView('admin.autos.pdf');
-    return $pdf->stream();
-})->name('pdf'); */
-
-
 /*
 |--------------------------------------------------------------------------
 | Gastos
 |--------------------------------------------------------------------------
 */
-
 Route::get('/gastos/{auto}', [GastoController::class,'index'])->name('gastos.index');
 Route::get('/gastos/{gasto}/edit/{auto}', [GastoController::class,'edit'])->name('gastos.edit');
 Route::put('/gastos/{gasto}/{auto}', [GastoController::class,'update'])->name('gastos.update');
 Route::delete('/gastos/{gasto}/{auto}', [GastoController::class,'destroy'])->name('gastos.destroy');
 Route::get('/crear/{auto}', [GastoController::class,'create'])->name('gastos.create');
 Route::post('/gastos/{auto}', [GastoController::class,'store'])->name('gastos.store');
-
-
 /*
 |--------------------------------------------------------------------------
 | Storage link
@@ -151,4 +141,14 @@ Route::get('/storage-link',function(){
 
     return 'directorio creado correctamente.';
 });
+/*
+|--------------------------------------------------------------------------
+| Files
+|--------------------------------------------------------------------------
+*/
+//Route::resource('files', FileController::class)->names('files');
+
+Route::get('/crear/{auto}/files', [FileController::class,'create'])->name('files.create');
+Route::post('/files/{auto}', [FileController::class,'store'])->name('files.store');
+
 

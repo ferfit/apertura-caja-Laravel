@@ -38,4 +38,9 @@ class Auto extends Model
     {
         return $this->hasMany('App\Models\Gasto');
     }
+    //Relacion 1 a muchos
+    public function files()
+    {
+        return $this->hasMany('App\Models\File');
+    }
 }

@@ -116,7 +116,7 @@ class AutoController extends Controller
 
         try {
             //Creacion
-            Auto::create([
+            $auto = Auto::create([
                 'condicion' => $data['condicion'],
                 'marca' => $data['marca'],
                 'modelo' => $data['modelo'],

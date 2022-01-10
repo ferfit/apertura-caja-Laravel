@@ -41,6 +41,8 @@
                                     class="fas fa-edit"></i></a>
                             <a href="{{ route('gastos.index', $auto) }}" class="btn btn-secondary mr-2"><i
                                     class="fas fa-search-dollar"></i></a>
+                            <a href="{{ route('files.create',$auto) }}" class="btn btn-warning mr-2"><i
+                                    class="far fa-image"></i></a>
 
                             <form action="{{ route('autos.destroy', $auto) }}" method="POST"
                                 class="formulario-eliminar">
