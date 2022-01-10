@@ -7,6 +7,7 @@ use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CajaController;
 use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\GastoController;
 use App\Http\Controllers\Controller;
 
 
@@ -35,25 +36,25 @@ require __DIR__.'/auth.php';
 | Empleados
 |--------------------------------------------------------------------------
 */
-Route::resource('empleados', EmpleadoController::class)->names('empleados'); 
+Route::resource('empleados', EmpleadoController::class)->names('empleados');
 /*
 |--------------------------------------------------------------------------
 | Servicios
 |--------------------------------------------------------------------------
 */
-Route::resource('servicios', ServicioController::class)->names('servicios'); 
+Route::resource('servicios', ServicioController::class)->names('servicios');
 /*
 |--------------------------------------------------------------------------
 | Ventas
 |--------------------------------------------------------------------------
 */
-Route::resource('ventas', VentaController::class)->names('ventas'); 
+Route::resource('ventas', VentaController::class)->names('ventas');
 /*
 |--------------------------------------------------------------------------
 | Caja
 |--------------------------------------------------------------------------
 */
-Route::resource('cajas', CajaController::class)->names('cajas'); 
+Route::resource('cajas', CajaController::class)->names('cajas');
 /*
 |--------------------------------------------------------------------------
 | Reporte
@@ -61,3 +62,9 @@ Route::resource('cajas', CajaController::class)->names('cajas');
 */
 Route::get('/reportes', [ReporteController::class,'reportePorFecha'])->name('reporte');
 Route::post('/reportes-por-fecha', [ReporteController::class,'filtrarRangoFecha'])->name('filtrarRangoFecha');
+/*
+|--------------------------------------------------------------------------
+| Gastos
+|--------------------------------------------------------------------------
+*/
+Route::resource('gastos', GastoController::class)->names('gastos');

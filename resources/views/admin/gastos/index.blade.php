@@ -3,70 +3,48 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1 class="text-center">PANEL DE CONTROL DE CAJAS</h1>
+    <h1 class="text-center">PANEL DE CONTROL DE GASTOS</h1>
 @stop
 
 @section('content')
     <div class="container">
         <div class="card">
             <div class="card-header d-flex justify-content-start align-items-center">
-                <h3 class="card-title mr-3">Cajas</h3>
-                <a href="{{ route('cajas.create') }}" class="btn btn-success mr-2"><i
-                        class="far fa-plus-square mr-1"></i>Abrir caja</a>
+                <h3 class="card-title mr-3">Gastos</h3>
+                <a href="{{ route('gastos.create') }}" class="btn btn-success mr-2"><i
+                        class="far fa-plus-square mr-1"></i>Crear</a>
 
             </div>
-            <!-- tabla ventas -->
-            <div class="card-body table-responsive">
-                <table class="table table-bordered">
+            <!-- /.card-header -->
+            <div class="card-body  table-responsive">
+                <table class="table table-bordered ">
                     <thead>
                         <tr>
-                            <th style="width: 10px">#</th>
-                            <th>Apertura</th>
+                            <th style="width: 10px">Nro</th>
+                            <th>Fecha</th>
                             <th>Nombre</th>
-                            <th>Tarjeta</th>
-                            <th>Efectivo</th>
-                            <th>Gastos</th>
-                            <th>Total</th>
-                            <th>Estado</th>
-                            <th>Cierre</th>
+                            <th>Monto</th>
+                            <th>Caja</th>
                             <th class="col-2">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($cajas as $caja)
+                        @foreach ($gastos as $gasto)
                             <tr>
-                                <td>{{ $caja->id }}</td>
-                                <td>{{ date('d-m-Y', strtotime($caja->created_at)) }}</td>
-                                <td>{{ $caja->nombre }}</td>
-                                <td>${{ $caja->tarjeta }}</td>
-                                <td>${{ $caja->efectivo_caja }}</td>
-                                <td>${{ $caja->gastos->sum('monto') }}</td>
-                                <td>${{ $caja->total - $caja->gastos->sum('monto')  }}</td>
+                                <td>{{ $gasto->id }}</td>
+                                <td>{{ date('d-m-Y', strtotime($gasto->created_at)) }}</td>
+                                <td>{{ $gasto->nombre }}</td>
+                                <td>$ {{ $gasto->monto }}</td>
+                                <td>{{ $gasto->caja->nombre }}</td>
                                 <td>
-                                    @if ($caja->estado == 'abierto')
-                                        <small class="badge badge-success"> {{ $caja->estado }}</small>
-                                    @else
-                                        <small class="badge badge-danger"> {{ $caja->estado }}</small>
-                                    @endif
-                                </td>
-
-                                <td>
-                                    @if ($caja->cierre)
-                                        {{ date('d-m-Y', strtotime($caja->cierre)) }}
-                                    @endif
-                                </td>
-
-                                <td class="">
                                     <div class="row mx-auto">
-                                        <a href="{{ route('cajas.show', $caja) }}" class="btn btn-success mr-2"><i class="far fa-eye"></i></a>
-                                        <a href="{{ route('cajas.edit', $caja) }}" class="btn btn-primary mr-2"><i
+                                        <a href="{{ route('gastos.edit', $gasto) }}" class="btn btn-primary mr-2"><i
                                                 class="fas fa-edit"></i></a>
 
-                                        <form action="{{ route('cajas.destroy', $caja) }}" method="POST"
+                                        <form action="{{ route('gastos.destroy', $gasto) }}" method="POST"
                                             class="formulario-eliminar">
                                             @csrf
-                                            @method('DELETE')
-
+                                            @method('delete')
                                             <button type="submit" class="btn btn-danger">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
@@ -79,16 +57,18 @@
                     </tbody>
                 </table>
             </div>
-
+            <!-- /.card-body -->
             <div class="card-footer clearfix">
-                {{$cajas->links()}}
+                {{$gastos->links()}}
             </div>
         </div>
     </div>
+
+
 @stop
 
 @section('css')
-
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 @stop
 
 @section('js')
@@ -100,7 +80,7 @@
     @if (session('Creado'))
         <script>
             Swal.fire(
-                'Caja abierta!',
+                'Creado!',
                 '{{ session('Creado') }}',
                 'success'
             )
@@ -110,7 +90,7 @@
     @if (session('Actualizado'))
         <script>
             Swal.fire(
-                'Caja cerrada!',
+                'Actualizado!',
                 '{{ session('Actualizado') }}',
                 'success'
             )

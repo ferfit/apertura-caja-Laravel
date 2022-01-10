@@ -48,6 +48,7 @@ class CajaController extends Controller
             Caja::create([
                 'nombre' => $data['nombre'],
                 'efectivo_caja' => $data['efectivo_caja'],
+                'total' => $data['efectivo_caja'],
                 'estado' => 'abierto'
             ]);
 
@@ -103,13 +104,13 @@ class CajaController extends Controller
             $caja->save();
 
             return redirect()->route('cajas.index')->with('Actualizado','Caja cerrada con exito.');
-            
+
         } catch (\Throwable $th) {
-            
+
             return redirect()->route('cajas.index')->with('Error','Hubo un problema al intentar cerrar la caja, vuelta a intentarlo.');
         }
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
@@ -121,13 +122,13 @@ class CajaController extends Controller
         try {
             $caja = Caja::find($caja);
             $caja->first->delete();
-        
+
             return redirect()->route('cajas.index')->with('Borrado','Caja eliminada con exito.');
-            
+
         } catch (\Throwable $th) {
-            
+
             return redirect()->route('cajas.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
         }
-        
+
     }
 }

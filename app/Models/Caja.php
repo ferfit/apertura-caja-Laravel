@@ -18,4 +18,9 @@ class Caja extends Model
     {
         return $this->hasMany('App\Models\Venta');
     }
+
+    public function gastos()
+    {
+        return $this->hasMany('App\Models\Gasto');
+    }
 }

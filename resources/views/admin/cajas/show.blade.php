@@ -12,8 +12,11 @@
             <div class="card-header d-flex justify-content-start align-items-center">
 
             </div>
-            <!-- /.card-header -->
+
+            <!-- tabla ventas -->
+
             <div class="card-body">
+                <p><strong>Ventas:</strong></p>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -40,20 +43,47 @@
 
                         </tr>
                     </tbody>
-                    
+
                 </table>
-                
+
             </div>
+            <!-- tabla gastos -->
+            <div class="card-body col-12 col-md-6">
+                <p><strong>Gastos:</strong></p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Monto</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($caja->gastos as $gasto)
+                            <tr>
+                                <td>{{ $gasto->nombre }}</td>
+                                <td>${{ $gasto->monto }}</td>
+                        @endforeach
+
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
             <div class="card-footer d-flex flex-column justify-content-between">
                 <span class="h3">Tarjeta: ${{$caja->tarjeta}}</span>
                 <span class="h3">Efectivo: ${{$caja->efectivo_caja}}</span>
-                <span class="h2">Total: ${{$caja->total}}</span>
+                <span class="h3">Gastos: ${{$caja->gastos->sum('monto')}}</span>
+                <span class="h2">Total: ${{$caja->total - $caja->gastos->sum('monto') }}</span>
                 <div class="mt-3">
                 <a href="{{ route('cajas.index')}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a></div>
             </div>
 
-            
-            
+
+
         </div>
     </div>
 @stop
