@@ -10,14 +10,12 @@ class Venta extends Model
     use HasFactory;
 
     protected $fillable = [
-        'cliente',
-        'servicio_id',
-        'medio_pago',
-        'precio',
-        'porcentaje',
-        'comision_empleado',
-        'empleado_id',
-        'caja_id'
+        'titulo',
+        'cliente_id',
+        'auto_id',
+        'precio_costo',
+        'precio_venta',
+        'precio_ganancia'
     ];
 
     //Relacion 1:n inversa
@@ -32,6 +30,23 @@ class Venta extends Model
     public function caja(){
         return $this->belongsTo('App\Models\Caja');
     }
+
+
+    //Relación 1 a 1
+    //relación 1 a 1 inversa
+    public function auto()
+    {
+        return $this->belongsTo('App\Models\Auto');
+    }
+    public function cliente()
+    {
+        return $this->belongsTo('App\Models\Cliente');
+    }
+
+    /* public function auto() {
+    return $this->hasOne('App\Models\Auto');
+
+    } */
 }
 
 

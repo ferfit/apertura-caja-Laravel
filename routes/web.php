@@ -150,5 +150,11 @@ Route::get('/storage-link',function(){
 
 Route::get('/crear/{auto}/files', [FileController::class,'create'])->name('files.create');
 Route::post('/files/{auto}', [FileController::class,'store'])->name('files.store');
-
+/*
+|--------------------------------------------------------------------------
+| Vnetas
+|--------------------------------------------------------------------------
+*/
+Route::resource('ventas', VentaController::class)->names('ventas');
+/*
 

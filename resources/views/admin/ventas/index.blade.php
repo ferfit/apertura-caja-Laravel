@@ -22,11 +22,10 @@
                         <tr>
                             <th >Fecha</th>
                             <th>Cliente</th>
-                            <th>Servicio</th>
-                            <th>Metodo Pago</th>
-                            <th>Precio</th>
-                            <th>Porcentaje</th>
-                            <th>Empleada</th>
+                            <th>Auto</th>
+                            <th>Precio Costo</th>
+                            <th>Precio Venta</th>
+                            <th>Ganancia</th>
                             <th class="col-2">Acciones</th>
                         </tr>
                     </thead>
@@ -34,12 +33,11 @@
                         @foreach ($ventas as $venta)
                             <tr>
                                 <td>{{ date('d-m-Y', strtotime($venta->created_at)) }}</td>
-                                <td>{{$venta->cliente}}</td>
-                                <td>{{$venta->servicio->nombre}}</td>
-                                <td>{{$venta->medio_pago}}</td>
-                                <td>${{$venta->precio}}</td>
-                                <td>{{$venta->porcentaje}}%</td>
-                                <td>{{$venta->empleado->nombre}}</td>
+                                <td>{{$venta->cliente->nombre}}</td>
+                                <td>{{$venta->auto->marca}} - {{$venta->auto->modelo}} - {{$venta->auto->version}}</td>
+                                <td>${{$venta->precio_costo}}</td>
+                                <td>${{$venta->precio_venta}}</td>
+                                <td>${{$venta->precio_ganancia}}</td>
                                 <td>
                                     <div class="row mx-auto">
                                         <a href="{{ route('ventas.edit', $venta ) }}" class="btn btn-primary mr-2"><i
@@ -71,7 +69,7 @@
 @stop
 
 @section('css')
-   
+
 @stop
 
 @section('js')
@@ -143,7 +141,7 @@
                         'Your file has been deleted.',
                         'success'
                     ) */
-                
+
                     this.submit();
                 }
 

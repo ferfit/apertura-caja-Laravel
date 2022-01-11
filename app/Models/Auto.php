@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Auto extends Model
 {
 
-    protected $fillable =[
+    protected $fillable = [
         'condicion',
         'marca',
         'modelo',
@@ -43,4 +43,7 @@ class Auto extends Model
     {
         return $this->hasMany('App\Models\File');
     }
+
+
+
 }

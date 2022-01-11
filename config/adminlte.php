@@ -281,6 +281,12 @@ return [
             'label_color' => 'success',
         ],
         [
+            'text'        => 'Ventas',
+            'url'         => 'ventas',
+            'icon'        => 'fas fa-cart-plus',
+            'label_color' => 'success',
+        ],
+        [
             'text'        => 'Usuarios',
             'url'         => 'users',
             'icon'        => 'fas fa-users',

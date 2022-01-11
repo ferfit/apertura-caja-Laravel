@@ -17,131 +17,46 @@
             <form method="POST" action="{{route('ventas.store')}}" novalidate>
               @csrf
               <div class="card-body">
-                {{-- Cliente --}}
+
+
+                {{-- Titulo --}}
                 <div class="form-group">
-                    <label for="cliente">Cliente</label>
+                    <label for="titulo">Titulo o descripción</label>
                     <input type="text" autofocus
-                    name="cliente" 
-                    class="form-control @error('cliente') is-invalid @enderror" id="cliente" placeholder="Ingrese un cliente"
-                        value="{{old('cliente')}}">
-                    @error('cliente')
+                    name="titulo"
+                    class="form-control @error('titulo') is-invalid @enderror" id="titulo" placeholder="Ingrese un título o descripción"
+                        value="{{old('titulo')}}">
+                    @error('titulo')
                     <span class="invalid-feedback d-block" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
                 </div>
-                {{-- Servicio --}}
+                {{-- Cliente --}}
                 <div class="form-group">
-                    <label for="servicio_id">Servicio</label>
+                    <label for="cliente_id">Cliente</label>
 
-                    <select name="servicio_id" id="" class="form-control @error('servicio_id') is-invalid @enderror">
-                        <option value="">Seleccione</option>
-                        @foreach ($servicios as $servicio)
-                            <option value="{{$servicio->id}}"> 
-                                {{ $servicio->nombre}}
+                    <select name="cliente_id" id="" class="form-control @error('cliente_id') is-invalid @enderror">
+                        <option value="">Seleccione un cliente</option>
+                        @foreach ($clientes as $cliente)
+                            <option value="{{$cliente->id}}">
+                                {{ $cliente->nombre}}
                             </option>
                         @endforeach
                     </select>
 
-                    @error('servicio_id')
+                    @error('cliente_id')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    
-                </div>
-                {{-- Medio de pago --}}
-                <div class="form-group">
-                    <label for="medio_pago">Medio de pago</label>
 
-                    <select name="medio_pago" id="" class="form-control @error('medio_pago') is-invalid @enderror">
-                        <option value="">Seleccione</option>
-                        <option value="Efectivo">Efectivo</option>
-                        <option value="Debito">Debito</option>
-                        <option value="Trans MP">Trans MP</option>
-                        <option value="Credito">Credito</option>
-                    </select>
-
-                    @error('medio_pago')
-                        <span class="invalid-feedback d-block" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    
-                </div>
-                {{-- Precio --}}
-                <div class="form-group my-5 mx-2">
-                    <label for="precio">Precio</label>
-                    <input type="number" min="0"
-                    name="precio" 
-                    class="form-control @error('precio') is-invalid @enderror" id="precio"
-                    value="">
-                    @error('precio')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
                 </div>
 
-                {{-- Porcentaje --}}
-                <div class="form-group my-5 mx-2">
-                    <label for="porcentaje">Porcentaje</label>
-                    <input type="number" min="0"
-                    name="porcentaje" 
-                    class="form-control @error('porcentaje') is-invalid @enderror" id="porcentaje"
-                    value="">
-                    @error('porcentaje')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                
-                {{-- Empleado --}}
-                <div class="form-group">
-                    <label for="empleado_id">Empleada</label>
-                    
-                    <select name="empleado_id" id="" class="form-control @error('empleado_id') is-invalid @enderror">
-                        <option value="">Seleccione</option>
-                        @foreach ($empleados as $empleado)
-                        <option value="{{$empleado->id}}"> 
-                            {{ $empleado->nombre}}
-                        </option>
-                        @endforeach
-                    </select>
-                    
-                    @error('empleado_id')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    
-                </div>
-                
-                {{-- Caja --}}
-                <div class="form-group">
-                    <label for="caja_id">Caja</label>
 
-                    
+                @livewire('precio-auto')
 
-                    @if (count($cajas) == 0)
-                        <p class="bg-danger p-1 rounded">Debe abrir una caja</p>
-                    @endif
 
-                    <select name="caja_id" id="" class="form-control @error('caja_id') is-invalid @enderror">
-                        <option value="">Seleccione</option>
-                        @foreach ($cajas as $caja)
-                            <option value="{{$caja->id}}"> {{ $caja->nombre}} </option>
-                        @endforeach
-                    </select>
-
-                    @error('caja_id')
-                        <span class="invalid-feedback d-block" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    
-                </div>
 
               </div>
               <!-- /.card-body -->
@@ -156,7 +71,9 @@
 @stop
 
 @section('css')
+@livewireStyles
 @stop
 
 @section('js')
+@livewireScripts
 @stop

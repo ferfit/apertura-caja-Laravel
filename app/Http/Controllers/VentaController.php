@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Venta;
-use App\Models\Caja;
-use App\Models\Servicio;
+use App\Models\Cliente;
+use App\Models\Auto;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
 
@@ -17,7 +17,7 @@ class VentaController extends Controller
      */
     public function index()
     {
-        $ventas = Venta::orderby('id','DESC')->paginate(10);
+        $ventas = Venta::orderby('id','DESC')->paginate(20);
 
         return view('admin.ventas.index',compact('ventas'));
     }
@@ -29,11 +29,9 @@ class VentaController extends Controller
      */
     public function create()
     {
-        $servicios = Servicio::all();
-        $empleados = Empleado::all();
-        $cajas = Caja::where('estado',1)->get();
+        $clientes = Cliente::all();
 
-        return view('admin.ventas.create',compact('servicios','empleados','cajas'));
+        return view('admin.ventas.create',compact('clientes'));
     }
 
     /**
@@ -43,59 +41,41 @@ class VentaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    
+
     public function store(Request $request)
     {
 
         //Validación
         $data = request()->validate([
-            'cliente' => 'required',
-            'servicio_id' => 'required',
-            'medio_pago' => 'required',
-            'precio' => 'required',
-            'porcentaje' => 'required',
-            'empleado_id' => 'required',
-            'caja_id' => 'required'
+            'titulo' => 'required',
+            'cliente_id' => 'required',
+            'auto_id' => 'required',
+            'precio_costo' => 'required',
+            'precio_venta' => 'required',
+            'ganancia' => 'required'
         ]);
-        
-        try {
+
+        /*try {*/
             //Creacion de venta
             Venta::create([
-                'cliente' => $data['cliente'],
-                'servicio_id' => $data['servicio_id'],
-                'medio_pago' => $data['medio_pago'],
-                'precio' => $data['precio'],
-                'porcentaje' => $data['porcentaje'],
-                'comision_empleado' => ($data['precio']*$data['porcentaje'])/100,
-                'empleado_id' => $data['empleado_id'],
-                'caja_id' => $data['caja_id']
+                'titulo' => $data['titulo'],
+                'cliente_id' => $data['cliente_id'],
+                'auto_id' => $data['auto_id'],
+                'precio_costo' => $data['precio_costo'],
+                'precio_venta' => $data['precio_venta'],
+                'precio_ganancia' => $data['ganancia']
+
             ]);
 
-            //Aumento total caja
-            $caja = Caja::find($data['caja_id']);
-            $caja->total = $caja->total + $data['precio']; 
-                
-            //Aumento efectivo
-            if($data['medio_pago'] == "Efectivo"){
-                $caja->efectivo_caja = $caja->efectivo_caja + $data['precio']; 
-            }
-
-            //Aumento tarjeta
-            if($data['medio_pago'] == "Debito" || $data['medio_pago'] == "Trans MP" || $data['medio_pago'] == "Credito" ){
-                $caja->tarjeta = $caja->tarjeta + $data['precio']; 
-            }
-
-            $caja->save();
-    
             //retorno
             return redirect()->route('ventas.index')->with('Creado', 'La venta se creó exitosamente.');
-           
+/*
         } catch (\Throwable $th) {
             return redirect()->route('ventas.index')->with('Error', 'Hubo un problema al crear la venta, vuelta a intentarlo.');
-        }
-        
-            
-        
+        }*/
+
+
+
     }
 
     /**
@@ -117,11 +97,10 @@ class VentaController extends Controller
      */
     public function edit(Venta $venta)
     {
-        $servicios = Servicio::all();
-        $empleados = Empleado::all();
-        $cajas = Caja::all();
 
-        return view('admin.ventas.edit',compact('servicios','empleados','cajas','venta'));
+        $clientes = Cliente::all();
+
+        return view('admin.ventas.edit',compact('clientes','venta'));
     }
 
     /**
@@ -153,10 +132,10 @@ class VentaController extends Controller
             $venta->caja_id = $data['caja_id'];
 
             $venta->save();
-            
-    
+
+
             return redirect()->route('ventas.index')->with('Actualizado', 'La venta se actualizó exitosamente.');
-            
+
         } catch (\Throwable $th) {
             return redirect()->route('ventas.index')->with('Error', 'Hubo un problema al actualizar la venta, vuelta a intentarlo.');
         }
@@ -174,11 +153,11 @@ class VentaController extends Controller
 
         try {
             $venta->first()->delete();
-    
+
             return redirect()->route('ventas.index')->with('Borrado','La venta se borró exitosamente.');
-            
+
         } catch (\Throwable $th) {
-            
+
             return redirect()->route('ventas.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
         }
     }
