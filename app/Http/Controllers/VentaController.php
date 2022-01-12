@@ -119,22 +119,22 @@ class VentaController extends Controller
     {
         //Validación
         $data = request()->validate([
-            'cliente' => 'required',
-            'servicio_id' => 'required',
-            'medio_pago' => 'required',
-            'precio' => 'required',
-            'empleado_id' => 'required',
-            'caja_id' => 'required'
+            'titulo' => 'required',
+            'cliente_id' => 'required',
+            'auto_id' => 'required',
+            'precio_costo' => 'required',
+            'precio_venta' => 'required',
+            'ganancia' => 'required'
         ]);
 
         try {
             //Actulización de la venta
-            $venta->cliente = $data['cliente'];
-            $venta->servicio_id = $data['servicio_id'];
-            $venta->medio_pago = $data['medio_pago'];
-            $venta->precio = $data['precio'];
-            $venta->empleado_id = $data['empleado_id'];
-            $venta->caja_id = $data['caja_id'];
+            $venta->titulo = $data['titulo'];
+            $venta->cliente_id = $data['cliente_id'];
+            $venta->auto_id = $data['auto_id'];
+            $venta->precio_costo = $data['precio_costo'];
+            $venta->precio_venta = $data['precio_venta'];
+            $venta->precio_ganancia = $data['ganancia'];
 
             $venta->save();
 

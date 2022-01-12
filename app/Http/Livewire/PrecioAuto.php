@@ -31,7 +31,7 @@ class PrecioAuto extends Component
     public function render()
     {
 
-        $autos = Auto::all();
+        $autos = Auto::where('estado','Activado')->get();
 
         return view('livewire.precio-auto', compact('autos'));
 

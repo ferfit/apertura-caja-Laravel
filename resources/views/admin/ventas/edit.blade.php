@@ -55,7 +55,7 @@
                 </div>
 
 
-                @livewire('precio-auto')
+                @livewire('edit-venta',['venta' => $venta])
 
 
 
@@ -63,7 +63,7 @@
               <!-- /.card-body -->
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1 " ></i>Crear</button>
+                <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1 " ></i>Actualizar</button>
                 <a href="{{ route('ventas.index')}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a>
               </div>
             </form>
