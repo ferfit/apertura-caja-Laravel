@@ -125,7 +125,7 @@ class AutoController extends Controller
                 'precio' => $data['precio'],
                 'ciudad' => $data['ciudad'],
                 'provincia' => $data['provincia'],
-                'estado' => 'Desactivado',
+                'estado' => 'Activado',
                 'tipo' => $data['tipo'],
                 'kilometraje' => $data['kilometraje'],
                 'combustible' => $data['combustible'],

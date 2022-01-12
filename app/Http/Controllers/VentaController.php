@@ -57,6 +57,7 @@ class VentaController extends Controller
 
         try {
 
+            //cambio estado del auto
             $auto = Auto::find($data['auto_id']);
             $auto->estado = 'Desactivado';
             $auto->save();
