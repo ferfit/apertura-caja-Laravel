@@ -17,52 +17,55 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th >Fecha</th>
-                            <th>Cliente</th>
-                            <th>Auto</th>
-                            <th>Precio Costo</th>
-                            <th>Precio Venta</th>
-                            <th>Ganancia</th>
-                            <th class="col-2">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($ventas as $venta)
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
                             <tr>
-                                <td>{{ date('d-m-Y', strtotime($venta->created_at)) }}</td>
-                                <td>{{$venta->cliente->nombre}}</td>
-                                <td>{{$venta->auto->marca}} - {{$venta->auto->modelo}} - {{$venta->auto->version}}</td>
-                                <td>${{$venta->precio_costo}}</td>
-                                <td>${{$venta->precio_venta}}</td>
-                                <td>${{$venta->precio_ganancia}}</td>
-                                <td>
-                                    <div class="row mx-auto">
-                                        <a href="{{ route('ventas.edit', $venta ) }}" class="btn btn-primary mr-2"><i
-                                                class="fas fa-edit"></i></a>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Auto</th>
+                                <th>Precio Costo</th>
+                                <th>Precio Venta</th>
+                                <th>Ganancia</th>
+                                <th class="col-2">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($ventas as $venta)
+                                <tr>
+                                    <td>{{ date('d-m-Y', strtotime($venta->created_at)) }}</td>
+                                    <td>{{ $venta->cliente->nombre }}</td>
+                                    <td>{{ $venta->auto->marca }} - {{ $venta->auto->modelo }} - {{ $venta->auto->version }}
+                                    </td>
+                                    <td>${{ $venta->precio_costo }}</td>
+                                    <td>${{ $venta->precio_venta }}</td>
+                                    <td>${{ $venta->precio_ganancia }}</td>
+                                    <td>
+                                        <div class="row mx-auto">
+                                            <a href="{{ route('ventas.edit', $venta) }}" class="btn btn-primary mr-2"><i
+                                                    class="fas fa-edit"></i></a>
 
-                                        <form action="{{ route('ventas.destroy',$venta ) }}" method="POST"
-                                            class="formulario-eliminar">
-                                            @csrf
-                                            @method('DELETE')
+                                            <form action="{{ route('ventas.destroy', $venta) }}" method="POST"
+                                                class="formulario-eliminar">
+                                                @csrf
+                                                @method('DELETE')
 
-                                            <button type="submit" class="btn btn-danger">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                        @endforeach
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                            @endforeach
 
-                        </tr>
-                    </tbody>
-                </table>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer clearfix">
-              {{$ventas->links()}}
+                {{ $ventas->links() }}
             </div>
         </div>
     </div>

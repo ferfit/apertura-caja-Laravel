@@ -3,13 +3,13 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>IMÁGENES</h1>
+    <h1 class="text-center">IMÁGENES</h1>
 @stop
 
 @section('content')
 
 <div class="container">
-<form action="{{route('files.store',$auto)}}" class="dropzone" id="my-great-dropzone" method="POST"></form>
+<form action="{{route('files.store',$auto)}}" class="dropzone shadow" id="my-great-dropzone" method="POST"></form>
 </div>
 
 @livewire('create-file',['auto' => $auto])

@@ -16,43 +16,45 @@
 
             </div>
             <!-- /.card-header -->
-            <div class="card-body table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th class="col-2">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($usuarios as $usuario)
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
                             <tr>
-                                <td>{{ $usuario->name }}</td>
-                                <td>{{ $usuario->email }}</td>
-                                <td>
-                                    <div class="row mx-auto">
-                                        <a href="{{ route('users.edit', $usuario) }}" class="btn btn-primary mr-2"><i
-                                                class="fas fa-edit"></i></a>
-                                        <a href="{{route('password',$usuario)}}" class="btn btn-warning mr-2"><i
-                                                class="fas fa-lock text-white"></i></a>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th class="col-2">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($usuarios as $usuario)
+                                <tr>
+                                    <td>{{ $usuario->name }}</td>
+                                    <td>{{ $usuario->email }}</td>
+                                    <td>
+                                        <div class="row mx-auto">
+                                            <a href="{{ route('users.edit', $usuario) }}" class="btn btn-primary mr-2"><i
+                                                    class="fas fa-edit"></i></a>
+                                            <a href="{{ route('password', $usuario) }}" class="btn btn-warning mr-2"><i
+                                                    class="fas fa-lock text-white"></i></a>
 
-                                        <form action="{{ route('users.destroy', $usuario) }}" method="POST"
-                                            class="formulario-eliminar">
-                                            @csrf
-                                            @method('DELETE')
+                                            <form action="{{ route('users.destroy', $usuario) }}" method="POST"
+                                                class="formulario-eliminar">
+                                                @csrf
+                                                @method('DELETE')
 
-                                            <button type="submit" class="btn btn-danger">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                        @endforeach
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                            @endforeach
 
-                        </tr>
-                    </tbody>
-                </table>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer clearfix">
