@@ -21,7 +21,7 @@
 
                 {{-- Titulo --}}
                 <div class="form-group">
-                    <label for="titulo">Titulo o descripción</label>
+                    <label for="titulo">Titulo o descripción*</label>
                     <input type="text" autofocus
                     name="titulo"
                     class="form-control @error('titulo') is-invalid @enderror" id="titulo" placeholder="Ingrese un título o descripción"
@@ -34,7 +34,7 @@
                 </div>
                 {{-- Cliente --}}
                 <div class="form-group">
-                    <label for="cliente_id">Cliente</label>
+                    <label for="cliente_id">Cliente*</label>
 
                     <select name="cliente_id" id="" class="form-control @error('cliente_id') is-invalid @enderror">
                         <option value="">Seleccione un cliente</option>

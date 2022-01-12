@@ -19,7 +19,7 @@
                 <div class="card-body row">
                     {{-- condicion --}}
                     <div class="form-group col-12 col-md-4 col-xl-3">
-                        <label for="condicion">Condición</label>
+                        <label for="condicion">Condición*</label>
 
                         <select name="condicion" id="" class="form-control @error('condicion') is-invalid @enderror">
                             <option value="">Seleccione</option>
@@ -37,7 +37,7 @@
                     </div>
                     {{-- Marca --}}
                     <div class="form-group col-12 col-md-4 col-xl-3">
-                        <label for="marca">Marca</label>
+                        <label for="marca">Marca*</label>
 
                         <select name="marca" id="" class="form-control @error('marca') is-invalid @enderror">
                             <option value="">Seleccione</option>
@@ -55,7 +55,7 @@
                     </div>
                     {{-- Modelo --}}
                     <div class="form-group col-12 col-md-4 col-xl-3">
-                        <label for="modelo">Modelo</label>
+                        <label for="modelo">Modelo*</label>
 
                         <select name="modelo" id="" class="form-control @error('modelo') is-invalid @enderror">
                             <option value="">Seleccione</option>
@@ -73,7 +73,7 @@
                     </div>
                     {{-- Version --}}
                     <div class="form-group col-12 col-md-4 col-xl-3">
-                        <label for="version">Versión</label>
+                        <label for="version">Versión*</label>
 
                         <select name="version" id="" class="form-control @error('version') is-invalid @enderror">
                             <option value="">Seleccione</option>
@@ -91,7 +91,7 @@
                     </div>
                     {{-- año --}}
                     <div class="form-group col-12 col-md-4 col-xl-3">
-                        <label for="año">Año</label>
+                        <label for="año">Año*</label>
 
                         <select name="año" id="" class="form-control @error('año') is-invalid @enderror">
                             <option value="">Seleccione</option>
@@ -110,7 +110,7 @@
 
                     {{-- Precio Costo --}}
                     <div class="form-group col-12 col-md-4 col-xl-3">
-                        <label for="preciocosto">Precio Costo</label>
+                        <label for="preciocosto">Precio Costo*</label>
                         <input type="number" name="preciocosto" class="form-control @error('preciocosto') is-invalid @enderror"
                             id="preciocosto" value="">
                         @error('preciocosto')
@@ -121,7 +121,7 @@
                     </div>
                     {{-- Precio --}}
                     <div class="form-group col-12 col-md-4 col-xl-3">
-                        <label for="precio">Precio Venta</label>
+                        <label for="precio">Precio Venta*</label>
                         <input type="number" name="precio" class="form-control @error('precio') is-invalid @enderror"
                             id="precio" value="">
                         @error('precio')
@@ -134,7 +134,7 @@
 
                     {{-- Ciudades --}}
                     <div class="form-group col-12 col-md-4 col-xl-3">
-                        <label for="ciudad">Ciudad</label>
+                        <label for="ciudad">Ciudad*</label>
 
                         <select name="ciudad" id="" class="form-control @error('ciudad') is-invalid @enderror">
                             <option value="">Seleccione</option>
@@ -152,7 +152,7 @@
                     </div>
                     {{-- Provincia --}}
                     <div class="form-group col-12 col-md-4 col-xl-3">
-                        <label for="provincia">Provincia</label>
+                        <label for="provincia">Provincia*</label>
 
                         <select name="provincia" id="" class="form-control @error('provincia') is-invalid @enderror">
                             <option value="">Seleccione</option>

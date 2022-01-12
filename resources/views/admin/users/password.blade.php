@@ -17,11 +17,11 @@
             <form method="POST" action="{{ route('updatePassword',$user) }}" novalidate>
                 @csrf
                 @method('PUT')
-                
+
                 {{-- Contraseña --}}
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="password">Contraseña nueva</label>
+                        <label for="password">Contraseña nueva*</label>
                         <input type="password" autofocus password="password" name="password" class="form-control @error('password') is-invalid @enderror"
                             id="password" placeholder="Ingrese un nombre" value="">
                         @error('password')

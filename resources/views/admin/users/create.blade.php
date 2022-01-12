@@ -18,7 +18,7 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="name">Nombre</label>
+                        <label for="name">Nombre*</label>
                         <input type="text" autofocus name="name" class="form-control @error('name') is-invalid @enderror"
                             id="name" placeholder="Ingrese un nombre" value="{{ old('name') }}">
                         @error('name')
@@ -31,7 +31,7 @@
                 {{-- Email --}}
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">Email*</label>
                         <input type="email" autofocus email="email" name="email" class="form-control @error('email') is-invalid @enderror"
                             id="email" placeholder="Ingrese un nombre" value="{{ old('email') }}">
                         @error('email')
@@ -44,7 +44,7 @@
                 {{-- contraseña --}}
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="password">Contraseña</label>
+                        <label for="password">Contraseña*</label>
                         <input type="password" autofocus password="password" name="password" class="form-control @error('password') is-invalid @enderror"
                             id="password" placeholder="Ingrese una contraseña" value="{{ old('password') }}">
                         @error('password')

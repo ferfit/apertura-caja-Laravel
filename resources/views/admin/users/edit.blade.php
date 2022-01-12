@@ -19,7 +19,7 @@
                 @method('PUT')
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="name">Nombre</label>
+                        <label for="name">Nombre*</label>
                         <input type="text" autofocus name="name" class="form-control @error('name') is-invalid @enderror"
                             id="name" placeholder="Ingrese un nombre" value="{{ $user->name }}">
                         @error('name')
@@ -32,7 +32,7 @@
                 {{-- Email --}}
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">Email*</label>
                         <input type="email" autofocus email="email" name="email" class="form-control @error('email') is-invalid @enderror"
                             id="email" placeholder="Ingrese un nombre" value="{{ $user->email }}">
                         @error('email')

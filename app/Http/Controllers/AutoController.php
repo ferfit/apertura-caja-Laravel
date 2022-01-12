@@ -98,7 +98,6 @@ class AutoController extends Controller
             'año' => 'required',
             'precio' => 'required',
             'preciocosto' => 'required',
-            'precio' => 'required',
             'ciudad' => 'required',
             'provincia' => 'required',
             'tipo' => 'nullable',

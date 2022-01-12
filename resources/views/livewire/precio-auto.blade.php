@@ -1,7 +1,7 @@
 <div>
     {{-- Auto --}}
     <div class="form-group">
-        <label for="auto_id">Auto</label>
+        <label for="auto_id">Auto*</label>
 
         <select name="auto_id" id="" class="form-control @error('auto_id') is-invalid @enderror" wire:model="carro">
             <option value="">Seleccione un auto</option>
@@ -22,7 +22,7 @@
 
     {{-- Precio Costo --}}
     <div class="form-group my-5 mx-2">
-        <label for="precio_costo">Precio Costo</label>
+        <label for="precio_costo">Precio Costo*</label>
         <input type="number" min="0"
         name="precio_costo"
         class="form-control @error('precio_costo') is-invalid @enderror" id="precio_costo"
@@ -37,7 +37,7 @@
 
     {{-- Precio Venta --}}
     <div class="form-group my-5 mx-2">
-        <label for="precio_venta">Precio Venta</label>
+        <label for="precio_venta">Precio Venta*</label>
         <input type="number" min="0"
         name="precio_venta"
         class="form-control @error('precio_venta') is-invalid @enderror" id="precio_venta"
