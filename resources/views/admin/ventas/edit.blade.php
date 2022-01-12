@@ -55,7 +55,7 @@
                 </div>
 
 
-                @livewire('precio-auto',['venta'=>$venta])
+                @livewire('precio-auto')
 
 
 

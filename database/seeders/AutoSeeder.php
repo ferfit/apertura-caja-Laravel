@@ -24,7 +24,8 @@ class AutoSeeder extends Seeder
             'preciocosto' =>'200000',
             'precio'=>'1340000',
             'ciudad'=>'Reconquista',
-            'provincia'=>'Santa Fe'
+            'provincia'=>'Santa Fe',
+            'estado' => 'Activado'
         ]);
         $auto = Auto::create([
             'condicion'=>'Usado',
@@ -35,7 +36,8 @@ class AutoSeeder extends Seeder
             'preciocosto' =>'300000',
             'precio'=>'800000',
             'ciudad'=>'Tigre',
-            'provincia'=>'Buenos Aires'
+            'provincia'=>'Buenos Aires',
+            'estado' => 'Activado'
         ]);
         $auto = Auto::create([
             'condicion'=>'Usado',
@@ -46,7 +48,8 @@ class AutoSeeder extends Seeder
             'preciocosto' =>'400000',
             'precio'=>'1500000',
             'ciudad'=>'Tigre',
-            'provincia'=>'Buenos Aires'
+            'provincia'=>'Buenos Aires',
+            'estado' => 'Activado'
         ]);
         $auto = Auto::create([
             'condicion'=>'0 km',
@@ -57,7 +60,8 @@ class AutoSeeder extends Seeder
             'preciocosto' =>'500000',
             'precio'=>'800000',
             'ciudad'=>'Reconquista',
-            'provincia'=>'Santa Fe'
+            'provincia'=>'Santa Fe',
+            'estado' => 'Activado'
         ]);
     }
 }

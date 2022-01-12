@@ -55,7 +55,12 @@ class VentaController extends Controller
             'ganancia' => 'required'
         ]);
 
-        /*try {*/
+        try {
+
+            $auto = Auto::find($data['auto_id']);
+            $auto->estado = 'Desactivado';
+            $auto->save();
+
             //Creacion de venta
             Venta::create([
                 'titulo' => $data['titulo'],
@@ -69,10 +74,10 @@ class VentaController extends Controller
 
             //retorno
             return redirect()->route('ventas.index')->with('Creado', 'La venta se creó exitosamente.');
-/*
+
         } catch (\Throwable $th) {
             return redirect()->route('ventas.index')->with('Error', 'Hubo un problema al crear la venta, vuelta a intentarlo.');
-        }*/
+        }
 
 
 

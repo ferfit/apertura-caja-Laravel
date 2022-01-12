@@ -18,6 +18,7 @@ class Auto extends Model
         'preciocosto',
         'ciudad',
         'provincia',
+        'estado',
         'tipo',
         'kilometraje',
         'combustible',
