@@ -97,6 +97,53 @@
         </div>
 
     </div>
+
+
+
+    <h5 class="mb-2 mt-3">Estadística mensual</h5>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">COSTO</span>
+              <span class="info-box-number">{{$totalCostoMensual}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">VENTAS</span>
+              <span class="info-box-number">{{$totalVentasMensual}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">GANANCIA</span>
+              <span class="info-box-number">{{$totalGananciaMensual}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- /.col -->
+      </div>
 @stop
 
 @section('css')
