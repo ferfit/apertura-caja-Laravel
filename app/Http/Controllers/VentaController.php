@@ -19,10 +19,11 @@ class VentaController extends Controller
     public function index()
     {
         $hoy = today();
+        $hoy2 =  Carbon::now();
 
         $ventas = Venta::orderby('id', 'DESC')->whereDate('created_at', '=', Carbon::now())->paginate(20);
 
-        return view('admin.ventas.index', compact('ventas', 'hoy'));
+        return view('admin.ventas.index', compact('ventas', 'hoy','hoy2'));
     }
 
     /**
@@ -231,8 +232,13 @@ class VentaController extends Controller
     public function destroy(Venta $venta)
     {
 
+        try {
+
         //Descuenta del total de caja
         $caja = Caja::find($venta->caja_id);
+
+
+
         $caja->total = $caja->total - $venta->precio;
 
         //Descuenta del campo segun metodo de pago
@@ -250,7 +256,7 @@ class VentaController extends Controller
         //Elimina venta
         $venta = Venta::find($venta);
 
-        try {
+
             $venta->first()->delete();
 
             return redirect()->route('ventas.index')->with('Borrado', 'La venta se borró exitosamente.');

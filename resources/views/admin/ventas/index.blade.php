@@ -13,6 +13,7 @@
                 <h3 class="card-title mr-3">Ventas</h3>
                 <a href="{{ route('ventas.create') }}" class="btn btn-success mr-2"><i
                         class="far fa-plus-square mr-1"></i>Crear</a>
+                        {{$hoy}} - {{$hoy2}}
 
             </div>
             <!-- /.card-header -->
@@ -20,7 +21,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            
+
                             <th >Nro</th>
                             <th >Fecha</th>
                             <th>Cliente</th>
@@ -74,7 +75,7 @@
 @stop
 
 @section('css')
-   
+
 @stop
 
 @section('js')
@@ -82,6 +83,34 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script>
+        $('.formulario-eliminar').submit(function(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Estas seguro?',
+                text: "No podras revertir esto.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, Borrar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    /* Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    ) */
+
+                    this.submit();
+                }
+
+            })
+
+        });
+    </script>
 
     @if (session('Creado'))
         <script>
@@ -126,34 +155,7 @@
     @endif
 
 
-    <script>
-        $('.formulario-eliminar').submit(function(e) {
-            e.preventDefault();
 
-            Swal.fire({
-                title: 'Estas seguro?',
-                text: "No podras revertir esto.",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, Borrar!',
-                cancelButtonText: 'Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    /* Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    ) */
-                
-                    this.submit();
-                }
-
-            })
-
-        });
-    </script>
 
 
 
