@@ -254,12 +254,10 @@ class VentaController extends Controller
 
 
         //Elimina venta
-        $venta = Venta::find($venta);
+        $venta->delete();
 
+        return redirect()->route('ventas.index')->with('Borrado', 'La venta se borró exitosamente.');
 
-            $venta->first()->delete();
-
-            return redirect()->route('ventas.index')->with('Borrado', 'La venta se borró exitosamente.');
         } catch (\Throwable $th) {
 
             return redirect()->route('ventas.index')->with('Error', 'Hubo un problema, vuelva a intentarlo.');
