@@ -30,7 +30,7 @@
                             @foreach ($gastos as $gasto)
                                 <tr>
                                     <td>{{ $gasto->nombre }}</td>
-                                    <td>$ {{ $gasto->monto }}</td>
+                                    <td>$ {{ number_format($gasto->monto , 2, ",", ".")   }}</td>
                                     <td>
                                         <div class="row mx-auto">
                                             <a href="{{route('gastos.edit',[$gasto,$auto])}}" class="btn btn-primary mr-2"><i class="fas fa-edit"></i></a>

@@ -37,9 +37,10 @@
                                     <td>{{ $venta->cliente->nombre }}</td>
                                     <td>{{ $venta->auto->marca }} - {{ $venta->auto->modelo }} - {{ $venta->auto->version }}
                                     </td>
-                                    <td>${{ $venta->precio_costo }}</td>
-                                    <td>${{ $venta->precio_venta }}</td>
-                                    <td>${{ $venta->precio_ganancia }}</td>
+                                    <td>${{ number_format($venta->precio_costo, 2, ",", ".") }}</td>
+
+                                    <td>${{  number_format($venta->precio_venta, 2, ",", ".")  }}</td>
+                                    <td>${{  number_format($venta->precio_ganancia , 2, ",", ".") }}</td>
                                     <td>
                                         <div class="row mx-auto">
                                             <a href="{{ route('ventas.edit', $venta) }}" class="btn btn-primary mr-2"><i

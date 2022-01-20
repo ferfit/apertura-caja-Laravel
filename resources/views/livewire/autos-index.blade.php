@@ -29,7 +29,7 @@
                     <td>{{ $auto->modelo }}</td>
                     <td>{{ $auto->version }}</td>
                     <td>{{ $auto->año }}</td>
-                    <td>${{ $auto->precio }}</td>
+                    <td>${{ number_format($auto->precio , 2, ",", ".")  }}</td>
                     <td>{{ $auto->ciudad }}</td>
                     <td>{{ $auto->provincia }}</td>
 

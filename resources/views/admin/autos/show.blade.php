@@ -40,11 +40,11 @@
                         </div>
                         <div class="col-6 col-xl-3">
                             <dt>Precio Compra</dt>
-                            <dd>${{ $auto->preciocosto }}</dd>
+                            <dd>${{ number_format($auto->preciocosto , 2, ",", ".")  }}</dd>
                         </div>
                         <div class="col-6 col-xl-3">
                             <dt>Precio Venta</dt>
-                            <dd>${{ $auto->precio }}</dd>
+                            <dd>${{ number_format($auto->precio , 2, ",", ".")  }}</dd>
                         </div>
                         <div class="col-6 col-xl-3">
                             <dt>Ciudad</dt>
