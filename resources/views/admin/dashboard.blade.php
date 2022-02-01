@@ -8,61 +8,107 @@
 @stop
 
 @section('content')
+    <h5 class="mb-2 mt-3">Estadística mensual</h5>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box" style="border-right: 2px solid #007bff">
+                <span class="info-box-icon p-2 "><img src="{{ asset('/imagenes/Compras.png') }}" alt=""></span>
+
+                <div class="info-box-content text-center">
+                    <span class="info-box-text"><strong>COMPRAS</strong></span>
+                    <span class="info-box-number" style="font-size: 30px;color:#007bff;">{{ $totalCostoMensual }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box" style="border-right: 2px solid #007bff">
+                <span class="info-box-icon p-2"><img src="{{ asset('/imagenes/Ventas.png') }}" alt=""></span>
+
+                <div class="info-box-content text-center">
+                    <span class="info-box-text"><strong>Ventas</strong></span>
+                    <span class="info-box-number" style="font-size: 30px;color:#007bff;">{{ $totalVentasMensual }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box" style="border-right: 2px solid #007bff">
+                <span class="info-box-icon p-2"><img src="{{ asset('/imagenes/Ganancias.png') }}" alt=""></span>
+
+                <div class="info-box-content text-center">
+                    <span class="info-box-text"><strong>Ganancia</strong></span>
+                    <span class="info-box-number"
+                        style="font-size: 30px;color:#007bff;">{{ $totalGananciaMensual }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- /.col -->
+    </div>
+    <h5 class="mb-2 mt-5">Módulos Generales</h5>
     <div class="row ">
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box" style="border-right: 2px solid #007bff">
                 <div class="inner">
                     <h3>{{ count($clientes) }}</h3>
 
-                    <p>Clientes</p>
+                    <p><strong>Clientes</strong></p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
                 </div>
-                <a href="{{ route('clientes.index') }}" class="small-box-footer">Más info <i
+                <a href="{{ route('clientes.index') }}" class="small-box-footer bg-primary">Más info <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box" style="border-right: 2px solid #007bff">
                 <div class="inner">
                     <h3>{{ count($autos) }}</h3>
 
-                    <p>Autos</p>
+                    <p><strong>Autos</strong></p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="{{ route('autos.index') }}" class="small-box-footer">Más info <i
+                <a href="{{ route('autos.index') }}" class="small-box-footer bg-primary">Más info <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box " style="border-right: 2px solid #007bff">
                 <div class="inner">
                     <h3>{{ count($usuarios) }}</h3>
 
-                    <p>Usuarios</p>
+                    <p><strong>Usuarios</strong></p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="{{ route('users.index') }}" class="small-box-footer">Más info <i
+                <a href="{{ route('users.index') }}" class="small-box-footer bg-primary">Más info <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-5">
 
         <!-- /.col -->
         <div class="col-md-6">
-            <div class="card card-danger">
+            <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Stock parado</h3>
 
@@ -85,7 +131,7 @@
 
                     @else
 
-                    <p>No hay registros de stock parado...</p>
+                        <p>No hay registros de stock parado...</p>
 
                     @endif
 
@@ -100,50 +146,7 @@
 
 
 
-    <h5 class="mb-2 mt-3">Estadística mensual</h5>
-    <div class="row">
-        <div class="col-md-3 col-sm-6 col-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
 
-            <div class="info-box-content">
-              <span class="info-box-text">COSTO</span>
-              <span class="info-box-number">{{$totalCostoMensual}}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">VENTAS</span>
-              <span class="info-box-number">{{$totalVentasMensual}}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">GANANCIA</span>
-              <span class="info-box-number">{{$totalGananciaMensual}}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-
-        <!-- /.col -->
-      </div>
 @stop
 
 @section('css')
