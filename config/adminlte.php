@@ -298,6 +298,10 @@ return [
             'icon'    => 'fas fa-cogs',
             'submenu' => [
                 [
+                    'text' => 'Marcas',
+                    'url'  => 'marcas'
+                ],
+                [
                     'text' => 'Modelos',
                     'url'  => 'modelos'
                 ],

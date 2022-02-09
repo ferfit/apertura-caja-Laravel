@@ -15,6 +15,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DatoController;
 use App\Http\Controllers\GastoController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\Controller;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -152,9 +153,16 @@ Route::get('/crear/{auto}/files', [FileController::class,'create'])->name('files
 Route::post('/files/{auto}', [FileController::class,'store'])->name('files.store');
 /*
 |--------------------------------------------------------------------------
-| Vnetas
+| Ventas
 |--------------------------------------------------------------------------
 */
 Route::resource('ventas', VentaController::class)->names('ventas');
+/*
+/*
+|--------------------------------------------------------------------------
+| Marcas
+|--------------------------------------------------------------------------
+*/
+Route::resource('marcas', MarcaController::class)->names('marcas');
 /*
 

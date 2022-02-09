@@ -14,7 +14,7 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.marcas.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.marcas.create');
     }
 
     /**
@@ -35,7 +35,25 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validación
+        $data = request()->validate([
+            'nombre' => 'required'
+        ]);
+
+
+
+        try {
+            //Crear modelo
+            Marca::create([
+                'nombre' => $data['nombre']
+            ]);
+
+            //Redirección
+            return redirect()->route('marcas.index')->with('Creado', 'Marca creada exitosamente.');
+
+        } catch (\Throwable $th) {
+            return redirect()->route('marcas.index')->with('Error', 'Hubo un problema al crear la marca, vuelta a intentarlo.');
+        }
     }
 
     /**
@@ -57,7 +75,7 @@ class MarcaController extends Controller
      */
     public function edit(Marca $marca)
     {
-        //
+        return view('admin.marcas.edit',compact('marca'));
     }
 
     /**
@@ -69,7 +87,24 @@ class MarcaController extends Controller
      */
     public function update(Request $request, Marca $marca)
     {
-        //
+        //Validación
+        $data = request()->validate([
+            'nombre' => 'required'
+        ]);
+
+
+
+        try {
+            //Actualiza modelo
+            $marca->nombre = $data['nombre'];
+            $marca->save();
+
+            //Redirección
+            return redirect()->route('marcas.index')->with('Actualizado', 'marca actualizada exitosamente.');
+
+        } catch (\Throwable $th) {
+            return redirect()->route('marcas.index')->with('Error', 'Hubo un error al actualización la marca, vuelta a intentarlo.');
+        }
     }
 
     /**
@@ -80,6 +115,12 @@ class MarcaController extends Controller
      */
     public function destroy(Marca $marca)
     {
-        //
+        try {
+            $marca->delete();
+            return redirect()->route('marcas.index')->with('Borrado','Marca borrada exitosamente.');
+
+        } catch (\Throwable $th) {
+            return redirect()->route('marcas.index')->with('Error','Hubo un problema, vuelta a intentarlo.');
+        }
     }
 }
