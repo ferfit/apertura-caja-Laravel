@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         <div class="card">
             <div class="card-header d-flex justify-content-start align-items-center">
                 <h3 class="card-title mr-3">Modelos</h3>

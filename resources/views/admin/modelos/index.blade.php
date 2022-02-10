@@ -7,8 +7,8 @@
 @stop
 
 @section('content')
-    <div class="container-fluid">
-        <div class="card">
+    <div class="container">
+        <div class="card shadow-sm">
             <div class="card-header d-flex justify-content-start align-items-center">
                 <h3 class="card-title mr-3">Modelos</h3>
                 <a href="{{ route('modelos.create') }}" class="btn btn-success mr-2"><i
