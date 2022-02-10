@@ -67,8 +67,8 @@
                 <div class="icon">
                     <i class="ion ion-bag"></i>
                 </div>
-                <a href="{{ route('clientes.index') }}" class="small-box-footer bg-primary" style="color:white !important;">Más info <i
-                        class="fas fa-arrow-circle-right text-white"></i></a>
+                <a href="{{ route('clientes.index') }}" class="small-box-footer bg-primary"
+                    style="color:white !important;">Más info <i class="fas fa-arrow-circle-right text-white"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -83,8 +83,8 @@
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="{{ route('autos.index') }}" class="small-box-footer bg-primary" style="color:white !important;">Más info <i
-                        class="fas fa-arrow-circle-right text-white"></i></a>
+                <a href="{{ route('autos.index') }}" class="small-box-footer bg-primary"
+                    style="color:white !important;">Más info <i class="fas fa-arrow-circle-right text-white"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -99,8 +99,8 @@
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="{{ route('users.index') }}" class="small-box-footer bg-primary" style="color:white !important;">Más info <i
-                        class="fas fa-arrow-circle-right text-white"></i></a>
+                <a href="{{ route('users.index') }}" class="small-box-footer bg-primary"
+                    style="color:white !important;">Más info <i class="fas fa-arrow-circle-right text-white"></i></a>
             </div>
         </div>
     </div>
@@ -145,9 +145,9 @@
 
     </div>
 
-    <div class="row my-5">
+    <div class="row mt-5">
 
-        <div class="col-4">
+        <div class="col-12 col-md- 6 col-lg-4">
             <div class="card card-primary card-outline shadow">
                 <div class="card-header">
                     <h3 class="card-title">
@@ -173,7 +173,7 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-md- 6 col-lg-4">
             <div class="card card-primary card-outline shadow">
                 <div class="card-header">
                     <h3 class="card-title">
@@ -199,7 +199,7 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 col-md- 6 col-lg-4">
             <div class="card card-primary card-outline shadow">
                 <div class="card-header">
                     <h3 class="card-title">
