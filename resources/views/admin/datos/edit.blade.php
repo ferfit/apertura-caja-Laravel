@@ -77,6 +77,8 @@
                         @enderror
                     </div>
 
+                    <hr>
+
                     @if ($dato->imagen)
                         <div class="form-grup">
                             <label for="">Imagen actual:</label> <br>

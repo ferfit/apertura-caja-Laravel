@@ -110,7 +110,7 @@ class DatoController extends Controller
             'imagen' => 'image'
         ]);
 
-       /* try {*/
+       try {
             //si el usuario sube una nueva imagen
             if (request('imagen')) {
 
@@ -134,9 +134,9 @@ class DatoController extends Controller
             $dato->save();
 
             return redirect()->route('datos.index')->with('Actualizado', 'Datos actualizados exitosamente.');
-       /* } catch (\Throwable $th) {
+        } catch (\Throwable $th) {
             return redirect()->route('datos.index')->with('Error', 'Hubo un problema al actualizar los datos, vuelva a intentarlo.');
-        }*/
+        }
     }
 
     /**
