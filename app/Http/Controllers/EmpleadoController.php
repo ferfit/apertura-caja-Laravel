@@ -90,7 +90,7 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
-        //Validación 
+        //Validación
         $data = request()->validate([
             'nombre' => 'required'
         ]);
@@ -99,7 +99,7 @@ class EmpleadoController extends Controller
             //Actualizar empleado
             $empleado->nombre = $data['nombre'];
             $empleado->save();
-            
+
             //Redirección
             return redirect()->route('empleados.index')->with('Actualizado', 'Empleado actualizado exitosamente.');
 
@@ -117,12 +117,8 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        $empleado = Empleado::find($empleado);
-
-        
-        
         try {
-            $empleado->first()->delete();
+            $empleado->delete();
             return redirect()->route('empleados.index')->with('Borrado','Empleado borrado exitosamente.');
 
         } catch (\Throwable $th) {

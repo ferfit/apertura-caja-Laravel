@@ -14,7 +14,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" action="{{ route('servicios.store') }}" novalidate>
+            <form method="POST" id="formulario" action="{{ route('servicios.store') }}" novalidate>
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
@@ -46,7 +46,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1"></i>Crear</button>
+                    <button type="submit" id="btnForm" class="btn btn-success"><i class="far fa-check-square mr-1"></i>Crear</button>
                     <a href="{{ route('servicios.index') }}" class="ml-1 btn btn-secondary"> <i
                             class="fas fa-undo-alt mr-1"></i>Volver</a>
                 </div>
@@ -59,4 +59,5 @@
 @stop
 
 @section('js')
+    @include('includes.btnForm')
 @stop

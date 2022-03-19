@@ -14,7 +14,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" action="{{route('ventas.update',$venta)}}" novalidate>
+            <form method="POST" id="formulario" action="{{route('ventas.update',$venta)}}" novalidate>
               @csrf
               @method('PUT')
               <div class="card-body">
@@ -134,7 +134,7 @@
               <!-- /.card-body -->
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1"></i>Actualizar</button>
+                <button type="submit" id="btnForm" class="btn btn-success"><i class="far fa-check-square mr-1"></i>Actualizar</button>
                 <a href="{{ route('ventas.index')}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a>
               </div>
             </form>
@@ -146,4 +146,5 @@
 @stop
 
 @section('js')
+    @include('includes.btnForm')
 @stop

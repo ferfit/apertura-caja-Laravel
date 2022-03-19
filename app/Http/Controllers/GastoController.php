@@ -131,10 +131,8 @@ class GastoController extends Controller
      */
     public function destroy(Gasto $gasto)
     {
-        $gasto = Gasto::find($gasto);
-
         try {
-            $gasto->first()->delete();
+            $gasto->delete();
             return redirect()->route('gastos.index')->with('Borrado','Gasto borrado exitosamente.');
 
         } catch (\Throwable $th) {

@@ -43,7 +43,7 @@ class ServicioController extends Controller
             'precio' => 'required'
         ]);
 
-        
+
         //Crea servicios
         try {
             Servicio::create([
@@ -117,20 +117,19 @@ class ServicioController extends Controller
      */
     public function destroy(Servicio $servicio)
     {
-        $servicio = Servicio::find($servicio);
-        
+
         try {
 
-            $servicio->first()->delete();
-        
+            $servicio->delete();
+
             return redirect()->route('servicios.index')->with('Borrado','El servicio se borró exitosamente.');
 
         } catch (\Throwable $th) {
-            
+
             return redirect()->route('servicios.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
 
         }
-        
+
 
     }
 }

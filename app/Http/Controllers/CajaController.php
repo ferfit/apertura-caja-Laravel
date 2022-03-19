@@ -120,8 +120,7 @@ class CajaController extends Controller
     public function destroy(Caja $caja)
     {
         try {
-            $caja = Caja::find($caja);
-            $caja->first->delete();
+            $caja->delete();
 
             return redirect()->route('cajas.index')->with('Borrado','Caja eliminada con exito.');
 

@@ -36,35 +36,35 @@ require __DIR__.'/auth.php';
 | Empleados
 |--------------------------------------------------------------------------
 */
-Route::resource('empleados', EmpleadoController::class)->names('empleados');
+Route::resource('empleados', EmpleadoController::class)->middleware(['auth'])->names('empleados');
 /*
 |--------------------------------------------------------------------------
 | Servicios
 |--------------------------------------------------------------------------
 */
-Route::resource('servicios', ServicioController::class)->names('servicios');
+Route::resource('servicios', ServicioController::class)->middleware(['auth'])->names('servicios');
 /*
 |--------------------------------------------------------------------------
 | Ventas
 |--------------------------------------------------------------------------
 */
-Route::resource('ventas', VentaController::class)->names('ventas');
+Route::resource('ventas', VentaController::class)->middleware(['auth'])->names('ventas');
 /*
 |--------------------------------------------------------------------------
 | Caja
 |--------------------------------------------------------------------------
 */
-Route::resource('cajas', CajaController::class)->names('cajas');
+Route::resource('cajas', CajaController::class)->middleware(['auth'])->names('cajas');
 /*
 |--------------------------------------------------------------------------
 | Reporte
 |--------------------------------------------------------------------------
 */
-Route::get('/reportes', [ReporteController::class,'reportePorFecha'])->name('reporte');
-Route::post('/reportes-por-fecha', [ReporteController::class,'filtrarRangoFecha'])->name('filtrarRangoFecha');
+Route::get('/reportes', [ReporteController::class,'reportePorFecha'])->middleware(['auth'])->name('reporte');
+Route::post('/reportes-por-fecha', [ReporteController::class,'filtrarRangoFecha'])->middleware(['auth'])->name('filtrarRangoFecha');
 /*
 |--------------------------------------------------------------------------
 | Gastos
 |--------------------------------------------------------------------------
 */
-Route::resource('gastos', GastoController::class)->names('gastos');
+Route::resource('gastos', GastoController::class)->middleware(['auth'])->names('gastos');
