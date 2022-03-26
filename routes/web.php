@@ -16,6 +16,7 @@ use App\Http\Controllers\DatoController;
 use App\Http\Controllers\GastoController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\InicioController;
 use App\Http\Controllers\Controller;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -31,9 +32,9 @@ use Barryvdh\DomPDF\Facade as PDF;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [InicioController::class, 'index'] )->name('inicio');
+Route::post('/lista-de-autos-filtrado', [InicioController::class, 'buscador'] )->name('lista-de-autos-filtrado');
+Route::get('/lista-de-autos', [InicioController::class, 'listadoDeAutos'] )->name('listado-de-autos');
 
 Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth'])->name('dashboard');
 

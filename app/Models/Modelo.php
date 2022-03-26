@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Modelo extends Model
 {
-    protected $fillable=['nombre'];
+    protected $fillable=['nombre','marca_id'];
     use HasFactory;
 }

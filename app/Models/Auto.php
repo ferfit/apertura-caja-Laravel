@@ -45,6 +45,23 @@ class Auto extends Model
         return $this->hasMany('App\Models\File');
     }
 
+    //Query Scope
+
+    public function scopeMarca($query,$marca)
+    {
+        if($marca) return $query->where('marca','=',$marca);
+    }
+
+    public function scopeModelo($query,$modelo)
+    {
+        if($modelo) return $query->where('modelo','=',$modelo);
+    }
+
+    public function scopeCondicion($query,$condicion)
+    {
+        if($condicion) return $query->where('condicion','=',$condicion);
+    }
+
 
 
 }
