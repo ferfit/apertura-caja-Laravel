@@ -8961,6 +8961,9 @@ form.listing_page_v9{
   opacity: 1;
 }
 /*== Testimonials Grid ==*/
+.fondoColor{
+    background-color: #EEF2F6;
+}
 .testimonial_item .thumb{
   margin-bottom: 30px;
   text-align: center;

@@ -81,10 +81,7 @@
                                 <li class="list-inline-item"><a href="#"><span class="fab fa-twitter"></span></a></li>
                                 <li class="list-inline-item"><a href="#"><span class="fab fa-instagram"></span></a></li>
                                 <li class="list-inline-item"><a href="#"><span class="fab fa-linkedin"></span></a></li>
-                                <li class="list-inline-item"><a href="#" data-bs-toggle="modal"
-                                        data-bs-target="#logInModal">Login</a></li>
-                                <li class="list-inline-item"><a href="#" data-bs-toggle="modal"
-                                        data-bs-target="#logInModal">Register</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -110,104 +107,20 @@
                         <img class="logo2 img-fluid" src="images/header-logo2.svg" alt="header-logo2.svg">
                     </a>
                     <!-- Responsive Menu Structure-->
-                    <ul id="respMenu" class="ace-responsive-menu menu_list_custom_code wa text-end"
-                        data-menu-style="horizontal">
-                        <li> <a href="#"><span class="title">Home</span></a>
-                            <!-- Level Two-->
-                            <ul>
-                                <li><a href="index.html">Home V1</a></li>
-                                <li><a href="index2.html">Home V2</a></li>
-                                <li><a href="index3.html">Home V3</a></li>
-                                <li><a href="index4.html">Home V4</a></li>
-                                <li><a href="index5.html">Home V5</a></li>
-                                <li><a href="index6.html">Home V6</a></li>
-                                <li><a href="index7.html">Home V7</a></li>
-                            </ul>
+                    <ul id="respMenu" class="ace-responsive-menu text-end" data-menu-style="horizontal">
+                        <li> <a href="{{route('inicio')}}"><span class="title">Inicio</span></a>
+
                         </li>
-                        <li> <a href="#"><span class="title">Explore</span></a>
-                            <!-- Level Two-->
-                            <ul>
-                                <li> <a href="#">User Info</a>
-                                    <ul>
-                                        <li><a href="page-dashboard.html">Dashboard</a></li>
-                                        <li><a href="page-dashboard-profile.html">Profile</a></li>
-                                        <li><a href="page-dashboard-listing.html">My Listing</a></li>
-                                        <li><a href="page-dashboard-favorites.html">Favorites</a></li>
-                                        <li><a href="page-dashboard-add-listings.html">Add Listing</a></li>
-                                        <li><a href="page-dashboard-messages.html">Messages</a></li>
-                                        <li><a href="page-login.html">Logout</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="page-user-profile.html">User Profile</a></li>
-                            </ul>
+                        <li> <a href="{{route('lista-de-autos')}}"><span class="title">Listado</span></a>
+
                         </li>
-                        <li> <a href="#"><span class="title">Listing</span></a>
-                            <ul>
-                                <li> <a href="#">Listing Styles</a>
-                                    <ul>
-                                        <li><a href="page-list-v1.html">Listing v1</a></li>
-                                        <li><a href="page-list-v2.html">Listing v2</a></li>
-                                        <li><a href="page-list-v3.html">Listing v3</a></li>
-                                        <li><a href="page-list-v4.html">Listing v4</a></li>
-                                        <li><a href="page-list-v5.html">Listing v5</a></li>
-                                        <li><a href="page-list-v6.html">Listing v6</a></li>
-                                        <li><a href="page-list-v7.html">Listing v7</a></li>
-                                    </ul>
-                                </li>
-                                <li> <a href="#">Listing Map</a>
-                                    <ul>
-                                        <li><a href="page-list-v8.html">Map v1</a></li>
-                                        <li><a href="page-list-v9.html">Map v2</a></li>
-                                        <li><a href="page-list-v10.html">Map v3</a></li>
-                                    </ul>
-                                </li>
-                                <li> <a href="#">Listing Single</a>
-                                    <ul>
-                                        <li><a href="page-car-single-v1.html">Single V1</a></li>
-                                        <li><a href="page-car-single-v2.html">Single V2</a></li>
-                                        <li><a href="page-car-single-v3.html">Single V3</a></li>
-                                        <li><a href="page-car-single-v4.html">Single V4</a></li>
-                                        <li><a href="page-car-single-v5.html">Single V5</a></li>
-                                        <li><a href="page-car-single-v6.html">Single V6</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="page-dashboard-add-listings.html">New Listing</a></li>
-                            </ul>
+                        <li> <a href="#"><span class="title">Calculadora</span></a>
+
                         </li>
-                        <li> <a href="#"><span class="title">Blog</span></a>
-                            <ul>
-                                <li><a href="page-blog-grid.html">Blog Grid</a></li>
-                                <li><a href="page-blog-list.html">Blog List</a></li>
-                                <li><a href="page-blog-single.html">Blog Single</a></li>
-                            </ul>
+                        <li> <a href="{{route('contacto')}}"><span class="title">Contacto</span></a>
+
                         </li>
-                        <li> <a href="#"><span class="title">Shop</span></a>
-                            <ul>
-                                <li><a href="page-shop.html">Shop</a></li>
-                                <li><a href="page-shop-cart.html">Cart</a></li>
-                                <li><a href="page-shop-checkout.html">Checkout</a></li>
-                                <li><a href="page-shop-complete-order.html">Complete Order</a></li>
-                                <li><a href="page-shop-single.html">Single</a></li>
-                                <li><a href="page-user-profile.html">User Profile</a></li>
-                            </ul>
-                        </li>
-                        <li> <a href="#"><span class="title">Pages</span></a>
-                            <ul>
-                                <li><a href="page-about.html">About Us</a></li>
-                                <li><a href="page-calculator.html">Calculator</a></li>
-                                <li><a href="page-compare.html">Compare</a></li>
-                                <li><a href="page-contact.html">Contact</a></li>
-                                <li><a href="page-error.html">404 Page</a></li>
-                                <li><a href="page-faq.html">Faq</a></li>
-                                <li><a href="page-login.html">Login</a></li>
-                                <li><a href="page-pricing.html">Pricing</a></li>
-                                <li><a href="page-register.html">Register</a></li>
-                                <li><a href="page-service.html">Service</a></li>
-                                <li><a href="page-terms.html">Terms and Conditions</a></li>
-                                <li><a href="page-ui-element.html">UI Elements</a></li>
-                            </ul>
-                        </li>
-                        <li class="add_listing"><a href="page-dashboard-add-listings.html">+ Add Listing</a></li>
+
                         <li class="sidebar_panel"><a class="sidebar_switch pt0" href="#"><span></span></a></li>
                     </ul>
                 </div>
@@ -229,98 +142,17 @@
             <!-- /.mobile-menu -->
             <nav id="menu" class="stylehome1">
                 <ul>
-                    <li><span>Home</span>
-                        <ul>
-                            <li><a href="index.html">Home V1</a></li>
-                            <li><a href="index2.html">Home V2</a></li>
-                            <li><a href="index3.html">Home V3</a></li>
-                            <li><a href="index4.html">Home V4</a></li>
-                            <li><a href="index5.html">Home V5</a></li>
-                            <li><a href="index6.html">Home V6</a></li>
-                            <li><a href="index7.html">Home V7</a></li>
-                        </ul>
+                    <li><span class="text-white">Inicio</span>
+
                     </li>
-                    <li><span>Explore</span>
-                        <ul>
-                            <li><span>User Dashboard</span>
-                                <ul>
-                                    <li><a href="page-dashboard.html">Dashboard</a></li>
-                                    <li><a href="page-dashboard-profile.html">Profile</a></li>
-                                    <li><a href="page-dashboard-listing.html">My Listing</a></li>
-                                    <li><a href="page-dashboard-favorites.html">Favorites</a></li>
-                                    <li><a href="page-dashboard-add-listings.html">Add Listing</a></li>
-                                    <li><a href="page-dashboard-messages.html">Messages</a></li>
-                                    <li><a href="page-login.html">Login</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="page-user-profile.html">User Profile</a></li>
-                        </ul>
+                    <li><span class="text-white">Listado</span>
+
                     </li>
-                    <li><span>Listings</span>
-                        <ul>
-                            <li><span>Listing Styles</span>
-                                <ul>
-                                    <li><a href="page-list-v1.html">Lising V1</a></li>
-                                    <li><a href="page-list-v2.html">Lising V2</a></li>
-                                    <li><a href="page-list-v3.html">Lising V3</a></li>
-                                    <li><a href="page-list-v4.html">Lising V4</a></li>
-                                    <li><a href="page-list-v5.html">Lising V5</a></li>
-                                    <li><a href="page-list-v6.html">Lising V6</a></li>
-                                    <li><a href="page-list-v7.html">Lising V7</a></li>
-                                </ul>
-                            </li>
-                            <li><span>Listing Map</span>
-                                <ul>
-                                    <li><a href="page-list-v8.html">Map V1</a></li>
-                                    <li><a href="page-list-v9.html">Map V2</a></li>
-                                    <li><a href="page-list-v10.html">Map V3</a></li>
-                                </ul>
-                            </li>
-                            <li><span>Listing Single</span>
-                                <ul>
-                                    <li><a href="page-car-single-v1.html">Single V1</a></li>
-                                    <li><a href="page-car-single-v2.html">Single V2</a></li>
-                                    <li><a href="page-car-single-v3.html">Single V3</a></li>
-                                    <li><a href="page-car-single-v4.html">Single V4</a></li>
-                                    <li><a href="page-car-single-v5.html">Single V5</a></li>
-                                    <li><a href="page-car-single-v6.html">Single V6</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="page-dashboard-add-listings.html">Add Listing</a></li>
-                        </ul>
+                    <li><span class="text-white">Calculadora</span>
+
                     </li>
-                    <li><span>Blog</span>
-                        <ul>
-                            <li><a href="page-blog-grid.html">Blog Grid</a></li>
-                            <li><a href="page-blog-list.html">Blog List</a></li>
-                            <li><a href="page-blog-single.html">Blog Single</a></li>
-                        </ul>
-                    </li>
-                    <li><span>Shop</span>
-                        <ul>
-                            <li><a href="page-shop.html">Shop</a></li>
-                            <li><a href="page-shop-cart.html">Shop Cart</a></li>
-                            <li><a href="page-shop-checkout.html">Shop Checkout</a></li>
-                            <li><a href="page-shop-complete-order.html">Order Completed</a></li>
-                            <li><a href="page-shop-single.html">Shop Single</a></li>
-                            <li><a href="page-user-profile.html">User Profile</a></li>
-                        </ul>
-                    </li>
-                    <li><span>Pages</span>
-                        <ul>
-                            <li><a href="page-about.html">About Us</a></li>
-                            <li><a href="page-calculator.html">Loan Calculator</a></li>
-                            <li><a href="page-compare.html">Compare</a></li>
-                            <li><a href="page-contact.html">Contact</a></li>
-                            <li><a href="page-error.html">Error</a></li>
-                            <li><a href="page-faq.html">Faq</a></li>
-                            <li><a href="page-login.html">Login</a></li>
-                            <li><a href="page-pricing.html">Pricing Table</a></li>
-                            <li><a href="page-register.html">Sign up</a></li>
-                            <li><a href="page-service.html">Service</a></li>
-                            <li><a href="page-terms.html">Terms & Condition</a></li>
-                            <li><a href="page-ui-element.html">UI Elements</a></li>
-                        </ul>
+                    <li><span class="text-white">Contacto</span>
+
                     </li>
                     <!-- Only for Mobile View -->
                     <li class="mm-add-listing">
@@ -349,8 +181,8 @@
         <!-- Inner Page Breadcrumb -->
         <section class="advance_search_menu_sectn bgc-thm2 pt20 pb0 mt70-992">
             <div class="container">
-                <form action="{{route('lista-de-autos-filtrado')}}" method="POST">
-                    @csrf
+                <form action="{{route('lista-de-autos')}}">
+
                     <div class="row">
                         <div class="col col-sm-4 col-lg-2">
                             <div class="advance_search_style">
@@ -589,9 +421,9 @@
                     <div class="listing_filter_row db-767">
                         <div class="col-md-4">
                             <div class="page_control_shorting left_area tac-sm mb30-767 mt15">
-                                <p>Encontramos <span class="heading-color fw600">{{ $total }}</span> Autos
+                               {{--  <p>Encontramos <span class="heading-color fw600">{{ }} </span> Autos
                                     disponibles
-                                    para ti</p>
+                                    para ti</p> --}}
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -614,6 +446,7 @@
                     </div>
                 </div>
                 <div class="row">
+
                     @foreach ($autos as $auto)
                         <div class="col-sm-6 col-lg-4 col-xl-3">
                             <div class="car-listing">

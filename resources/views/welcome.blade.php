@@ -81,10 +81,7 @@
                                 <li class="list-inline-item"><a href="#"><span class="fab fa-twitter"></span></a></li>
                                 <li class="list-inline-item"><a href="#"><span class="fab fa-instagram"></span></a></li>
                                 <li class="list-inline-item"><a href="#"><span class="fab fa-linkedin"></span></a></li>
-                                <li class="list-inline-item"><a href="#" data-bs-toggle="modal"
-                                        data-bs-target="#logInModal">Login</a></li>
-                                <li class="list-inline-item"><a href="#" data-bs-toggle="modal"
-                                        data-bs-target="#logInModal">Register</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -114,13 +111,13 @@
                         <li> <a href="#"><span class="title">Inicio</span></a>
 
                         </li>
-                        <li> <a href="{{route('listado-de-autos')}}"><span class="title">Listado</span></a>
+                        <li> <a href="{{route('lista-de-autos')}}"><span class="title">Listado</span></a>
 
                         </li>
                         <li> <a href="#"><span class="title">Calculadora</span></a>
 
                         </li>
-                        <li> <a href="#"><span class="title">Contacto</span></a>
+                        <li> <a href="{{route('contacto')}}"><span class="title">Contacto</span></a>
 
                         </li>
 
@@ -130,104 +127,7 @@
             </nav>
         </header>
         <!-- Modal -->
-        <div class="sign_up_modal modal fade" id="logInModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body container p60">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <ul class="sign_up_tab nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home"
-                                            role="tab" aria-controls="home" aria-selected="true">Login</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile"
-                                            role="tab" aria-controls="profile" aria-selected="false">Register</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="tab-content container p0" id="myTabContent">
-                            <div class="row mt30 tab-pane fade show active" id="home" role="tabpanel"
-                                aria-labelledby="home-tab">
-                                <div class="col-lg-12">
-                                    <div class="login_form">
-                                        <p>New to Cars.com? <a href="page-register.html">Sign up.</a> Are you a dealer?
-                                        </p>
-                                        <form action="#">
-                                            <div class="mb-2 mr-sm-2">
-                                                <label class="form-label">Username or email address *</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                            <div class="form-group mb5">
-                                                <label class="form-label">Password *</label>
-                                                <input type="password" class="form-control">
-                                            </div>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="exampleCheck3">
-                                                <label class="custom-control-label" for="exampleCheck3">Remember
-                                                    me</label>
-                                                <a class="btn-fpswd float-end" href="#">Lost your password?</a>
-                                            </div>
-                                            <button type="submit" class="btn btn-log btn-thm mt5">Sign in</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt30 tab-pane fade" id="profile" role="tabpanel"
-                                aria-labelledby="profile-tab">
-                                <div class="col-lg-12">
-                                    <div class="sign_up_form">
-                                        <p>Already have a profile? <a href="page-login.html">Sign in.</a></p>
-                                        <form action="#">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">First Name</label>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Last Name</label>
-                                                        <input type="text" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Email</label>
-                                                        <input type="email" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group mb20">
-                                                        <label class="form-label">Password</label>
-                                                        <input type="password" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group mb20">
-                                                        <label class="form-label">Confirm Password</label>
-                                                        <input type="password" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-signup btn-thm mb0">Sign Up</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Main Header Nav For Mobile -->
         <div id="page" class="stylehome1 h0">
@@ -292,8 +192,8 @@
                                 </h2>
                                 <p class="para">Encuentra tu próxima coincidencia.</p>
                             </div>
-                            <form action="{{route('lista-de-autos-filtrado')}}" method="POST">
-                                @csrf
+                            <form action="{{route('lista-de-autos')}}">
+
                                 <div class="advance_search_panel">
                                     <div class="row">
                                         <div class="col-lg-12">
@@ -386,7 +286,7 @@
                         data-wow-delay="0.1s">
                         <div class="category_item">
                             <div class="thumb">
-                                <img src="images/category-item/1.png" alt="1.png">
+                                <img src="{{asset('images/tipoAutos/compact.png')}}" alt="1.png">
                             </div>
                             <div class="details">
                                 <p class="title"><a href="page-car-single-v1.html">Compact</a></p>
@@ -397,7 +297,7 @@
                         data-wow-delay="0.3s">
                         <div class="category_item">
                             <div class="thumb">
-                                <img src="images/category-item/2.png" alt="2.png">
+                                <img src="{{asset('images/tipoAutos/sedan.png')}}" alt="2.png">
                             </div>
                             <div class="details">
                                 <p class="title"><a href="page-car-single-v1.html">Sedan</a></p>
@@ -408,7 +308,7 @@
                         data-wow-delay="0.5s">
                         <div class="category_item">
                             <div class="thumb">
-                                <img src="images/category-item/3.png" alt="3.png">
+                                <img src="{{asset('images/tipoAutos/suv.png')}}" alt="3.png">
                             </div>
                             <div class="details">
                                 <p class="title"><a href="page-car-single-v1.html">SUV</a></p>
@@ -419,7 +319,7 @@
                         data-wow-delay="0.7s">
                         <div class="category_item">
                             <div class="thumb">
-                                <img src="images/category-item/4.png" alt="4.png">
+                                <img src="{{asset('images/tipoAutos/convertible.png')}}" alt="4.png">
                             </div>
                             <div class="details">
                                 <p class="title"><a href="page-car-single-v1.html">Convertible</a></p>
@@ -429,7 +329,7 @@
                     <div class="col-md-4 col-lg col-xl wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.9s">
                         <div class="category_item">
                             <div class="thumb">
-                                <img src="images/category-item/5.png" alt="5.png">
+                                <img src="{{asset('images/tipoAutos/coupe.png')}}" alt="5.png">
                             </div>
                             <div class="details">
                                 <p class="title"><a href="page-car-single-v1.html">Coupe</a></p>
@@ -492,7 +392,7 @@
                                                     <div class="wrapper">
                                                         <h5 class="price">${{$auto->precio}}</h5>
                                                         <h6 class="title"><a
-                                                              href="page-car-single-v1.html">{{$auto->marca}}</a>
+                                                              href="page-car-single-v1.html">{{$auto->marca}} - {{$auto->modelo}}</a>
                                                         </h6>
                                                         <div class="listign_review">
 
@@ -523,7 +423,7 @@
                 <div class="row mt20">
                     <div class="col-lg-12">
                         <div class="text-center">
-                            <a href="page-list-v1.html" class="more_listing">Ver todos los autos <span
+                            <a href="{{route('lista-de-autos')}}" class="more_listing">Ver todos los autos <span
                                     class="icon"><span class="fas fa-plus"></span></span></a>
                         </div>
                     </div>
@@ -547,7 +447,7 @@
                             <div class="icon float-start"><span class="flaticon-price-tag"></span></div>
                             <div class="details">
                                 <h5 class="title">Mejor precio</h5>
-                                <p>Nuestro departamento de finanzas puede encontrar soluciones financieras para ahorrarle dinero.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vel rerum vero maiores, doloremque dolores.</p>
                             </div>
                         </div>
                     </div>
@@ -555,9 +455,8 @@
                         <div class="why_chose_us">
                             <div class="icon float-start style2"><span class="flaticon-car"></span></div>
                             <div class="details">
-                                <h5 class="title">Trusted By Thousands</h5>
-                                <p>Our stress-free finance department that can find financial solutions to save you
-                                    money.</p>
+                                <h5 class="title">Confiado por miles</h5>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime omnis perspiciatis eum hic, delectus ut.</p>
                             </div>
                         </div>
                     </div>
@@ -565,9 +464,8 @@
                         <div class="why_chose_us">
                             <div class="icon float-start style3"><span class="flaticon-trust"></span></div>
                             <div class="details">
-                                <h5 class="title">Wide Range of Brands</h5>
-                                <p>Our stress-free finance department that can find financial solutions to save you
-                                    money.</p>
+                                <h5 class="title">Amplia gama de marcas</h5>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis ratione optio provident. Pariatur, fugiat minima.</p>
                             </div>
                         </div>
                     </div>
@@ -582,21 +480,19 @@
                     <div class="col-lg-12">
                         <div class="posr">
                             <div class="home1_divider_video_pop">
-                                <div class="video_popup_icon">
-                                    <a class="video_popup_btn popup-img popup-youtube"
+                                {{-- <div class="video_popup_icon">
+                                    {{-- <a class="video_popup_btn popup-img popup-youtube"
                                         href="https://www.youtube.com/watch?v=R7xbhKIiw4Y">
                                         <span class="flaticon-play"></span>
-                                    </a>
-                                </div>
+                                    </a> --}}
+                                </div> --}}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-9 col-xl-5">
                         <div class="home1_divider_content">
-                            <h2 class="title">We Make Finding The Right Car Simple</h2>
-                            <p class="para">At Voiture what matters to us is making your car search and
-                                buying experience as simple as possible, so you can find the right car quickly and get
-                                on with making it yours.</p>
+                            <h2 class="title">Lorem ipsum dolor sit amet consectetur</h2>
+                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae adipisci possimus molestias nemo amet doloremque in itaque voluptatem magnam, beatae ipsum delectus neque facere nisi debitis dolorem. Reprehenderit, unde necessitatibus?.</p>
                         </div>
                     </div>
                 </div>
@@ -604,7 +500,7 @@
         </section>
 
         <!-- Our Popular Listing -->
-        <section class="popular-listing pb80 bg-ptrn1 bgc-heading-color">
+        {{-- <section class="popular-listing pb80 bg-ptrn1 bgc-heading-color">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 offset-lg-3">
@@ -860,17 +756,17 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- Funfact -->
-        <section class="our-funfact pt50 pb30">
+        <section class="our-funfact pt50 pb30 fondoColor">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                         <div class="funfact_one text-center">
                             <div class="details">
                                 <div class="timer">27600</div>
-                                <p class="ff_title">CARS FOR SALE</p>
+                                <p class="ff_title">COCHES EN VENTA</p>
                             </div>
                         </div>
                     </div>
@@ -878,7 +774,7 @@
                         <div class="funfact_one text-center">
                             <div class="details">
                                 <div class="timer">6500</div>
-                                <p class="ff_title">DEALER REVIEWS</p>
+                                <p class="ff_title">VENTAS</p>
                             </div>
                         </div>
                     </div>
@@ -886,7 +782,7 @@
                         <div class="funfact_one text-center">
                             <div class="details">
                                 <div class="timer">8230</div>
-                                <p class="ff_title">VISITORS PER DAY</p>
+                                <p class="ff_title">VISITANTES POR DÍA</p>
                             </div>
                         </div>
                     </div>
@@ -894,7 +790,7 @@
                         <div class="funfact_one text-center">
                             <div class="details">
                                 <div class="timer">5250</div>
-                                <p class="ff_title">VERIFIED DEALERS</p>
+                                <p class="ff_title">DISTRIBUIDORES VERIFICADOS</p>
                             </div>
                         </div>
                     </div>
@@ -902,202 +798,93 @@
             </div>
         </section>
 
-        <!-- Testimonials  -->
-        <section class="our-testimonials-home1 pt120 pb120">
-            <div class="container">
+
+
+        <!-- Our Blog -->
+        <section class="featured-product">
+            <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="main-title text-center">
-                            <h2>Testimonials</h2>
+                            <h2>Autos más recientes</h2>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row p-0">
                     <div class="col-lg-12">
-                        <div class="testimonial_slider_home1">
-                            <div class="item">
-                                <div class="testimonial_box">
-                                    <div class="thumb">
-                                        <img class="rounded-circle" src="images/testimonial/1.png" alt="1.png">
-                                        <h4 class="title">Marvin McKinney <br><small>Marketing
-                                                Coordinator</small></h4>
-                                    </div>
-                                    <div class="details">
-                                        <div class="icon"><span class="fa fa-quote-left"></span></div>
-                                        <p>Aliquam lorem ante, dapibus in, viverra nisi quis, feugiat a, tellus.
-                                            Phasellus viverra deo nulla ut metus varius qui laoreet. Quisque sum rutrum.
-                                            Aenean imperdiet. Etiam ultricies cum sociis.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimonial_box">
-                                    <div class="thumb">
-                                        <img class="rounded-circle" src="images/testimonial/2.png" alt="2.png">
-                                        <h4 class="title">Brooklyn Simmons <br><small>President of
-                                                Sales</small></h4>
-                                    </div>
-                                    <div class="details">
-                                        <div class="icon"><span class="fa fa-quote-left"></span></div>
-                                        <p>Aliquam lorem ante, dapibus in, viverra nisi quis, feugiat a, tellus.
-                                            Phasellus viverra deo nulla ut metus varius qui laoreet. Quisque sum rutrum.
-                                            Aenean imperdiet. Etiam ultricies cum sociis.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimonial_box">
-                                    <div class="thumb">
-                                        <img class="rounded-circle" src="images/testimonial/1.png" alt="1.png">
-                                        <h4 class="title">Marvin McKinney <br><small>Marketing
-                                                Coordinator</small></h4>
-                                    </div>
-                                    <div class="details">
-                                        <div class="icon"><span class="fa fa-quote-left"></span></div>
-                                        <p>Aliquam lorem ante, dapibus in, viverra nisi quis, feugiat a, tellus.
-                                            Phasellus viverra deo nulla ut metus varius qui laoreet. Quisque sum rutrum.
-                                            Aenean imperdiet. Etiam ultricies cum sociis.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimonial_box">
-                                    <div class="thumb">
-                                        <img class="rounded-circle" src="images/testimonial/2.png" alt="2.png">
-                                        <h4 class="title">Brooklyn Simmons <br><small>President of
-                                                Sales</small></h4>
-                                    </div>
-                                    <div class="details">
-                                        <div class="icon"><span class="fa fa-quote-left"></span></div>
-                                        <p>Aliquam lorem ante, dapibus in, viverra nisi quis, feugiat a, tellus.
-                                            Phasellus viverra deo nulla ut metus varius qui laoreet. Quisque sum rutrum.
-                                            Aenean imperdiet. Etiam ultricies cum sociis.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimonial_box">
-                                    <div class="thumb">
-                                        <img class="rounded-circle" src="images/testimonial/1.png" alt="1.png">
-                                        <h4 class="title">Marvin McKinney <br><small>Marketing
-                                                Coordinator</small></h4>
-                                    </div>
-                                    <div class="details">
-                                        <div class="icon"><span class="fa fa-quote-left"></span></div>
-                                        <p>Aliquam lorem ante, dapibus in, viverra nisi quis, feugiat a, tellus.
-                                            Phasellus viverra deo nulla ut metus varius qui laoreet. Quisque sum rutrum.
-                                            Aenean imperdiet. Etiam ultricies cum sociis.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimonial_box">
-                                    <div class="thumb">
-                                        <img class="rounded-circle" src="images/testimonial/2.png" alt="2.png">
-                                        <h4 class="title">Brooklyn Simmons <br><small>President of
-                                                Sales</small></h4>
-                                    </div>
-                                    <div class="details">
-                                        <div class="icon"><span class="fa fa-quote-left"></span></div>
-                                        <p>Aliquam lorem ante, dapibus in, viverra nisi quis, feugiat a, tellus.
-                                            Phasellus viverra deo nulla ut metus varius qui laoreet. Quisque sum rutrum.
-                                            Aenean imperdiet. Etiam ultricies cum sociis.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <div class="popular_listing_sliders row">
 
-        <!-- Our Blog -->
-        <section class="our-blog pb90">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 offset-lg-3">
-                        <div class="main-title text-center">
-                            <h2>Recent Articles</h2>
+                            <!-- Tab panes -->
+                            <div class="tab-content col-lg-12" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                    aria-labelledby="nav-home-tab">
+                                    <div class="row justify-content-center px-3 px-md-0">
+
+
+                                            @foreach ($autos as $auto )
+                                            <div class="car-listing col-12 col-md-6 col-xl-2 mx-1">
+                                                <div class="thumb">
+                                                    {{-- <div class="tag">FEATURED</div> --}}
+                                                    <img src="images/listing/1.jpg" alt="1.jpg">
+                                                    <div class="thmb_cntnt2">
+                                                        {{-- <ul class="mb0">
+                                                            <li class="list-inline-item"><a class="text-white"
+                                                                    href="#"><span
+                                                                        class="flaticon-photo-camera mr3"></span>
+                                                                    22</a></li>
+                                                            <li class="list-inline-item"><a class="text-white"
+                                                                    href="#"><span
+                                                                        class="flaticon-play-button mr3"></span> 3</a>
+                                                            </li>
+                                                        </ul> --}}
+                                                    </div>
+                                                    <div class="thmb_cntnt3">
+                                                        {{-- <ul class="mb0">
+                                                            <li class="list-inline-item"><a href="#"><span
+                                                                        class="flaticon-shuffle-arrows"></span></a>
+                                                            </li>
+                                                            <li class="list-inline-item"><a href="#"><span
+                                                                        class="flaticon-heart"></span></a></li>
+                                                        </ul> --}}
+                                                    </div>
+                                                </div>
+                                                <div class="details">
+                                                    <div class="wrapper">
+                                                        <h5 class="price">${{$auto->precio}}</h5>
+                                                        <h6 class="title"><a
+                                                              href="page-car-single-v1.html">{{$auto->marca}} - {{$auto->modelo}}</a>
+                                                        </h6>
+                                                        <div class="listign_review">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="listing_footer">
+                                                        <ul class="mb0">
+                                                            <li class="list-inline-item"><a href="#"><span
+                                                                        class="flaticon-road-perspective me-2"></span>{{$auto->kilometraje}}</a>
+                                                            </li>
+                                                            <li class="list-inline-item"><a href="#"><span
+                                                                        class="flaticon-gas-station me-2"></span>{{$auto->combustible}}</a>
+                                                            </li>
+                                                            <li class="list-inline-item"><a href="#"><span
+                                                                        class="flaticon-gear me-2"></span>{{$auto->cajaauto}}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <div class="for_blog">
-                            <div class="thumb">
-                                <div class="tag">BLOG</div>
-                                <img class="img-whp" src="images/blog/1.jpg" alt="1.jpg">
-                            </div>
-                            <div class="details">
-                                <div class="wrapper">
-                                    <div class="bp_meta">
-                                        <ul>
-                                            <li class="list-inline-item"><a href="page-blog-single.html"><span
-                                                        class="flaticon-user"></span>Brooklyn Simmons</a></li>
-                                            <li class="list-inline-item"><a href="page-blog-single.html"><span
-                                                        class="flaticon-chat"></span>12 Comments</a></li>
-                                            <li class="list-inline-item"><a href="page-blog-single.html"><span
-                                                        class="flaticon-calendar-1"></span>April 25, 2021</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="page-blog-single.html">2021 BMW 540i M Sport
-                                            Review: Light on Sport, Heavy on Tech</a></h4>
-                                    <a href="page-blog-single.html" class="more_listing">Read More <span
-                                            class="icon"><span class="fas fa-plus"></span></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                        <div class="for_blog">
-                            <div class="thumb">
-                                <div class="tag">SUV</div>
-                                <img class="img-whp" src="images/blog/2.jpg" alt="2.jpg">
-                            </div>
-                            <div class="details">
-                                <div class="wrapper">
-                                    <div class="bp_meta">
-                                        <ul>
-                                            <li class="list-inline-item"><a href="page-blog-single.html"><span
-                                                        class="flaticon-user"></span>Brooklyn Simmons</a></li>
-                                            <li class="list-inline-item"><a href="page-blog-single.html"><span
-                                                        class="flaticon-chat"></span>12 Comments</a></li>
-                                            <li class="list-inline-item"><a href="page-blog-single.html"><span
-                                                        class="flaticon-calendar-1"></span>April 25, 2021</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="page-blog-single.html">2022 Volkswagen Taos
-                                            First Drive: Exactly as Good as It Needs to Be</a></h4>
-                                    <a href="page-blog-single.html" class="more_listing">Read More <span
-                                            class="icon"><span class="fas fa-plus"></span></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                        <div class="for_blog">
-                            <div class="thumb">
-                                <div class="tag">2021</div>
-                                <img class="img-whp" src="images/blog/3.jpg" alt="3.jpg">
-                            </div>
-                            <div class="details">
-                                <div class="wrapper">
-                                    <div class="bp_meta">
-                                        <ul>
-                                            <li class="list-inline-item"><a href="page-blog-single.html"><span
-                                                        class="flaticon-user"></span>Brooklyn Simmons</a></li>
-                                            <li class="list-inline-item"><a href="page-blog-single.html"><span
-                                                        class="flaticon-chat"></span>12 Comments</a></li>
-                                            <li class="list-inline-item"><a href="page-blog-single.html"><span
-                                                        class="flaticon-calendar-1"></span>April 25, 2021</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="page-blog-single.html">2021 Kia Sorento Hybrid
-                                            Review: Big Vehicle With Small-Vehicle Fuel Economy</a></h4>
-                                    <a href="page-blog-single.html" class="more_listing">Read More <span
-                                            class="icon"><span class="fas fa-plus"></span></span></a>
-                                </div>
-                            </div>
+                <div class="row mt20">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <a href="{{route('lista-de-autos')}}" class="more_listing">Ver todos los autos <span
+                                    class="icon"><span class="fas fa-plus"></span></span></a>
                         </div>
                     </div>
                 </div>
@@ -1169,13 +956,21 @@
                     </div>
                     <div class="col-md-8 col-xl-5">
                         <div class="footer_menu_widget text-start text-md-end mt15">
-                            <ul>
-                                <li class="list-inline-item"><a href="#">Home</a></li>
-                                <li class="list-inline-item"><a href="#">Explore</a></li>
-                                <li class="list-inline-item"><a href="#">Listings</a></li>
-                                <li class="list-inline-item"><a href="#">Blog</a></li>
-                                <li class="list-inline-item"><a href="#">Shop</a></li>
-                                <li class="list-inline-item"><a href="#">Pages</a></li>
+                            <ul id="respMenu" class="ace-responsive-menu text-end" data-menu-style="horizontal">
+                                <li> <a href="#"><span class="title">Inicio</span></a>
+
+                                </li>
+                                <li> <a href="{{route('lista-de-autos')}}"><span class="title">Listado</span></a>
+
+                                </li>
+                                <li> <a href="#"><span class="title">Calculadora</span></a>
+
+                                </li>
+                                <li> <a href="{{route('contacto')}}"><span class="title">Contacto</span></a>
+
+                                </li>
+
+                                <li class="sidebar_panel"><a class="sidebar_switch pt0" href="#"><span></span></a></li>
                             </ul>
                         </div>
                     </div>

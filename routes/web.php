@@ -33,8 +33,8 @@ use Barryvdh\DomPDF\Facade as PDF;
 */
 
 Route::get('/', [InicioController::class, 'index'] )->name('inicio');
-Route::post('/lista-de-autos-filtrado', [InicioController::class, 'buscador'] )->name('lista-de-autos-filtrado');
-Route::get('/lista-de-autos', [InicioController::class, 'listadoDeAutos'] )->name('listado-de-autos');
+Route::get('/lista-de-autos', [InicioController::class, 'buscador'] )->name('lista-de-autos');
+Route::get('/contacto', [InicioController::class, 'contacto'] )->name('contacto');
 
 Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth'])->name('dashboard');
 
