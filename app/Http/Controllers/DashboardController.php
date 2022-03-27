@@ -139,9 +139,9 @@ class DashboardController extends Controller
 
         //return $autosParados;
         //die();
-        return view('admin/dashboard', compact('clientes', 'autos', 'usuarios','autosParados','totalCostoMensual','totalVentasMensual','totalGananciaMensual',
+        return view('dashboard', /* compact('clientes', 'autos', 'usuarios','autosParados','totalCostoMensual','totalVentasMensual','totalGananciaMensual',
         'v1','v2','v3','v4','v5','v6','v7','v8','v9','v10','v11','v12',
         'c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11','c12',
-        'g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12'));
+        'g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12') */);
     }
 }
