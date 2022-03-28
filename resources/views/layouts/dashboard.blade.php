@@ -78,8 +78,8 @@
                         </button>
                     </div>
                     <a href="index.html" class="navbar_brand float-start dn-md">
-                        <img class="logo1 img-fluid" src="images/header-logo2.svg" alt="header-logo2.png">
-                        <img class="logo2 img-fluid" src="images/header-logo2.svg" alt="header-logo2.svg">
+                        <img class="logo1 img-fluid" src="{{asset('images/header-logo2.svg')}}" alt="header-logo2.png">
+                        <img class="logo2 img-fluid" src="{{asset('images/header-logo2.svg')}}" alt="header-logo2.svg">
                     </a>
                     <!-- Responsive Menu Structure-->
                     <ul id="respMenu" class="ace-responsive-menu menu_list_custom_code wa text-end"
@@ -102,19 +102,19 @@
                         <li class="user_setting">
                             <div class="dropdown">
                                 <a class="btn dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                    <img class="rounded-circle mr10" src="images/team/e1.png" alt="e1.png">
-                                    <span class="dn-1366"> Jerome Bell <span
+
+                                    <span class="dn-1366">{{auth()->user()->name}} <span
                                             class="fas fa-angle-down ml5"></span></span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <div class="user_set_header">
-                                        <img class="float-start" src="images/team/e1.png" alt="e1.png">
-                                        <p>Jerome Bell <br><span class="address">alitufan@gmail.com</span></p>
+
+                                        <p>{{auth()->user()->name}} <br><span class="address">{{auth()->user()->email}}</span></p>
                                     </div>
                                     <div class="user_setting_content">
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
-                                            <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                                            <button type="submit" class="dropdown-item cerrarSesion">Cerrar sesión</button>
                                         </form>
 
                                     </div>
@@ -268,11 +268,11 @@
                                 <div class="extra-dashboard-menu dn-lg">
                                     <div class="ed_menu_list">
                                         <ul>
-                                            <li><a class="active" href="page-dashboard.html"><span
+                                            <li><a class="active" href="{{route('dashboard')}}"><span
                                                         class="flaticon-dashboard"></span>Dashboard</a></li>
                                             <li><a class="" href="{{route('autos.index')}}"><span
                                                         class="flaticon-user-2"></span>Autos</a></li>
-                                            <li><a href="page-dashboard-listing.html"><span
+                                            {{-- <li><a href="page-dashboard-listing.html"><span
                                                         class="flaticon-list"></span>My Listing</a></li>
                                             <li><a href="page-dashboard-favorites.html"><span
                                                         class="flaticon-heart"></span>Favorites</a></li>
@@ -281,7 +281,7 @@
                                             <li><a href="page-dashboard-messages.html"><span
                                                         class="flaticon-message"></span>Messages</a></li>
                                             <li><a href="page-login.html"><span
-                                                        class="flaticon-logout"></span>Logout</a></li>
+                                                        class="flaticon-logout"></span>Logout</a></li> --}}
                                         </ul>
                                     </div>
                                 </div>
@@ -347,6 +347,7 @@
     <!-- Custom script for all pages -->
     <script src="{{ asset('js/script.js') }}"></script>
 
+    @yield('css')
     @yield('js')
 </body>
 

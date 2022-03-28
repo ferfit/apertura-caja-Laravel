@@ -5,8 +5,8 @@
     <div class="row">
         <div class="col-xl-8">
             <div class="breadcrumb_content mb50">
-                <h2 class="breadcrumb_title">Hello, Cameron!</h2>
-                <p>Ready to jump back in!</p>
+                <h2 class="breadcrumb_title">Hola, {{auth()->user()->name}}!</h2>
+                <p>Este es un resumén de tu concesionaria.</p>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-lg-12 col-xl-7">
             <div class="application_statics">
                 <h4>Your Profile Views</h4>
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- fin contenido --}}
 @stop

@@ -1,24 +1,45 @@
-@extends('adminlte::page')
+@extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
 
-@section('content_header')
-    <h1 class="text-center">IMÁGENES</h1>
-@stop
 
-@section('content')
 
-<div class="container">
-<form action="{{route('files.store',$auto)}}" class="dropzone shadow" id="my-great-dropzone" method="POST"></form>
+@section('contenido')
+
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="col-xl-8">
+            <div class="col-lg-12 mb50">
+                <div class="breadcrumb_content">
+                    <h2 class="breadcrumb_title">Imágenes</h2>
+                    <p>{{$auto->marca}} - {{$auto->modelo}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="new_property_form">
+            <form action="{{route('files.store',$auto)}}" class="dropzone shadow" id="my-great-dropzone" method="POST"></form>
+            @livewire('create-file',['auto' => $auto])
+
+            <div class="col-lg-12 my-3">
+                <!-- Nav tabs -->
+                <div class="nav justify-content-start" role="tablist">
+                    <a class="botonAzul" href="{{ route('autos.index') }}"> Volver</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
 </div>
 
-@livewire('create-file',['auto' => $auto])
 
-<div class="container mt-3">
-      <a href="{{ route('autos.index') }}" class="ml-1 btn btn-secondary"> <i
-                class="fas fa-undo-alt mr-1"></i>Volver</a>
 
-</div>
+
+
 
 @stop
 

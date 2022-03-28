@@ -1,130 +1,154 @@
-@extends('adminlte::page')
+@extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
+@section('contenido')
 
-@section('content_header')
-    <div class="container my-4">
-    </div>
-
-
-    <div class="container mt-2 ">
-        <div class="container mx-auto">
-            <div class="card shadow">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        Información del auto:
-                    </h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <dl class="row">
-                        <div class="col-6 col-xl-3">
-                            <dt>Condición</dt>
-                            <dd>{{ $auto->condicion }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Marca</dt>
-                            <dd>{{ $auto->marca }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Modelo</dt>
-                            <dd>{{ $auto->modelo }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Versión</dt>
-                            <dd>{{ $auto->version }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Año</dt>
-                            <dd>{{ $auto->año }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Precio Compra</dt>
-                            <dd>${{ number_format($auto->preciocosto , 2, ",", ".")  }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Precio Venta</dt>
-                            <dd>${{ number_format($auto->precio , 2, ",", ".")  }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Ciudad</dt>
-                            <dd>{{ $auto->ciudad }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Provincia</dt>
-                            <dd>{{ $auto->provincia }}</dd>
-                        </div>
-
-                    </dl>
-                </div>
-                <!-- /.card-body -->
-            </div>
-
-            <div class="card shadow">
-
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <dl class="row">
-                        <div class="col-6 col-xl-3">
-                            <dt>Tipo</dt>
-                            <dd>{{ $auto->tipo }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Kilometraje</dt>
-                            <dd>{{ $auto->kilometraje }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Combustible</dt>
-                            <dd>{{ $auto->combustible }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Tipo de motor</dt>
-                            <dd>{{ $auto->tipomotor }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Tracción</dt>
-                            <dd>{{ $auto->traccion }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Caja</dt>
-                            <dd>{{ $auto->cajaauto }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Color</dt>
-                            <dd>{{ $auto->color }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Tapizado</dt>
-                            <dd>{{ $auto->tapizado }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Dirección</dt>
-                            <dd>{{ $auto->direccion }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Valor</dt>
-                            <dd>{{ $auto->valor }}</dd>
-                        </div>
-                        <div class="col-6 col-xl-3">
-                            <dt>Permuta<dt>
-                            <dd>{{ $auto->Permuta }}</dd>
-                        </div>
-
-                    </dl>
-                </div>
-                <!-- /.card-body -->
-            </div>
-
-
-            <div class="mx-auto">
-                <div class="row mx-auto mt-3">
-                    <a href="{{ route('autos.index') }}" class="btn btn-secondary mr-2 shadow">Volver</a>
-                    <a href="{{route('autoPdf', $auto)}}" class="btn btn-primary mr-2 shadow"><i class="fas fa-download mr-1"></i>PDF</a>
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="col-lg-12 mb50">
+                <div class="breadcrumb_content">
+                    <h2 class="breadcrumb_title">Información del auto</h2>
+                    <p>{{$auto->marca}} - {{$auto->modelo}}</p>
                 </div>
             </div>
         </div>
+    </div>
 
-
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="opening_hour_widgets p30 mt30">
+              <div class="wrapper">
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Condición</div>
+                    </div>
+                    <span class="schedule">{{ $auto->condicion }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Marca</div>
+                    </div>
+                    <span class="schedule">{{ $auto->marca }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Modelo</div>
+                    </div>
+                    <span class="schedule">{{ $auto->modelo }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Versión</div>
+                    </div>
+                    <span class="schedule">{{ $auto->version }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Año</div>
+                    </div>
+                    <span class="schedule">{{ $auto->año }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Precio Compra</div>
+                    </div>
+                    <span class="schedule">${{ number_format($auto->preciocosto, 2, ',', '.') }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Precio Venta</div>
+                    </div>
+                    <span class="schedule">${{ number_format($auto->precio, 2, ',', '.') }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Ciudad</div>
+                    </div>
+                    <span class="schedule">{{ $auto->ciudad }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Provincia</div>
+                    </div>
+                    <span class="schedule">{{ $auto->provincia }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Tipo</div>
+                    </div>
+                    <span class="schedule">{{ $auto->tipo }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Kilometraje</div>
+                    </div>
+                    <span class="schedule">{{ $auto->kilometraje }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Combustible</div>
+                    </div>
+                    <span class="schedule">{{ $auto->combustible }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Tipo de motor</div>
+                    </div>
+                    <span class="schedule">{{ $auto->tipomotor }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Tracción</div>
+                    </div>
+                    <span class="schedule">{{ $auto->traccion }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Caja</div>
+                    </div>
+                    <span class="schedule">{{ $auto->cajaauto }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Color</div>
+                    </div>
+                    <span class="schedule">{{ $auto->color }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Tapizado</div>
+                    </div>
+                    <span class="schedule">{{ $auto->tapizado }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Dirección</div>
+                    </div>
+                    <span class="schedule">{{ $auto->direccion }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Valor</div>
+                    </div>
+                    <span class="schedule">{{ $auto->valor }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
+                      <div class="day">Permuta</div>
+                    </div>
+                    <span class="schedule">{{ $auto->permuta }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 my-3">
+            <!-- Nav tabs -->
+            <div class="nav justify-content-start" role="tablist">
+                <a class="botonAzul" href="{{ route('autos.index') }}"> Volver</a>
+                <a class="botonAzul colorGris" href="{{ route('autoPdf',$auto) }}"> PDF</a>
+            </div>
+        </div>
     </div>
 
 @stop
@@ -135,7 +159,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
 @stop
 
 @section('js')

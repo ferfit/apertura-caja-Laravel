@@ -22,7 +22,7 @@
                         {{-- condicion --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
-                                <label class="form-label">Año*</label>
+                                <label class="form-label">Condición*</label>
                                 <select name="condicion" class="selectpicker @error('condicion') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
                                     <option value="">Seleccione</option>
@@ -397,7 +397,7 @@
                         <!-- Nav tabs -->
                         <div class="nav justify-content-start" role="tablist">
                             <button type="submit" class="botonAmarillo">Crear</button>
-                            <a href="{{ route('autos.index') }}"><button class="botonAzul"> Volver</button></a>
+                            <a class="botonAzul" href="{{ route('autos.index') }}"> Volver</a>
                         </div>
                     </div>
                 </form>

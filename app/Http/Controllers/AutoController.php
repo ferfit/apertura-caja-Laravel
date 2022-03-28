@@ -280,11 +280,9 @@ class AutoController extends Controller
      */
     public function destroy(Auto $auto)
     {
-        $auto = Auto::find($auto);
-
         try {
 
-            $auto->first()->delete();
+            $auto->delete();
 
             return redirect()->route('autos.index')->with('Borrado', 'El auto se borró exitosamente.');
         } catch (\Throwable $th) {

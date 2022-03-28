@@ -140,10 +140,15 @@ html {
     font-style: normal;
     font-weight: 600;
     height: 45px;
+    line-height: 45px;
     letter-spacing: 0em;
     margin-right: 5px;
     width: 131px;
     border: 1px solid transparent;
+    text-align: center;
+}
+.botonAzul:hover, .botonAzul:focus{
+    color: #fff;
 }
 
 .botonAmarillo{
@@ -158,6 +163,20 @@ html {
     margin-right: 5px;
     width: 131px;
     border: 1px solid transparent;
+}
+.colorGris{
+    background-color: #5F6973;
+}
+.sinBordes{
+    border: none;
+    background-color: transparent;
+}
+.cerrarSesion{
+    color: #1A3760;
+    font-size: 13px;
+}
+.cerrarSesion:hover{
+    background-color: transparent;
 }
 
 body {

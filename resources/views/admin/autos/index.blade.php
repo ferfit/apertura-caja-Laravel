@@ -70,23 +70,42 @@
                                                         <td class="editing_list align-middle">
                                                             <ul>
                                                                 <li class="list-inline-item mb-1">
-                                                                    <a href="{{route('autos.show',$auto)}}" data-bs-toggle="tooltip"
-                                                                        data-bs-placement="top" title="Ver"><span
-                                                                            class="flaticon-view"></span></a>
+                                                                    <a href="{{ route('autos.show', $auto) }}"
+                                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                        title="Ver"><span class="flaticon-view"></span></a>
                                                                 </li>
                                                                 <li class="list-inline-item mb-1">
-                                                                    <a href="{{route('autos.show',$auto)}}" data-bs-toggle="tooltip"
-                                                                        data-bs-placement="top" title="Imagenes"><i class="fal fa-image"></i></a>
+                                                                    <a href="{{ route('files.create', $auto) }}"
+                                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                        title="Imagenes"><i class="fal fa-image"></i></a>
                                                                 </li>
                                                                 <li class="list-inline-item mb-1">
-                                                                    <a href="{{route('autos.show',$auto)}}" data-bs-toggle="tooltip"
-                                                                        data-bs-placement="top" title="Editar"><i class="fal fa-edit"></i></a>
+                                                                    <a href="{{ route('autos.edit', $auto) }}"
+                                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                        title="Editar"><i class="fal fa-edit"></i></a>
                                                                 </li>
                                                                 <li class="list-inline-item mb-1">
-                                                                    <a href="#" data-bs-toggle="tooltip"
+                                                                    <a href="{{ route('gastos.index', $auto) }}"
+                                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                        title="Gastos"><i class="far fa-dollar-sign"></i></a>
+                                                                </li>
+
+
+
+                                                                <li class="list-inline-item mb-1">
+                                                                    <form action="{{ route('autos.destroy', $auto) }}"
+                                                                        method="POST" class="formulario-eliminar">
+                                                                        @csrf
+                                                                        @method('DELETE')
+
+
+                                                                        <button class="sinBordes p-0"><a data-bs-toggle="tooltip"
                                                                         data-bs-placement="top" title="Borrar"><span
-                                                                            class="flaticon-trash"></span></a>
+                                                                            class="flaticon-trash"></span></a></button>
+                                                                    </form>
+
                                                                 </li>
+
                                                             </ul>
                                                         </td>
                                                     </tr>
@@ -114,7 +133,7 @@
                                                 <a class="page-link" href="#"><span
                                                         class="fa fa-arrow-right"></span></a>
                                             </li> --}}
-                                            {{$autos->links()}}
+                                            {{ $autos->links() }}
                                         </ul>
                                     </div>
                                 </div>
@@ -125,7 +144,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
         <div class="card">
             <div class="card-header d-flex justify-content-start align-items-center">
                 <h3 class="card-title mr-3">Autos</h3>
@@ -143,7 +162,7 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
 @stop
 
 
