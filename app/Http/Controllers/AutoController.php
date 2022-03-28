@@ -33,7 +33,10 @@ class AutoController extends Controller
      */
     public function index()
     {
-        return view('admin.autos.index');
+        $autos = Auto::paginate(2);
+        $activoAutos=true;
+
+        return view('admin.autos.index',compact('autos','activoAutos'));
     }
 
     /**
@@ -89,6 +92,8 @@ class AutoController extends Controller
      */
     public function store(Request $request)
     {
+
+
         //Validación
         $data = request()->validate([
             'condicion' => 'required',

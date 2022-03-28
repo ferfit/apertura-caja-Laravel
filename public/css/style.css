@@ -130,6 +130,36 @@ html {
   scroll-behavior: auto !important;
 }
 
+
+/* clases nuevas*/
+.botonAzul{
+    background-color: #0A2357;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    height: 45px;
+    letter-spacing: 0em;
+    margin-right: 5px;
+    width: 131px;
+    border: 1px solid transparent;
+}
+
+.botonAmarillo{
+    background-color: #F5C34B;
+    border-radius: 8px;
+    color: #1A3760;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    height: 45px;
+    letter-spacing: 0em;
+    margin-right: 5px;
+    width: 131px;
+    border: 1px solid transparent;
+}
+
 body {
   background-attachment: fixed;
   background-color: #ffffff;
