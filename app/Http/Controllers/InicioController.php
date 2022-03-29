@@ -35,7 +35,7 @@ class InicioController extends Controller
         $modelo = $request->modelo;
         $condicion = $request->condicion;
 
-        $autos = Auto::marca($marca)->modelo($modelo)->condicion($condicion)->paginate(1);
+        $autos = Auto::where('estado','Activado')->marca($marca)->modelo($modelo)->condicion($condicion)->paginate(20);
         $autos->appends(['marca' => $marca, 'modelo' => $modelo, 'condicion' => $condicion]);
 
         return view('lista-de-autos', compact('autos', 'marcas', 'modelos', 'condiciones'));
@@ -44,5 +44,9 @@ class InicioController extends Controller
     public function contacto()
     {
         return view('contacto');
+    }
+
+    public function verAuto(Auto $auto){
+        return view('ver-auto',compact('auto'));
     }
 }

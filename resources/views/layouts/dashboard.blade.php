@@ -84,7 +84,7 @@
                     <!-- Responsive Menu Structure-->
                     <ul id="respMenu" class="ace-responsive-menu menu_list_custom_code wa text-end"
                         data-menu-style="horizontal">
-                        <li> <a href="#"><span class="title">Inicio</span></a>
+                        <li> <a href="{{route('inicio')}}"><span class="title">Inicio</span></a>
 
                         </li>
                         <li> <a href="{{ route('lista-de-autos') }}"><span class="title">Listado</span></a>
