@@ -33,7 +33,7 @@ class AutoController extends Controller
      */
     public function index()
     {
-        $autos = Auto::paginate(2);
+        $autos = Auto::where('estado','Activado')->paginate(2);
         $activoAutos=true;
 
         return view('admin.autos.index',compact('autos','activoAutos'));
@@ -96,6 +96,8 @@ class AutoController extends Controller
 
         //Validación
         $data = request()->validate([
+
+            'patente' => 'required',
             'condicion' => 'required',
             'marca' => 'required',
             'modelo' => 'required',
@@ -115,12 +117,15 @@ class AutoController extends Controller
             'tapizado' => 'nullable',
             'direccion' => 'nullable',
             'valor' => 'nullable',
-            'permuta' => 'nullable'
+            'permuta' => 'nullable',
+            'descripcion' => 'nullable',
+
         ]);
 
         try {
             //Creacion
             $auto = Auto::create([
+                'patente' => $data['patente'],
                 'condicion' => $data['condicion'],
                 'marca' => $data['marca'],
                 'modelo' => $data['modelo'],
@@ -142,6 +147,7 @@ class AutoController extends Controller
                 'direccion' => $data['direccion'],
                 'valor' => $data['valor'],
                 'permuta' => $data['permuta'],
+                'descripcion' => $data['descripcion'],
             ]);
 
             //retorno
@@ -282,7 +288,8 @@ class AutoController extends Controller
     {
         try {
 
-            $auto->delete();
+            $auto->estado = 'Desactivado';
+            $auto->save();
 
             return redirect()->route('autos.index')->with('Borrado', 'El auto se borró exitosamente.');
         } catch (\Throwable $th) {

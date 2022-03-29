@@ -78,8 +78,8 @@
                         </button>
                     </div>
                     <a href="index.html" class="navbar_brand float-start dn-md">
-                        <img class="logo1 img-fluid" src="{{asset('images/header-logo2.svg')}}" alt="header-logo2.png">
-                        <img class="logo2 img-fluid" src="{{asset('images/header-logo2.svg')}}" alt="header-logo2.svg">
+                        <img class="logo1 img-fluid logoTamaño" src="{{asset('images/logo.png')}}" alt="header-logo2.png" >
+                        <img class="logo2 img-fluid logoTamaño" src="{{asset('images/logo.png')}}" alt="header-logo2.svg" >
                     </a>
                     <!-- Responsive Menu Structure-->
                     <ul id="respMenu" class="ace-responsive-menu menu_list_custom_code wa text-end"
@@ -134,7 +134,7 @@
                     <div class="mobile_menu_bar">
                         <a class="menubar" href="#menu"><small>Menu</small><span></span></a>
                     </div>
-                    <div class="mobile_menu_main_logo"><img class="nav_logo_img img-fluid" src="images/header-logo2.svg"
+                    <div class="mobile_menu_main_logo"><img class="nav_logo_img img-fluid logoTamaño" src="{{asset('images/logo.png')}}"
                             alt="images/header-logo2.png"></div>
                 </div>
             </div>

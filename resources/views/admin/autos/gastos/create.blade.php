@@ -1,54 +1,67 @@
-@extends('adminlte::page')
+@extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
-
-@section('content_header')
-    <h1 class="text-center"></h1>
-@stop
-
-@section('content')
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Crear gasto</h3>
+@section('contenido')
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="col-lg-12 mb50">
+                <div class="breadcrumb_content">
+                    <h2 class="breadcrumb_title">Crear gasto</h2>
+                </div>
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form method="POST" action="{{route('gastos.store',$auto)}}" novalidate>
-                @csrf
-                <div class="card-body row">
-                    <div class="form-group col-6">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" autofocus name="nombre" class="form-control @error('nombre') is-invalid @enderror"
-                            id="nombre" placeholder="Ingrese un nombre" value="">
-                        @error('nombre')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-lg-12">
+            <div class="new_property_form">
+                <form class="contact_form" id="formulario" name="contact_form" method="POST"
+                    action="{{ route('gastos.store', $auto) }}" novalidate>
+                    @csrf
+                    <div class="row">
+
+                        {{-- nombre--}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">Nombre*</label>
+                                <input name="nombre"
+                                    class="form-control form_control @error('nombre') is-invalid @enderror" type="text"
+                                    placeholder="">
+
+                                @error('nombre')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- Monto --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">Monto*</label>
+                                <input name="monto"
+                                    class="form-control form_control @error('monto') is-invalid @enderror"
+                                    type="number" placeholder="">
+
+                                @error('monto')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                     </div>
-                    {{-- Monto --}}
-                    <div class="form-group col-6">
-                        <label for="monto">Monto</label>
-                        <input type="number" name="monto" class="form-control @error('monto') is-invalid @enderror"
-                            id="monto" value="">
-                        @error('monto')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+
+                    <div class="col-lg-12 my-3">
+                        <!-- Nav tabs -->
+                        <div class="nav justify-content-start" role="tablist">
+                            <button type="submit" id="btnForm" class="botonAmarillo">Crear</button>
+                            <a class="botonAzul" href="{{ route('gastos.index', $auto) }}"> Volver</a>
+                        </div>
                     </div>
-
-                </div>
-
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-success"><i
-                            class="far fa-check-square mr-1"></i>Guardar</button>
-                    <a href="{{route('gastos.index',$auto)}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 @stop
@@ -57,4 +70,5 @@
 @stop
 
 @section('js')
+@include('includes.btnForm')
 @stop

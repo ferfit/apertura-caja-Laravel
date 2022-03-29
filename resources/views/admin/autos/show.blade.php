@@ -20,6 +20,12 @@
                 <ul class="list-group">
                   <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="me-auto">
+                      <div class="day">Patente</div>
+                    </div>
+                    <span class="schedule">{{ $auto->patente }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="me-auto">
                       <div class="day">Condición</div>
                     </div>
                     <span class="schedule">{{ $auto->condicion }}</span>

@@ -15,12 +15,26 @@
 
         <div class="col-lg-12">
             <div class="new_property_form">
-                <form class="contact_form" name="contact_form" method="POST" action="{{ route('autos.update',$auto) }}"
+                <form class="contact_form" id="formulario" name="contact_form" method="POST" action="{{ route('autos.update',$auto) }}"
                     novalidate>
                     @csrf
                     @method('put')
                     <div class="row">
+                        {{-- patente --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">Patente* (sin espacios)</label>
+                                <input name="patente"
+                                    class="form-control form_control @error('patente') is-invalid @enderror" type="text"
+                                    placeholder="" value="{{$auto->patente}}">
 
+                                @error('patente')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         {{-- condicion --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
@@ -393,12 +407,24 @@
                                 @enderror
                             </div>
                         </div>
+                        {{-- Descripcion --}}
+                        <div class="col-md-12">
+                            <div class="mb20">
+                                <label class="form-label">Descripción</label>
+                                <textarea name="descripcion" class="form-control" rows="10" placeholder="">{{$auto->descripcion}}</textarea>
+                            </div>
+                            @error('descripcion')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="col-lg-12 my-3">
                         <!-- Nav tabs -->
                         <div class="nav justify-content-start" role="tablist">
-                            <button type="submit" class="botonAmarillo">Guardar</button>
+                            <button type="submit" id="btnForm" class="botonAmarillo">Guardar</button>
                             <a class="botonAzul" href="{{ route('autos.index') }}"> Volver</a>
                         </div>
                     </div>
@@ -413,4 +439,5 @@
 @stop
 
 @section('js')
+@include('includes.btnForm')
 @stop

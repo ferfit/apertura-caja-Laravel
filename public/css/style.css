@@ -178,6 +178,10 @@ html {
 .cerrarSesion:hover{
     background-color: transparent;
 }
+.logoTamaño{
+    width: 160px;
+    height:auto;
+}
 
 body {
   background-attachment: fixed;

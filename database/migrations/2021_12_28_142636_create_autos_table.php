@@ -15,6 +15,7 @@ class CreateAutosTable extends Migration
     {
         Schema::create('autos', function (Blueprint $table) {
             $table->id();
+            $table->string('patente');
             $table->string('condicion');
             $table->string('marca');
             $table->string('modelo');
@@ -36,6 +37,7 @@ class CreateAutosTable extends Migration
             $table->string('direccion')->nullable();
             $table->string('valor')->nullable();
             $table->string('permuta')->nullable();
+            $table->string('descripcion')->nullable();
             $table->timestamps();
         });
     }

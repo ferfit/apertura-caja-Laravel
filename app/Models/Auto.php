@@ -9,6 +9,7 @@ class Auto extends Model
 {
 
     protected $fillable = [
+        'patente',
         'condicion',
         'marca',
         'modelo',
@@ -29,7 +30,9 @@ class Auto extends Model
         'tapizado',
         'direccion',
         'valor',
-        'permuta'
+        'permuta',
+        'descripcion'
+
     ];
 
     use HasFactory;

@@ -16,6 +16,7 @@ class AutoSeeder extends Seeder
     public function run()
     {
         $auto = Auto::create([
+            'patente'=>'jhl878',
             'condicion'=>'Usado',
             'marca'=>'Ford',
             'modelo'=>'Focus',
@@ -25,9 +26,11 @@ class AutoSeeder extends Seeder
             'precio'=>'1340000',
             'ciudad'=>'Reconquista',
             'provincia'=>'Santa Fe',
-            'estado' => 'Activado'
+            'estado' => 'Activado',
+            'descripcion' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum dignissimos esse unde eveniet nemo harum autem veritatis cupiditate consequuntur odit.'
         ]);
         $auto = Auto::create([
+            'patente'=>'abc878',
             'condicion'=>'Usado',
             'marca'=>'Peugeot',
             'modelo'=>'207',
@@ -37,9 +40,12 @@ class AutoSeeder extends Seeder
             'precio'=>'800000',
             'ciudad'=>'Tigre',
             'provincia'=>'Buenos Aires',
-            'estado' => 'Activado'
+            'estado' => 'Activado',
+            'descripcion' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum dignissimos esse unde eveniet nemo harum autem veritatis cupiditate consequuntur odit.'
+
         ]);
         $auto = Auto::create([
+            'patente'=>'jjl899',
             'condicion'=>'Usado',
             'marca'=>'Peugeot',
             'modelo'=>'208',
@@ -49,9 +55,12 @@ class AutoSeeder extends Seeder
             'precio'=>'1500000',
             'ciudad'=>'Tigre',
             'provincia'=>'Buenos Aires',
-            'estado' => 'Activado'
+            'estado' => 'Activado',
+            'descripcion' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum dignissimos esse unde eveniet nemo harum autem veritatis cupiditate consequuntur odit.'
+
         ]);
         $auto = Auto::create([
+            'patente'=>'dfri008',
             'condicion'=>'0 km',
             'marca'=>'Fiat',
             'modelo'=>'Toro',
@@ -61,7 +70,9 @@ class AutoSeeder extends Seeder
             'precio'=>'800000',
             'ciudad'=>'Reconquista',
             'provincia'=>'Santa Fe',
-            'estado' => 'Activado'
+            'estado' => 'Activado',
+            'descripcion' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum dignissimos esse unde eveniet nemo harum autem veritatis cupiditate consequuntur odit.'
+
         ]);
     }
 }

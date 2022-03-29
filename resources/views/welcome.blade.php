@@ -103,8 +103,8 @@
                         </button>
                     </div>
                     <a href="index.html" class="navbar_brand float-start dn-md">
-                        <img class="logo1 img-fluid" src="images/header-logo.svg" alt="header-logo.svg">
-                        <img class="logo2 img-fluid" src="images/header-logo2.svg" alt="header-logo2.svg">
+                        <img class="logo1 img-fluid logoTamaño" src="{{asset('images/logoBlanco.png')}}" alt="header-logo.svg" >
+                        <img class="logo2 img-fluid logoTamaño" src="{{asset('images/logoBlanco.png')}}" alt="header-logo2.svg" >
                     </a>
                     <!-- Responsive Menu Structure-->
                     <ul id="respMenu" class="ace-responsive-menu text-end" data-menu-style="horizontal">

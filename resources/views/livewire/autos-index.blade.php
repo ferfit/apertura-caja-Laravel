@@ -1,67 +1,94 @@
-<div class="table-responsive">
-    <input class="form-control mb-3" wire:model="search" type="search" placeholder="Buscar...">
+<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <div class="col-lg-12">
+        <div class="table-responsive my_lisging_table">
+            <input class="form-control mb-3" wire:model="search" type="search" placeholder="Buscar por patente...">
 
-    <table class="table table-bordered ">
-        <thead>
-            <tr>
-                <th>Nro.</th>
-                <th>Fecha</th>
-                <th>Condición</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Versión</th>
-                <th>Año</th>
-                <th>Precio Venta</th>
-                <th>Ciudad</th>
-                <th>Provincia</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
+            <table class="table">
+                <thead class="table-light">
+                    <tr class="thead_row">
+                        <th class="thead_title pl20" scope="col">General</th>
+                        <th class="thead_title" scope="col">Patente</th>
+                        <th class="thead_title" scope="col">Modelo</th>
+                        <th class="thead_title" scope="col">Versión</th>
+                        <th class="thead_title" scope="col">Año</th>
+                        <th class="thead_title" scope="col">Condición</th>
+                        <th class="thead_title" scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-            @foreach ($autos as $auto)
-                <tr>
+                    @foreach ($autos as $auto)
+                        <tr>
+                            <th class="align-middle pl20" scope="row">
+                                <div class="car-listing bdr_none d-flex mb0">
+                                    <div class="thumb w150">
+                                        <img class="img-fluid" src="images/listing/1.jpg" alt="1.jpg">
+                                    </div>
+                                    <div class="details ms-1">
+                                        <h6 class="title"><a
+                                                href="{{ route('autos.show', $auto) }}">{{ $auto->marca }}
+                                                - {{ $auto->modelo }}</a></h6>
+                                        <h5 class="price">
+                                            ${{ number_format($auto->precio, 2, ',', '.') }}
+                                        </h5>
+                                    </div>
+                                </div>
+                            </th>
+                            <td class="align-middle">{{ $auto->patente }}</td>
+                            <td class="align-middle">{{ $auto->modelo }}</td>
+                            <td class="align-middle">{{ $auto->version }}</td>
+                            <td class="align-middle">{{ $auto->año }}</td>
+                            <td class="align-middle">{{ $auto->condicion }}</td>
+                            <td class="editing_list align-middle">
+                                <ul>
+                                    <li class="list-inline-item mb-1">
+                                        <a href="{{ route('autos.show', $auto) }}" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Ver"><span class="flaticon-view"></span></a>
+                                    </li>
+                                    <li class="list-inline-item mb-1">
+                                        <a href="{{ route('files.create', $auto) }}" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Imagenes"><i class="fal fa-image"></i></a>
+                                    </li>
+                                    <li class="list-inline-item mb-1">
+                                        <a href="{{ route('autos.edit', $auto) }}" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Editar"><i class="fal fa-edit"></i></a>
+                                    </li>
+                                    <li class="list-inline-item mb-1">
+                                        <a href="{{ route('gastos.index', $auto) }}" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Gastos"><i class="far fa-dollar-sign"></i></a>
+                                    </li>
 
-                    <td>{{ $auto->id }}</td>
-                    <td>{{ date('d-m-Y', strtotime($auto->created_at)) }}</td>
-                    <td>{{ $auto->condicion }}</td>
-                    <td>{{ $auto->marca }}</td>
-                    <td>{{ $auto->modelo }}</td>
-                    <td>{{ $auto->version }}</td>
-                    <td>{{ $auto->año }}</td>
-                    <td>${{ number_format($auto->precio , 2, ",", ".")  }}</td>
-                    <td>{{ $auto->ciudad }}</td>
-                    <td>{{ $auto->provincia }}</td>
 
-                    <td class="">
-                        <div class="row mx-auto">
-                            <a href="{{ route('autos.show', $auto) }}" class="btn btn-success mr-2"><i
-                                    class="far fa-eye"></i></a>
-                            <a href="{{ route('autos.edit', $auto) }}" class="btn btn-primary mr-2"><i
-                                    class="fas fa-edit"></i></a>
-                            <a href="{{ route('gastos.index', $auto) }}" class="btn btn-secondary mr-2"><i
-                                    class="fas fa-search-dollar"></i></a>
-                            <a href="{{ route('files.create',$auto) }}" class="btn btn-warning mr-2"><i
-                                    class="far fa-image"></i></a>
 
-                            <form action="{{ route('autos.destroy', $auto) }}" method="POST"
-                                class="formulario-eliminar">
-                                @csrf
-                                @method('DELETE')
+                                    <li class="list-inline-item mb-1">
+                                        <form action="{{ route('autos.destroy', $auto) }}" method="POST"
+                                            class="formulario-eliminar">
+                                            @csrf
+                                            @method('DELETE')
 
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
 
-        </tbody>
-    </table>
-    <div class="card-footer clearfix">
+                                            <button class="sinBordes p-0"><a data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" title="Borrar"><span
+                                                        class="flaticon-trash"></span></a></button>
+                                        </form>
 
-        {{ $autos->links() }}
+                                    </li>
+
+                                </ul>
+                            </td>
+                        </tr>
+                    @endforeach
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="mbp_pagination mt10">
+            <ul class="page_navigation">
+                {{ $autos->links() }}
+            </ul>
+        </div>
     </div>
 </div>
