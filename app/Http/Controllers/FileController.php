@@ -7,6 +7,8 @@ use App\Models\Auto;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
+use Image;
+use Illuminate\Support\Str;
 
 class FileController extends Controller
 {
@@ -40,7 +42,7 @@ class FileController extends Controller
     public function store(Auto $auto, Request $request)
     {
         $request->validate([
-            'file' => 'image|max:2048'
+            'file' => 'image|max:500'
         ]);
 
         $url = Storage::put('/public/autos',$request->file);

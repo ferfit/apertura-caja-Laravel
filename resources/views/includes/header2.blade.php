@@ -55,7 +55,6 @@
                 <li> <a href="{{route('lista-de-autos')}}"><span class="title">Listado</span></a>
 
                 </li>
-                <li> <a href="#"><span class="title">Calculadora</span></a>
 
                 </li>
                 <li> <a href="{{route('contacto')}}"><span class="title">Contacto</span></a>
@@ -76,23 +75,24 @@
             <div class="mobile_menu_bar">
                 <a class="menubar" href="#menu"><small>Menu</small><span></span></a>
             </div>
-            <div class="mobile_menu_main_logo"><img class="nav_logo_img img-fluid" src="images/header-logo2.svg"
-                    alt="images/header-logo2.png"></div>
+            <div class="mobile_menu_main_logo logoTamaño"><img class="nav_logo_img img-fluid" src="{{asset('images/logo.png')}}"
+                    alt="imagen logo"></div>
         </div>
     </div>
     <!-- /.mobile-menu -->
     <nav id="menu" class="stylehome1">
         <ul>
-            <li><span class="text-white">Inicio</span>
+            <li> <a href="{{route('inicio')}}"><span class="title">Inicio</span></a>
 
             </li>
-            <li><span class="text-white">Listado</span>
+            <li> <a href="{{route('lista-de-autos')}}"><span class="title">Listado</span></a>
 
             </li>
-            <li><span class="text-white">Calculadora</span>
 
             </li>
-            <li><span class="text-white">Contacto</span>
+            <li> <a href="{{route('contacto')}}"><span class="title">Contacto</span></a>
+
+            </li>
 
             </li>
             <!-- Only for Mobile View -->

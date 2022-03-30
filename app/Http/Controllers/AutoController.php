@@ -22,6 +22,11 @@ use App\Models\Permuta;
 use App\Models\Dato;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Image;
+use Illuminate\Support\Str;
+
 
 
 class AutoController extends Controller
@@ -34,9 +39,9 @@ class AutoController extends Controller
     public function index()
     {
         $autos = Auto::where('estado','Activado')->paginate(2);
-        $activoAutos=true;
 
-        return view('admin.autos.index',compact('autos','activoAutos'));
+
+        return view('admin.autos.index');
     }
 
     /**
@@ -107,6 +112,7 @@ class AutoController extends Controller
             'preciocosto' => 'required',
             'ciudad' => 'required',
             'provincia' => 'required',
+            'imagenPortada' => 'nullable|mimes:jpg,png,jpeg',
             'tipo' => 'nullable',
             'kilometraje' => 'nullable',
             'combustible' => 'nullable',
@@ -122,6 +128,27 @@ class AutoController extends Controller
 
         ]);
 
+        //obtenemos la ruta de la imagen y la almacenamos con el metodo "store"
+        if(request('imagenPortada')){
+
+            $nombre = Str::random(20).$request->file('imagenPortada')->getClientOriginalName();
+
+            $ruta = storage_path().'/app/public/autos/'.$nombre;
+
+           Image::make($data['imagenPortada'])
+            ->resize(500, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->save($ruta);
+
+            $ruta_imagenPortada = '\autos/'.$nombre;
+
+        } else {
+            $ruta_imagenPortada = null;
+        }
+
+
+
         try {
             //Creacion
             $auto = Auto::create([
@@ -136,6 +163,7 @@ class AutoController extends Controller
                 'ciudad' => $data['ciudad'],
                 'provincia' => $data['provincia'],
                 'estado' => 'Activado',
+                'imagenPortada' => $ruta_imagenPortada,
                 'tipo' => $data['tipo'],
                 'kilometraje' => $data['kilometraje'],
                 'combustible' => $data['combustible'],
@@ -288,10 +316,30 @@ class AutoController extends Controller
     {
         try {
 
+            //elimina la imagen de portada
+            Storage::delete('public/'.$auto->imagenPortada);
+
+            //Eliminar el archivo del servidor
+            $fotos = $auto->files;
+
+            foreach ($fotos as $foto) {
+                Storage::delete($foto->url);
+            }
+
+            //Borra de la base de datos
+            foreach ($fotos as $foto) {
+                DB::delete('delete from files where id ='.$foto->id);
+            }
+
+
+
+            //Cambia estado del auto
             $auto->estado = 'Desactivado';
             $auto->save();
 
-            return redirect()->route('autos.index')->with('Borrado', 'El auto se borró exitosamente.');
+
+
+           return redirect()->route('autos.index')->with('Borrado', 'El auto se borró exitosamente.');
         } catch (\Throwable $th) {
 
             return redirect()->route('autos.index')->with('Error', 'Hubo un problema, vuelva a intentarlo.');

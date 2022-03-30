@@ -14,8 +14,8 @@
 
         <div class="col-lg-12">
             <div class="new_property_form">
-                <form class="contact_form" id="formulario" name="contact_form" method="POST" action="{{ route('autos.store') }}"
-                    novalidate>
+                <form class="contact_form" id="formulario" name="contact_form" method="POST"
+                    action="{{ route('autos.store') }}" novalidate enctype="multipart/form-data">
                     @csrf
                     <div class="row">
 
@@ -406,7 +406,22 @@
                                 @enderror
                             </div>
                         </div>
+                        {{-- Imagen de portada --}}
+                        <div class="col-sm-6">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">imagen de portada</label>
+                                <input type="file" class="form-control @error('imagenPortada') is-invalid @enderror"
+                                name="imagenPortada">
 
+                                @error('imagenPortada')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>La imagén debe pesar menos de 500 kb.</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- Descripcion --}}
                         <div class="col-md-12">
                             <div class="mb20">
                                 <label class="form-label">Descripción</label>

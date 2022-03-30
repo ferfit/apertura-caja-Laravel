@@ -11,13 +11,10 @@
             <div class="col-md-8 col-xl-5">
                 <div class="footer_menu_widget text-start text-md-end mt15">
                     <ul id="respMenu" class="ace-responsive-menu text-end" data-menu-style="horizontal">
-                        <li> <a href="#"><span class="title">Inicio</span></a>
+                        <li> <a href="{{route('inicio')}}"><span class="title">Inicio</span></a>
 
                         </li>
                         <li> <a href="{{route('lista-de-autos')}}"><span class="title">Listado</span></a>
-
-                        </li>
-                        <li> <a href="#"><span class="title">Calculadora</span></a>
 
                         </li>
                         <li> <a href="{{route('contacto')}}"><span class="title">Contacto</span></a>

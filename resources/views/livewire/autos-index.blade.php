@@ -16,13 +16,19 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                    @foreach ($autos as $auto)
+                    @foreach ($autos as $auto )
                         <tr>
+
                             <th class="align-middle pl20" scope="row">
                                 <div class="car-listing bdr_none d-flex mb0">
                                     <div class="thumb w150">
-                                        <img class="img-fluid" src="images/listing/1.jpg" alt="1.jpg">
+                                        @if ($auto->imagenPortada)
+                                            <img class="img-fluid" src="{{ Storage::url($auto->imagenPortada) }}"
+                                                alt="Imagen de auto">
+                                        @else
+                                            <img class="img-fluid" src="{{ asset('images/default/auto.png') }}"
+                                                alt="Imagen de auto">
+                                        @endif
                                     </div>
                                     <div class="details ms-1">
                                         <h6 class="title"><a
@@ -55,7 +61,8 @@
                                     </li>
                                     <li class="list-inline-item mb-1">
                                         <a href="{{ route('gastos.index', $auto) }}" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" title="Gastos"><i class="far fa-dollar-sign"></i></a>
+                                            data-bs-placement="top" title="Gastos"><i
+                                                class="far fa-dollar-sign"></i></a>
                                     </li>
 
 

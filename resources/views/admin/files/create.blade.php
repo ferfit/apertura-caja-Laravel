@@ -15,6 +15,7 @@
                     <p>{{$auto->marca}} - {{$auto->modelo}}</p>
                 </div>
             </div>
+            <p class="btn btn-danger text-white">La imagén debe pesar menos de 500 kb, de lo contrario, no se cargará.</p>
         </div>
 
         <div class="new_property_form">
@@ -57,7 +58,7 @@
       headers:{
         'X-CSRF-TOKEN' : "{{csrf_token()}}"
       },
-      dictDefaultMessage: "Seleccionar imagenes",
+      dictDefaultMessage: "Seleccionar imágenes",
       acceptedFiles : "image/*",
       complete:function(file){
         this.removeFile(file);

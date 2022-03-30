@@ -16,12 +16,14 @@ class InicioController extends Controller
     public function index()
     {
 
-        $autos = Auto::all();
+        $autos = Auto::orderBy('id','DESC')->where('estado','Activado')->limit(8)->get();
+        $autosRecientes = Auto::orderBy('id','DESC')->where('estado','Activado')->limit(4)->get();
+
         $marcas = Marca::all();
         $modelos = Modelo::orderBy('nombre', 'asc')->get();
         $condiciones = Condicion::all();
 
-        return view('welcome', compact('autos', 'marcas', 'modelos', 'condiciones'));
+        return view('welcome', compact('autos','autosRecientes', 'marcas', 'modelos', 'condiciones'));
     }
 
     public function buscador(Request $request)

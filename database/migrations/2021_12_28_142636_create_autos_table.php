@@ -26,6 +26,7 @@ class CreateAutosTable extends Migration
             $table->string('ciudad');
             $table->string('provincia');
             $table->enum('estado',['Activado','Desactivado']);
+            $table->string('imagenPortada')->nullable();
             $table->string('tipo')->nullable();
             $table->bigInteger('kilometraje')->nullable();
             $table->string('combustible')->nullable();

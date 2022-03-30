@@ -20,6 +20,7 @@ class Auto extends Model
         'ciudad',
         'provincia',
         'estado',
+        'imagenPortada',
         'tipo',
         'kilometraje',
         'combustible',

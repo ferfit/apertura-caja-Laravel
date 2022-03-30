@@ -25,6 +25,7 @@ class AutosIndex extends Component
 
         $autos = Auto::all();
         //return view('livewire.clientes-index',compact('clientes'));
+        $autosActivo = 'active';
 
         return view('livewire.autos-index', [
             //'clientes' => Cliente::paginate(3),

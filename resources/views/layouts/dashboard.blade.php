@@ -268,10 +268,14 @@
                                 <div class="extra-dashboard-menu dn-lg">
                                     <div class="ed_menu_list">
                                         <ul>
-                                            <li><a class="active" href="{{route('dashboard')}}"><span
+                                            <li><a @if (Request::url() == route('dashboard')) class="active" @endif href="{{route('dashboard')}}"><span
                                                         class="flaticon-dashboard"></span>Dashboard</a></li>
-                                            <li><a class="" href="{{route('autos.index')}}"><span
-                                                        class="flaticon-user-2"></span>Autos</a></li>
+
+                                             {{-- <li @if (Request::is('/') class="active" @endif >Home</li> --}}
+                                            <li><a @if (Request::url() == route('autos.index')) class="active" @endif href="{{route('autos.index')}}"><span
+                                                    class="flaticon-user-2"></span>Autos</a></li>
+
+
                                             {{-- <li><a href="page-dashboard-listing.html"><span
                                                         class="flaticon-list"></span>My Listing</a></li>
                                             <li><a href="page-dashboard-favorites.html"><span

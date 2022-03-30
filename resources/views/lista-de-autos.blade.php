@@ -48,13 +48,6 @@
 
                         <div class="col col-sm-4 col-lg-2">
                             <div class="advance_search_style">
-                                {{-- <a class="advance_dd_btn" href="#collapseAdvanceSearch" data-bs-toggle="collapse"
-                                    role="button" aria-expanded="false" aria-controls="collapseAdvanceSearch"><span
-                                        class="flaticon-cogwheel"></span> Advanced</a> --}}
-                            </div>
-                        </div>
-                        <div class="col col-sm-4 col-lg-2">
-                            <div class="advance_search_style">
                                 <button type="submit" class="btn btn-thm advnc_search_form_btn"><span
                                         class="flaticon-magnifiying-glass"></span>Buscar</button>
                             </div>
@@ -280,7 +273,12 @@
                             <div class="car-listing">
                                 <div class="thumb">
 
-                                    <img src="images/listing/1.jpg" alt="1.jpg">
+                                    @if ($auto->imagenPortada)
+                                                    <img src="{{Storage::url($auto->imagenPortada)}}" alt="1.jpg">
+                                                    @else
+                                                    <img src="{{asset('images/default/auto.png')}}" alt="1.jpg">
+
+                                                    @endif
                                     <div class="thmb_cntnt2">
                                         <ul class="mb0">
 
