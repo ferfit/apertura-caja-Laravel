@@ -15,7 +15,7 @@
     <!-- Responsive stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <!-- Title -->
-    <title>Voiture - Automotive & Car Dealer HTML Template</title>
+    <title>AgenteCar</title>
     <!-- Favicon -->
     <link href="{{ asset('images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
     <link href="{{ asset('images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" />
