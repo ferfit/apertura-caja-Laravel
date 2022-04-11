@@ -111,7 +111,7 @@ class ClienteController extends Controller
             'origencliente' => 'required',
         ]);
 
-        //Actualización
+
         try {
             $cliente->nombre = $data['nombre'];
             $cliente->celular = $data['celular'];
@@ -120,7 +120,7 @@ class ClienteController extends Controller
             $cliente->provincia = $data['provincia'];
             $cliente->nota = $data['nota'];
             $cliente->estado = $data['estado'];
-            $cliente->origen = $data['origen'];
+            $cliente->origencliente = $data['origencliente'];
             $cliente->save();
 
             return redirect()->route('clientes.index')->with('Actualizado','Cliente actualizado exitosamente.');
