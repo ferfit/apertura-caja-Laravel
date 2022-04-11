@@ -23,6 +23,7 @@ class CreateClientesTable extends Migration
             $table->text('nota');
             $table->enum('estado',['compra','venta','compra-venta']);
             $table->enum('origencliente',['facebook','instagram','google','directo']);
+            $table->enum('estadocliente',['Activado','Desactivado']);
             $table->timestamps();
         });
     }

@@ -58,6 +58,7 @@ class ClienteController extends Controller
                 'nota' => $data['nota'],
                 'estado' => $data['estado'],
                 'origencliente' => $data['origencliente'],
+                'estadocliente' => 'Activado'
                 ]);
 
             //retorno
@@ -137,11 +138,13 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        $cliente = Cliente::find($cliente);
+
 
         try {
 
-            $cliente->first()->delete();
+            //Cambia estado del auto
+            $cliente->estadocliente = 'Desactivado';
+            $cliente->save();
 
             return redirect()->route('clientes.index')->with('Borrado','El cliente se borró exitosamente.');
 
