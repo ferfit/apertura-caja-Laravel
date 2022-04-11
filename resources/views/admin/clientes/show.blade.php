@@ -1,67 +1,81 @@
-@extends('adminlte::page')
+@extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
-
-@section('content_header')
-<div class="container my-4">
-</div>
-
-
-<div class="container mt-2 ">
-    <div class="container mx-auto">
-        <div class="card shadow">
-            <div class="card-header">
-              <h3 class="card-title">
-                Información del cliente {{$cliente->nombre}}
-              </h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <dl>
-                <dt>Nombre</dt>
-                <dd>{{$cliente->nombre}}</dd>
-                <dt>Celular</dt>
-                <dd>{{$cliente->celular}}</dd>
-                <dt>Email</dt>
-                <dd>{{$cliente->email}}</dd>
-                <dt>Ciudad</dt>
-                <dd>{{$cliente->ciudad}}</dd>
-                <dt>Provincia</dt>
-                <dd>{{$cliente->provincia}}</dd>
-
-                <dt>Nota</dt>
-                <dd>{{$cliente->nota}}</dd>
-                <dt>Estado</dt>
-                @switch( $cliente->estado )
-                @case('compra')
-                <small class="badge badge-warning text-white"> compra</small>
-                @break
-                @case('venta')
-                <small class="badge badge-primary"> venta</small>
-                @break
-                @case('compra-venta')
-                <small class="badge badge-success"> compra-venta</small>
-                @break
-                @default
-
-                @endswitch
-                <dt>Metodo de captación:</dt>
-                <dd>{{$cliente->origencliente}}</dd>
-              </dl>
-            </div>
-            <!-- /.card-body -->
-        </div>
-
-
-        <div class="mx-auto">
-            <div class="row mx-auto mt-3">
-                 <a href="{{ route('clientes.index' )}}" class="btn btn-secondary mr-2 shadow">Volver</a>
+@section('contenido')
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="col-lg-12 mb50">
+                <div class="breadcrumb_content">
+                    <h2 class="breadcrumb_title">Información del cliente:</h2>
+                    <p>{{ $cliente->nombre }}</p>
+                </div>
             </div>
         </div>
     </div>
 
-
-</div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="opening_hour_widgets p30 mt30">
+                <div class="wrapper">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Nombre</div>
+                            </div>
+                            <span class="schedule">{{ $cliente->nombre }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Celular</div>
+                            </div>
+                            <span class="schedule">{{ $cliente->celular}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Email</div>
+                            </div>
+                            <span class="schedule">{{ $cliente->email }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Ciudad</div>
+                            </div>
+                            <span class="schedule">{{ $cliente->ciudad }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Provincia</div>
+                            </div>
+                            <span class="schedule">{{ $cliente->provincia}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Nota</div>
+                            </div>
+                            <span class="schedule">{{ $cliente->nota }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Estado</div>
+                            </div>
+                            <span class="schedule">{{ $cliente->estado }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Metodo de captación</div>
+                            </div>
+                            <span class="schedule">{{ $cliente->origencliente }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 my-3">
+            <!-- Nav tabs -->
+            <div class="nav justify-content-start" role="tablist">
+                <a class="botonAzul" href="{{ route('clientes.index') }}"> Volver</a>
+            </div>
+        </div>
+    </div>
 
 @stop
 
@@ -71,7 +85,7 @@
 @stop
 
 @section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
