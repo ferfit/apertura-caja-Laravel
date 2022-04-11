@@ -11,7 +11,6 @@
         </div>
     </div>
     <div class="row">
-
         <div class="col-lg-12">
             <div class="new_property_form">
                 <form class="contact_form" id="formulario" name="contact_form" method="POST"

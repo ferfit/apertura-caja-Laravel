@@ -1,152 +1,168 @@
-@extends('adminlte::page')
+@extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
-
-@section('content_header')
-    <h1 class="text-center">CLIENTES</h1>
-@stop
-
-@section('content')
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Crear cliente</h3>
+@section('contenido')
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="col-lg-12 mb50">
+                <div class="breadcrumb_content">
+                    <h2 class="breadcrumb_title">Crear cliente</h2>
+                </div>
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form method="POST" action="{{route('clientes.store')}}" novalidate>
-              @csrf
-              <div class="card-body">
-                {{-- Nombre --}}
-                <div class="form-group">
-                    <label for="nombre">Nombre*</label>
-                    <input type="text" autofocus
-                    name="nombre"
-                    class="form-control @error('nombre') is-invalid @enderror" id="nombre" placeholder="Ingrese un nombre"
-                        value="{{old('nombre')}}">
-                    @error('nombre')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                {{-- Celular --}}
-                <div class="form-group">
-                    <label for="celular">Celular* (escribir sin guiones, paréntesis, ni ningún carácter especial.</label>
-                    <input type="text" autofocus
-                    name="celular"
-                    class="form-control @error('celular') is-invalid @enderror" id="celular" placeholder="Ej: 1141774343"
-                        value="{{old('celular')}}">
-                    @error('celular')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                {{-- Email --}}
-                <div class="form-group">
-                    <label for="email">Email*</label>
-                    <input type="email" autofocus
-                    name="email"
-                    class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Ingrese un email"
-                        value="{{old('email')}}">
-                    @error('email')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                {{-- Ciudad --}}
-                <div class="form-group">
-                    <label for="ciudad">Ciudad*</label>
-                    <input type="text" autofocus
-                    name="ciudad"
-                    class="form-control @error('ciudad') is-invalid @enderror" id="ciudad" placeholder="Ingrese un ciudad"
-                        value="{{old('ciudad')}}">
-                    @error('ciudad')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                {{-- Provincia --}}
-                <div class="form-group">
-                    <label for="provincia">Provincia*</label>
-                    <input type="text" autofocus
-                    name="provincia"
-                    class="form-control @error('provincia') is-invalid @enderror" id="provincia" placeholder="Ingrese un provincia"
-                        value="{{old('provincia')}}">
-                    @error('provincia')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
+        </div>
+    </div>
 
-                {{-- Nota --}}
-                <div class="form-group">
-                    <label for="nota">Nota*</label>
-                    <textarea rows="5" autofocus
-                    name="nota"
-                    class="form-control @error('nota') is-invalid @enderror" id="nota" placeholder="Ingrese un nota"
-                        value="{{old('nota')}}"></textarea>
-                    @error('nota')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="new_property_form">
+                <form method="POST" action="{{ route('clientes.store') }}" class="contact_form" novalidate>
+                    @csrf
+                    <div class="row">
+                        {{-- Nombre --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="nombre" class="form-label">Nombre*</label>
+                                <input name="nombre" class="form-control form_control @error('nombre') is-invalid @enderror"
+                                    type="text" placeholder="" value="{{ old('nombre') }}">
 
+                                @error('nombre')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
-                {{-- Estado --}}
-                <div class="form-group">
-                    <label for="estado">Estado*</label>
+                        {{-- Email --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="email" class="form-label">Email*
+                                </label>
+                                <input name="email" class="form-control form_control @error('email') is-invalid @enderror"
+                                    type="email" placeholder="" value="{{ old('email') }}">
 
-                    <select name="estado" id="" class="form-control @error('estado') is-invalid @enderror">
-                        <option value="">Seleccione</option>
-                        <option value="compra">compra</option>
-                        <option value="venta">venta</option>
-                        <option value="compra-venta">compra-venta</option>
-                    </select>
+                                @error('email')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- Ciudad --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="ciudad" class="form-label">Ciudad*</label>
+                                <input name="ciudad" class="form-control form_control @error('ciudad') is-invalid @enderror"
+                                    type="text" placeholder="" value="{{ old('ciudad') }}">
 
-                    @error('estado')
-                        <span class="invalid-feedback d-block" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                                @error('ciudad')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- Provincia --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="provincia" class="form-label">Provincia*</label>
+                                <input name="provincia"
+                                    class="form-control form_control @error('provincia') is-invalid @enderror" type="text"
+                                    placeholder="" value="{{ old('provincia') }}">
 
-                </div>
+                                @error('provincia')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- Celular --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="celular" class="form-label">Celular* (escribir sin guiones, paréntesis, ni
+                                    ningún carácter
+                                    especial.</label>
+                                <input name="celular"
+                                    class="form-control form_control @error('celular') is-invalid @enderror" type="text"
+                                    placeholder="" value="{{ old('celular') }}">
 
-                {{-- Origen cliente --}}
-                <div class="form-group">
-                    <label for="estado">Metodo de captación*</label>
+                                @error('celular')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
-                    <select name="origencliente" id="" class="form-control @error('origencliente') is-invalid @enderror">
-                        <option value="">Seleccione</option>
-                        <option value="facebook">Facebook</option>
-                        <option value="instagram">Instagram</option>
-                        <option value="google">Google</option>
-                        <option value="directo">Directo</option>
-                    </select>
-
-                    @error('origencliente')
-                        <span class="invalid-feedback d-block" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-
-                </div>
+                        {{-- Nota --}}
+                        <div class="col-md-12">
+                            <div class="mb20">
+                                <label class="form-label">Nota*</label>
+                                <textarea name="nota" class="form-control" rows="10" placeholder=""></textarea>
+                            </div>
+                            @error('nota')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
 
 
-              </div>
-              <!-- /.card-body -->
+                        {{-- Estado --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="estado" class="form-label">Estado*</label>
+                                <select name="estado" class="selectpicker @error('estado') is-invalid @enderror"
+                                    data-live-search="true" data-width="100%">
+                                    <option value="">Seleccione</option>
+                                    <option value="compra">compra</option>
+                                    <option value="venta">venta</option>
+                                    <option value="compra-venta">compra-venta</option>
+                                </select>
 
-              <div class="card-footer">
-                <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1 " ></i>Crear</button>
-                <a href="{{ route('clientes.index')}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a>
-              </div>
-            </form>
-          </div>
+                                @error('estado')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                            </div>
+                        </div>
+
+                        {{-- Origen cliente --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="origencliente" class="form-label">Metodo de captación*</label>
+                                <select name="origencliente"
+                                    class="selectpicker @error('origencliente') is-invalid @enderror"
+                                    data-live-search="true" data-width="100%">
+                                    <option value="">Seleccione</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="instagram">Instagram</option>
+                                    <option value="google">Google</option>
+                                    <option value="directo">Directo</option>
+                                </select>
+
+                                @error('origencliente')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="col-lg-12 my-3">
+                            <!-- Nav tabs -->
+                            <div class="nav justify-content-start" role="tablist">
+                                <button type="submit" id="btnForm" class="botonAmarillo">Crear</button>
+                                <a class="botonAzul" href="{{ route('clientes.index') }}"> Volver</a>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
     </div>
 @stop
 
@@ -154,4 +170,5 @@
 @stop
 
 @section('js')
+    @include('includes.btnForm')
 @stop
