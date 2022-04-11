@@ -1,78 +1,102 @@
-<div class="table-responsive">
+<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <div class="col-lg-12">
+        <div class="table-responsive my_lisging_table">
+
     <input class="form-control mb-3" wire:model="search" type="search" placeholder="Buscar...">
 
-    <table class="table table-bordered ">
-        <thead>
-            <tr>
-                <th>Fecha</th>
-                <th>Nombre</th>
-                <th>Celular</th>
-                <th>Email</th>
-                <th>Ciudad</th>
-                <th>Provincia</th>
-                <th>Nota</th>
-                <th>Estado</th>
-                <th>Acciones</th>
+    <table class="table">
+        <thead class="table-light">
+            <tr class="thead_row">
+                <th class="thead_title" scope="col">Fecha</th>
+                <th class="thead_title" scope="col">Nombre</th>
+                <th class="thead_title" scope="col">Celular</th>
+                <th class="thead_title" scope="col">Email</th>
+                <th class="thead_title" scope="col">Ciudad</th>
+                <th class="thead_title" scope="col">Provincia</th>
+                <th class="thead_title" scope="col">Nota</th>
+                <th class="thead_title" scope="col">Estado</th>
+                <th class="thead_title" scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($clientes as $cliente)
                 <tr>
-                    <td>{{ date('d-m-Y', strtotime($cliente->created_at)) }}</td>
-                    <td>{{ $cliente->nombre }}</td>
-                    <td>{{ $cliente->celular }}</td>
-                    <td>{{ $cliente->email }}</td>
-                    <td>{{ $cliente->ciudad }}</td>
-                    <td>{{ $cliente->provincia }}</td>
-                    <td>{{ Str::limit($cliente->nota, 50) }}</td>
-                    <td>
-                    
+                    <td class="align-middle">{{ date('d-m-Y', strtotime($cliente->created_at)) }}</td>
+                    <td class="align-middle">{{ $cliente->nombre }}</td>
+                    <td class="align-middle">{{ $cliente->celular }}</td>
+                    <td class="align-middle">{{ $cliente->email }}</td>
+                    <td class="align-middle">{{ $cliente->ciudad }}</td>
+                    <td class="align-middle">{{ $cliente->provincia }}</td>
+                    <td class="align-middle">{{ Str::limit($cliente->nota, 50) }}</td>
+                    <td class="align-middle">
+
                         @switch($cliente->estado)
                             @case("compra")
-                            <small class="badge badge-dark"> {{ $cliente->estado }}</small>
+                            <small class="tag text-white px-2 py-1 rounded" style="background-color: red"> {{ $cliente->estado }}</small>
                             @break
                             @case("venta")
-                            <small class="badge badge-primary"> {{ $cliente->estado }}</small>
+                            <small class="tag text-white px-2 py-1 rounded" style="background-color: blue"> {{ $cliente->estado }}</small>
 
                             @break
                             @case("compra-venta")
-                            <small class="badge badge-success"> {{ $cliente->estado }}</small>
+                            <small class="tag text-white px-2 py-1 rounded" style="background-color: black"> {{ $cliente->estado }}</small>
 
                             @break
                             @default
 
                         @endswitch
 
-                        
+
                     </td>
-                    <td class="">
+                    <td class="editing_list align-middle">
                         <div class="row mx-auto">
-                            <a href="{{ route('clientes.show', $cliente) }}" class="btn btn-secondary mr-2"><i
-                                    class="far fa-eye"></i></a>
-                            <a href="{{ route('clientes.edit', $cliente) }}" class="btn btn-primary mr-2"><i
-                                    class="fas fa-edit"></i></a>
+                            <ul>
+                                <li class="list-inline-item mb-1">
+                                    <a href="{{ route('clientes.show', $cliente) }}" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Ver"><span class="flaticon-view"></span></a>
+                                </li>
+                                <li class="list-inline-item mb-1">
+                                    <a href="{{ route('clientes.edit', $cliente) }}" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Editar"><i class="fal fa-edit"></i></a>
+                                </li>
 
-                            <form action="{{ route('clientes.destroy', $cliente) }}" method="POST"
-                                class="formulario-eliminar">
-                                @csrf
-                                @method('DELETE')
+                                <li class="list-inline-item mb-1">
+                                    <form action="{{ route('clientes.destroy', $cliente) }}" method="POST"
+                                        class="formulario-eliminar">
+                                        @csrf
+                                        @method('DELETE')
 
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </form>
-                            <a href="https://api.whatsapp.com/send?phone=549{{$cliente->celular}}" target="_blank" class="btn btn-success ml-xl-2"><i
-                                class="fab fa-whatsapp"></i></a>
+
+                                        <button class="sinBordes p-0"><a data-bs-toggle="tooltip"
+                                                data-bs-placement="top" title="Borrar"><span
+                                                    class="flaticon-trash"></span></a></button>
+                                    </form>
+
+                                </li>
+
+                                <li class="list-inline-item mb-1">
+                                    <a href="https://api.whatsapp.com/send?phone=549{{$cliente->celular}}"  target="_blank" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Whatsapp"><i
+                                        class="fab fa-whatsapp"></i></i></a>
+                                </li>
+
+                            </ul>
+
                         </div>
                     </td>
                 </tr>
             @endforeach
 
-            
 
         </tbody>
     </table>
-    <div class="card-footer clearfix">
+</div>
+</div>
+<div class="col-lg-12">
+<div class="mbp_pagination mt10">
+    <ul class="page_navigation">
         {{ $clientes->links() }}
-    </div>
+    </ul>
+</div>
+</div>
 </div>

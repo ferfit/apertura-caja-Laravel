@@ -275,6 +275,9 @@
                                             <li><a @if (Request::url() == route('autos.index')) class="active" @endif href="{{route('autos.index')}}"><span
                                                     class="flaticon-user-2"></span>Autos</a></li>
 
+                                            <li><a @if (Request::url() == route('clientes.index')) class="active" @endif href="{{route('clientes.index')}}"><span
+                                                    class="flaticon-user-2"></span>Clientes</a></li>
+
 
                                             {{-- <li><a href="page-dashboard-listing.html"><span
                                                         class="flaticon-list"></span>My Listing</a></li>
