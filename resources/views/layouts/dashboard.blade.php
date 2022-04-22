@@ -279,6 +279,8 @@
                                                     class="flaticon-user-2"></span>Clientes</a></li>
                                             <li><a @if (Request::url() == route('ventas.index')) class="active" @endif href="{{route('ventas.index')}}"><span
                                                     class="flaticon-user-2"></span>Ventas</a></li>
+                                            <li><a @if (Request::url() == route('users.index')) class="active" @endif href="{{route('users.index')}}"><span
+                                                    class="flaticon-user-2"></span>Usuarios</a></li>
 
 
                                             {{-- <li><a href="page-dashboard-listing.html"><span
