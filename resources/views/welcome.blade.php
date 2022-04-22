@@ -31,62 +31,7 @@
                                                         role="tabpanel" aria-labelledby="pills-allstatus-tab">
                                                         <div class="row">
                                                             <div class="col-lg-12">
-                                                                <div class="home1_advance_search_wrapper">
-                                                                    <ul class="mb0 text-center">
-                                                                        <li class="list-inline-item">
-                                                                            <div class="select-boxes">
-                                                                                <div class="car_brand">
-                                                                                    <h6 class="title">Marca
-                                                                                    </h6>
-                                                                                    <select class="selectpicker" name="marca">
-                                                                                        <option value=""> Seleccione una marca
-                                                                                        </option>
-                                                                                        @foreach ($marcas as $marca )
-                                                                                        <option value="{{$marca->nombre}}">{{$marca->nombre}}</option>
-                                                                                        @endforeach
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-inline-item">
-                                                                            <div class="select-boxes">
-                                                                                <div class="car_models">
-                                                                                    <h6 class="title">Modelo
-                                                                                    </h6>
-                                                                                    <select class="selectpicker" name="modelo">
-                                                                                        <option value="">Seleccione un modelo
-                                                                                        </option>
-                                                                                        @foreach ($modelos as $modelo )
-                                                                                        <option value="{{$modelo->nombre}}">{{$modelo->nombre}}</option>
-                                                                                        @endforeach
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-inline-item">
-                                                                            <div class="select-boxes">
-                                                                                <div class="car_prices">
-                                                                                    <h6 class="title">
-                                                                                        Condición</h6>
-                                                                                    <select class="selectpicker" name="condicion">
-                                                                                        <option value="">Seleccione una condición
-                                                                                        </option>
-                                                                                        @foreach ($condiciones as $condicion )
-                                                                                        <option value="{{$condicion->nombre}}">{{$condicion->nombre}}</option>
-                                                                                        @endforeach
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-inline-item">
-                                                                            <div class="d-block">
-                                                                                <button type="submit"
-                                                                                    class="btn btn-thm advnc_search_form_btn"><span
-                                                                                        class="flaticon-magnifiying-glass"></span>Buscar</button>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
+                                                                @livewire('buscador-index')
                                                             </div>
                                                         </div>
                                                     </div>
