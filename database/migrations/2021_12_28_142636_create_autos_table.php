@@ -38,7 +38,7 @@ class CreateAutosTable extends Migration
             $table->string('direccion')->nullable();
             $table->string('valor')->nullable();
             $table->string('permuta')->nullable();
-            $table->string('descripcion')->nullable();
+            $table->text('descripcion')->nullable();
             $table->timestamps();
         });
     }
