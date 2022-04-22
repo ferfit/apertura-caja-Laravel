@@ -155,10 +155,9 @@ class VentaController extends Controller
      */
     public function destroy(Venta $venta)
     {
-        $venta = Venta::find($venta);
 
         try {
-            $venta->first()->delete();
+            $venta->delete();
 
             return redirect()->route('ventas.index')->with('Borrado','La venta se borró exitosamente.');
 

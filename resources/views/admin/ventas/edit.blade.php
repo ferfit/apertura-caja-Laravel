@@ -1,80 +1,90 @@
-@extends('adminlte::page')
+@extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
-
-@section('content_header')
-    <h1 class="text-center">VENTAS</h1>
-@stop
-
-@section('content')
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Editar venta</h3>
+@section('contenido')
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="col-lg-12 mb50">
+                <div class="breadcrumb_content">
+                    <h2 class="breadcrumb_title">Crear Venta</h2>
+                </div>
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form method="POST" action="{{route('ventas.update',$venta)}}" novalidate>
-              @csrf
-              @method('PUT')
-              <div class="card-body">
-
-
-                {{-- Titulo --}}
-                <div class="form-group">
-                    <label for="titulo">Titulo o descripción</label>
-                    <input type="text" autofocus
-                    name="titulo"
-                    class="form-control @error('titulo') is-invalid @enderror" id="titulo" placeholder="Ingrese un título o descripción"
-                        value="{{$venta->titulo}}">
-                    @error('titulo')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                {{-- Cliente --}}
-                <div class="form-group">
-                    <label for="cliente_id">Cliente</label>
-
-                    <select name="cliente_id" id="" class="form-control @error('cliente_id') is-invalid @enderror">
-                        <option value="{{$venta->cliente->id}}">{{$venta->cliente->nombre}}</option>
-                        @foreach ($clientes as $cliente)
-                            <option value="{{$cliente->id}}">
-                                {{ $cliente->nombre}}
-                            </option>
-                        @endforeach
-                    </select>
-
-                    @error('cliente_id')
-                        <span class="invalid-feedback d-block" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-
-                </div>
-
-
-                @livewire('edit-venta',['venta' => $venta])
-
-
-
-              </div>
-              <!-- /.card-body -->
-
-              <div class="card-footer">
-                <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1 " ></i>Actualizar</button>
-                <a href="{{ route('ventas.index')}}" class="ml-1 btn btn-secondary"> <i class="fas fa-undo-alt mr-1"></i>Volver</a>
-              </div>
-            </form>
-          </div>
+        </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="new_property_form">
+                <form method="POST" action="{{ route('ventas.update', $venta) }}" class="contact_form" novalidate>
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+
+
+                        {{-- Titulo --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="titulo" class="form-label">Título o descripción*</label>
+                                <input autofocus name="titulo"
+                                    class="form-control form_control @error('titulo') is-invalid @enderror" type="text"
+                                    placeholder="" value="{{ $venta->titulo }}">
+
+                                @error('titulo')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- Cliente --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="cliente_id" class="form-label">Cliente*</label>
+                                <select name="cliente_id" class="selectpicker @error('cliente_id') is-invalid @enderror"
+                                    data-live-search="true" data-width="100%">
+                                    @foreach ($clientes as $cliente)
+                                        <option value="{{ $cliente->id }}">
+                                            {{ $cliente->nombre }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                                @error('cliente_id')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                            </div>
+                        </div>
+
+                        @livewire('edit-venta',['venta' => $venta])
+
+
+                        <!-- /.card-body -->
+
+                        <div class="col-lg-12 my-3">
+                            <!-- Nav tabs -->
+                            <div class="nav justify-content-start" role="tablist">
+                                <button type="submit" id="btnForm" class="botonAmarillo">Guardar</button>
+                                <a class="botonAzul" href="{{ route('ventas.index') }}"> Volver</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
 @stop
 
 @section('css')
-@livewireStyles
+    @livewireStyles
 @stop
 
 @section('js')
-@livewireScripts
+    @livewireScripts
+    @include('includes.btnForm')
 @stop

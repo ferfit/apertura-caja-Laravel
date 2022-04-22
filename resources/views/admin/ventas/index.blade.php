@@ -38,6 +38,7 @@
                                             <thead class="table-light">
                                                 <tr class="thead_row">
                                                     <th class="thead_title" scope="col">Fecha</th>
+                                                    <th class="thead_title" scope="col">Título</th>
                                                     <th class="thead_title" scope="col">Cliente</th>
                                                     <th class="thead_title" scope="col">Auto</th>
                                                     <th class="thead_title" scope="col">Precio Costo</th>
@@ -50,9 +51,10 @@
                                                 @foreach ($ventas as $venta)
                                                     <tr>
                                                         <td class="align-middle">{{ date('d-m-Y', strtotime($venta->created_at)) }}</td>
+                                                        <td class="align-middle">{{ $venta->titulo }}</td>
                                                         <td class="align-middle">{{ $venta->cliente->nombre }}</td>
                                                         <td class="align-middle">{{ $venta->auto->marca }} - {{ $venta->auto->modelo }} -
-                                                            {{ $venta->auto->version }}
+                                                            {{ $venta->auto->version }} - {{$venta->auto->patente}}
                                                         </td>
                                                         <td class="align-middle">${{ number_format($venta->precio_costo, 2, ',', '.') }}</td>
 
@@ -63,12 +65,7 @@
                                                         <td class="editing_list align-middle">
                                                             <div class="row mx-auto">
                                                                 <ul>
-                                                                    <li class="list-inline-item mb-1">
-                                                                        <a href="{{ route('ventas.show', $venta) }}"
-                                                                            data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                            title="Ver"><span
-                                                                                class="flaticon-view"></span></a>
-                                                                    </li>
+
                                                                     <li class="list-inline-item mb-1">
                                                                         <a href="{{ route('ventas.edit', $venta) }}"
                                                                             data-bs-toggle="tooltip" data-bs-placement="top"
