@@ -51,7 +51,7 @@ class UserController extends Controller
             User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
-                'password'=>hash::make($data['password'])    
+                'password'=>hash::make($data['password'])
             ]);
 
             //Redirección
@@ -123,26 +123,32 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user = User::find($user);
+        $usuarioLogeado = auth()->user()->id;
+
+        if($user->id == $usuarioLogeado ){
+            return redirect()->route('users.index')->with('Error','No puede borrar este usuario.');
+        }
 
         try {
-            $user->first()->delete();
-    
+            $user->delete();
+
             return redirect()->route('users.index')->with('Borrado','El usuario se borró exitosamente.');
-            
+
         } catch (\Throwable $th) {
-            
+
             return redirect()->route('users.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
         }
     }
 
     public function password(User $user){
         return view('admin.users.password',compact('user'));
-        
+
     }
 
     public function updatePassword(Request $request, User $user)
     {
+
+
         //Validación
         $data = request()->validate([
             'password' => 'required'

@@ -1,50 +1,65 @@
-@extends('adminlte::page')
+@extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
+@section('contenido')
 
-@section('content_header')
-    <h1 class="text-center">USUARIOS</h1>
-@stop
-
-@section('content')
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Actualizar contraseña de <strong>{{$user->name}}</strong> </h3>
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="col-lg-12 mb50">
+                <div class="breadcrumb_content">
+                    <h2 class="breadcrumb_title">Editar Usuario</h2>
+                </div>
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form method="POST" action="{{ route('updatePassword',$user) }}" novalidate>
-                @csrf
-                @method('PUT')
-
-                {{-- Contraseña --}}
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="password">Contraseña nueva*</label>
-                        <input type="password" autofocus password="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                            id="password" placeholder="Ingrese un nombre" value="">
-                        @error('password')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1"></i>Actualizar</button>
-                    <a href="{{ route('users.index') }}" class="ml-1 btn btn-secondary"> <i
-                            class="fas fa-undo-alt mr-1"></i>Volver</a>
-                </div>
-            </form>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="new_property_form">
+                <form method="POST" action="{{ route('updatePassword', $user) }}" novalidate>
+                    @csrf
+                    @method('put')
+                    <div class="row">
+                        {{-- Contraseña --}}
+
+
+                        {{-- Nombre --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="password" class="form-label">Contraseña*</label>
+                                <input autofocus name="password" class="form-control form_control @error('password') is-invalid @enderror"
+                                    type="password" placeholder="" >
+
+                                @error('password')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- /.card-body -->
+
+                        <div class="col-lg-12 my-3">
+                            <!-- Nav tabs -->
+                            <div class="nav justify-content-start" role="tablist">
+                                <button type="submit" id="btnForm" class="botonAmarillo">Guardar</button>
+                                <a class="botonAzul" href="{{ route('users.index') }}"> Volver</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
 @stop
 
 @section('css')
 @stop
 
 @section('js')
+    @livewireScripts
+    @include('includes.btnForm')
 @stop
