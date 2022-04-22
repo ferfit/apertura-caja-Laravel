@@ -1,73 +1,94 @@
-@extends('adminlte::page')
+@extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
+@section('contenido')
 
-@section('content_header')
-    <h1 class="text-center">USUARIOS</h1>
-@stop
-
-@section('content')
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Crear usuario</h3>
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="col-lg-12 mb50">
+                <div class="breadcrumb_content">
+                    <h2 class="breadcrumb_title">Crear Usuario</h2>
+                </div>
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form method="POST" action="{{ route('users.store') }}" novalidate>
-                @csrf
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="name">Nombre*</label>
-                        <input type="text" autofocus name="name" class="form-control @error('name') is-invalid @enderror"
-                            id="name" placeholder="Ingrese un nombre" value="{{ old('name') }}">
-                        @error('name')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                {{-- Email --}}
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="email">Email*</label>
-                        <input type="email" autofocus email="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                            id="email" placeholder="Ingrese un nombre" value="{{ old('email') }}">
-                        @error('email')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                {{-- contraseña --}}
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="password">Contraseña*</label>
-                        <input type="password" autofocus password="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                            id="password" placeholder="Ingrese una contraseña" value="{{ old('password') }}">
-                        @error('password')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-success"><i class="far fa-check-square mr-1"></i>Crear</button>
-                    <a href="{{ route('users.index') }}" class="ml-1 btn btn-secondary"> <i
-                            class="fas fa-undo-alt mr-1"></i>Volver</a>
-                </div>
-            </form>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="new_property_form">
+                <form method="POST" action="{{ route('users.store') }}" novalidate>
+                    @csrf
+                    <div class="row">
+                        {{-- Nombre --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="name" class="form-label">Nombre*</label>
+                                <input autofocus name="name"
+                                    class="form-control form_control @error('name') is-invalid @enderror" type="text"
+                                    placeholder="" value="{{ old('name') }}">
+
+                                @error('name')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- Email --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="email" class="form-label">Email*</label>
+                                <input name="email" class="form-control form_control @error('email') is-invalid @enderror"
+                                    type="email" placeholder="" value="{{ old('email') }}">
+
+                                @error('email')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- contraseña --}}
+
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label for="password" class="form-label">Contraseña*</label>
+                                <input name="password"
+                                    class="form-control form_control @error('password') is-invalid @enderror"
+                                    type="password" placeholder="" value="{{ old('password') }}">
+
+                                @error('password')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="col-lg-12 my-3">
+                            <!-- Nav tabs -->
+                            <div class="nav justify-content-start" role="tablist">
+                                <button type="submit" id="btnForm" class="botonAmarillo">Crear</button>
+                                <a class="botonAzul" href="{{ route('users.index') }}"> Volver</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
 @stop
 
 @section('css')
+    @livewireStyles
 @stop
 
 @section('js')
+    @livewireScripts
+    @include('includes.btnForm')
 @stop
