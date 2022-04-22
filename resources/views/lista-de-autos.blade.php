@@ -11,48 +11,7 @@
             <div class="container">
                 <form action="{{route('lista-de-autos')}}">
 
-                    <div class="row">
-                        <div class="col col-sm-4 col-lg-2">
-                            <div class="advance_search_style">
-                                <select class="selectpicker show-tick" name="marca">
-                                    <option value=""> Seleccione una marca
-                                    </option>
-                                    @foreach ($marcas as $marca )
-                                    <option value="{{$marca->nombre}}">{{$marca->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col col-sm-4 col-lg-2">
-                            <div class="advance_search_style">
-                                <select class="selectpicker show-tick" name="modelo">
-                                    <option value="">Seleccione un modelo
-                                    </option>
-                                    @foreach ($modelos as $modelo )
-                                    <option value="{{$modelo->nombre}}">{{$modelo->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col col-sm-4 col-lg-2">
-                            <div class="advance_search_style">
-                                <select class="selectpicker show-tick" name="condicion">
-                                    <option value="">Seleccione una condición
-                                    </option>
-                                    @foreach ($condiciones as $condicion )
-                                    <option value="{{$condicion->nombre}}">{{$condicion->nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col col-sm-4 col-lg-2">
-                            <div class="advance_search_style">
-                                <button type="submit" class="btn btn-thm advnc_search_form_btn"><span
-                                        class="flaticon-magnifiying-glass"></span>Buscar</button>
-                            </div>
-                        </div>
-                    </div>
+                    @livewire('buscador-lista')
                     {{-- <div class="collapse" id="collapseAdvanceSearch">
                         <div class="row bgc-thm2">
                             <div class="col col-sm-4 col-lg-2">
