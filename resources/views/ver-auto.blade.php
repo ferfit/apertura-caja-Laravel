@@ -32,7 +32,7 @@
                                     <li class="list-inline-item"><a href="#"><span
                                                 class="flaticon-eye vam"></span>13102</a></li>
                                 </ul> --}}
-                            <h2 class="title">{{ $auto->marca }} - {{ $auto->modelo }}</h2>
+                            <h2 class="title">{{ $auto->marca->nombre }} - {{ $auto->modelo->nombre }}</h2>
                             <p class="para">Versión: {{ $auto->version }} - Año: {{ $auto->año }}</p>
                         </div>
                     </div>
@@ -163,13 +163,13 @@
                                             <div class="me-auto">
                                                 <div class="day">Marca</div>
                                             </div>
-                                            <span class="schedule">{{ $auto->marca }}</span>
+                                            <span class="schedule">{{ $auto->marca->nombre }}</span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-start">
                                             <div class="me-auto">
                                                 <div class="day">Modelo</div>
                                             </div>
-                                            <span class="schedule">{{ $auto->modelo }}</span>
+                                            <span class="schedule">{{ $auto->modelo->nombre }}</span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-start">
                                             <div class="me-auto">

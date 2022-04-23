@@ -11,8 +11,8 @@ class Auto extends Model
     protected $fillable = [
         'patente',
         'condicion',
-        'marca',
-        'modelo',
+        'marca_id',
+        'modelo_id',
         'version',
         'año',
         'precio',
@@ -38,27 +38,37 @@ class Auto extends Model
 
     use HasFactory;
 
-    //Relacion 1 a muchos
+    //Relacion 1 a muchos -----------------------------------
     public function gastos()
     {
         return $this->hasMany('App\Models\Gasto');
     }
-    //Relacion 1 a muchos
+
     public function files()
     {
         return $this->hasMany('App\Models\File');
     }
 
-    //Query Scope
 
+    //relacion 1 a muchos inversa-----------------------------
+    public function marca(){
+        return $this->belongsTo('App\Models\Marca');
+    }
+
+    public function modelo(){
+        return $this->belongsTo('App\Models\Modelo');
+    }
+
+
+    //Query Scope---------------------------------------------
     public function scopeMarca($query,$marca)
     {
-        if($marca) return $query->where('marca','=',$marca);
+        if($marca) return $query->where('marca_id','=',$marca);
     }
 
     public function scopeModelo($query,$modelo)
     {
-        if($modelo) return $query->where('modelo','=',$modelo);
+        if($modelo) return $query->where('modelo_id','=',$modelo);
     }
 
     public function scopeCondicion($query,$condicion)

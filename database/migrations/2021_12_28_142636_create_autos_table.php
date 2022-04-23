@@ -17,15 +17,20 @@ class CreateAutosTable extends Migration
             $table->id();
             $table->string('patente');
             $table->string('condicion');
-            $table->string('marca');
-            $table->string('modelo');
+
+            $table->unsignedBigInteger('marca_id');
+            $table->foreign('marca_id')->references('id')->on('marcas');
+
+            $table->unsignedBigInteger('modelo_id');
+            $table->foreign('modelo_id')->references('id')->on('modelos');
+
             $table->string('version');
             $table->integer('año');
-            $table->float('preciocosto',10,2);
-            $table->float('precio',10,2);
+            $table->float('preciocosto', 10, 2);
+            $table->float('precio', 10, 2);
             $table->string('ciudad');
             $table->string('provincia');
-            $table->enum('estado',['Activado','Desactivado']);
+            $table->enum('estado', ['Activado', 'Desactivado']);
             $table->string('imagenPortada')->nullable();
             $table->string('tipo')->nullable();
             $table->bigInteger('kilometraje')->nullable();

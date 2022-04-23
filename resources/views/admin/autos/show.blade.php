@@ -7,7 +7,7 @@
             <div class="col-lg-12 mb50">
                 <div class="breadcrumb_content">
                     <h2 class="breadcrumb_title">Información del auto</h2>
-                    <p>{{ $auto->marca }} - {{ $auto->modelo }}</p>
+                    <p>{{ $auto->marca->nombre }} - {{ $auto->modelo->nombre }}</p>
                 </div>
             </div>
         </div>
@@ -34,13 +34,13 @@
                             <div class="me-auto">
                                 <div class="day">Marca</div>
                             </div>
-                            <span class="schedule">{{ $auto->marca }}</span>
+                            <span class="schedule">{{ $auto->marca->nombre }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="me-auto">
                                 <div class="day">Modelo</div>
                             </div>
-                            <span class="schedule">{{ $auto->modelo }}</span>
+                            <span class="schedule">{{ $auto->modelo->nombre }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="me-auto">
@@ -143,6 +143,13 @@
                                 <div class="day">Permuta</div>
                             </div>
                             <span class="schedule">{{ $auto->permuta }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Descripción</div>
+                            </div>
+                            <span class="schedule">{{ $auto->descripcion }}</span>
+
                         </li>
                     </ul>
                 </div>

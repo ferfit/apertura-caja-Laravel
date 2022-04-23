@@ -32,8 +32,8 @@
                                     </div>
                                     <div class="details ms-1">
                                         <h6 class="title"><a
-                                                href="{{ route('autos.show', $auto) }}">{{ $auto->marca }}
-                                                - {{ $auto->modelo }}</a></h6>
+                                                href="{{ route('autos.show', $auto) }}">{{ $auto->marca->nombre }}
+                                                - {{ $auto->modelo->nombre }}</a></h6>
                                         <h5 class="price">
                                             ${{ number_format($auto->precio, 2, ',', '.') }}
                                         </h5>
@@ -41,7 +41,7 @@
                                 </div>
                             </th>
                             <td class="align-middle">{{ $auto->patente }}</td>
-                            <td class="align-middle">{{ $auto->modelo }}</td>
+                            <td class="align-middle">{{ $auto->modelo->nombre }}</td>
                             <td class="align-middle">{{ $auto->version }}</td>
                             <td class="align-middle">{{ $auto->año }}</td>
                             <td class="align-middle">{{ $auto->condicion }}</td>

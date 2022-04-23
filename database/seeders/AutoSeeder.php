@@ -18,8 +18,8 @@ class AutoSeeder extends Seeder
         $auto = Auto::create([
             'patente'=>'jhl878',
             'condicion'=>'Usado',
-            'marca'=>'Ford',
-            'modelo'=>'Focus',
+            'marca_id'=>'1',
+            'modelo_id'=>'1',
             'version'=>'1.6',
             'año'=>'2015',
             'preciocosto' =>'200000',
@@ -32,8 +32,8 @@ class AutoSeeder extends Seeder
         $auto = Auto::create([
             'patente'=>'abc878',
             'condicion'=>'Usado',
-            'marca'=>'Peugeot',
-            'modelo'=>'207',
+            'marca_id'=>'2',
+            'modelo_id'=>'2',
             'version'=>'1.4',
             'año'=>'2010',
             'preciocosto' =>'300000',
@@ -47,8 +47,8 @@ class AutoSeeder extends Seeder
         $auto = Auto::create([
             'patente'=>'jjl899',
             'condicion'=>'Usado',
-            'marca'=>'Peugeot',
-            'modelo'=>'208',
+            'marca_id'=>'3',
+            'modelo_id'=>'3',
             'version'=>'1.4',
             'año'=>'2015',
             'preciocosto' =>'400000',
@@ -62,8 +62,8 @@ class AutoSeeder extends Seeder
         $auto = Auto::create([
             'patente'=>'dfri008',
             'condicion'=>'0 km',
-            'marca'=>'Fiat',
-            'modelo'=>'Toro',
+            'marca_id'=>'4',
+            'modelo_id'=>'4',
             'version'=>'1.8',
             'año'=>'2021',
             'preciocosto' =>'500000',

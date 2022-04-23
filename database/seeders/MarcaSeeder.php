@@ -17,51 +17,51 @@ class MarcaSeeder extends Seeder
     {
         $Marca = Marca::create([
             'nombre'=>'Volkswagen'
-        ]);        
+        ]);
         $Marca = Marca::create([
             'nombre'=>'BMW'
-        ]);  
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Mercedes Benz'
-        ]);        
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Renault'
-        ]);  
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Fiat'
-        ]);        
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Ford'
-        ]);  
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Honda'
-        ]);        
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Audi'
-        ]);  
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Toyota'
-        ]);        
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Chevrolet'
-        ]);  
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Nissan'
-        ]);        
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Volvo'
-        ]);  
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Jeep'
-        ]);  
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Peugeot'
-        ]);  
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Suzuki'
-        ]);  
+        ]);
         $Marca = Marca::create([
             'nombre'=>'Hyundai'
-        ]);  
+        ]);
     }
 }

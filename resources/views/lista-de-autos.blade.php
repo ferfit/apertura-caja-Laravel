@@ -207,7 +207,7 @@
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <div class="page_control_shorting right_area text-end tac-xsd">
+                            {{-- <div class="page_control_shorting right_area text-end tac-xsd">
                                 <ul>
                                     <li class="list-inline-item short_by_text listone">Order por:</li>
                                     <li class="list-inline-item listwo">
@@ -221,7 +221,7 @@
                                     </li>
 
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -251,8 +251,8 @@
                                     <div class="wrapper">
                                         <h5 class="price">${{ number_format($auto->precio, 0, ',', '.') }}</h5>
                                         <h6 class="title"><a
-                                                href="{{route('ver-auto',$auto)}}">{{ $auto->marca }} -
-                                                {{ $auto->modelo }}</a>
+                                                href="{{route('ver-auto',$auto)}}">{{ $auto->marca->nombre }} -
+                                                {{ $auto->modelo->nombre }}</a>
                                         </h6>
                                         <div class="listign_review">
 

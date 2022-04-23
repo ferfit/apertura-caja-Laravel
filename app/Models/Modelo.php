@@ -9,4 +9,11 @@ class Modelo extends Model
 {
     protected $fillable=['nombre','marca_id'];
     use HasFactory;
+
+
+    //Relacion 1 a muchos
+    public function autos()
+    {
+        return $this->hasMany('App\Models\Auto');
+    }
 }

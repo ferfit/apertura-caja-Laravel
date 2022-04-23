@@ -15,25 +15,32 @@ class ModeloSeeder extends Seeder
     public function run()
     {
         $Modelo = Modelo::create([
-            'nombre'=>'207'
-        ]);        
+            'nombre'=>'207',
+            'marca_id' => 1
+        ]);
         $Modelo = Modelo::create([
-            'nombre'=>'208'
-        ]);  
+            'nombre'=>'208',
+            'marca_id' => 2
+        ]);
         $Modelo = Modelo::create([
-            'nombre'=>'Toro'
-        ]);        
+            'nombre'=>'Toro',
+            'marca_id' => 3
+        ]);
         $Modelo = Modelo::create([
-            'nombre'=>'A8'
-        ]);  
+            'nombre'=>'A8',
+            'marca_id' => 4
+        ]);
         $Modelo = Modelo::create([
-            'nombre'=>'Palio'
-        ]);        
+            'nombre'=>'Palio',
+            'marca_id' => 1
+        ]);
         $Modelo = Modelo::create([
-            'nombre'=>'Focus'
-        ]);  
+            'nombre'=>'Focus',
+            'marca_id' => 2
+        ]);
         $Modelo = Modelo::create([
-            'nombre'=>'Gol'
-        ]); 
+            'nombre'=>'Gol',
+            'marca_id' => 3
+        ]);
     }
 }

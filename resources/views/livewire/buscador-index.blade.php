@@ -6,7 +6,7 @@
                     <div class="car_brand">
                         <h6 class="title">Marca
                         </h6>
-                        <select class="form-control" name="marca" wire:model="marca">
+                        <select class="form-control form-select" name="marca" wire:model="marca">
                             <option value=""> Seleccione una marca
                             </option>
                             @foreach ($marcas as $marca )
@@ -21,7 +21,7 @@
                     <div class="car_models" >
                         <h6 class="title">Modelo
                         </h6>
-                        <select class="form-control" name="modelo">
+                        <select class="form-control form-select" name="modelo">
                             <option value="" selected>Seleccione un modelo
                             </option>
                             @foreach ($modelos as $modelo )
@@ -36,7 +36,7 @@
                     <div class="car_prices">
                         <h6 class="title">
                             Condición</h6>
-                        <select class="form-control" name="condicion">
+                        <select class="form-control form-select" name="condicion">
                             <option value="">Seleccione una condición
                             </option>
                             @foreach ($condiciones as $condicion )

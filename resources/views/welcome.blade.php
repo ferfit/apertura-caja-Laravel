@@ -19,7 +19,7 @@
                                 </h2>
                                 <p class="para">Encuentra tu próxima coincidencia.</p>
                             </div>
-                            <form action="{{route('lista-de-autos')}}">
+                            <form action="{{route('lista-de-autos')}}" class="shadow">
 
                                 <div class="advance_search_panel">
                                     <div class="row">
@@ -148,7 +148,7 @@
                                                     <div class="wrapper">
                                                         <h5 class="price">${{ number_format($auto->precio, 0, ',', '.') }}</h5>
                                                         <h6 class="title"><a
-                                                              href="{{route('ver-auto',$auto)}}">{{$auto->marca}} - {{$auto->modelo}}</a>
+                                                              href="{{route('ver-auto',$auto)}}">{{$auto->marca->nombre}} - {{$auto->modelo->nombre}}</a>
                                                         </h6>
                                                         <div class="listign_review">
 
@@ -324,7 +324,7 @@
                                                     <div class="wrapper">
                                                         <h5 class="price">${{ number_format($auto->precio, 0, ',', '.') }}</h5>
                                                         <h6 class="title"><a
-                                                              href="page-car-single-v1.html">{{$auto->marca}} - {{$auto->modelo}}</a>
+                                                              href="page-car-single-v1.html">{{$auto->marca->nombre}} - {{$auto->modelo->nombre}}</a>
                                                         </h6>
                                                         <div class="listign_review">
 

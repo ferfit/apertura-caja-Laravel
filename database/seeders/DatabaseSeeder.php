@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(UsuarioSeeder::class);
         $this->call(ClienteSeeder::class);
-        $this->call(AutoSeeder::class);
+        $this->call(MarcaSeeder::class);
+        $this->call(ModeloSeeder::class);
+        //$this->call(AutoSeeder::class);
         $this->call(CondicionSeeder::class);
-        //$this->call(MarcaSeeder::class);
-        //$this->call(ModeloSeeder::class);
         $this->call(VersionSeeder::class);
         $this->call(CiudadSeeder::class);
         $this->call(ProvinciaSeeder::class);
@@ -33,6 +33,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DireccionSeeder::class);
         $this->call(ValorSeeder::class);
         $this->call(PermutaSeeder::class);
-        $this->call(GastosSeeder::class);
+        //$this->call(GastosSeeder::class);
     }
 }

@@ -60,7 +60,7 @@
                                     data-live-search="true" data-width="100%" name="marca">
                                     <option value="">Seleccione</option>
                                     @foreach ($marcas as $marca)
-                                        <option value="{{ $marca->nombre }}">{{ $marca->nombre }}</option>
+                                        <option value="{{ $marca->id}}">{{ $marca->nombre }}</option>
                                     @endforeach
                                 </select>
 
@@ -79,7 +79,7 @@
                                     data-live-search="true" data-width="100%">
                                     <option value="">Seleccione</option>
                                     @foreach ($modelos as $modelo)
-                                        <option value="{{ $modelo->nombre }}">{{ $modelo->nombre }}</option>
+                                        <option value="{{ $modelo->id }}">{{ $modelo->nombre }}</option>
                                     @endforeach
                                 </select>
 
@@ -202,7 +202,7 @@
                                 <label class="form-label">Tipo</label>
                                 <select name="tipo" class="selectpicker @error('tipo') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option>Seleccione</option>
+                                    <option value="NULL">Seleccione</option>
                                     @foreach ($tipos as $tipo)
                                         <option value="{{ $tipo->nombre }}">{{ $tipo->nombre }}</option>
                                     @endforeach
@@ -238,7 +238,7 @@
                                 <label class="form-label">Combustible</label>
                                 <select name="combustible" class="selectpicker @error('combustible') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option>Seleccione</option>
+                                    <option value="NULL">Seleccione</option>
                                     @foreach ($combustibles as $combustible)
                                         <option value="{{ $combustible->nombre }}">{{ $combustible->nombre }}</option>
                                     @endforeach
@@ -258,7 +258,7 @@
                                 <label class="form-label">Tipo de motor</label>
                                 <select name="tipomotor" class="selectpicker @error('tipomotor') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option>Seleccione</option>
+                                    <option value="NULL">Seleccione</option>
                                     @foreach ($tipomotores as $tipomotor)
                                         <option value="{{ $tipomotor->nombre }}">{{ $tipomotor->nombre }}</option>
                                     @endforeach
@@ -277,7 +277,7 @@
                                 <label class="form-label">Tracción</label>
                                 <select name="traccion" class="selectpicker @error('traccion') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option>Seleccione</option>
+                                    <option value="NULL">Seleccione</option>
                                     @foreach ($tracciones as $traccion)
                                         <option value="{{ $traccion->nombre }}">{{ $traccion->nombre }}</option>
                                     @endforeach
@@ -297,7 +297,7 @@
                                 <label class="form-label">Caja</label>
                                 <select name="cajaauto" class="selectpicker @error('cajaauto') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option>Seleccione</option>
+                                    <option value="NULL">Seleccione</option>
                                     @foreach ($cajaautos as $cajaauto)
                                         <option value="{{ $cajaauto->nombre }}">{{ $cajaauto->nombre }}</option>
                                     @endforeach
@@ -316,7 +316,7 @@
                                 <label class="form-label">Color</label>
                                 <select name="color" class="selectpicker @error('color') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option>Seleccione</option>
+                                    <option value="NULL">Seleccione</option>
                                     @foreach ($colores as $color)
                                         <option value="{{ $color->nombre }}">{{ $color->nombre }}</option>
                                     @endforeach
@@ -335,7 +335,7 @@
                                 <label class="form-label">Tapizado</label>
                                 <select name="tapizado" class="selectpicker @error('tapizado') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option>Seleccione</option>
+                                    <option value="NULL">Seleccione</option>
                                     @foreach ($tapizados as $tapizado)
                                         <option value="{{ $tapizado->nombre }}">{{ $tapizado->nombre }}</option>
                                     @endforeach
@@ -354,7 +354,7 @@
                                 <label class="form-label">Dirección</label>
                                 <select name="direccion" class="selectpicker @error('direccion') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option>Seleccione</option>
+                                    <option value="NULL">Seleccione</option>
                                     @foreach ($direcciones as $direccion)
                                         <option value="{{ $direccion->nombre }}">{{ $direccion->nombre }}</option>
                                     @endforeach
@@ -373,7 +373,7 @@
                                 <label class="form-label">Valor</label>
                                 <select name="valor" class="selectpicker @error('valor') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option>Seleccione</option>
+                                    <option value="NULL">Seleccione</option>
                                     @foreach ($valores as $valor)
                                         <option value="{{ $valor->nombre }}">{{ $valor->nombre }}</option>
                                     @endforeach
@@ -392,7 +392,7 @@
                                 <label class="form-label">Permuta</label>
                                 <select name="permuta" class="selectpicker @error('permuta') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option>Seleccione</option>
+                                    <option value="NULL">Seleccione</option>
                                     @foreach ($permutas as $permuta)
                                         <option value="{{ $permuta->nombre }}">{{ $permuta->nombre }}</option>
                                     @endforeach

@@ -6,7 +6,7 @@
             <div class="col-lg-12 mb50">
                 <div class="breadcrumb_content">
                     <h2 class="breadcrumb_title">Editar auto</h2>
-                    <p>{{$auto->marca}} - {{$auto->modelo}}</p>
+                    <p>{{$auto->marca->nombre}} - {{$auto->modelo->nombre}}</p>
                 </div>
             </div>
         </div>
@@ -60,9 +60,9 @@
                                 <label class="form-label">Marca*</label>
                                 <select name="marca" class="selectpicker  @error('marca') is-invalid @enderror"
                                     data-live-search="true" data-width="100%" name="marca">
-                                    <option value="{{$auto->marca}}">{{$auto->marca}}</option>
+                                    <option value="{{$auto->marca->id}}">{{$auto->marca->nombre}}</option>
                                     @foreach ($marcas as $marca)
-                                        <option value="{{ $marca->nombre }}">{{ $marca->nombre }}</option>
+                                        <option value="{{ $marca->id }}">{{ $marca->nombre }}</option>
                                     @endforeach
                                 </select>
 
@@ -79,9 +79,9 @@
                                 <label name="modelo" class="form-label">Modelo*</label>
                                 <select name="modelo" class="selectpicker @error('modelo') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->modelo}}">{{$auto->modelo}}</option>
+                                    <option value="{{$auto->modelo->id}}">{{$auto->modelo->nombre}}</option>
                                     @foreach ($modelos as $modelo)
-                                        <option value="{{ $modelo->nombre }}">{{ $modelo->nombre }}</option>
+                                        <option value="{{ $modelo->id }}">{{ $modelo->nombre }}</option>
                                     @endforeach
                                 </select>
 

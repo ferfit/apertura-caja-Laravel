@@ -154,8 +154,8 @@ class AutoController extends Controller
             $auto = Auto::create([
                 'patente' => $data['patente'],
                 'condicion' => $data['condicion'],
-                'marca' => $data['marca'],
-                'modelo' => $data['modelo'],
+                'marca_id' => $data['marca'],
+                'modelo_id' => $data['modelo'],
                 'version' => $data['version'],
                 'año' => $data['año'],
                 'preciocosto' => $data['preciocosto'],
@@ -273,14 +273,15 @@ class AutoController extends Controller
             'tapizado' => 'nullable',
             'direccion' => 'nullable',
             'valor' => 'nullable',
-            'permuta' => 'nullable'
+            'permuta' => 'nullable',
+            'descripcion' => 'nullable'
         ]);
 
         //Actualización
         try {
             $auto->condicion = $data['condicion'];
-            $auto->marca = $data['marca'];
-            $auto->modelo = $data['modelo'];
+            $auto->marca_id = $data['marca'];
+            $auto->modelo_id = $data['modelo'];
             $auto->version = $data['version'];
             $auto->año = $data['año'];
             $auto->preciocosto = $data['preciocosto'];
@@ -298,6 +299,7 @@ class AutoController extends Controller
             $auto->direccion = $data['direccion'];
             $auto->valor = $data['valor'];
             $auto->permuta = $data['permuta'];
+            $auto->descripcion = $data['descripcion'];
             $auto->save();
 
             return redirect()->route('autos.index')->with('Actualizado', 'Auto actualizado exitosamente.');
