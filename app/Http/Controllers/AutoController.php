@@ -252,6 +252,7 @@ class AutoController extends Controller
      */
     public function update(Request $request, Auto $auto)
     {
+
         //Validación
         $data = request()->validate([
             'condicion' => 'required',
@@ -263,6 +264,8 @@ class AutoController extends Controller
             'precio' => 'required',
             'ciudad' => 'required',
             'provincia' => 'required',
+            'imagenPortada' => 'nullable',
+            'imagenPortadaNueva' => 'nullable',
             'tipo' => 'nullable',
             'kilometraje' => 'nullable',
             'combustible' => 'nullable',
@@ -277,6 +280,25 @@ class AutoController extends Controller
             'descripcion' => 'nullable'
         ]);
 
+        if(request('imagenPortadaNueva')){
+
+            $nombre = Str::random(20).$request->file('imagenPortadaNueva')->getClientOriginalName();
+
+            $ruta = storage_path().'/app/public/autos/'.$nombre;
+
+           Image::make($data['imagenPortadaNueva'])
+            ->resize(500, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->save($ruta);
+
+            $ruta_imagenPortada = '\autos/'.$nombre;
+
+        } else {
+            $ruta_imagenPortada= $auto->imagenPortada;
+        }
+
+
         //Actualización
         try {
             $auto->condicion = $data['condicion'];
@@ -289,6 +311,7 @@ class AutoController extends Controller
             $auto->ciudad = $data['ciudad'];
             $auto->provincia = $data['provincia'];
             $auto->tipo = $data['tipo'];
+            $auto->imagenPortada = $ruta_imagenPortada;
             $auto->kilometraje = $data['kilometraje'];
             $auto->combustible = $data['combustible'];
             $auto->tipomotor = $data['tipomotor'];
