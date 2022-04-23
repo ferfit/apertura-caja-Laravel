@@ -9,7 +9,7 @@
                 <option value="">Seleccione</option>
                 @foreach ($autos as $auto)
                 <option value="{{$auto->id}}">
-                   Nro: {{ $auto->id}} - {{ $auto->marca}} - {{ $auto->modelo}} - {{ $auto->version}}
+                   Nro: {{ $auto->id}} - {{ $auto->marca->nombre}} - {{ $auto->modelo->nombre}} - {{ $auto->version}} - Dominio: {{$auto->patente}}
                 </option>
                 @endforeach
             </select>

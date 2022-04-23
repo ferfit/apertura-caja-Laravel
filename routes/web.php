@@ -37,7 +37,7 @@ Route::get('/lista-de-autos', [InicioController::class, 'buscador'] )->name('lis
 Route::get('/contacto', [InicioController::class, 'contacto'] )->name('contacto');
 Route::get('/lista-de-autos/auto/{auto}', [InicioController::class, 'verAuto'] )->name('ver-auto');
 
-Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth'])->name('dashboard')->middleware('auth');
 
 require __DIR__.'/auth.php';
 
@@ -72,39 +72,39 @@ require __DIR__.'/auth.php';
 | Clientes
 |--------------------------------------------------------------------------
 */
-Route::resource('clientes', ClienteController::class)->names('clientes');
+Route::resource('clientes', ClienteController::class)->names('clientes')->middleware('auth')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Autos
 |--------------------------------------------------------------------------
 */
-Route::resource('autos', AutoController::class)->names('autos');
+Route::resource('autos', AutoController::class)->names('autos')->middleware('auth')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Modelos
 |--------------------------------------------------------------------------
 */
-Route::resource('modelos', ModeloController::class)->names('modelos');
+Route::resource('modelos', ModeloController::class)->names('modelos')->middleware('auth')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Versiones
 |--------------------------------------------------------------------------
 */
-Route::resource('versiones', VersionController::class)->names('versiones');
+Route::resource('versiones', VersionController::class)->names('versiones')->middleware('auth')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Datos Generales
 |--------------------------------------------------------------------------
 */
-Route::resource('datos', DatoController::class)->names('datos');
+Route::resource('datos', DatoController::class)->names('datos')->middleware('auth')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Users
 |--------------------------------------------------------------------------
 */
-Route::resource('users', UserController::class)->names('users');
-Route::get('/users/password/{user}',  [UserController::class,'password'])->name('password');
-Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePassword'])->name('updatePassword');
+Route::resource('users', UserController::class)->names('users')->middleware('auth')->middleware('auth');
+Route::get('/users/password/{user}',  [UserController::class,'password'])->name('password')->middleware('auth')->middleware('auth');
+Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePassword'])->name('updatePassword')->middleware('auth')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -114,19 +114,19 @@ Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePasswo
 //Route::get('/reportes', [ReporteController::class,'reportePorFecha'])->name('reporte');
 //Route::post('/reportes-por-fecha', [ReporteController::class,'filtrarRangoFecha'])->name('filtrarRangoFecha');
 
-Route::get('/pdf/{auto}',  [AutoController::class,'pdf'])->name('autoPdf');
+Route::get('/pdf/{auto}',  [AutoController::class,'pdf'])->name('autoPdf')->middleware('auth')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
 | Gastos
 |--------------------------------------------------------------------------
 */
-Route::get('/gastos/{auto}', [GastoController::class,'index'])->name('gastos.index');
-Route::get('/gastos/{gasto}/edit/{auto}', [GastoController::class,'edit'])->name('gastos.edit');
-Route::put('/gastos/{gasto}/{auto}', [GastoController::class,'update'])->name('gastos.update');
-Route::delete('/gastos/{gasto}/{auto}', [GastoController::class,'destroy'])->name('gastos.destroy');
-Route::get('/crear/{auto}', [GastoController::class,'create'])->name('gastos.create');
-Route::post('/gastos/{auto}', [GastoController::class,'store'])->name('gastos.store');
+Route::get('/gastos/{auto}', [GastoController::class,'index'])->name('gastos.index')->middleware('auth');
+Route::get('/gastos/{gasto}/edit/{auto}', [GastoController::class,'edit'])->name('gastos.edit')->middleware('auth');
+Route::put('/gastos/{gasto}/{auto}', [GastoController::class,'update'])->name('gastos.update')->middleware('auth');
+Route::delete('/gastos/{gasto}/{auto}', [GastoController::class,'destroy'])->name('gastos.destroy')->middleware('auth');
+Route::get('/crear/{auto}', [GastoController::class,'create'])->name('gastos.create')->middleware('auth');
+Route::post('/gastos/{auto}', [GastoController::class,'store'])->name('gastos.store')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Storage link
@@ -151,20 +151,20 @@ Route::get('/storage-link',function(){
 */
 //Route::resource('files', FileController::class)->names('files');
 
-Route::get('/crear/{auto}/files', [FileController::class,'create'])->name('files.create');
-Route::post('/files/{auto}', [FileController::class,'store'])->name('files.store');
+Route::get('/crear/{auto}/files', [FileController::class,'create'])->name('files.create')->middleware('auth');
+Route::post('/files/{auto}', [FileController::class,'store'])->name('files.store')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Ventas
 |--------------------------------------------------------------------------
 */
-Route::resource('ventas', VentaController::class)->names('ventas');
+Route::resource('ventas', VentaController::class)->names('ventas')->middleware('auth');
 /*
 /*
 |--------------------------------------------------------------------------
 | Marcas
 |--------------------------------------------------------------------------
 */
-Route::resource('marcas', MarcaController::class)->names('marcas');
+Route::resource('marcas', MarcaController::class)->names('marcas')->middleware('auth');
 /*
 
