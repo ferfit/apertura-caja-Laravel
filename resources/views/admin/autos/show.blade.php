@@ -155,6 +155,13 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-6">
+            <div class="listing_single_description mt30">
+                <h4 class="mb30">Descripción</h4>
+                <p class="first-para">{{ $auto->descripcion }}</p>
+
+            </div>
+        </div>
         <div class="col-lg-12 my-3">
             <!-- Nav tabs -->
             <div class="nav justify-content-start" role="tablist">
