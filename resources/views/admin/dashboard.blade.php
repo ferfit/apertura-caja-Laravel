@@ -1,154 +1,121 @@
-@extends('adminlte::page')
+@extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
-
-@section('content_header')
-    <h1 class="text-center">PANEL DE CONTROL GENERAL</h1>
-
-@stop
-
-@section('content')
-    <h5 class="mb-2 mt-3">Estadística mensual</h5>
+@section('contenido')
     <div class="row">
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow" style="border-right: 2px solid #007bff">
-                <span class="info-box-icon p-2 "><img src="{{ asset('/imagenes/Compras.png') }}" alt=""></span>
-
-                <div class="info-box-content text-center">
-                    <span class="info-box-text"><strong>COMPRAS</strong></span>
-                    <span class="info-box-number" style="font-size: 30px;color:#007bff;">{{ $totalCostoMensual }}</span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow" style="border-right: 2px solid #007bff">
-                <span class="info-box-icon p-2"><img src="{{ asset('/imagenes/Ventas.png') }}" alt=""></span>
-
-                <div class="info-box-content text-center">
-                    <span class="info-box-text"><strong>Ventas</strong></span>
-                    <span class="info-box-number" style="font-size: 30px;color:#007bff;">{{ $totalVentasMensual }}</span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow" style="border-right: 2px solid #007bff">
-                <span class="info-box-icon p-2"><img src="{{ asset('/imagenes/Ganancias.png') }}" alt=""></span>
-
-                <div class="info-box-content text-center">
-                    <span class="info-box-text"><strong>Ganancia</strong></span>
-                    <span class="info-box-number"
-                        style="font-size: 30px;color:#007bff;">{{ $totalGananciaMensual }}</span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-
-        <!-- /.col -->
-    </div>
-
-    <h5 class="mb-2 mt-5">Módulos Generales</h5>
-    <div class="row ">
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box shadow bg-white" style="border-right: 2px solid #007bff">
-                <div class="inner">
-                    <h3>{{ count($clientes) }}</h3>
-
-                    <p><strong>Clientes</strong></p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="{{ route('clientes.index') }}" class="small-box-footer bg-primary"
-                    style="color:white !important;">Más info <i class="fas fa-arrow-circle-right text-white"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box shadow bg-white text-white" style="border-right: 2px solid #007bff">
-                <div class="inner">
-                    <h3>{{ count($autos) }}</h3>
-
-                    <p><strong>Autos</strong></p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="{{ route('autos.index') }}" class="small-box-footer bg-primary"
-                    style="color:white !important;">Más info <i class="fas fa-arrow-circle-right text-white"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box shadow bg-white text-white " style="border-right: 2px solid #007bff">
-                <div class="inner">
-                    <h3>{{ count($usuarios) }}</h3>
-
-                    <p><strong>Usuarios</strong></p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="{{ route('users.index') }}" class="small-box-footer bg-primary"
-                    style="color:white !important;">Más info <i class="fas fa-arrow-circle-right text-white"></i></a>
+        <div class="col-xl-8">
+            <div class="breadcrumb_content mb50">
+                <h2 class="breadcrumb_title">Hola, {{ auth()->user()->name }}!</h2>
+                <p>Este es un resumén de tu concesionaria.</p>
             </div>
         </div>
     </div>
+    <h4 class="breadcrumb_title">Estadística mensual</h4>
+    <div class="row">
+        <div class="col-sm-6 col-lg-4">
+            <div class="ff_one">
+                <div class="icon"><span class="flaticon-down-arrow"></span></div>
+                <div class="detais text-end">
+                    <div class="">
+                        <h2 class="breadcrumb_title">${{ $totalCostoMensual }}</h2>
 
-    <div class="row mt-5">
-
-        <!-- /.col -->
-        <div class="col-md-6">
-            <div class="card card-primary shadow bg-white">
-                <div class="card-header">
-                    <h3 class="card-title">Stock parado</h3>
-
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                class="fas fa-minus"></i>
-                        </button>
                     </div>
-                    <!-- /.card-tools -->
+                    <p class="para">Comprass</p>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    @if (count($autosParados) > 0)
-                        <ul>
-                            @foreach ($autosParados as $autoParado)
-                                <li>Nro: {{ $autoParado->id }} - Marca: {{ $autoParado->marca }} - Modelo:
-                                    {{ $autoParado->modelo }}</li>
-                            @endforeach
-                        </ul>
-
-                    @else
-
-                        <p>No hay registros de stock parado...</p>
-
-                    @endif
-
-
-                </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card -->
         </div>
-
+        <div class="col-sm-6 col-lg-4">
+            <div class="ff_one style2">
+                <div class="icon"><span class="flaticon-up-arrow"></span></div>
+                <div class="detais text-end">
+                    <div class="">
+                        <h2 class="breadcrumb_title">${{ $totalVentasMensual }}</h2>
+                        </div>
+                    <p class="para">Ventas</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="ff_one style3">
+                <div class="icon"><span class="flaticon-coin"></span></div>
+                <div class="detais text-end">
+                    <div class="">
+                        <h2 class="breadcrumb_title">${{ $totalGananciaMensual }}</h2>
+                    </div>
+                    <p class="para">Ganancias</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <h4 class="breadcrumb_title">Módulos Generales</h4>
+    <div class="row">
+        <div class="col-sm-6 col-lg-4">
+            <div class="ff_one">
+                <div class="icon"><span class="flaticon-high-five"></span></div>
+                <div class="detais text-end">
+                    <div class="">
+                        <h2 class="breadcrumb_title">{{ count($clientes) }}</h2>
+
+                    </div>
+                    <p class="para">Clientes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="ff_one style2">
+                <div class="icon"><span class="flaticon-sedan-car-model"></span></div>
+                <div class="detais text-end">
+                    <div class="">
+                        <h2 class="breadcrumb_title">{{ count($autos) }}</h2>
+                        </div>
+                    <p class="para">Autos</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="ff_one style3">
+                <div class="icon"><span class="flaticon-user-2"></span></div>
+                <div class="detais text-end">
+                    <div class="">
+                        <h2 class="breadcrumb_title">{{ count($usuarios) }}</h2>
+                    </div>
+                    <p class="para">Usuarios</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header active" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><h4 >Stock parado</h4></button>
+            </h2>
+          </div>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                @if (count($autosParados) > 0)
+                <ul>
+                    @foreach ($autosParados as $autoParado)
+                        <li>Nro: {{ $autoParado->id }} - Marca: {{ $autoParado->marca }} - Modelo:
+                            {{ $autoParado->modelo }}</li>
+                    @endforeach
+                </ul>
+            @else
+                <p>No hay registros de stock parado...</p>
+
+            @endif
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
     <div class="row mt-5">
 
         <div class="col-12 col-md- 6 col-lg-4">
-            <div class="card card-primary card-outline shadow">
+            <div class="card card-primary card-outline ">
                 <div class="card-header">
                     <h3 class="card-title">
                         <i class="far fa-chart-bar"></i>
@@ -174,7 +141,7 @@
         </div>
 
         <div class="col-12 col-md- 6 col-lg-4">
-            <div class="card card-primary card-outline shadow">
+            <div class="card card-primary card-outline ">
                 <div class="card-header">
                     <h3 class="card-title">
                         <i class="far fa-chart-bar"></i>
@@ -200,7 +167,7 @@
         </div>
 
         <div class="col-12 col-md- 6 col-lg-4">
-            <div class="card card-primary card-outline shadow">
+            <div class="card card-primary card-outline ">
                 <div class="card-header">
                     <h3 class="card-title">
                         <i class="far fa-chart-bar"></i>
@@ -235,6 +202,7 @@
 
 
 @stop
+
 
 @section('css')
 @stop

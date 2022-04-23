@@ -144,13 +144,6 @@
                             </div>
                             <span class="schedule">{{ $auto->permuta }}</span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                            <div class="me-auto">
-                                <div class="day">Descripción</div>
-                            </div>
-                            <span class="schedule">{{ $auto->descripcion }}</span>
-
-                        </li>
                     </ul>
                 </div>
             </div>

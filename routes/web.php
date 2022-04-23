@@ -37,7 +37,7 @@ Route::get('/lista-de-autos', [InicioController::class, 'buscador'] )->name('lis
 Route::get('/contacto', [InicioController::class, 'contacto'] )->name('contacto');
 Route::get('/lista-de-autos/auto/{auto}', [InicioController::class, 'verAuto'] )->name('ver-auto');
 
-Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [DashboardController::class,'dashboard'])->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 

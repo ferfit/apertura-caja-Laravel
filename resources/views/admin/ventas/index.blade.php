@@ -54,7 +54,7 @@
                                                         <td class="align-middle">{{ date('d-m-Y', strtotime($venta->created_at)) }}</td>
                                                         <td class="align-middle">{{ $venta->titulo }}</td>
                                                         <td class="align-middle">{{ $venta->cliente->nombre }}</td>
-                                                        <td class="align-middle">{{ $venta->auto->marca }} - {{ $venta->auto->modelo }} -
+                                                        <td class="align-middle">{{ $venta->auto->marca->nombre }} - {{ $venta->auto->modelo->nombre }} -
                                                             {{ $venta->auto->version }} - {{$venta->auto->patente}}
                                                         </td>
                                                         <td class="align-middle">${{ number_format($venta->precio_costo, 2, ',', '.') }}</td>
