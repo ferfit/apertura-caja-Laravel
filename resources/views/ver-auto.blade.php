@@ -69,7 +69,7 @@
                             <div class="flexslider">
                                 <ul class="slides overflow-hidden">
                                     <li class="rounded overflow-hidden">
-                                        <img src="{{Storage::url($auto->imagenPortada)}}" />
+                                        <img src="{{ Storage::url($auto->imagenPortada) }}" />
                                     </li>
                                     @foreach ($auto->files as $file)
                                         <li class="rounded overflow-hidden">
@@ -308,31 +308,37 @@
                     <div class="sidebar_seller_contact">
 
                         <h4 class="mb30">Contacto</h4>
-                        <form action="#">
+                        <form id="formulario-whatsapp">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <input class="form-control form_control" type="text" placeholder="Nombre">
+                                        <input class="form-control form_control" type="text" placeholder="Nombre"
+                                            id="nombre">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <input class="form-control form_control" type="text" placeholder="Teléfono">
+                                        <input class="form-control form_control" type="text" placeholder="Teléfono"
+                                            id="telefono">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <input class="form-control form_control" type="email" placeholder="Email">
+                                        <input class="form-control form_control" type="email" placeholder="Email"
+                                            id="email">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="mb-3">
-                                        <textarea class="form-control" rows="6">Mensaje...</textarea>
+                                        <textarea class="form-control" rows="6" id="mensaje">Hola, estoy interesado... </textarea>
                                     </div>
 
-                                    <button type="submit" class="btn btn-block btn-whatsapp mb0"><span
+                                    <button type="submit" class="btn btn-block btn-whatsapp mb0" id="btn-whatsapp"><span
                                             class="flaticon-whatsapp mr10 text-white"></span>Enviar por
                                         WhatsApp</button>
+                                </div>
+                                <div class="respuesta mt-4" id="respuesta">
+
                                 </div>
                             </div>
                         </form>
@@ -1075,5 +1081,50 @@
                 animation: "slide"
             });
         });
+    </script>
+    <script>
+
+        var formularioWhatsapp = document.getElementById('formulario-whatsapp');
+        var respuesta = document.getElementById('respuesta');
+
+
+        /* formularioWhatsapp.addEventListener('onchange', ()=>{
+            if()
+        })
+ */
+
+        formularioWhatsapp.addEventListener('submit', function(e) {
+
+            e.preventDefault();
+
+            var nombre = document.getElementById('nombre');
+            var telefono = document.getElementById('telefono');
+            var email = document.getElementById('email');
+            var mensaje = document.getElementById('mensaje');
+
+            if (nombre.value == '' || telefono.value == '' || email.value == '' || mensaje.value == '') {
+                respuesta.innerHTML = `
+                                    <div class="alert alert-danger p-3 wow fadeIn" role="alert">
+                                    Debe llenar todos los campos requeridos.
+                                    </div>
+                                    `;
+                setTimeout(function() {
+                    respuesta.innerHTML = "";
+                }, 10000);
+
+            } else {
+
+                url =
+                    `https://api.whatsapp.com/send?phone=+541141774133&text=Nombre:${nombre.value}%0ATeléfono:${telefono.value}%0AEmail:${email.value}%0A%0AMensaje:${mensaje.value}`;
+
+                nombre.value = '';
+                telefono.value = '';
+                email.value = '';
+                mensaje.value = 'Hola, estoy interesado... ';
+
+                window.open(url);
+
+            }
+        })
     </script>
 @stop
