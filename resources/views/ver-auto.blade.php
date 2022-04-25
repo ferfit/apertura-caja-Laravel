@@ -297,7 +297,7 @@
                         <div class="col-lg-12">
                             <div class="listing_single_description mt30">
                                 <h4 class="mb30">Descripción</h4>
-                                <p class="first-para">{{ $auto->descripcion }}</p>
+                                <p class="first-para">{!! $auto->descripcion !!}</p>
 
                             </div>
                         </div>

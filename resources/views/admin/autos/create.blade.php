@@ -424,7 +424,7 @@
                         <div class="col-md-12">
                             <div class="mb20">
                                 <label class="form-label">Descripción</label>
-                                <textarea name="descripcion" class="form-control" rows="10" placeholder=""></textarea>
+                                <textarea id="editor" name="descripcion" class="form-control" rows="10" placeholder=""></textarea>
                             </div>
                             @error('descripcion')
                                 <span class="invalid-feedback d-block" role="alert">
@@ -455,4 +455,12 @@
 
 @section('js')
     @include('includes.btnForm')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @stop
