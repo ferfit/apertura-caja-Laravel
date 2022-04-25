@@ -64,43 +64,58 @@
             <div class="row">
                 <div class="col-lg-8 col-xl-8">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="">
+                            <!-- Place somewhere in the <body> of your page -->
+                            <div class="flexslider">
+                                <ul class="slides overflow-hidden">
+                                    <li class="rounded overflow-hidden">
+                                        <img src="{{Storage::url($auto->imagenPortada)}}" />
+                                    </li>
+                                    @foreach ($auto->files as $file)
+                                        <li class="rounded overflow-hidden">
+                                            <img src="{{ Storage::url($file->url) }}" />
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        {{-- <div class="col-lg-12">
                             <div class="single_product_grid single_page1">
                                 <div class="single_product_slider">
                                     @if ($auto->imagenPortada)
-                                    <div class="item">
-                                        <div class="sps_content">
-                                            <div class="thumb">
-                                                <div class="single_product">
-                                                    <div class="single_item">
-                                                        <div class="thumb">
+                                        <div class="item">
+                                            <div class="sps_content">
+                                                <div class="thumb">
+                                                    <div class="single_product">
+                                                        <div class="single_item">
+                                                            <div class="thumb">
 
-                                                            <img class="img-fluid"
-                                                            src="{{ Storage::url($auto->imagenPortada) }}"
-                                                            alt="imagen de auto">
+                                                                <img class="img-fluid"
+                                                                    src="{{ Storage::url($auto->imagenPortada) }}"
+                                                                    alt="imagen de auto">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @else
-                                    <div class="item">
-                                        <div class="sps_content">
-                                            <div class="thumb">
-                                                <div class="single_product">
-                                                    <div class="single_item">
-                                                        <div class="thumb">
+                                        <div class="item">
+                                            <div class="sps_content">
+                                                <div class="thumb">
+                                                    <div class="single_product">
+                                                        <div class="single_item">
+                                                            <div class="thumb">
 
-                                                            <img class="img-fluid"
-                                                            src="{{ asset('images/default/auto.png') }}"
-                                                            alt="imagen de auto">
+                                                                <img class="img-fluid"
+                                                                    src="{{ asset('images/default/auto.png') }}"
+                                                                    alt="imagen de auto">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endif
 
                                     @forelse ($auto->files as $file)
@@ -142,7 +157,7 @@
 
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-lg-12">
                             <div class="opening_hour_widgets p30 mt30">
                                 <div class="wrapper">
@@ -1053,4 +1068,12 @@
 @stop
 
 @section('js')
+    <script>
+        // Can also be used with $(document).ready()
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide"
+            });
+        });
+    </script>
 @stop

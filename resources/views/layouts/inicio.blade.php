@@ -19,6 +19,8 @@
     <!-- Favicon -->
     <link href="{{ asset('images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
     <link href="{{ asset('images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" />
+    <!-- FlexSlider -->
+    <link rel="stylesheet" href="{{ asset('vendor/flexSlider/flexslider.css') }}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -72,6 +74,7 @@
     <script src="{{ asset('js/timepicker.js') }}"></script>
     <!-- Custom scrassetipt for all pages -->
     <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{asset('vendor/flexSlider/jquery.flexslider-min.js')}}"></script>
     @yield('js')
     @livewireScripts
 </body>
