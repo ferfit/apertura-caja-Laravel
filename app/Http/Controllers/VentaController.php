@@ -55,6 +55,10 @@ class VentaController extends Controller
             'ganancia' => 'required'
         ]);
 
+        if($data['ganancia'] <= 0){
+            return redirect()->route('ventas.index')->with('Error', 'La ganancia no puede ser menor o igual a 0.');
+        }
+
         try {
 
             //cambio estado del auto
@@ -127,6 +131,10 @@ class VentaController extends Controller
             'precio_venta' => 'required',
             'ganancia' => 'required'
         ]);
+
+        if($data['ganancia'] <= 0){
+            return redirect()->route('ventas.index')->with('Error', 'La ganancia no puede ser menor o igual a 0.');
+        }
 
         try {
             //Actulización de la venta

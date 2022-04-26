@@ -8,7 +8,7 @@
             <div class="col-lg-12 mb50">
                 <div class="breadcrumb_content">
                     <h2 class="breadcrumb_title">Gastos del auto:</h2>
-                    <p>{{ $auto->marca }} - {{ $auto->modelo }} - Patente: {{ $auto->patente }}</p>
+                    <p>{{ $auto->marca->nombre }} - {{ $auto->modelo->nombre }} - Patente: {{ $auto->patente }}</p>
 
                 </div>
             </div>
