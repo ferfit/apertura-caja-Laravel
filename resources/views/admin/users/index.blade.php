@@ -40,6 +40,7 @@
                                                 <tr class="thead_row">
                                                     <th class="thead_title" scope="col">Nombre</th>
                                                     <th class="thead_title" scope="col">Email</th>
+                                                    <th class="thead_title" scope="col">Rol</th>
                                                     <th class="thead_title" scope="col">Acciones</th>
                                                 </tr>
                                             </thead>
@@ -48,6 +49,7 @@
                                                     <tr>
                                                         <td class="align-middle">{{ $usuario->name }}</td>
                                                         <td class="align-middle">{{ $usuario->email }}</td>
+                                                        <td class="align-middle">{{ ucwords($usuario->rol) }}</td>
 
 
                                                         <td class="editing_list align-middle">

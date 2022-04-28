@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $usuarios = User::paginate(10);
+        $usuarios = User::where('estado','Activado')->paginate(10);
         return view('admin.users.index',compact('usuarios'));
     }
 
@@ -41,7 +41,8 @@ class UserController extends Controller
         $data = request()->validate([
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'rol' => 'required'
         ]);
 
 
@@ -51,7 +52,8 @@ class UserController extends Controller
             User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
-                'password'=>hash::make($data['password'])
+                'password'=>hash::make($data['password']),
+                'rol' => $data['rol']
             ]);
 
             //Redirección
@@ -96,7 +98,8 @@ class UserController extends Controller
         //Validación
         $data = request()->validate([
             'name' => 'required',
-            'email' => 'required'
+            'email' => 'required',
+            'rol' => 'required'
         ]);
 
 
@@ -105,6 +108,7 @@ class UserController extends Controller
             //Actualiza usuario
             $user->name = $data['name'];
             $user->email = $data['email'];
+            $user->rol = $data['rol'];
             $user->save();
 
             //Redirección
@@ -130,7 +134,8 @@ class UserController extends Controller
         }
 
         try {
-            $user->delete();
+            $user->estado = 'Desactivado';
+            $user->save();
 
             return redirect()->route('users.index')->with('Borrado','El usuario se borró exitosamente.');
 

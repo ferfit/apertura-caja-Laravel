@@ -67,6 +67,26 @@
                         </div>
                         <!-- /.card-body -->
 
+                        {{-- Rol--}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">Permuta</label>
+                                <select name="rol" class="selectpicker @error('rol') is-invalid @enderror"
+                                    data-live-search="true" data-width="100%">
+                                    <option value="">Seleccione</option>
+                                    <option value="administrador">Administrador</option>
+                                    <option value="vendedor">Vendedor</option>
+                                    
+                                </select>
+
+                                @error('rol')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="col-lg-12 my-3">
                             <!-- Nav tabs -->
                             <div class="nav justify-content-start" role="tablist">
