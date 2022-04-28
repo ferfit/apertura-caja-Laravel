@@ -55,11 +55,11 @@
             </tr>
             <tr>
                 <th scope=" row">Marca:</th>
-                <td>{{ $auto->marca }}</td>
+                <td>{{ $auto->marca->nombre }}</td>
             </tr>
             <tr>
                 <th scope="row">Modelo</th>
-                <td>{{ $auto->modelo }}</td>
+                <td>{{ $auto->modelo->nombre }}</td>
             </tr>
             <tr>
                 <th scope=" row">Versión:</th>

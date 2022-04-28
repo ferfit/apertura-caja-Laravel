@@ -10,7 +10,7 @@ class PrecioAuto extends Component
 {
 
 
-    public $auto, $costo, $venta, $ganancia,$carro;
+    public $auto, $costo='0', $venta='0', $ganancia='0',$carro;
 
 
     public function updatedCarro($value){
@@ -21,10 +21,14 @@ class PrecioAuto extends Component
     }
 
     public function updatedCosto($value){
-        $this->ganancia = $this->venta - $this->costo;
+        if($value>0){
+            $this->ganancia = $this->venta - $this->costo;
+        }
     }
     public function updatedVenta($value){
-        $this->ganancia = $this->venta - $this->costo;
+        if($value  > 0){
+            $this->ganancia = $this->venta - $this->costo;
+        }
     }
 
 

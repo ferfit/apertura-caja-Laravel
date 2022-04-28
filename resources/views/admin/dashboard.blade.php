@@ -19,7 +19,7 @@
                         <h2 class="breadcrumb_title">${{ $totalCostoMensual }}</h2>
 
                     </div>
-                    <p class="para">Comprass</p>
+                    <p class="para">Compras</p>
                 </div>
             </div>
         </div>

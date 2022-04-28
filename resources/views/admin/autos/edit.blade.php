@@ -6,7 +6,7 @@
             <div class="col-lg-12 mb50">
                 <div class="breadcrumb_content">
                     <h2 class="breadcrumb_title">Editar auto</h2>
-                    <p>{{$auto->marca->nombre}} - {{$auto->modelo->nombre}}</p>
+                    <p>{{ $auto->marca->nombre }} - {{ $auto->modelo->nombre }}</p>
                 </div>
             </div>
         </div>
@@ -15,19 +15,19 @@
 
         <div class="col-lg-12">
             <div class="new_property_form">
-                <form class="contact_form" id="formulario" name="contact_form" method="POST" action="{{ route('autos.update',$auto) }}"
-                enctype="multipart/form-data"
-                novalidate>
+                <form class="contact_form" id="formulario" name="contact_form" method="POST"
+                    action="{{ route('autos.update', $auto) }}" enctype="multipart/form-data" novalidate>
                     @csrf
                     @method('put')
                     <div class="row">
+                        @livewire('marca-modelo',['auto' => $auto])
                         {{-- patente --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
                                 <label class="form-label">Patente* (sin espacios)</label>
                                 <input name="patente"
                                     class="form-control form_control @error('patente') is-invalid @enderror" type="text"
-                                    placeholder="" value="{{$auto->patente}}">
+                                    placeholder="" value="{{ $auto->patente }}">
 
                                 @error('patente')
                                     <span class="invalid-feedback d-block" role="alert">
@@ -42,7 +42,7 @@
                                 <label class="form-label">Condición*</label>
                                 <select name="condicion" class="selectpicker @error('condicion') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->condicion}}">{{$auto->condicion}}</option>
+                                    <option value="{{ $auto->condicion }}">{{ $auto->condicion }}</option>
                                     @foreach ($condiciones as $condicion)
                                         <option value="{{ $condicion->nombre }}">{{ $condicion->nombre }}</option>
                                     @endforeach
@@ -61,7 +61,7 @@
                                 <label class="form-label">Marca*</label>
                                 <select name="marca" class="selectpicker  @error('marca') is-invalid @enderror"
                                     data-live-search="true" data-width="100%" name="marca">
-                                    <option value="{{$auto->marca->id}}">{{$auto->marca->nombre}}</option>
+                                    <option value="{{ $auto->marca->id }}">{{ $auto->marca->nombre }}</option>
                                     @foreach ($marcas as $marca)
                                         <option value="{{ $marca->id }}">{{ $marca->nombre }}</option>
                                     @endforeach
@@ -80,7 +80,7 @@
                                 <label name="modelo" class="form-label">Modelo*</label>
                                 <select name="modelo" class="selectpicker @error('modelo') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->modelo->id}}">{{$auto->modelo->nombre}}</option>
+                                    <option value="{{ $auto->modelo->id }}">{{ $auto->modelo->nombre }}</option>
                                     @foreach ($modelos as $modelo)
                                         <option value="{{ $modelo->id }}">{{ $modelo->nombre }}</option>
                                     @endforeach
@@ -99,7 +99,7 @@
                                 <label class="form-label">Versión*</label>
                                 <select name="version" class="selectpicker @error('version') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->version}}">{{$auto->version}}</option>
+                                    <option value="{{ $auto->version }}">{{ $auto->version }}</option>
                                     @foreach ($versiones as $version)
                                         <option value="{{ $version->nombre }}">{{ $version->nombre }}</option>
                                     @endforeach
@@ -118,7 +118,7 @@
                                 <label class="form-label">Año*</label>
                                 <select name="año" class="selectpicker @error('año') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->año}}">{{$auto->año}}</option>
+                                    <option value="{{ $auto->año }}">{{ $auto->año }}</option>
                                     @for ($i = 1925; $i < 2050; $i++)
                                         <option value="{{ $i }}">{{ $i }}</option>
                                     @endfor
@@ -137,7 +137,7 @@
                                 <label class="form-label">Precio Costo*</label>
                                 <input name="preciocosto"
                                     class="form-control form_control @error('preciocosto') is-invalid @enderror"
-                                    type="number" placeholder="" value="{{$auto->preciocosto}}">
+                                    type="number" placeholder="" value="{{ $auto->preciocosto }}">
 
                                 @error('preciocosto')
                                     <span class="invalid-feedback d-block" role="alert">
@@ -151,7 +151,7 @@
                             <div class="ui_kit_select_search add_new_property mb20">
                                 <label class="form-label">Precio Venta *</label>
                                 <input name="precio" class="form-control form_control @error('precio') is-invalid @enderror"
-                                    type="number" placeholder="" value="{{$auto->precio}}">
+                                    type="number" placeholder="" value="{{ $auto->precio }}">
 
                                 @error('precio')
                                     <span class="invalid-feedback d-block" role="alert">
@@ -166,7 +166,7 @@
                                 <label class="form-label">Ciudad*</label>
                                 <select name="ciudad" class="selectpicker @error('provincia') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->ciudad}}">{{$auto->ciudad}}</option>
+                                    <option value="{{ $auto->ciudad }}">{{ $auto->ciudad }}</option>
                                     @foreach ($ciudades as $ciudad)
                                         <option value="{{ $ciudad->nombre }}">{{ $ciudad->nombre }}</option>
                                     @endforeach
@@ -185,7 +185,7 @@
                                 <label class="form-label">Provincia*</label>
                                 <select name="provincia" class="selectpicker @error('provincia') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->provincia}}">{{$auto->provincia}}</option>
+                                    <option value="{{ $auto->provincia }}">{{ $auto->provincia }}</option>
                                     @foreach ($provincias as $provincia)
                                         <option value="{{ $provincia->nombre }}">{{ $provincia->nombre }}</option>
                                     @endforeach
@@ -205,7 +205,7 @@
                                 <label class="form-label">Tipo</label>
                                 <select name="tipo" class="selectpicker @error('tipo') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->tipo}}">{{$auto->tipo}}</option>
+                                    <option value="{{ $auto->tipo }}">{{ $auto->tipo }}</option>
                                     @foreach ($tipos as $tipo)
                                         <option value="{{ $tipo->nombre }}">{{ $tipo->nombre }}</option>
                                     @endforeach
@@ -225,7 +225,7 @@
                                 <label class="form-label">Kilometraje</label>
                                 <input name="kilometraje"
                                     class="form-control form_control @error('kilometraje') is-invalid @enderror"
-                                    type="number" placeholder="" value="{{$auto->kilometraje}}">
+                                    type="number" placeholder="" value="{{ $auto->kilometraje }}">
 
                                 @error('kilometraje')
                                     <span class="invalid-feedback d-block" role="alert">
@@ -241,7 +241,7 @@
                                 <label class="form-label">Combustible</label>
                                 <select name="combustible" class="selectpicker @error('combustible') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->combustible}}">{{$auto->combustible}}</option>
+                                    <option value="{{ $auto->combustible }}">{{ $auto->combustible }}</option>
                                     @foreach ($combustibles as $combustible)
                                         <option value="{{ $combustible->nombre }}">{{ $combustible->nombre }}</option>
                                     @endforeach
@@ -261,7 +261,7 @@
                                 <label class="form-label">Tipo de motor</label>
                                 <select name="tipomotor" class="selectpicker @error('tipomotor') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->tipomotor}}">{{$auto->tipomotor}}</option>
+                                    <option value="{{ $auto->tipomotor }}">{{ $auto->tipomotor }}</option>
                                     @foreach ($tipomotores as $tipomotor)
                                         <option value="{{ $tipomotor->nombre }}">{{ $tipomotor->nombre }}</option>
                                     @endforeach
@@ -280,7 +280,7 @@
                                 <label class="form-label">Tracción</label>
                                 <select name="traccion" class="selectpicker @error('traccion') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->traccion}}">{{$auto->traccion}}</option>
+                                    <option value="{{ $auto->traccion }}">{{ $auto->traccion }}</option>
                                     @foreach ($tracciones as $traccion)
                                         <option value="{{ $traccion->nombre }}">{{ $traccion->nombre }}</option>
                                     @endforeach
@@ -300,7 +300,7 @@
                                 <label class="form-label">Caja</label>
                                 <select name="cajaauto" class="selectpicker @error('cajaauto') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->cajaauto}}">{{$auto->cajaauto}}</option>
+                                    <option value="{{ $auto->cajaauto }}">{{ $auto->cajaauto }}</option>
                                     @foreach ($cajaautos as $cajaauto)
                                         <option value="{{ $cajaauto->nombre }}">{{ $cajaauto->nombre }}</option>
                                     @endforeach
@@ -319,7 +319,7 @@
                                 <label class="form-label">Color</label>
                                 <select name="color" class="selectpicker @error('color') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->color}}">{{$auto->color}}</option>
+                                    <option value="{{ $auto->color }}">{{ $auto->color }}</option>
                                     @foreach ($colores as $color)
                                         <option value="{{ $color->nombre }}">{{ $color->nombre }}</option>
                                     @endforeach
@@ -338,7 +338,7 @@
                                 <label class="form-label">Tapizado</label>
                                 <select name="tapizado" class="selectpicker @error('tapizado') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->tapizado}}">{{$auto->tapizado}}</option>
+                                    <option value="{{ $auto->tapizado }}">{{ $auto->tapizado }}</option>
                                     @foreach ($tapizados as $tapizado)
                                         <option value="{{ $tapizado->nombre }}">{{ $tapizado->nombre }}</option>
                                     @endforeach
@@ -357,7 +357,7 @@
                                 <label class="form-label">Dirección</label>
                                 <select name="direccion" class="selectpicker @error('direccion') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->direccion}}">{{$auto->direccion}}</option>
+                                    <option value="{{ $auto->direccion }}">{{ $auto->direccion }}</option>
                                     @foreach ($direcciones as $direccion)
                                         <option value="{{ $direccion->nombre }}">{{ $direccion->nombre }}</option>
                                     @endforeach
@@ -376,7 +376,7 @@
                                 <label class="form-label">Valor</label>
                                 <select name="valor" class="selectpicker @error('valor') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->valor}}">{{$auto->valor}}</option>
+                                    <option value="{{ $auto->valor }}">{{ $auto->valor }}</option>
                                     @foreach ($valores as $valor)
                                         <option value="{{ $valor->nombre }}">{{ $valor->nombre }}</option>
                                     @endforeach
@@ -395,7 +395,7 @@
                                 <label class="form-label">Permuta</label>
                                 <select name="permuta" class="selectpicker @error('permuta') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
-                                    <option value="{{$auto->permuta}}">{{$auto->permuta}}</option>
+                                    <option value="{{ $auto->permuta }}">{{ $auto->permuta }}</option>
                                     @foreach ($permutas as $permuta)
                                         <option value="{{ $permuta->nombre }}">{{ $permuta->nombre }}</option>
                                     @endforeach
@@ -414,8 +414,8 @@
                         @if ($auto->imagenPortada)
                             <div class="my-4 rounded overflow-hidden">
                                 <label class="form-label d-block">imagen de portada</label>
-                                <img class="rounded shadow" src="{{Storage::url($auto->imagenPortada)}}" alt="">
-                                <input type="hidden" name="imagenPortada" value="{{$auto->imagenPortada}}">
+                                <img class="rounded shadow" src="{{ Storage::url($auto->imagenPortada) }}" alt="">
+                                <input type="hidden" name="imagenPortada" value="{{ $auto->imagenPortada }}">
                             </div>
                         @endif
 
@@ -423,7 +423,7 @@
                             <div class="ui_kit_select_search add_new_property mb20">
                                 <label class="form-label">imagen de portada</label>
                                 <input type="file" class="form-control @error('imagenPortada') is-invalid @enderror"
-                                name="imagenPortadaNueva">
+                                    name="imagenPortadaNueva">
 
                                 @error('imagenPortada')
                                     <span class="invalid-feedback d-block" role="alert">
@@ -439,7 +439,8 @@
                         <div class="col-md-12">
                             <div class="mb20">
                                 <label class="form-label">Descripción</label>
-                                <textarea id="editor" name="descripcion" class="form-control" rows="10" placeholder="">{{$auto->descripcion}}</textarea>
+                                <textarea id="editor" name="descripcion" class="form-control" rows="10"
+                                    placeholder="">{{ $auto->descripcion }}</textarea>
                             </div>
                             @error('descripcion')
                                 <span class="invalid-feedback d-block" role="alert">
@@ -463,17 +464,18 @@
 @stop
 
 @section('css')
-
+    @livewireStyles()
 @stop
 
 @section('js')
-@include('includes.btnForm')
-<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    @livewireScripts()
+    @include('includes.btnForm')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
     <script>
         ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 @stop

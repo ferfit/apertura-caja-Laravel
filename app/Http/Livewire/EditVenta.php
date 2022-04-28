@@ -26,11 +26,15 @@ class EditVenta extends Component
     }
 
       public function updatedPrecioCosto($value){
-        $this->precio_ganancia = $this->precio_venta - $this->precio_costo;
+          if($value>0){
+            $this->precio_ganancia = $this->precio_venta - $this->precio_costo;
+          }
     }
 
     public function updatedPrecioVenta($value){
-        $this->precio_ganancia = $this->precio_venta - $this->precio_costo;
+        if($value>0){
+            $this->precio_ganancia = $this->precio_venta - $this->precio_costo;
+        }
     }
 
 
