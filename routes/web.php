@@ -72,39 +72,39 @@ require __DIR__.'/auth.php';
 | Clientes
 |--------------------------------------------------------------------------
 */
-Route::resource('clientes', ClienteController::class)->names('clientes')->middleware('auth')->middleware('auth');
+Route::resource('clientes', ClienteController::class)->names('clientes')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Autos
 |--------------------------------------------------------------------------
 */
-Route::resource('autos', AutoController::class)->names('autos')->middleware('auth')->middleware('auth');
+Route::resource('autos', AutoController::class)->names('autos')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Modelos
 |--------------------------------------------------------------------------
 */
-Route::resource('modelos', ModeloController::class)->names('modelos')->middleware('auth')->middleware('auth');
+Route::resource('modelos', ModeloController::class)->names('modelos')->middleware(['auth','soloadmin']);
 /*
 |--------------------------------------------------------------------------
 | Versiones
 |--------------------------------------------------------------------------
 */
-Route::resource('versiones', VersionController::class)->names('versiones')->middleware('auth')->middleware('auth');
+Route::resource('versiones', VersionController::class)->names('versiones')->middleware(['auth','soloadmin']);
 /*
 |--------------------------------------------------------------------------
 | Datos Generales
 |--------------------------------------------------------------------------
 */
-Route::resource('datos', DatoController::class)->names('datos')->middleware('auth')->middleware('auth');
+Route::resource('datos', DatoController::class)->names('datos')->middleware(['auth','soloadmin']);
 /*
 |--------------------------------------------------------------------------
 | Users
 |--------------------------------------------------------------------------
 */
-Route::resource('users', UserController::class)->names('users')->middleware('auth')->middleware('auth');
-Route::get('/users/password/{user}',  [UserController::class,'password'])->name('password')->middleware('auth')->middleware('auth');
-Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePassword'])->name('updatePassword')->middleware('auth')->middleware('auth');
+Route::resource('users', UserController::class)->names('users')->middleware(['auth','soloadmin']);
+Route::get('/users/password/{user}',  [UserController::class,'password'])->name('password')->middleware(['auth','soloadmin']);
+Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePassword'])->name('updatePassword')->middleware(['auth','soloadmin']);
 
 /*
 |--------------------------------------------------------------------------
@@ -114,7 +114,7 @@ Route::put('/users/updatePassword/{user}',  [UserController::class,'updatePasswo
 //Route::get('/reportes', [ReporteController::class,'reportePorFecha'])->name('reporte');
 //Route::post('/reportes-por-fecha', [ReporteController::class,'filtrarRangoFecha'])->name('filtrarRangoFecha');
 
-Route::get('/pdf/{auto}',  [AutoController::class,'pdf'])->name('autoPdf')->middleware('auth')->middleware('auth');
+Route::get('/pdf/{auto}',  [AutoController::class,'pdf'])->name('autoPdf')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -158,13 +158,13 @@ Route::post('/files/{auto}', [FileController::class,'store'])->name('files.store
 | Ventas
 |--------------------------------------------------------------------------
 */
-Route::resource('ventas', VentaController::class)->names('ventas')->middleware('auth');
+Route::resource('ventas', VentaController::class)->names('ventas')->middleware(['auth','soloadmin']);
 /*
 /*
 |--------------------------------------------------------------------------
 | Marcas
 |--------------------------------------------------------------------------
 */
-Route::resource('marcas', MarcaController::class)->names('marcas')->middleware('auth');
+Route::resource('marcas', MarcaController::class)->names('marcas')->middleware(['auth','soloadmin']);
 /*
 

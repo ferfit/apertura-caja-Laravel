@@ -268,8 +268,13 @@
                                 <div class="extra-dashboard-menu dn-lg">
                                     <div class="ed_menu_list">
                                         <ul>
-                                            <li><a @if (Request::url() == route('dashboard')) class="active" @endif href="{{route('dashboard')}}"><span
-                                                        class="flaticon-dashboard"></span>Dashboard</a></li>
+                                             
+                                            @if(auth()->user()->rol == 'administrador')
+
+                                                <li><a @if (Request::url() == route('dashboard')) class="active" @endif href="{{route('dashboard')}}"><span
+                                                            class="flaticon-dashboard"></span>Dashboard</a></li>
+                                            @endif
+                                            
 
                                              {{-- <li @if (Request::is('/') class="active" @endif >Home</li> --}}
                                             <li><a @if (Request::url() == route('autos.index')) class="active" @endif href="{{route('autos.index')}}"><span
@@ -277,10 +282,17 @@
 
                                             <li><a @if (Request::url() == route('clientes.index')) class="active" @endif href="{{route('clientes.index')}}"><span
                                                     class="flaticon-user-2"></span>Clientes</a></li>
-                                            <li><a @if (Request::url() == route('ventas.index')) class="active" @endif href="{{route('ventas.index')}}"><span
+
+                                            @if (auth()->user()->rol == 'administrador')
+                                                
+                                            
+                                                <li><a @if (Request::url() == route('ventas.index')) class="active" @endif href="{{route('ventas.index')}}"><span
                                                     class="flaticon-user-2"></span>Ventas</a></li>
-                                            <li><a @if (Request::url() == route('users.index')) class="active" @endif href="{{route('users.index')}}"><span
-                                                    class="flaticon-user-2"></span>Usuarios</a></li>
+                                                    <li><a @if (Request::url() == route('users.index')) class="active" @endif href="{{route('users.index')}}"><span
+                                                        class="flaticon-user-2"></span>Usuarios</a></li>
+                                                    
+                                            @endif
+
 
 
                                             {{-- <li><a href="page-dashboard-listing.html"><span

@@ -15,7 +15,8 @@ class Cliente extends Model
         'provincia',
         'nota',
         'estado',
-        'origencliente'
+        'origencliente',
+        'user_id'
     ];
 
     use HasFactory;

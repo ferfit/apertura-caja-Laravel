@@ -58,7 +58,8 @@ class ClienteController extends Controller
                 'nota' => $data['nota'],
                 'estado' => $data['estado'],
                 'origencliente' => $data['origencliente'],
-                'estadocliente' => 'Activado'
+                'estadocliente' => 'Activado',
+                'user_id' => auth()->user()->id
                 ]);
 
             //retorno

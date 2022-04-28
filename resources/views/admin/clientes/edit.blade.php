@@ -36,7 +36,7 @@
                         {{-- Email --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
-                                <label for="email" class="form-label">Email*
+                                <label for="email" class="form-label">Email
                                 </label>
                                 <input name="email" class="form-control form_control @error('email') is-invalid @enderror"
                                     type="email" placeholder="" value="{{ $cliente->email }}">

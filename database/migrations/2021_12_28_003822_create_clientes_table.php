@@ -24,6 +24,10 @@ class CreateClientesTable extends Migration
             $table->enum('estado',['compra','venta','compra-venta']);
             $table->enum('origencliente',['facebook','instagram','google','directo']);
             $table->enum('estadocliente',['Activado','Desactivado']);
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }

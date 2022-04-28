@@ -1,6 +1,10 @@
 @extends('layouts.dashboard')
 
 @section('contenido')
+
+
+@if(auth()->user()->rol == 'administrador')
+
     <div class="row">
         <div class="col-xl-8">
             <div class="breadcrumb_content mb50">
@@ -47,8 +51,11 @@
         </div>
     </div>
 
+
     <h4 class="breadcrumb_title">Módulos Generales</h4>
+    
     <div class="row">
+
         <div class="col-sm-6 col-lg-4">
             <div class="ff_one">
                 <div class="icon"><span class="flaticon-high-five"></span></div>
@@ -72,6 +79,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-sm-6 col-lg-4">
             <div class="ff_one style3">
                 <div class="icon"><span class="flaticon-user-2"></span></div>
@@ -331,3 +339,5 @@
         });
     </script>
 @stop
+
+@endif
