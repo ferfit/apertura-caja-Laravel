@@ -29,8 +29,7 @@ class AutosIndex extends Component
 
         return view('livewire.autos-index', [
             //'clientes' => Cliente::paginate(3),
-            'autos' => Auto::orderBy('id','DESC')->where('patente', 'like', '%'.$this->search.'%')->where('estado','Activado')->paginate(20),
-
+            'autos' => Auto::orderBy('id','DESC')->where('titulo', 'like', '%'.$this->search.'%')->where('estado','Activado')->paginate(20),
         ]);
     }
 }

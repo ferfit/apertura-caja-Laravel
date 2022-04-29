@@ -32,7 +32,8 @@
                                     <li class="list-inline-item"><a href="#"><span
                                                 class="flaticon-eye vam"></span>13102</a></li>
                                 </ul> --}}
-                            <h2 class="title">{{ $auto->marca->nombre }} - {{ $auto->modelo->nombre }}</h2>
+                            <h2 class="title">{{ $auto->titulo}}</h2>
+                            <p class="para">{{ $auto->marca->nombre }} - {{ $auto->modelo->nombre }}</p>
                             <p class="para">Versión: {{ $auto->version }} - Año: {{ $auto->año }}</p>
                         </div>
                     </div>

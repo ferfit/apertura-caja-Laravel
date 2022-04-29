@@ -21,10 +21,27 @@
                     @method('put')
                     <div class="row">
                         @livewire('marca-modelo',['auto' => $auto])
+
+                        {{-- titulo --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">Título*</label>
+                                <input name="titulo"
+                                    class="form-control form_control @error('titulo') is-invalid @enderror" type="text"
+                                    placeholder="" value="{{ $auto->titulo }}">
+
+                                @error('titulo')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         {{-- patente --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
-                                <label class="form-label">Patente* (sin espacios)</label>
+                                <label class="form-label">Patente (sin espacios)</label>
                                 <input name="patente"
                                     class="form-control form_control @error('patente') is-invalid @enderror" type="text"
                                     placeholder="" value="{{ $auto->patente }}">
@@ -134,7 +151,7 @@
                         {{-- Precio Costo --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
-                                <label class="form-label">Precio Costo*</label>
+                                <label class="form-label">Precio Costo</label>
                                 <input name="preciocosto"
                                     class="form-control form_control @error('preciocosto') is-invalid @enderror"
                                     type="number" placeholder="" value="{{ $auto->preciocosto }}">
@@ -149,7 +166,7 @@
                         {{-- Precio venta --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
-                                <label class="form-label">Precio Venta *</label>
+                                <label class="form-label">Precio Venta</label>
                                 <input name="precio" class="form-control form_control @error('precio') is-invalid @enderror"
                                     type="number" placeholder="" value="{{ $auto->precio }}">
 
@@ -160,11 +177,30 @@
                                 @enderror
                             </div>
                         </div>
+                        {{-- Sucursal --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">Sucursal</label>
+                                <select name="sucursal" class="selectpicker @error('sucursal') is-invalid @enderror"
+                                    data-live-search="true" data-width="100%">
+                                    <option value="{{ $auto->sucursal }}">{{ $auto->sucursal }}</option>
+                                    @foreach ($sucursales as $sucursal)
+                                        <option value="{{ $sucursal->nombre }}">{{ $sucursal->nombre }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('sucursal')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         {{-- Ciudades --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
                                 <label class="form-label">Ciudad*</label>
-                                <select name="ciudad" class="selectpicker @error('provincia') is-invalid @enderror"
+                                <select name="ciudad" class="selectpicker @error('ciudad') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
                                     <option value="{{ $auto->ciudad }}">{{ $auto->ciudad }}</option>
                                     @foreach ($ciudades as $ciudad)

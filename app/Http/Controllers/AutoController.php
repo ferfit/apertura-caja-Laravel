@@ -19,6 +19,7 @@ use App\Models\Tapizado;
 use App\Models\Direccion;
 use App\Models\Valor;
 use App\Models\Permuta;
+use App\Models\Sucursal;
 use App\Models\Dato;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -68,6 +69,7 @@ class AutoController extends Controller
         $direcciones = Direccion::all();
         $valores = Valor::all();
         $permutas = Permuta::all();
+        $sucursales = Sucursal::all();
 
         return view('admin.autos.create', compact(
             'condiciones',
@@ -85,7 +87,8 @@ class AutoController extends Controller
             'tapizados',
             'direcciones',
             'valores',
-            'permutas'
+            'permutas',
+            'sucursales'
         ));
     }
 
@@ -102,14 +105,16 @@ class AutoController extends Controller
         //Validación
         $data = request()->validate([
 
-            'patente' => 'required',
+            'titulo'=>'required',
+            'patente' => 'nullable',
             'condicion' => 'required',
             'marca' => 'required',
             'modelo' => 'required',
             'version' => 'required',
             'año' => 'required',
-            'precio' => 'required',
-            'preciocosto' => 'required',
+            'precio' => 'nullable',
+            'preciocosto' => 'nullable',
+            'sucursal' => 'nullable',
             'ciudad' => 'required',
             'provincia' => 'required',
             'imagenPortada' => 'nullable|mimes:jpg,png,jpeg',
@@ -152,6 +157,7 @@ class AutoController extends Controller
         try {
             //Creacion
             $auto = Auto::create([
+                'titulo' => $data['titulo'],
                 'patente' => $data['patente'],
                 'condicion' => $data['condicion'],
                 'marca_id' => $data['marca'],
@@ -160,6 +166,7 @@ class AutoController extends Controller
                 'año' => $data['año'],
                 'preciocosto' => $data['preciocosto'],
                 'precio' => $data['precio'],
+                'sucursal' => $data['sucursal'],
                 'ciudad' => $data['ciudad'],
                 'provincia' => $data['provincia'],
                 'estado' => 'Activado',
@@ -221,6 +228,7 @@ class AutoController extends Controller
         $direcciones = Direccion::all();
         $valores = Valor::all();
         $permutas = Permuta::all();
+        $sucursales = Sucursal::all();
 
         return view('admin.autos.edit', compact(
             'auto',
@@ -239,7 +247,8 @@ class AutoController extends Controller
             'tapizados',
             'direcciones',
             'valores',
-            'permutas'
+            'permutas',
+            'sucursales'
         ));
     }
 
@@ -255,13 +264,17 @@ class AutoController extends Controller
 
         //Validación
         $data = request()->validate([
+
+            'titulo' => 'required',
+            'patente' => 'nullable',
             'condicion' => 'required',
             'marca' => 'required',
             'modelo' => 'required',
             'version' => 'required',
             'año' => 'required',
-            'preciocosto' => 'required',
-            'precio' => 'required',
+            'preciocosto' => 'nullable',
+            'precio' => 'nullable',
+            'sucursal' => 'nullable',
             'ciudad' => 'required',
             'provincia' => 'required',
             'imagenPortada' => 'nullable',
@@ -301,6 +314,8 @@ class AutoController extends Controller
 
         //Actualización
         try {
+            $auto->titulo = $data['titulo'];
+            $auto->patente = $data['patente'];
             $auto->condicion = $data['condicion'];
             $auto->marca_id = $data['marca'];
             $auto->modelo_id = $data['modelo'];
@@ -308,6 +323,7 @@ class AutoController extends Controller
             $auto->año = $data['año'];
             $auto->preciocosto = $data['preciocosto'];
             $auto->precio = $data['precio'];
+            $auto->sucursal = $data['sucursal'];
             $auto->ciudad = $data['ciudad'];
             $auto->provincia = $data['provincia'];
             $auto->tipo = $data['tipo'];

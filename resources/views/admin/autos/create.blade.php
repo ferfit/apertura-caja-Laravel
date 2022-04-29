@@ -20,10 +20,25 @@
 
                         @livewire('marca-modelo')
 
+                        {{-- titulo --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">Título*</label>
+                                <input name="titulo"
+                                    class="form-control form_control @error('titulo') is-invalid @enderror" type="text"
+                                    placeholder="" value="{{ old('titulo') }}">
+
+                                @error('titulo')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         {{-- patente --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
-                                <label class="form-label">Patente* (sin espacios)</label>
+                                <label class="form-label">Patente (sin espacios)</label>
                                 <input name="patente"
                                     class="form-control form_control @error('patente') is-invalid @enderror" type="text"
                                     placeholder="" value="{{ old('patente') }}">
@@ -77,7 +92,7 @@
                         {{-- año --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
-                                <label class="form-label">Año*</label>
+                                <label class="form-label">Año</label>
                                 <select name="año" class="selectpicker @error('año') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
                                     <option value="">Seleccione</option>
@@ -96,7 +111,7 @@
                         {{-- Precio Costo --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
-                                <label class="form-label">Precio Costo*</label>
+                                <label class="form-label">Precio Costo</label>
                                 <input name="preciocosto"
                                     class="form-control form_control @error('preciocosto') is-invalid @enderror"
                                     type="number" placeholder="" value="{{ old('preciocosto') }}">
@@ -116,6 +131,25 @@
                                     type="number" placeholder="" value="{{ old('precio') }}">
 
                                 @error('precio')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- Sucursal --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">Sucursal</label>
+                                <select name="sucursal" class="selectpicker @error('sucursal') is-invalid @enderror"
+                                    data-live-search="true" data-width="100%">
+                                    <option value="">Seleccione</option>
+                                    @foreach ($sucursales as $sucursal)
+                                        <option value="{{ $sucursal->nombre }}">{{ $sucursal->nombre }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('sucursal')
                                     <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

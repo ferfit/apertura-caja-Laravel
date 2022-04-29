@@ -31,7 +31,9 @@
                                         @endif
                                     </div>
                                     <div class="details ms-1">
-                                        <h6 class="title"><a
+                                        <h6 class="title">
+                                            {{$auto->titulo}} <br>
+                                            <a
                                                 href="{{ route('autos.show', $auto) }}">{{ $auto->marca->nombre }}
                                                 - {{ $auto->modelo->nombre }}</a></h6>
                                         <h5 class="price">

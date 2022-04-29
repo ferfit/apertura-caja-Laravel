@@ -20,6 +20,12 @@
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="me-auto">
+                                <div class="day">Título</div>
+                            </div>
+                            <span class="schedule">{{ $auto->titulo }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
                                 <div class="day">Patente</div>
                             </div>
                             <span class="schedule">{{ $auto->patente }}</span>
@@ -65,6 +71,12 @@
                                 <div class="day">Precio Venta</div>
                             </div>
                             <span class="schedule">${{ number_format($auto->precio, 2, ',', '.') }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Sucursal</div>
+                            </div>
+                            <span class="schedule">{{ $auto->sucursal }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="me-auto">
