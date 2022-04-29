@@ -16,6 +16,7 @@ class AutoSeeder extends Seeder
     public function run()
     {
         $auto = Auto::create([
+            'titulo'=>'vendo auto',
             'patente'=>'jhl878',
             'condicion'=>'Usado',
             'marca_id'=>'1',
@@ -24,12 +25,14 @@ class AutoSeeder extends Seeder
             'año'=>'2015',
             'preciocosto' =>'200000',
             'precio'=>'1340000',
+            'sucursal' => 'Iriondo',
             'ciudad'=>'Reconquista',
             'provincia'=>'Santa Fe',
             'estado' => 'Activado',
             'descripcion' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum dignissimos esse unde eveniet nemo harum autem veritatis cupiditate consequuntur odit.'
         ]);
         $auto = Auto::create([
+            'titulo'=>'vendo auto',
             'patente'=>'abc878',
             'condicion'=>'Usado',
             'marca_id'=>'2',
@@ -38,6 +41,7 @@ class AutoSeeder extends Seeder
             'año'=>'2010',
             'preciocosto' =>'300000',
             'precio'=>'800000',
+            'sucursal' => 'Iriondo',
             'ciudad'=>'Tigre',
             'provincia'=>'Buenos Aires',
             'estado' => 'Activado',
@@ -45,6 +49,7 @@ class AutoSeeder extends Seeder
 
         ]);
         $auto = Auto::create([
+           'titulo'=>'vendo auto',
             'patente'=>'jjl899',
             'condicion'=>'Usado',
             'marca_id'=>'3',
@@ -53,6 +58,7 @@ class AutoSeeder extends Seeder
             'año'=>'2015',
             'preciocosto' =>'400000',
             'precio'=>'1500000',
+            'sucursal' => 'Calle 47',
             'ciudad'=>'Tigre',
             'provincia'=>'Buenos Aires',
             'estado' => 'Activado',
@@ -60,6 +66,7 @@ class AutoSeeder extends Seeder
 
         ]);
         $auto = Auto::create([
+           'titulo'=>'vendo auto',
             'patente'=>'dfri008',
             'condicion'=>'0 km',
             'marca_id'=>'4',
@@ -68,6 +75,7 @@ class AutoSeeder extends Seeder
             'año'=>'2021',
             'preciocosto' =>'500000',
             'precio'=>'800000',
+            'sucursal' => 'Calle 47',
             'ciudad'=>'Reconquista',
             'provincia'=>'Santa Fe',
             'estado' => 'Activado',

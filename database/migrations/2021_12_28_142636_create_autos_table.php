@@ -15,7 +15,8 @@ class CreateAutosTable extends Migration
     {
         Schema::create('autos', function (Blueprint $table) {
             $table->id();
-            $table->string('patente');
+            $table->string('titulo');
+            $table->string('patente')->nullable();
             $table->string('condicion');
 
             $table->unsignedBigInteger('marca_id');
@@ -26,8 +27,9 @@ class CreateAutosTable extends Migration
 
             $table->string('version');
             $table->integer('año');
-            $table->float('preciocosto', 10, 2);
-            $table->float('precio', 10, 2);
+            $table->float('preciocosto', 10, 2)->nullable();
+            $table->float('precio', 10, 2)->nullable();
+            $table->string('sucursal')->nullable();
             $table->string('ciudad');
             $table->string('provincia');
             $table->enum('estado', ['Activado', 'Desactivado']);

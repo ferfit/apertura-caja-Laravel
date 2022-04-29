@@ -9,6 +9,7 @@ class Auto extends Model
 {
 
     protected $fillable = [
+        'titulo',
         'patente',
         'condicion',
         'marca_id',
@@ -17,6 +18,7 @@ class Auto extends Model
         'año',
         'precio',
         'preciocosto',
+        'sucursal',
         'ciudad',
         'provincia',
         'estado',
