@@ -16,19 +16,8 @@ class ProvinciaSeeder extends Seeder
     public function run()
     {
         $Provincia = Provincia::create([
-            'nombre'=>'Buenos Aires'
-        ]);        
-        $Provincia = Provincia::create([
             'nombre'=>'Santa Fe'
-        ]);  
-        $Provincia = Provincia::create([
-            'nombre'=>'Mendoza'
-        ]);        
-        $Provincia = Provincia::create([
-            'nombre'=>'Salta'
-        ]);  
-        $Provincia = Provincia::create([
-            'nombre'=>'Jujuy'
-        ]); 
+        ]);
+
     }
 }

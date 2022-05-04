@@ -137,8 +137,8 @@
                                             <div class="car-listing col-12 col-md-6 col-xl-2 mx-1">
                                                 <div class="thumb">
                                                     {{-- <div class="tag">FEATURED</div> --}}
-                                                    @if ($auto->imagenPortada)
-                                                    <img src="{{Storage::url($auto->imagenPortada)}}" alt="1.jpg">
+                                                    @if ($auto->files)
+                                                    <img src="{{Storage::url($auto->files->first()->url)}}" alt="1.jpg">
                                                     @else
                                                     <img src="{{asset('images/default/auto.png')}}" alt="1.jpg">
 
@@ -205,7 +205,7 @@
                             <div class="icon float-start"><span class="flaticon-price-tag"></span></div>
                             <div class="details">
                                 <h5 class="title">Mejor precio</h5>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vel rerum vero maiores, doloremque dolores.</p>
+
                             </div>
                         </div>
                     </div>
@@ -213,8 +213,8 @@
                         <div class="why_chose_us">
                             <div class="icon float-start style2"><span class="flaticon-car"></span></div>
                             <div class="details">
-                                <h5 class="title">Confiado por miles</h5>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime omnis perspiciatis eum hic, delectus ut.</p>
+                                <h5 class="title">Miles de clientes</h5>
+
                             </div>
                         </div>
                     </div>
@@ -223,7 +223,7 @@
                             <div class="icon float-start style3"><span class="flaticon-trust"></span></div>
                             <div class="details">
                                 <h5 class="title">Amplia gama de marcas</h5>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis ratione optio provident. Pariatur, fugiat minima.</p>
+
                             </div>
                         </div>
                     </div>
@@ -242,50 +242,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9 col-xl-5">
+                    <div class="col-md-9 col-xl-8">
                         <div class="home1_divider_content">
-                            <h2 class="title">Lorem ipsum dolor sit amet consectetur</h2>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae adipisci possimus molestias nemo amet doloremque in itaque voluptatem magnam, beatae ipsum delectus neque facere nisi debitis dolorem. Reprehenderit, unde necessitatibus?.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Funfact -->
-        <section class="our-funfact pt50 pb30 fondoColor">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                        <div class="funfact_one text-center">
-                            <div class="details">
-                                <div class="timer">27600</div>
-                                <p class="ff_title">COCHES EN VENTA</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                        <div class="funfact_one text-center">
-                            <div class="details">
-                                <div class="timer">6500</div>
-                                <p class="ff_title">VENTAS</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-                        <div class="funfact_one text-center">
-                            <div class="details">
-                                <div class="timer">8230</div>
-                                <p class="ff_title">VISITANTES POR DÍA</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
-                        <div class="funfact_one text-center">
-                            <div class="details">
-                                <div class="timer">5250</div>
-                                <p class="ff_title">DISTRIBUIDORES VERIFICADOS</p>
-                            </div>
+                            <h2 class="title">Somos una empresa con 5 años de trajectoria en el mercado</h2>
+                            <p class="para">Nuestro objetivo  es transformar la venta de autos usados en una experiencia placentera, con un proceso rápido, seguro y sin complicaciones para las personas. <br>
+                            <br>
+                            Buscamos establecer un nuevo estándar en el mercado automotriz, con una mejora constante de nuestros procesos con el fin de mejorar la experiencia de nuestros clientes.</p>
                         </div>
                     </div>
                 </div>
@@ -293,8 +255,7 @@
         </section>
 
 
-
-        <!-- Our Blog -->
+       <!-- Our Blog -->
         <section class="featured-product">
             <div class="container-fluid">
                 <div class="row justify-content-center">

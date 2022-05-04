@@ -17,18 +17,33 @@ class VersionSeeder extends Seeder
     {
         $Version = Version::create([
             'nombre'=>'1.0'
-        ]);        
+        ]);
         $Version = Version::create([
             'nombre'=>'1.4'
-        ]);  
+        ]);
         $Version = Version::create([
             'nombre'=>'1.6'
-        ]);        
+        ]);
         $Version = Version::create([
             'nombre'=>'1.8'
-        ]);  
+        ]);
         $Version = Version::create([
             'nombre'=>'2.0'
-        ]); 
+        ]);
+        $Version = Version::create([
+            'nombre'=>'2.2'
+        ]);
+        $Version = Version::create([
+            'nombre'=>'2.5'
+        ]);
+        $Version = Version::create([
+            'nombre'=>'3.2'
+        ]);
+        $Version = Version::create([
+            'nombre'=>'3.5'
+        ]);
+        $Version = Version::create([
+            'nombre'=>'4.0'
+        ]);
     }
 }

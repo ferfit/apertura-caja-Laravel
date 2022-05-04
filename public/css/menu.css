@@ -36,7 +36,7 @@
   color: #222222;
   line-height: 40px;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;	
+  box-sizing: border-box;
   width: 100%;
   height: 70px;
   padding: 0 50px;
@@ -103,7 +103,7 @@
   position: relative;
 }
 .mobile_menu_main_logo .nav_logo_img{
-  margin-top: 12px;
+    margin-top: 4px;
 }
 .mobile_menu_main_logo span{
   color: #fff;
@@ -121,7 +121,7 @@
  * @requires jQuery 1.7.0 or later
  *
  * mmenujs.com
- *	
+ *
  * Copyright (c) Fred Heusschen
  * www.frebsite.nl
  *
@@ -890,5 +890,5 @@ li.mm-add-listing.mm-listitem:after{
 }
 
 /* Small devices (min-width: 576px) (max-width: 767.98px) // (landscape phones, less than 768px) */
-@media only screen and (max-width: 767.98px){  
+@media only screen and (max-width: 767.98px){
 }

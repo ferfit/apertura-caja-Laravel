@@ -24,20 +24,20 @@
                     <div class="col-md-4">
                         <div class="contact_icon_box mb50">
                             <div class="details">
-                                <h3 class="title">Contact Details</h3>
-                                <p>Germany —<br>329 Queensberry Street,<br>North Melbourne VIC 3051</p>
-                                <h4 class="subtitle">+1 670 936 46 70</h4>
+                                <h3 class="title">Detalle de contacto</h3>
+                                <h4>Sucursales</h4>
+                                <p>Calle 47 y Lucas Funes, Reconquista Santa Fe</p>
+                                <p>Iriondo y Hipolito Yrigoyen, Reconquista Santa Fe</p>
+                                <h4 class="subtitle">+54 3482 313609</h4>
                                 <p>hello@voiture.com</p>
                                 <div class="footer_social_widget">
                                     <ul class="mb0">
-                                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <li class="list-inline-item"><a href="https://www.facebook.com/Pereson-Consignaciones-104480548148002" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                         </li>
-                                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a>
+
+                                        <li class="list-inline-item"><a href="https://www.instagram.com/peresonautomotores/?hl=es" target="_blank"><i class="fab fa-instagram"></i></a>
                                         </li>
-                                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -46,8 +46,8 @@
                     <div class="col-md-8">
                         <div class="form_grid">
                             <div class="wrapper">
-                                <h3 class="title mb20">Contact Form</h3>
-                                <form class="contact_form" name="contact_form" action="#" method="post" novalidate>
+                                <h3 class="title mb20"></h3>
+                                {{-- <form class="contact_form" name="contact_form" action="#" method="post" novalidate>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -85,7 +85,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </form> --}}
                             </div>
                         </div>
                     </div>

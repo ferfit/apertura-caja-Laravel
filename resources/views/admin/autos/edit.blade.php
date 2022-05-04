@@ -446,31 +446,6 @@
                         </div>
 
 
-                        {{-- Imagen de portada --}}
-                        @if ($auto->imagenPortada)
-                            <div class="my-4 rounded overflow-hidden">
-                                <label class="form-label d-block">imagen de portada</label>
-                                <img class="rounded shadow" src="{{ Storage::url($auto->imagenPortada) }}" alt="">
-                                <input type="hidden" name="imagenPortada" value="{{ $auto->imagenPortada }}">
-                            </div>
-                        @endif
-
-                        <div class="col-sm-6">
-                            <div class="ui_kit_select_search add_new_property mb20">
-                                <label class="form-label">imagen de portada</label>
-                                <input type="file" class="form-control @error('imagenPortada') is-invalid @enderror"
-                                    name="imagenPortadaNueva">
-
-                                @error('imagenPortada')
-                                    <span class="invalid-feedback d-block" role="alert">
-                                        <strong>La imagén debe pesar menos de 500 kb.</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-
-
                         {{-- Descripcion --}}
                         <div class="col-md-12">
                             <div class="mb20">

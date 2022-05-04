@@ -12,10 +12,10 @@
             <div class="col-lg-12 mb50">
                 <div class="breadcrumb_content">
                     <h2 class="breadcrumb_title">Imágenes</h2>
-                    <p>{{$auto->marca}} - {{$auto->modelo}}</p>
+                    <p>{{$auto->titulo}} - {{$auto->marca->nombre}} - {{$auto->modelo->nombre}}</p>
                 </div>
             </div>
-            <p class="btn btn-danger text-white">La imagén debe pesar menos de 500 kb, de lo contrario, no se cargará.</p>
+            <p class="btn btn-danger text-white">La imagén debe pesar menos de 1mb, de lo contrario, no se cargará.</p>
         </div>
 
         <div class="new_property_form">
@@ -67,7 +67,7 @@
           Livewire.emit('refreshFiles')
       },
       paramName: "file", // The name that will be used to transfer the file
-      maxFilesize: 3, // MB
+      maxFilesize: 1, // MB
       accept: function(file, done) {
         if (file.name == "justinbieber.jpg") {
           done("Naha, you don't.");

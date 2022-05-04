@@ -117,7 +117,6 @@ class AutoController extends Controller
             'sucursal' => 'nullable',
             'ciudad' => 'required',
             'provincia' => 'required',
-            'imagenPortada' => 'nullable|mimes:jpg,png,jpeg',
             'tipo' => 'nullable',
             'kilometraje' => 'nullable',
             'combustible' => 'nullable',
@@ -133,24 +132,6 @@ class AutoController extends Controller
 
         ]);
 
-        //obtenemos la ruta de la imagen y la almacenamos con el metodo "store"
-        if(request('imagenPortada')){
-
-            $nombre = Str::random(20).$request->file('imagenPortada')->getClientOriginalName();
-
-            $ruta = storage_path().'/app/public/autos/'.$nombre;
-
-           Image::make($data['imagenPortada'])
-            ->resize(500, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })
-            ->save($ruta);
-
-            $ruta_imagenPortada = '\autos/'.$nombre;
-
-        } else {
-            $ruta_imagenPortada = null;
-        }
 
 
 
@@ -170,7 +151,6 @@ class AutoController extends Controller
                 'ciudad' => $data['ciudad'],
                 'provincia' => $data['provincia'],
                 'estado' => 'Activado',
-                'imagenPortada' => $ruta_imagenPortada,
                 'tipo' => $data['tipo'],
                 'kilometraje' => $data['kilometraje'],
                 'combustible' => $data['combustible'],
@@ -277,7 +257,6 @@ class AutoController extends Controller
             'sucursal' => 'nullable',
             'ciudad' => 'required',
             'provincia' => 'required',
-            'imagenPortada' => 'nullable',
             'imagenPortadaNueva' => 'nullable',
             'tipo' => 'nullable',
             'kilometraje' => 'nullable',
@@ -293,23 +272,6 @@ class AutoController extends Controller
             'descripcion' => 'nullable'
         ]);
 
-        if(request('imagenPortadaNueva')){
-
-            $nombre = Str::random(20).$request->file('imagenPortadaNueva')->getClientOriginalName();
-
-            $ruta = storage_path().'/app/public/autos/'.$nombre;
-
-           Image::make($data['imagenPortadaNueva'])
-            ->resize(500, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })
-            ->save($ruta);
-
-            $ruta_imagenPortada = '\autos/'.$nombre;
-
-        } else {
-            $ruta_imagenPortada= $auto->imagenPortada;
-        }
 
 
         //Actualización
@@ -327,7 +289,6 @@ class AutoController extends Controller
             $auto->ciudad = $data['ciudad'];
             $auto->provincia = $data['provincia'];
             $auto->tipo = $data['tipo'];
-            $auto->imagenPortada = $ruta_imagenPortada;
             $auto->kilometraje = $data['kilometraje'];
             $auto->combustible = $data['combustible'];
             $auto->tipomotor = $data['tipomotor'];
@@ -357,9 +318,6 @@ class AutoController extends Controller
     {
         try {
 
-            //elimina la imagen de portada
-            Storage::delete('public/'.$auto->imagenPortada);
-
             //Eliminar el archivo del servidor
             $fotos = $auto->files;
 
@@ -371,7 +329,6 @@ class AutoController extends Controller
             foreach ($fotos as $foto) {
                 DB::delete('delete from files where id ='.$foto->id);
             }
-
 
 
             //Cambia estado del auto

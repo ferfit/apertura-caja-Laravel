@@ -32,25 +32,25 @@
         <div class="row">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                 <div class="footer_about_widget">
-                    <h5 class="title">OFFICE</h5>
-                    <p>Germany —<br>329 Queensberry Street,<br>North Melbourne VIC 3051</p>
+                    <h5 class="title" id="sucursales">Sucursales</h5>
+                    <p>Calle 47 y Lucas Funes, Reconquista Santa Fe</p>
+                    <p>Iriondo y Hipolito Yrigoyen, Reconquista Santa Fe</p>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                 <div class="footer_contact_widget">
-                    <h5 class="title">NEED HELP</h5>
-                    <div class="footer_phone">+1 670 936 46 70</div>
-                    <p>hello@voiture.com</p>
+                    <h5 class="title">CONTACTANOS</h5>
+                    <div class="footer_phone">+54 3482 313609</div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                 <div class="footer_contact_widget">
-                    <h5 class="title">OPENING HOURS</h5>
-                    <p>Monday – Friday: 09:00AM – 09:00PM<br>Saturday: 09:00AM – 07:00PM<br>Sunday: Closed</p>
+                    <h5 class="title">los horarios de atención</h5>
+                    <p> Lunes - Viernes <br> 08:00 – 09:00<br>16:00 - 19:30 <br><br> Sabados: 08:30 – 12:00</p>
                 </div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                <div class="footer_contact_widget">
+                {{-- <div class="footer_contact_widget">
                     <h5 class="title">KEEP IN TOUCH</h5>
                     <form class="footer_mailchimp_form">
                         <div class="wrapper">
@@ -61,7 +61,7 @@
                         </div>
                     </form>
                     <p>Get latest updates and offers.</p>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -75,10 +75,8 @@
             <div class="col-md-6 col-lg-4 col-xl-3">
                 <div class="footer_social_widget text-start text-md-end">
                     <ul class="mb0">
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/Pereson-Consignaciones-104480548148002" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/peresonautomotores/?hl=es" target="_blank"><i class="fab fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>

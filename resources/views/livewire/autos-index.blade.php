@@ -1,7 +1,7 @@
 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
     <div class="col-lg-12">
         <div class="table-responsive my_lisging_table">
-            <input class="form-control mb-3" wire:model="search" type="search" placeholder="Buscar por patente...">
+            <input class="form-control mb-3" wire:model="search" type="search" placeholder="Buscar por título...">
 
             <table class="table">
                 <thead class="table-light">
@@ -22,8 +22,8 @@
                             <th class="align-middle pl20" scope="row">
                                 <div class="car-listing bdr_none d-flex mb0">
                                     <div class="thumb w150">
-                                        @if ($auto->imagenPortada)
-                                            <img class="img-fluid" src="{{ Storage::url($auto->imagenPortada) }}"
+                                        @if ($auto->files)
+                                            <img class="img-fluid" src="{{ Storage::url($auto->files->first()->url) }}"
                                                 alt="Imagen de auto">
                                         @else
                                             <img class="img-fluid" src="{{ asset('images/default/auto.png') }}"

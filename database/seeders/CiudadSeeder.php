@@ -17,15 +17,33 @@ class CiudadSeeder extends Seeder
     {
         $Ciudad = Ciudad::create([
             'nombre'=>'Reconquista'
-        ]);        
+        ]);
         $Ciudad = Ciudad::create([
-            'nombre'=>'Tigre'
-        ]);  
+            'nombre'=>'Avellaneda'
+        ]);
         $Ciudad = Ciudad::create([
-            'nombre'=>'Godoz Cruz'
-        ]);        
+            'nombre'=>'Vera'
+        ]);
         $Ciudad = Ciudad::create([
-            'nombre'=>'San Fernando'
-        ]); 
+            'nombre'=>'Romang'
+        ]);
+        $Ciudad = Ciudad::create([
+            'nombre'=>'Romang'
+        ]);
+        $Ciudad = Ciudad::create([
+            'nombre'=>'Malabrigo'
+        ]);
+        $Ciudad = Ciudad::create([
+            'nombre'=>'Arroyo Ceibal'
+        ]);
+        $Ciudad = Ciudad::create([
+            'nombre'=>'Berna'
+        ]);
+        $Ciudad = Ciudad::create([
+            'nombre'=>'Margarita'
+        ]);
+        $Ciudad = Ciudad::create([
+            'nombre'=>'Guadalupe Norte'
+        ]);
     }
 }

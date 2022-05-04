@@ -8,22 +8,19 @@
                 <div class="header_top_contact_opening_widget text-center text-md-start">
                     <ul class="mb0">
                         <li class="list-inline-item"><a href="#"><span
-                                    class="flaticon-phone-call"></span>1-800-458-56987</a></li>
-                        <li class="list-inline-item"><a href="#"><span class="flaticon-map"></span>47 Bakery
-                                Street, London, UK</a></li>
-                        <li class="list-inline-item"><a href="#"><span class="flaticon-clock"></span>Mon - Fri
-                                8:00 - 18:00</a></li>
+                                    class="flaticon-phone-call"></span>+54 3482 313609</a></li>
+                        <li class="list-inline-item"><a href="#sucursales"><span class="flaticon-map"></span>Sucursales</a></li>
+                        <li class="list-inline-item"><a href="#"><span class="flaticon-clock"></span>Lun - Vie
+                                08:00 - 12:00 & 16:00 - 19:30 |  Sab 08:30 - 12:00</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-xl-5">
                 <div class="header_top_social_widgets text-center text-md-end">
                     <ul class="m0">
-                        <li class="list-inline-item"><a href="#"><span class="fab fa-facebook-f"></span></a>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/Pereson-Consignaciones-104480548148002" target="_blank"><span class="fab fa-facebook-f"></span></a>
                         </li>
-                        <li class="list-inline-item"><a href="#"><span class="fab fa-twitter"></span></a></li>
-                        <li class="list-inline-item"><a href="#"><span class="fab fa-instagram"></span></a></li>
-                        <li class="list-inline-item"><a href="#"><span class="fab fa-linkedin"></span></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/peresonautomotores/?hl=es" target="_blank"><span class="fab fa-instagram"></span></a></li>
 
                     </ul>
                 </div>
@@ -96,23 +93,23 @@
 
             </li>
 
+            </li>
             <!-- Only for Mobile View -->
             <li class="mm-add-listing">
                 <span class="border-none">
                     <span class="mmenu-contact-info">
-                        <span class="phone-num"><i class="flaticon-map"></i> <a href="#">47 Bakery
-                                Street, London, UK</a></span>
+                        <span class="phone-num"><i class="flaticon-map"></i>
+                            Calle 47 y Lucas Funes, Reconquista Santa Fe <br>
+                            Iriondo y Hipolito Yrigogen, Reconquista Santa Fe
+                        </span>
                         <span class="phone-num"><i class="flaticon-phone-call"></i> <a
-                                href="#">1-800-458-56987</a></span>
-                        <span class="phone-num"><i class="flaticon-clock"></i> <a href="#">Mon - Fri 8:00
-                                - 18:00</a></span>
+                                href="#">+54 3482 313609</a></span>
+                        <span class="phone-num"><i class="flaticon-clock"></i> <a href="#">Lun - Vie
+                            08:00 - 12:00 & 16:00 - 19:30 <br> Sab 08:30 - 12:00</a></span>
                     </span>
                     <span class="social-links">
-                        <a href="#"><span class="fab fa-facebook-f"></span></a>
-                        <a href="#"><span class="fab fa-twitter"></span></a>
-                        <a href="#"><span class="fab fa-instagram"></span></a>
-                        <a href="#"><span class="fab fa-youtube"></span></a>
-                        <a href="#"><span class="fab fa-pinterest"></span></a>
+                        <a href="https://www.facebook.com/Pereson-Consignaciones-104480548148002" target="_blank"><span class="fab fa-facebook-f"></span></a>
+                        <a href="https://www.instagram.com/peresonautomotores/?hl=es" target="_blank"><span class="fab fa-instagram"></span></a>
                     </span>
                 </span>
             </li>

@@ -12,167 +12,7 @@
                 <form action="{{route('lista-de-autos')}}">
 
                     @livewire('buscador-lista')
-                    {{-- <div class="collapse" id="collapseAdvanceSearch">
-                        <div class="row bgc-thm2">
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <select class="selectpicker show-tick">
-                                        <option>Year</option>
-                                        <option>1967</option>
-                                        <option>1990</option>
-                                        <option>2000</option>
-                                        <option>2002</option>
-                                        <option>2005</option>
-                                        <option>2010</option>
-                                        <option>2015</option>
-                                        <option>2020</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <input class="form-control form_control" type="text" placeholder="Min. Mileage">
-                                </div>
-                            </div>
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <input class="form-control form_control" type="text" placeholder="Max. Mileage">
-                                </div>
-                            </div>
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <select class="selectpicker show-tick">
-                                        <option>Fuel Type</option>
-                                        <option>Diesel</option>
-                                        <option>Electric</option>
-                                        <option>Hybrid</option>
-                                        <option>Petrol</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <select class="selectpicker show-tick">
-                                        <option>Transmission</option>
-                                        <option>Autometic</option>
-                                        <option>Manual</option>
-                                        <option>Semi-Autometic</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <select class="selectpicker show-tick">
-                                        <option>Doors</option>
-                                        <option>2 Doors</option>
-                                        <option>3 Doors</option>
-                                        <option>4 Doors</option>
-                                        <option>5 Doors</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <select class="selectpicker show-tick">
-                                        <option>Interior Color</option>
-                                        <option>Black</option>
-                                        <option>Beige</option>
-                                        <option>Brown</option>
-                                        <option>Red</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <select class="selectpicker show-tick">
-                                        <option>Exterior Color</option>
-                                        <option>Black</option>
-                                        <option>Beige</option>
-                                        <option>Brown</option>
-                                        <option>Red</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <select class="selectpicker show-tick">
-                                        <option>Cylinders</option>
-                                        <option>4</option>
-                                        <option>6</option>
-                                        <option>8</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <select class="selectpicker show-tick">
-                                        <option>Listing Status</option>
-                                        <option>Active</option>
-                                        <option>Pending</option>
-                                        <option>Disable</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col col-sm-4 col-lg-2">
-                                <div class="advance_search_style">
-                                    <input class="form-control form_control" type="text" placeholder="VIN number">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <div class="advance_search_style">
-                                    <div class="uilayout_range">
-                                        <h6 class="ass_price_title text-white text-start">Price</h6>
-                                        <div id="slider"></div>
-                                        <span id="slider-range-value1"></span>
-                                        <span id="slider-range-value2"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <div class="advance_search_style">
-                                    <div class="ui_kit_checkbox text-start">
-                                        <h6 class="ass_feature_title text-white">Features</h6>
-                                        <div class="df mb20">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1">Adaptive Cruise
-                                                Control
-                                                (6,676)</label>
-                                        </div>
-                                        <div class="df mb20">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                            <label class="custom-control-label" for="customCheck2">Cooled Seats
-                                                (9,784)</label>
-                                        </div>
-                                        <div class="df mb20">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                            <label class="custom-control-label" for="customCheck3">Keyless Start
-                                                (9,784)</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <div class="advance_search_style">
-                                    <div class="ui_kit_checkbox text-start pt40 pt0-sm">
-                                        <div class="df mb20">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                            <label class="custom-control-label" for="customCheck4">Navigation System
-                                                (9,784)</label>
-                                        </div>
-                                        <div class="df mb20">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                            <label class="custom-control-label" for="customCheck5">Remote Start
-                                                (9,784)</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+
                 </form>
             </div>
         </section>
@@ -201,11 +41,10 @@
                     <div class="listing_filter_row db-767">
                         <div class="col-md-4">
                             <div class="page_control_shorting left_area tac-sm mb30-767 mt15">
-                               {{--  <p>Encontramos <span class="heading-color fw600">{{ }} </span> Autos
-                                    disponibles
-                                    para ti</p> --}}
+
                             </div>
                         </div>
+
                         <div class="col-md-8">
                             {{-- <div class="page_control_shorting right_area text-end tac-xsd">
                                 <ul>
@@ -232,8 +71,8 @@
                             <div class="car-listing">
                                 <div class="thumb">
 
-                                    @if ($auto->imagenPortada)
-                                                    <img src="{{Storage::url($auto->imagenPortada)}}" alt="1.jpg">
+                                    @if ($auto->files)
+                                                    <img src="{{Storage::url($auto->files->first()->url)}}" alt="1.jpg">
                                                     @else
                                                     <img src="{{asset('images/default/auto.png')}}" alt="1.jpg">
 
@@ -281,19 +120,7 @@
                     <div class="col-lg-12">
                         <div class="mbp_pagination mt10">
                             <ul class="page_navigation">
-                                {{-- <li class="page-item">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"> <span
-                                            class="fa fa-arrow-left"></span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active" aria-current="page">
-                                    <a class="page-link" href="#">2 <span
-                                            class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><span class="fa fa-arrow-right"></span></a>
-                                </li> --}}
+
                                 {{$autos->links()}}
                             </ul>
                         </div>

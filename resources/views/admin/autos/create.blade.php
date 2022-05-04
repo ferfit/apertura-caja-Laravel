@@ -404,20 +404,6 @@
                                 @enderror
                             </div>
                         </div>
-                        {{-- Imagen de portada --}}
-                        <div class="col-sm-6">
-                            <div class="ui_kit_select_search add_new_property mb20">
-                                <label class="form-label">imagen de portada</label>
-                                <input type="file" class="form-control @error('imagenPortada') is-invalid @enderror"
-                                    name="imagenPortada">
-
-                                @error('imagenPortada')
-                                    <span class="invalid-feedback d-block" role="alert">
-                                        <strong>La imagén debe pesar menos de 500 kb.</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
                         {{-- Descripcion --}}
                         <div class="col-md-12">

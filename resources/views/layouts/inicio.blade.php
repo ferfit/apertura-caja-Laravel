@@ -12,6 +12,7 @@
     <!-- css file -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/whatsapp.css') }}">
     <!-- Responsive stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <!-- Title -->
@@ -21,6 +22,8 @@
     <link href="{{ asset('images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" />
     <!-- FlexSlider -->
     <link rel="stylesheet" href="{{ asset('vendor/flexSlider/flexslider.css') }}">
+
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,9 +35,10 @@
     @livewireStyles
 
     <style>
-        .form-select{
+        .form-select {
             font-size: 13px;
         }
+
     </style>
 
 </head>
@@ -50,6 +54,14 @@
 
 
         @include('includes.footer')
+
+        <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
+        <!--                                                                     Whatsapp                                                                         -->
+        <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
+        <a class="whatsapp position-fixed shadow" href="https://api.whatsapp.com/send/?phone=5493482313609&text&app_absent=0"
+            target="_blank" id="whatsapp" aria-colspan="d-block">
+            <i class='bx bxl-whatsapp whatsapp__icono'></i>
+        </a>
 
 
     </div>
@@ -74,7 +86,9 @@
     <script src="{{ asset('js/timepicker.js') }}"></script>
     <!-- Custom scrassetipt for all pages -->
     <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{asset('vendor/flexSlider/jquery.flexslider-min.js')}}"></script>
+    <script src="{{ asset('vendor/flexSlider/jquery.flexslider-min.js') }}"></script>
+    <script src="{{ asset('js/whatsapp.js') }}"></script>
+
     @yield('js')
     @livewireScripts
 </body>
