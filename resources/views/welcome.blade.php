@@ -137,7 +137,7 @@
                                             <div class="car-listing col-12 col-md-6 col-xl-2 mx-1">
                                                 <div class="thumb">
                                                     {{-- <div class="tag">FEATURED</div> --}}
-                                                    @if ($auto->files)
+                                                    @if (count($auto->files)>0)
                                                     <img src="{{Storage::url($auto->files->first()->url)}}" alt="1.jpg">
                                                     @else
                                                     <img src="{{asset('images/default/auto.png')}}" alt="1.jpg">

@@ -22,7 +22,7 @@
                             <th class="align-middle pl20" scope="row">
                                 <div class="car-listing bdr_none d-flex mb0">
                                     <div class="thumb w150">
-                                        @if ($auto->files)
+                                        @if (count($auto->files)>0)
                                             <img class="img-fluid" src="{{ Storage::url($auto->files->first()->url) }}"
                                                 alt="Imagen de auto">
                                         @else
