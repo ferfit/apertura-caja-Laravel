@@ -42,7 +42,7 @@ class FileController extends Controller
     public function store(Auto $auto, Request $request)
     {
         $request->validate([
-            'file' => 'image|max:500'
+            'file' => 'image|mimes:jpg,png'
         ]);
 
         $url = Storage::put('/public/autos',$request->file);

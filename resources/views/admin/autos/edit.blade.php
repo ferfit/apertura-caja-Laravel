@@ -72,44 +72,8 @@
                                 @enderror
                             </div>
                         </div>
-                        {{-- Marca --}}
-                        <div class="col-sm-6 col-md-3">
-                            <div class="ui_kit_select_search add_new_property mb20">
-                                <label class="form-label">Marca*</label>
-                                <select name="marca" class="selectpicker  @error('marca') is-invalid @enderror"
-                                    data-live-search="true" data-width="100%" name="marca">
-                                    <option value="{{ $auto->marca->id }}">{{ $auto->marca->nombre }}</option>
-                                    @foreach ($marcas as $marca)
-                                        <option value="{{ $marca->id }}">{{ $marca->nombre }}</option>
-                                    @endforeach
-                                </select>
 
-                                @error('marca')
-                                    <span class="invalid-feedback d-block" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        {{-- Modelo --}}
-                        <div class="col-sm-6 col-md-3">
-                            <div class="ui_kit_select_search add_new_property mb20">
-                                <label name="modelo" class="form-label">Modelo*</label>
-                                <select name="modelo" class="selectpicker @error('modelo') is-invalid @enderror"
-                                    data-live-search="true" data-width="100%">
-                                    <option value="{{ $auto->modelo->id }}">{{ $auto->modelo->nombre }}</option>
-                                    @foreach ($modelos as $modelo)
-                                        <option value="{{ $modelo->id }}">{{ $modelo->nombre }}</option>
-                                    @endforeach
-                                </select>
 
-                                @error('modelo')
-                                    <span class="invalid-feedback d-block" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
                         {{-- Version --}}
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">

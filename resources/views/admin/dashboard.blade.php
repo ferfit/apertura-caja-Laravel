@@ -53,7 +53,7 @@
 
 
     <h4 class="breadcrumb_title">Módulos Generales</h4>
-    
+
     <div class="row">
 
         <div class="col-sm-6 col-lg-4">
@@ -105,8 +105,8 @@
                 @if (count($autosParados) > 0)
                 <ul>
                     @foreach ($autosParados as $autoParado)
-                        <li>Nro: {{ $autoParado->id }} - Marca: {{ $autoParado->marca }} - Modelo:
-                            {{ $autoParado->modelo }}</li>
+                        <li>Nro: {{ $autoParado->id }} - Marca: {{ $autoParado->marca->nombre }} - Modelo:
+                            {{ $autoParado->modelo->nombre }} - Patente:{{ $autoParado->patente }} </li>
                     @endforeach
                 </ul>
             @else
