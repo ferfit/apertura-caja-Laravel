@@ -2,7 +2,6 @@
 
 @section('contenido')
 
-        @include('includes.sidebar')
 
         @include('includes.header2')
 
@@ -69,7 +68,7 @@
                     @foreach ($autos as $auto)
                         <div class="col-sm-6 col-lg-4 col-xl-3">
                             <div class="car-listing">
-                                <div class="thumb">
+                                <div class="thumb img__contenedor">
 
                                     @if (count($auto->files)>0)
                                                     <img src="{{Storage::url($auto->files->first()->url)}}" alt="1.jpg">

@@ -22863,6 +22863,10 @@ input.quantity-num[type="number"]::-webkit-outer-spin-button {
   position: relative;
   z-index: 0;
 }
+.img__contenedor{
+    width: 100%;
+    height: 200px;
+}
 .car-listing:hover .thumb{
   background: linear-gradient(180deg, rgba(12, 18, 39, 0) 28.42%, rgba(12, 18, 39, 0.8) 100%);
 }
@@ -22927,6 +22931,10 @@ input.quantity-num[type="number"]::-webkit-outer-spin-button {
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
 }
 .car-listing:hover .thumb img{
   -webkit-transform: scale(1.1);

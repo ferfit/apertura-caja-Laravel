@@ -7,8 +7,7 @@
             <div class="col-lg-8 col-xl-7">
                 <div class="header_top_contact_opening_widget text-center text-md-start">
                     <ul class="mb0">
-                        <li class="list-inline-item"><a href="#"><span
-                                    class="flaticon-phone-call"></span>+54 3482 313609</a></li>
+
                         <li class="list-inline-item"><a href="#sucursales"><span class="flaticon-map"></span>Sucursales</a></li>
                         <li class="list-inline-item"><a href="#"><span class="flaticon-clock"></span>Lun - Vie
                                 08:00 - 12:00 & 16:00 - 19:30 |  Sab 08:30 - 12:00</a></li>
@@ -58,8 +57,6 @@
                 <li> <a href="{{route('contacto')}}"><span class="title">Contacto</span></a>
 
                 </li>
-
-                <li class="sidebar_panel"><a class="sidebar_switch pt0" href="#"><span></span></a></li>
             </ul>
         </div>
     </nav>

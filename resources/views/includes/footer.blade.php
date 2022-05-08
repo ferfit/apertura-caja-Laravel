@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-md-6 col-lg-8 col-xl-9">
                 <div class="copyright-widget mt5 text-start mb20-sm">
-                    <p>Siplexo&TuProyectoWeb © 2022. Todos los derechos reservados.</p>
+                    <p>Agentecar © 2022. Todos los derechos reservados.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3">

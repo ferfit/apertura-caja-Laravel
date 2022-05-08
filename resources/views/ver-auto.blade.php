@@ -2,7 +2,6 @@
 
 @section('contenido')
 
-    @include('includes.sidebar')
 
     @include('includes.header2')
 
@@ -26,7 +25,7 @@
                     <div class="single_page_heading_content">
                         <div class="car_single_content_wrapper">
 
-                            <h2 class="title">{{ $auto->titulo}}</h2>
+                            <h2 class="title">{{ $auto->titulo }}</h2>
                             <p class="para">{{ $auto->marca->nombre }} - {{ $auto->modelo->nombre }}</p>
                             <p class="para">Versión: {{ $auto->version }} - Año: {{ $auto->año }}</p>
                         </div>
@@ -39,8 +38,7 @@
                         </div>
                         <div class="price_content">
                             <div class="price mt60 mb10 mt10-md">
-                                <h3><small
-                                        class="mr15"></small>${{ number_format($auto->precio, 0, ',', '.') }}
+                                <h3><small class="mr15"></small>${{ number_format($auto->precio, 0, ',', '.') }}
                                 </h3>
                             </div>
                         </div>
@@ -48,167 +46,181 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-xl-8">
-                    <div class="row">
-                        <div class="">
-                            <!-- Place somewhere in the <body> of your page -->
-                            <div class="flexslider">
-                                <ul class="slides overflow-hidden">
-                                    @foreach ($auto->files as $file)
-                                        <li class="rounded overflow-hidden">
-                                            <img src="{{ Storage::url($file->url) }}" />
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
+                <div class="col-lg-6">
 
-                        <div class="col-lg-12">
-                            <div class="opening_hour_widgets p30 mt30">
-                                <div class="wrapper">
-                                    <ul class="list-group">
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Patente</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->patente }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Condición</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->condicion }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Marca</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->marca->nombre }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Modelo</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->modelo->nombre }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Versión</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->version }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Año</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->año }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Precio Compra</div>
-                                            </div>
-                                            <span
-                                                class="schedule">${{ number_format($auto->preciocosto, 2, ',', '.') }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Precio Venta</div>
-                                            </div>
-                                            <span
-                                                class="schedule">${{ number_format($auto->precio, 2, ',', '.') }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Ciudad</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->ciudad }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Provincia</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->provincia }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Tipo</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->tipo }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Kilometraje</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->kilometraje }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Combustible</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->combustible }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Tipo de motor</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->tipomotor }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Tracción</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->traccion }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Caja</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->cajaauto }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Color</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->color }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Tapizado</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->tapizado }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Dirección</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->direccion }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Valor</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->valor }}</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-start">
-                                            <div class="me-auto">
-                                                <div class="day">Permuta</div>
-                                            </div>
-                                            <span class="schedule">{{ $auto->permuta }}</span>
-                                        </li>
+                    <div class="row">
+                            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+
+                                <!-- Place somewhere in the <body> of your page -->
+                                <div class="your-class rounded ">
+                                    @foreach ($auto->files as $file)
+                                        <div class="rounded overflow-hidden"> <img class="" src="{{ Storage::url($file->url) }}" /></div>
+                                    @endforeach
+
+                                </div>
+
+                                {{-- <div class="flexslider">
+                                    <ul class="slides overflow-hidden">
+                                        @foreach ($auto->files as $file)
+                                            <li class="rounded overflow-hidden">
+                                                <img src="{{ Storage::url($file->url) }}" />
+                                            </li>
+                                        @endforeach
                                     </ul>
+                                </div> --}}
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="opening_hour_widgets p30 mt30">
+                                    <div class="wrapper">
+                                        <ul class="list-group">
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Patente</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->patente }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Condición</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->condicion }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Marca</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->marca->nombre }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Modelo</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->modelo->nombre }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Versión</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->version }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Año</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->año }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Precio Compra</div>
+                                                </div>
+                                                <span
+                                                    class="schedule">${{ number_format($auto->preciocosto, 2, ',', '.') }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Precio Venta</div>
+                                                </div>
+                                                <span
+                                                    class="schedule">${{ number_format($auto->precio, 2, ',', '.') }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Ciudad</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->ciudad }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Provincia</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->provincia }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Tipo</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->tipo }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Kilometraje</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->kilometraje }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Combustible</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->combustible }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Tipo de motor</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->tipomotor }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Tracción</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->traccion }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Caja</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->cajaauto }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Color</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->color }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Tapizado</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->tapizado }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Dirección</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->direccion }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Valor</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->valor }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Permuta</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->permuta }}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="listing_single_description mt30">
-                                <h4 class="mb30">Descripción</h4>
-                                <p class="first-para">{!! $auto->descripcion !!}</p>
 
+                            <div class="col-lg-12">
+                                <div class="listing_single_description mt30">
+                                    <h4 class="mb30">Descripción</h4>
+                                    <p class="first-para">{!! $auto->descripcion !!}</p>
+
+                                </div>
                             </div>
-                        </div>
+
                     </div>
+
+
                 </div>
-                <div class="col-lg-4 col-xl-4">
+
+                <div class="col-lg-4 col-xl-6 ml-auto">
 
                     <div class="sidebar_seller_contact">
 
@@ -238,8 +250,9 @@
                                         <textarea class="form-control" rows="6" id="mensaje">Hola, estoy interesado... </textarea>
                                     </div>
 
-                                    <button type="submit" class="btn btn-block btn-whatsapp mb0" id="btn-whatsapp"><span
-                                            class="flaticon-whatsapp mr10 text-white"></span>Enviar por
+                                    <button type="submit" class="btn btn-block btn-whatsapp mb0"
+                                        id="btn-whatsapp"><span class="flaticon-whatsapp mr10 text-white"></span>Enviar
+                                        por
                                         WhatsApp</button>
                                 </div>
                                 <div class="respuesta mt-4" id="respuesta">
@@ -250,7 +263,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Our Shopping Product -->
@@ -274,7 +286,10 @@
 
 @stop
 
+
 @section('js')
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
     <script>
         $(window).load(function() {
             $('.flexslider').flexslider({
@@ -283,7 +298,6 @@
         });
     </script>
     <script>
-
         var formularioWhatsapp = document.getElementById('formulario-whatsapp');
         var respuesta = document.getElementById('respuesta');
 
@@ -321,5 +335,16 @@
 
             }
         })
+    </script>
+    <script>
+        $('.your-class').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear',
+  adaptiveHeight:true
+
+});
     </script>
 @stop

@@ -23,6 +23,9 @@
     <!-- FlexSlider -->
     <link rel="stylesheet" href="{{ asset('vendor/flexSlider/flexslider.css') }}">
 
+    <link rel="stylesheet" href="{{asset('css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('css/slick-theme.css')}}">
+
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -88,6 +91,7 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('vendor/flexSlider/jquery.flexslider-min.js') }}"></script>
     <script src="{{ asset('js/whatsapp.js') }}"></script>
+    <script src="{{asset('js/slick.min.js')}}"></script>
 
     @yield('js')
     @livewireScripts
