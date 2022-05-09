@@ -90,7 +90,7 @@
                                         <h5 class="price">${{ number_format($auto->precio, 0, ',', '.') }}</h5>
                                         <h6 class="title"><a
                                             href="{{route('ver-auto',$auto)}}">{{$auto->titulo}}</a>
-                                            <h6>{{$auto->marca->nombre}} - {{$auto->modelo->nombre}}</h6>
+                                            <h6>{{$auto->marca->nombre}} - {{$auto->modelo->nombre}}- Año: {{ $auto->año }}</h6>
                                         </h6>
                                         <div class="listign_review">
 

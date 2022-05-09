@@ -207,13 +207,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12">
-                                <div class="listing_single_description mt30">
-                                    <h4 class="mb30">Descripción</h4>
-                                    <p class="first-para">{!! $auto->descripcion !!}</p>
 
-                                </div>
-                            </div>
 
                     </div>
 
@@ -221,6 +215,13 @@
                 </div>
 
                 <div class="col-lg-4 col-xl-6 ml-auto">
+                    <div class="col-lg-12">
+                        <div class="listing_single_description">
+                            <h4 class="mb30">Descripción</h4>
+                            <p class="first-para">{!! $auto->descripcion !!}</p>
+
+                        </div>
+                    </div>
 
                     <div class="sidebar_seller_contact">
 

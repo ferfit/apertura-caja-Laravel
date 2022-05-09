@@ -148,7 +148,7 @@
                                                         <h5 class="price">${{ number_format($auto->precio, 0, ',', '.') }}</h5>
                                                         <h6 class="title"><a
                                                               href="{{route('ver-auto',$auto)}}">{{$auto->titulo}}</a>
-                                                              <h6>{{$auto->marca->nombre}} - {{$auto->modelo->nombre}}</h6>
+                                                              <h6>{{$auto->marca->nombre}} - {{$auto->modelo->nombre}}- Año: {{ $auto->año }}</h6>
 
                                                         </h6>
                                                         <div class="listign_review">
@@ -275,39 +275,45 @@
                                     <div class="row justify-content-center px-3 px-md-0">
 
 
-                                            @foreach ($autosRecientes as $auto )
-                                            <div class="car-listing col-12 col-md-6 col-xl-2 mx-1">
-                                                <div class="thumb">
-                                                    {{-- <div class="tag">FEATURED</div> --}}
-                                                    <img src="images/listing/1.jpg" alt="1.jpg">
+                                        @foreach ($autosRecientes as $auto )
+                                        <div class="car-listing col-12 col-md-6 col-xl-2 mx-1">
+                                            <div class="thumb img__contenedor">
+                                                {{-- <div class="tag">FEATURED</div> --}}
+                                                @if (count($auto->files)>0)
+                                                <img src="{{Storage::url($auto->files->first()->url)}}" alt="1.jpg">
+                                                @else
+                                                <img src="{{asset('images/default/auto.png')}}" alt="1.jpg" class="">
 
+                                                @endif
+                                            </div>
+                                            <div class="details">
+                                                <div class="wrapper">
+                                                    <h5 class="price">${{ number_format($auto->precio, 0, ',', '.') }}</h5>
+                                                    <h6 class="title"><a
+                                                          href="{{route('ver-auto',$auto)}}">{{$auto->titulo}}</a>
+                                                          <h6>{{$auto->marca->nombre}} - {{$auto->modelo->nombre}} - Año: {{ $auto->año }}</h6>
+
+                                                    </h6>
+                                                    <div class="listign_review">
+
+                                                    </div>
                                                 </div>
-                                                <div class="details">
-                                                    <div class="wrapper">
-                                                        <h5 class="price">${{ number_format($auto->precio, 0, ',', '.') }}</h5>
-                                                        <h6 class="title"><a
-                                                              href="page-car-single-v1.html">{{$auto->marca->nombre}} - {{$auto->modelo->nombre}}</a>
-                                                        </h6>
-                                                        <div class="listign_review">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="listing_footer">
-                                                        <ul class="mb0">
-                                                            <li class="list-inline-item"><a href="#"><span
-                                                                        class="flaticon-road-perspective me-2"></span>{{$auto->kilometraje}}</a>
-                                                            </li>
-                                                            <li class="list-inline-item"><a href="#"><span
-                                                                        class="flaticon-gas-station me-2"></span>{{$auto->combustible}}</a>
-                                                            </li>
-                                                            <li class="list-inline-item"><a href="#"><span
-                                                                        class="flaticon-gear me-2"></span>{{$auto->cajaauto}}</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                <div class="listing_footer">
+                                                    <ul class="mb0">
+                                                        <li class="list-inline-item"><a href="#"><span
+                                                                    class="flaticon-road-perspective me-2"></span>{{$auto->kilometraje}}</a>
+                                                        </li>
+                                                        <li class="list-inline-item"><a href="#"><span
+                                                                    class="flaticon-gas-station me-2"></span>{{$auto->combustible}}</a>
+                                                        </li>
+                                                        <li class="list-inline-item"><a href="#"><span
+                                                                    class="flaticon-gear me-2"></span>{{$auto->cajaauto}}</a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            @endforeach
+                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
