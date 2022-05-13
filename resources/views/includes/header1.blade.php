@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <a href="index.html" class="navbar_brand float-start dn-md">
+            <a href="/" class="navbar_brand float-start dn-md">
                 <img class="logo1 img-fluid logoTamaño" src="{{asset('images/logoBlanco.png')}}" alt="header-logo.svg" >
                 <img class="logo2 img-fluid logoTamaño" src="{{asset('images/logoBlanco.png')}}" alt="header-logo2.svg" >
             </a>
