@@ -6,9 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords"
-        content="auto, car, car dealer, car dealership, car listing, cars, classified, dealership, directory, listing, modern, motors, responsive">
-    <meta name="description" content="Voiture - Automotive & Car Dealer HTML Template">
-    <meta name="CreativeLayers" content="ATFN">
+        content="concesionarias en reconquista santa fe,
+        Semar automotores ,
+        compra de autos en reconquista,
+        venta de autos en reconquista,
+        autos usados ,
+        autos 0km">
+    <meta name="description" content="En Pereson Automotores siempre pensamos en vos. Sabemos que la compra de un auto es importante y por eso tenemos varias marcas, para ayudarte.">
+
     <!-- css file -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -16,10 +21,11 @@
     <!-- Responsive stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <!-- Title -->
-    <title>AgenteCar</title>
+    <title>Pereson Automotores</title>
+
     <!-- Favicon -->
-    <link href="{{ asset('images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
-    <link href="{{ asset('images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" />
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" />
+
     <!-- FlexSlider -->
     <link rel="stylesheet" href="{{ asset('vendor/flexSlider/flexslider.css') }}">
 
