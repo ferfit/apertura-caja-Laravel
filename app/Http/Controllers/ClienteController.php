@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Marca;
+use App\Models\Modelo;
+use App\Models\Tipo;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -24,7 +27,11 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('admin.clientes.create');
+        $marcas = Marca::all();
+        $modelos = Modelo::all();
+        $tipos= Tipo::all();
+
+        return view('admin.clientes.create',compact('marcas','modelos','tipos'));
     }
 
     /**

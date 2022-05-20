@@ -132,6 +132,10 @@ html {
 
 
 /* clases nuevas*/
+.contenedor-principal-v{
+    height: 100vh;
+    background-color: red;
+}
 .botonAzul{
     background-color: #0A2357;
     color: #fff;

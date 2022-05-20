@@ -153,6 +153,50 @@
                         </div>
                         <!-- /.card-body -->
 
+                        <br>
+
+                        <hr>
+                        <p>Solo completar estos campos si el una operación de compra</p>
+                        <div class="row mt-3">
+
+                            @livewire('marca-modelo')
+
+                            {{-- Tipo --}}
+                            <div class="col-sm-6 col-md-3">
+                                <div class="ui_kit_select_search add_new_property mb20">
+                                    <label class="form-label">Tipo</label>
+                                    <select name="tipo" class="selectpicker @error('tipo') is-invalid @enderror"
+                                        data-live-search="true" data-width="100%">
+                                        <option value="">Seleccione</option>
+                                        @foreach ($tipos as $tipo)
+                                            <option value="{{ $tipo->nombre }}">{{ $tipo->nombre }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @error('tipo')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            {{-- Precio estimado --}}
+                            <div class="col-sm-6 col-md-3">
+                                <div class="ui_kit_select_search add_new_property mb20">
+                                    <label for="precioEstimado" class="form-label">Precio estimado</label>
+                                    <input name="precioEstimado"
+                                        class="form-control form_control @error('precioEstimado') is-invalid @enderror"
+                                        type="number" min="0" placeholder="" value="{{ old('precioEstimado') }}">
+
+                                    @error('precioEstimado')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="col-lg-12 my-3">
                             <!-- Nav tabs -->
                             <div class="nav justify-content-start" role="tablist">
@@ -167,8 +211,10 @@
 @stop
 
 @section('css')
+    @livewireStyles()
 @stop
 
 @section('js')
+    @livewireScripts()
     @include('includes.btnForm')
 @stop
