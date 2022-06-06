@@ -9,6 +9,7 @@ use App\Http\Controllers\CajaController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\AutoController;
+use App\Http\Controllers\CoincidenciaController;
 use App\Http\Controllers\ModeloController;
 use App\Http\Controllers\VersionController;
 use App\Http\Controllers\UserController;
@@ -18,6 +19,8 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\Controller;
+
+use App\Models\Coincidencia;
 use Barryvdh\DomPDF\Facade as PDF;
 
 
@@ -166,5 +169,9 @@ Route::resource('ventas', VentaController::class)->names('ventas')->middleware([
 |--------------------------------------------------------------------------
 */
 Route::resource('marcas', MarcaController::class)->names('marcas')->middleware(['auth','soloadmin']);
-/*
+
+Route::get('coincidencias',[CoincidenciaController::class,'index'])->name('coincidencias.index')->middleware(['auth','soloadmin']);
+Route::get('coincidencias/{id}', [CoincidenciaController::class,'show'])->name('coincidencias.show')->middleware(['auth','soloadmin']);
+Route::delete('coincidencias/{id}', [CoincidenciaController::class,'destroy'])->name('coincidencias.destroy')->middleware(['auth','soloadmin']);
+
 

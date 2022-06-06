@@ -99,7 +99,7 @@
                         <div class="col-md-12">
                             <div class="mb20">
                                 <label class="form-label">Nota*</label>
-                                <textarea name="nota" class="form-control" rows="10" placeholder="">{{$cliente->nota}}</textarea>
+                                <textarea name="nota" class="form-control" rows="10" placeholder="">{{ $cliente->nota }}</textarea>
                             </div>
                             @error('nota')
                                 <span class="invalid-feedback d-block" role="alert">
@@ -113,7 +113,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
                                 <label for="estado" class="form-label">Estado*</label>
-                                <select name="estado" class="selectpicker @error('estado') is-invalid @enderror"
+                                <select name="estado" id="estado" class="selectpicker @error('estado') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
                                     <option value="{{ $cliente->estado }}">{{ $cliente->estado }}</option>
 
@@ -196,6 +196,56 @@
 
                             </div>
                         </div>
+                        <br>
+
+
+
+
+                        <div class="row mt-3" id="cont-campos-compra">
+                            <hr>
+                            @livewire('marca-modelo', ['cliente' => $cliente])
+
+                            {{-- Tipo --}}
+                            <div class="col-sm-6 col-md-3">
+                                <div class="ui_kit_select_search add_new_property mb20">
+                                    <label class="form-label">Tipo</label>
+                                    <select name="tipo" class="selectpicker @error('tipo') is-invalid @enderror"
+                                        data-live-search="true" data-width="100%">
+                                        @if ($cliente->tipo)
+                                            <option value="{{ $cliente->tipo }}">{{ $cliente->tipo }}</option>
+                                        @else
+                                            <option value="">Seleccione</option>
+                                        @endif
+                                        @foreach ($tipos as $tipo)
+                                            <option value="{{ $tipo->nombre }}">{{ $tipo->nombre }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @error('tipo')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            {{-- Precio estimado --}}
+                            <div class="col-sm-6 col-md-3">
+                                <div class="ui_kit_select_search add_new_property mb20">
+                                    <label for="precioEstimado" class="form-label">Precio estimado</label>
+                                    <input name="precioEstimado"
+                                        class="form-control form_control @error('precioEstimado') is-invalid @enderror"
+                                        type="number" min="0" placeholder="" value="{{ $cliente->precioEstimado }}">
+
+                                    @error('precioEstimado')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                        </div>
+
                         <!-- /.card-body -->
 
                         <div class="col-lg-12 my-3">
@@ -212,9 +262,30 @@
 @stop
 
 @section('css')
+    @livewireStyles()
 @stop
 
 @section('js')
+    @livewireScripts()
     @include('includes.btnForm')
-@stop
+    <script>
+        $(document).ready(function() {
 
+            if ($('#estado').val() == 'compra') {
+                $('#cont-campos-compra').show();
+            } else {
+                $('#cont-campos-compra').hide();
+            }
+
+            $('#estado').change(() => {
+                console.log($('#estado').val())
+
+                if ($('#estado').val() == 'compra') {
+                    $('#cont-campos-compra').show();
+                } else {
+                    $('#cont-campos-compra').hide();
+                }
+            })
+        })
+    </script>
+@stop

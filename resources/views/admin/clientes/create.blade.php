@@ -112,7 +112,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="ui_kit_select_search add_new_property mb20">
                                 <label for="estado" class="form-label">Estado*</label>
-                                <select name="estado" class="selectpicker @error('estado') is-invalid @enderror"
+                                <select name="estado" id="estado" class="selectpicker @error('estado') is-invalid @enderror"
                                     data-live-search="true" data-width="100%">
                                     <option value="">Seleccione</option>
                                     <option value="compra">compra</option>
@@ -155,10 +155,8 @@
 
                         <br>
 
-                        <hr>
-                        <p>Solo completar estos campos si el una operación de compra</p>
-                        <div class="row mt-3">
-
+                        <div class="row mt-3" id="cont-campos-compra">
+                            <hr>
                             @livewire('marca-modelo')
 
                             {{-- Tipo --}}
@@ -217,4 +215,17 @@
 @section('js')
     @livewireScripts()
     @include('includes.btnForm')
+    <script>
+         $('#cont-campos-compra').hide();
+
+         $('#estado').change(()=>{
+            console.log($('#estado').val())
+
+            if($('#estado').val() == 'compra'){
+                $('#cont-campos-compra').show();
+            } else {
+                $('#cont-campos-compra').hide();
+            }
+        })
+    </script>
 @stop

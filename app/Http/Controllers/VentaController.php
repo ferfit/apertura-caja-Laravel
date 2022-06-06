@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Venta;
 use App\Models\Cliente;
 use App\Models\Auto;
+use App\Models\Coincidencia;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,9 @@ class VentaController extends Controller
      */
     public function index()
     {
-        $ventas = Venta::orderby('id','DESC')->paginate(20);
+        $ventas = Venta::orderby('id', 'DESC')->paginate(20);
 
-        return view('admin.ventas.index',compact('ventas'));
+        return view('admin.ventas.index', compact('ventas'));
     }
 
     /**
@@ -31,7 +32,7 @@ class VentaController extends Controller
     {
         $clientes = Cliente::all();
 
-        return view('admin.ventas.create',compact('clientes'));
+        return view('admin.ventas.create', compact('clientes'));
     }
 
     /**
@@ -55,7 +56,7 @@ class VentaController extends Controller
             'ganancia' => 'required'
         ]);
 
-        if($data['ganancia'] <= 0){
+        if ($data['ganancia'] <= 0) {
             return redirect()->route('ventas.index')->with('Error', 'La ganancia no puede ser menor o igual a 0.');
         }
 
@@ -65,6 +66,15 @@ class VentaController extends Controller
             $auto = Auto::find($data['auto_id']);
             $auto->estado = 'Desactivado';
             $auto->save();
+
+            //Eliminar coincidencia
+            $coincidencias = Coincidencia::where('auto_id', $data['auto_id'])->get();
+
+            if ($coincidencias) {
+                foreach ($coincidencias as $c) {
+                    $c->delete();
+                }
+            }
 
             //Creacion de venta
             Venta::create([
@@ -79,13 +89,9 @@ class VentaController extends Controller
 
             //retorno
             return redirect()->route('ventas.index')->with('Creado', 'La venta se creó exitosamente.');
-
         } catch (\Throwable $th) {
             return redirect()->route('ventas.index')->with('Error', 'Hubo un problema al crear la venta, vuelta a intentarlo.');
         }
-
-
-
     }
 
     /**
@@ -110,7 +116,7 @@ class VentaController extends Controller
 
         $clientes = Cliente::all();
 
-        return view('admin.ventas.edit',compact('clientes','venta'));
+        return view('admin.ventas.edit', compact('clientes', 'venta'));
     }
 
     /**
@@ -132,7 +138,7 @@ class VentaController extends Controller
             'ganancia' => 'required'
         ]);
 
-        if($data['ganancia'] <= 0){
+        if ($data['ganancia'] <= 0) {
             return redirect()->route('ventas.index')->with('Error', 'La ganancia no puede ser menor o igual a 0.');
         }
 
@@ -149,7 +155,6 @@ class VentaController extends Controller
 
 
             return redirect()->route('ventas.index')->with('Actualizado', 'La venta se actualizó exitosamente.');
-
         } catch (\Throwable $th) {
             return redirect()->route('ventas.index')->with('Error', 'Hubo un problema al actualizar la venta, vuelta a intentarlo.');
         }
@@ -167,11 +172,10 @@ class VentaController extends Controller
         try {
             $venta->delete();
 
-            return redirect()->route('ventas.index')->with('Borrado','La venta se borró exitosamente.');
-
+            return redirect()->route('ventas.index')->with('Borrado', 'La venta se borró exitosamente.');
         } catch (\Throwable $th) {
 
-            return redirect()->route('ventas.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
+            return redirect()->route('ventas.index')->with('Error', 'Hubo un problema, vuelva a intentarlo.');
         }
     }
 }

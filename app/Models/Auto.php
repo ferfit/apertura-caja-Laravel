@@ -77,6 +77,11 @@ class Auto extends Model
     {
         if($condicion) return $query->where('condicion','=',$condicion);
     }
+    //Relacion muchos a muchos---------------------------------------------
+    public function coincidencias()
+    {
+        return $this->belongsToMany(Coincidencia::class,'coincidencias','auto_id','cliente_id');
+    }
 
 
 

@@ -2,12 +2,17 @@
     {{-- Marca --}}
     <div class="col-sm-6 col-md-3">
         <div class="ui_kit_select_search add_new_property mb20" wire:ignore>
-            <label class="form-label">Marca*</label>
+            <label class="form-label">Marca @if (Request::url() == route('clientes.create'))
+                @else
+                    *
+                @endif </label>
             <select id="marca" name="marca" class="selectpicker  @error('marca') is-invalid @enderror" wire:model="marca"
                 data-live-search="true" data-width="100%">
 
                 @if ($auto->marca_id)
                     <option value="{{ $auto->marca_id }}">{{ $auto->marca->nombre }}</option>
+                @elseif($cliente->marca_id)
+                    <option value="{{ $cliente->marca_id }}">{{ $cliente->marca->nombre }}</option>
                 @else
                     <option value="">Seleccione</option>
                 @endif
@@ -28,12 +33,17 @@
     {{-- Modelo --}}
     <div class="col-sm-6 col-md-3">
         <div class="ui_kit_select_search add_new_property mb20">
-            <label name="modelo" class="form-label">Modelo*</label>
+            <label name="modelo" class="form-label">Modelo @if (Request::url() == route('clientes.create'))
+                @else
+                    *
+                @endif </label>
             <select id="modelo" name="modelo" class="form-control @error('modelo') is-invalid @enderror"
                 data-live-search="true" data-width="100%" style="font-size:14px !important;">
 
                 @if ($auto->modelo_id)
                     <option value="{{ $auto->modelo_id }}">{{ $auto->modelo->nombre }}</option>
+                @elseif($cliente->modelo_id)
+        <option value="{{ $cliente->modelo_id }}">{{ $cliente->modelo->nombre }}</option>
                 @else
                     <option value="" selected>Seleccione</option>
                 @endif

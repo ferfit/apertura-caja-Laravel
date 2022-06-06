@@ -2,14 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AutoService;
 use App\Models\Cliente;
 use App\Models\Marca;
 use App\Models\Modelo;
 use App\Models\Tipo;
+use App\Models\Coincidencia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
+
 
 class ClienteController extends Controller
 {
+    private $autoService;
+
+    public function __construct(AutoService $autoService)
+    {
+        $this->autoService = $autoService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +29,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('admin.clientes.index');
+        $coincidencias = count(Coincidencia::all());
+
+        return view('admin.clientes.index', compact('coincidencias'));
     }
 
     /**
@@ -29,9 +43,9 @@ class ClienteController extends Controller
     {
         $marcas = Marca::all();
         $modelos = Modelo::all();
-        $tipos= Tipo::all();
+        $tipos = Tipo::all();
 
-        return view('admin.clientes.create',compact('marcas','modelos','tipos'));
+        return view('admin.clientes.create', compact('marcas', 'modelos', 'tipos'));
     }
 
     /**
@@ -52,11 +66,18 @@ class ClienteController extends Controller
             'nota' => 'required',
             'estado' => 'required',
             'origencliente' => 'required',
+            'marca' => 'nullable',
+            'modelo' => 'nullable',
+            'precioEstimado' => 'nullable',
+            'tipo' => 'nullable',
         ]);
 
-        try {
-            //Creacion
-            Cliente::create([
+
+
+        /*try {*/
+        //Creacion
+        if ($data['estado'] == 'compra') {
+            $cliente = Cliente::create([
                 'nombre' => $data['nombre'],
                 'celular' => $data['celular'],
                 'email' => $data['email'],
@@ -66,15 +87,58 @@ class ClienteController extends Controller
                 'estado' => $data['estado'],
                 'origencliente' => $data['origencliente'],
                 'estadocliente' => 'Activado',
-                'user_id' => auth()->user()->id
-                ]);
-
-            //retorno
-            return redirect()->route('clientes.index')->with('Creado', 'El cliente se creó exitosamente.');
-
-        } catch (\Throwable $th) {
-            return redirect()->route('clientes.index')->with('Error', 'Hubo un problema al crear el cliente, vuelta a intentarlo.');
+                'user_id' => auth()->user()->id,
+                'marca_id' => $data['marca'],
+                'modelo_id' => $data['modelo'],
+                'precioEstimado' => $data['precioEstimado'],
+                'tipo' => $data['tipo']
+            ]);
+        } else {
+            $cliente = Cliente::create([
+                'nombre' => $data['nombre'],
+                'celular' => $data['celular'],
+                'email' => $data['email'],
+                'ciudad' => $data['ciudad'],
+                'provincia' => $data['provincia'],
+                'nota' => $data['nota'],
+                'estado' => $data['estado'],
+                'origencliente' => $data['origencliente'],
+                'estadocliente' => 'Activado',
+                'user_id' => auth()->user()->id,
+                'marca_id' => null,
+                'modelo_id' => null,
+                'precioEstimado' => null,
+                'tipo' => null
+            ]);
         }
+
+        //Buscar coincidencias
+        if ($data['estado'] == 'compra') {
+
+            $autos =  $this->autoService->buscarCoincidencias($data);
+
+            //return $autos;
+
+            foreach ($autos as $auto) {
+
+                Coincidencia::create([
+                    'cliente_id' => $cliente->id,
+                    'auto_id' => $auto->id,
+                ]);
+            }
+
+            if ($this->autoService->buscarCoincidencias($data)) {
+                return redirect()->route('clientes.index')->with('Creado-Coincidencias', 'Se encontraron coincidencias.');
+            }
+
+            return redirect()->route('clientes.index')->with('Creado', 'El cliente se creó exitosamente.');
+        }
+
+        //retorno
+
+        /*} catch (\Throwable $th) {
+            return redirect()->route('clientes.index')->with('Error', 'Hubo un problema al crear el cliente, vuelta a intentarlo.');
+        }*/
     }
 
     /**
@@ -85,7 +149,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        return view('admin.clientes.show',compact('cliente'));
+        return view('admin.clientes.show', compact('cliente'));
     }
 
     /**
@@ -96,7 +160,11 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        return view('admin.clientes.edit',compact('cliente'));
+        $marcas = Marca::all();
+        $modelos = Modelo::all();
+        $tipos = Tipo::all();
+
+        return view('admin.clientes.edit', compact('cliente', 'marcas', 'modelos', 'tipos'));
     }
 
     /**
@@ -118,7 +186,13 @@ class ClienteController extends Controller
             'nota' => 'required',
             'estado' => 'required',
             'origencliente' => 'required',
+            'marca' => 'nullable',
+            'modelo' => 'nullable',
+            'precioEstimado' => 'nullable',
+            'tipo' => 'nullable',
         ]);
+
+        //return $data;
 
 
         try {
@@ -130,11 +204,26 @@ class ClienteController extends Controller
             $cliente->nota = $data['nota'];
             $cliente->estado = $data['estado'];
             $cliente->origencliente = $data['origencliente'];
+
+            if ($data['estado'] == 'venta') {
+                $cliente->marca_id =  null;
+                $cliente->modelo_id =  null;
+                $cliente->precioEstimado =  null;
+                $cliente->tipo =  null;
+            } else {
+                $cliente->marca_id = $data['marca'];
+                $cliente->modelo_id = $data['modelo'];
+                $cliente->precioEstimado = $data['precioEstimado'];
+                $cliente->tipo = $data['tipo'];
+            }
+
             $cliente->save();
 
-            return redirect()->route('clientes.index')->with('Actualizado','Cliente actualizado exitosamente.');
+
+
+            return redirect()->route('clientes.index')->with('Actualizado', 'Cliente actualizado exitosamente.');
         } catch (\Throwable $th) {
-            return redirect()->route('clientes.index')->with('Error','Hubo un problema al actualizar el cliente, vuelva a intentarlo.');
+            return redirect()->route('clientes.index')->with('Error', 'Hubo un problema al actualizar el cliente, vuelva a intentarlo.');
         }
     }
 
@@ -148,18 +237,25 @@ class ClienteController extends Controller
     {
 
 
-        try {
+        /*try {*/
 
-            //Cambia estado del auto
-            $cliente->estadocliente = 'Desactivado';
-            $cliente->save();
+        //Cambia estado del auto
+        $cliente->estadocliente = 'Desactivado';
+        $cliente->save();
 
-            return redirect()->route('clientes.index')->with('Borrado','El cliente se borró exitosamente.');
+        //Elimina coincidencias
+        $coincidencias = Coincidencia::where('cliente_id', $cliente->id)->get();
 
-        } catch (\Throwable $th) {
-
-            return redirect()->route('clientes.index')->with('Error','Hubo un problema, vuelva a intentarlo.');
-
+        if ($coincidencias) {
+            foreach ($coincidencias as $c) {
+                $c->delete();
+            }
         }
+
+        return redirect()->route('clientes.index')->with('Borrado', 'El cliente se borró exitosamente.');
+        /*} catch (\Throwable $th) {
+
+            return redirect()->route('clientes.index')->with('Error', 'Hubo un problema, vuelva a intentarlo.');
+        }*/
     }
 }

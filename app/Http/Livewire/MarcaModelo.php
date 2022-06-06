@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 use App\Models\Marca;
 use App\Models\Modelo;
 use App\Models\Auto;
+use App\Models\Cliente;
 
 use Livewire\Component;
 
@@ -16,13 +17,16 @@ class MarcaModelo extends Component
 
     public $auto;
 
+    public $cliente;
 
 
 
-    public function mount(Auto $auto){
+
+    public function mount(Auto $auto,Cliente $cliente){
         $this->marcas = Marca::all();
         $this->modelos = Modelo::all();
         $this->auto = $auto;
+        $this->cliente = $cliente;
     }
 
     public function updatedMarca($value){

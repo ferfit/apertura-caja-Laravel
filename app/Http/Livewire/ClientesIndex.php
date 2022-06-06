@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Auto;
 use Livewire\Component;
 use App\Models\Cliente;
+use App\Models\Coincidencia;
 use Livewire\WithPagination;
 
 
@@ -24,6 +25,8 @@ class ClientesIndex extends Component
 
     public function render()
     {
+
+
 
         $clientes = Cliente::all();
         //return view('livewire.clientes-index',compact('clientes'));

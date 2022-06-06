@@ -325,7 +325,7 @@
             } else {
 
                 url =
-                    `https://api.whatsapp.com/send?phone=+541141774133&text=Nombre:${nombre.value}%0ATeléfono:${telefono.value}%0AEmail:${email.value}%0A%0AMensaje:${mensaje.value}`;
+                    `https://api.whatsapp.com/send?phone=+5493482313609&text=Nombre:${nombre.value}%0ATeléfono:${telefono.value}%0AEmail:${email.value}%0A%0AMensaje:${mensaje.value}`;
 
                 nombre.value = '';
                 telefono.value = '';

@@ -16,8 +16,26 @@ class Cliente extends Model
         'nota',
         'estado',
         'origencliente',
-        'user_id'
+        'user_id',
+        'marca_id',
+        'modelo_id',
+        'precioEstimado',
+        'tipo'
     ];
 
     use HasFactory;
+
+    //relacion 1 a muchos inversa-----------------------------
+    public function marca(){
+        return $this->belongsTo('App\Models\Marca');
+    }
+
+    public function modelo(){
+        return $this->belongsTo('App\Models\Modelo');
+    }
+    //relacion muchos a muchos-----------------------------
+    public function coincidencias()
+    {
+        return $this->belongsToMany(Coincidencia::class,'coincidencias','cliente_id','auto_id');
+    }
 }

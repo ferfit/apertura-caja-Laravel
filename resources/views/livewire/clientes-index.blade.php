@@ -20,6 +20,7 @@
                 </thead>
                 <tbody>
                     @foreach ($clientes as $cliente)
+
                         <tr>
                             <td class="align-middle">{{ date('d-m-Y', strtotime($cliente->created_at)) }}</td>
                             <td class="align-middle">{{ $cliente->nombre }}</td>

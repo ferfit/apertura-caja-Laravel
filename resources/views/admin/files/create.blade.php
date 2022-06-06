@@ -27,6 +27,7 @@
                 <div class="nav justify-content-start" role="tablist">
                     <a class="botonAzul" href="{{ route('autos.index') }}"> Volver</a>
                 </div>
+                <img src="">
             </div>
         </div>
 
@@ -58,6 +59,8 @@
       headers:{
         'X-CSRF-TOKEN' : "{{csrf_token()}}"
       },
+      autoProcessQueue:false,
+      clickable:true,
       dictDefaultMessage: "Seleccionar imágenes",
       acceptedFiles : "image/*",
       complete:function(file){

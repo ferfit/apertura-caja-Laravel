@@ -21,6 +21,8 @@ use App\Models\Valor;
 use App\Models\Permuta;
 use App\Models\Sucursal;
 use App\Models\Dato;
+use App\Models\Coincidencia;
+use App\Services\ClienteService;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\Storage;
@@ -32,14 +34,17 @@ use Illuminate\Support\Str;
 
 class AutoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $clienteService;
+
+    public function __construct(ClienteService $clienteService)
+    {
+        $this->clienteService = $clienteService;
+    }
+
+
     public function index()
     {
-        $autos = Auto::where('estado','Activado')->paginate(2);
+        $autos = Auto::where('estado', 'Activado')->paginate(2);
 
 
         return view('admin.autos.index');
@@ -55,7 +60,7 @@ class AutoController extends Controller
         $condiciones = Condicion::all();
         $marcas = Marca::all();
         $modelos = Modelo::all();
-        $versiones = Version::all();
+        $versiones = Version::orderBy('nombre', 'ASC')->get();
         $ciudades = ciudad::all();
         $provincias = Provincia::all();
 
@@ -105,7 +110,7 @@ class AutoController extends Controller
         //Validación
         $data = request()->validate([
 
-            'titulo'=>'required',
+            'titulo' => 'required',
             'patente' => 'nullable',
             'condicion' => 'required',
             'marca' => 'required',
@@ -164,6 +169,21 @@ class AutoController extends Controller
                 'permuta' => $data['permuta'],
                 'descripcion' => $data['descripcion'],
             ]);
+
+
+            $clientes = $this->clienteService->buscarCoincidenciasClientes($data);
+
+            if ($clientes) {
+                foreach ($clientes as $cliente) {
+
+                    Coincidencia::create([
+                        'cliente_id' => $cliente->id,
+                        'auto_id' => $auto->id,
+                    ]);
+                }
+
+                return redirect()->route('autos.index')->with('Creado', 'Se encontraron coincidencias.');
+            }
 
             //retorno
             return redirect()->route('autos.index')->with('Creado', 'El auto se creó exitosamente.');
@@ -318,7 +338,7 @@ class AutoController extends Controller
     {
         try {
 
-            //Eliminar el archivo del servidor
+            //Elimina el archivo del servidor
             $fotos = $auto->files;
 
             foreach ($fotos as $foto) {
@@ -327,17 +347,25 @@ class AutoController extends Controller
 
             //Borra de la base de datos
             foreach ($fotos as $foto) {
-                DB::delete('delete from files where id ='.$foto->id);
+                DB::delete('delete from files where id =' . $foto->id);
             }
 
+            //borra coincidencia se borra automatico por la relacion de tablas
 
             //Cambia estado del auto
-            $auto->estado = 'Desactivado';
+            $auto->estado = "Desactivado";
             $auto->save();
 
+            //Elimina coincidencia
+            $coincidencias = Coincidencia::where('auto_id', $auto->id)->get();
 
+            if ($coincidencias) {
+                foreach ($coincidencias as $c) {
+                    $c->delete();
+                }
+            }
 
-           return redirect()->route('autos.index')->with('Borrado', 'El auto se borró exitosamente.');
+            return redirect()->route('autos.index')->with('Borrado', 'El auto se borró exitosamente.');
         } catch (\Throwable $th) {
 
             return redirect()->route('autos.index')->with('Error', 'Hubo un problema, vuelva a intentarlo.');

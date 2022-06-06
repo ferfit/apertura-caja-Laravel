@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <meta name="robots" content="noindex">
     <!-- Title -->
-    <title><title>Pereson Automotores</title></title>
+    <title>Pereson Automotores</title>
     <!-- Favicon -->
     <link href="{{ asset('images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
     <link href="{{ asset('images/favicon.ico') }}" sizes="128x128" rel="shortcut icon" />

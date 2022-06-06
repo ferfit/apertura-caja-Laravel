@@ -16,4 +16,8 @@ class Modelo extends Model
     {
         return $this->hasMany('App\Models\Auto');
     }
+    public function clientes()
+    {
+        return $this->hasMany('App\Models\Auto');
+    }
 }

@@ -27,7 +27,7 @@ class DashboardController extends Controller
             $fechaCreacion = $autos[$i]['created_at'];
             $diferenciaDias = $fechaCreacion->diffInDays($hoy);
 
-            if ($diferenciaDias > 20) {
+            if ($diferenciaDias > 90) {
                 $autosParados[] = $autos[$i];
             }
         }
