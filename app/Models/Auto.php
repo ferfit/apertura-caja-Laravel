@@ -34,6 +34,8 @@ class Auto extends Model
         'direccion',
         'valor',
         'permuta',
+        'vtv',
+        'consignacion',
         'descripcion'
 
     ];

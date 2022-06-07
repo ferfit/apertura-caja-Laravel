@@ -78,7 +78,7 @@
                                                 <div class="me-auto">
                                                     <div class="day">Patente</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->patente }}</span>
+                                                <span class="schedule">{{ $auto->patente ? $auto->patente :'-' }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
@@ -140,67 +140,79 @@
                                                 <div class="me-auto">
                                                     <div class="day">Tipo</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->tipo }}</span>
+                                                <span class="schedule">{{ $auto->tipo ? $auto->tipo : '-'  }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div class="day">Kilometraje</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->kilometraje }}</span>
+                                                <span class="schedule">{{ $auto->kilometraje ? $auto->kilometraje : '-'  }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div class="day">Combustible</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->combustible }}</span>
+                                                <span class="schedule">{{ $auto->combustible ? $auto->combustible : '-'  }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div class="day">Tipo de motor</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->tipomotor }}</span>
+                                                <span class="schedule">{{  $auto->traccionmotor ? $auto->traccionmotor : '-'  }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div class="day">Tracción</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->traccion }}</span>
+                                                <span class="schedule">{{ $auto->traccion ? $auto->traccion  : '-' }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div class="day">Caja</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->cajaauto }}</span>
+                                                <span class="schedule">{{ $auto->cajaauto ? $auto->cajaauto : '-'  }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div class="day">Color</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->color }}</span>
+                                                <span class="schedule">{{ $auto->color ? $auto->color : '-'  }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div class="day">Tapizado</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->tapizado }}</span>
+                                                <span class="schedule">{{ $auto->tapizado ? $auto->tapizado : '-'  }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div class="day">Dirección</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->direccion }}</span>
+                                                <span class="schedule">{{ $auto->direccion ? $auto->direccion  : '-' }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div class="day">Valor</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->valor }}</span>
+                                                <span class="schedule">{{ $auto->valor ? $auto->valor : '-' }}</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                                 <div class="me-auto">
                                                     <div class="day">Permuta</div>
                                                 </div>
-                                                <span class="schedule">{{ $auto->permuta }}</span>
+                                                <span class="schedule">{{ $auto->permuta ? $auto->permuta :'-'  }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">VTV</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->vtv ? $auto->vtv : '-' }}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                <div class="me-auto">
+                                                    <div class="day">Consignación</div>
+                                                </div>
+                                                <span class="schedule">{{ $auto->consignacion ? $auto->consignacion : '-' }}</span>
                                             </li>
                                         </ul>
                                     </div>

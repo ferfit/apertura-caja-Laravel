@@ -408,6 +408,36 @@
                                 @enderror
                             </div>
                         </div>
+                        {{-- vtv --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">VTV</label>
+                                <input name="vtv"
+                                    class="form-control form_control @error('vtv') is-invalid @enderror" type="text"
+                                    placeholder="" value="{{ $auto->vtv }}">
+
+                                @error('vtv')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- Consignacion --}}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ui_kit_select_search add_new_property mb20">
+                                <label class="form-label">Consignación</label>
+                                <input name="consignacion"
+                                    class="form-control form_control @error('consignacion') is-invalid @enderror" type="text"
+                                    placeholder="" value="{{ $auto->consignacion }}">
+
+                                @error('consignacion')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
 
                         {{-- Descripcion --}}

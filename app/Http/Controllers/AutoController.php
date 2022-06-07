@@ -133,6 +133,8 @@ class AutoController extends Controller
             'direccion' => 'nullable',
             'valor' => 'nullable',
             'permuta' => 'nullable',
+            'vtv' => 'nullable',
+            'consignacion' => 'nullable',
             'descripcion' => 'nullable',
 
         ]);
@@ -167,6 +169,8 @@ class AutoController extends Controller
                 'direccion' => $data['direccion'],
                 'valor' => $data['valor'],
                 'permuta' => $data['permuta'],
+                'vtv' => $data['vtv'],
+                'consignacion' => $data['consignacion'],
                 'descripcion' => $data['descripcion'],
             ]);
 
@@ -289,6 +293,8 @@ class AutoController extends Controller
             'direccion' => 'nullable',
             'valor' => 'nullable',
             'permuta' => 'nullable',
+            'vtv' => 'nullable',
+            'consignacion' => 'nullable',
             'descripcion' => 'nullable'
         ]);
 
@@ -319,6 +325,8 @@ class AutoController extends Controller
             $auto->direccion = $data['direccion'];
             $auto->valor = $data['valor'];
             $auto->permuta = $data['permuta'];
+            $auto->vtv = $data['vtv'];
+            $auto->consignacion = $data['consignacion'];
             $auto->descripcion = $data['descripcion'];
             $auto->save();
 

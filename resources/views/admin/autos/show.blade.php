@@ -156,6 +156,18 @@
                             </div>
                             <span class="schedule">{{ $auto->permuta }}</span>
                         </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">VTV</div>
+                            </div>
+                            <span class="schedule">{{ $auto->vtv }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="me-auto">
+                                <div class="day">Consignación</div>
+                            </div>
+                            <span class="schedule">{{ $auto->consignacion }}</span>
+                        </li>
                     </ul>
                 </div>
             </div>
