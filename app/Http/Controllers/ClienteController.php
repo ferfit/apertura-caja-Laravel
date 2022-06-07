@@ -117,17 +117,16 @@ class ClienteController extends Controller
 
             $autos =  $this->autoService->buscarCoincidencias($data);
 
-            //return $autos;
+            if ($autos && count($autos) > 0) {
 
-            foreach ($autos as $auto) {
+                foreach ($autos as $auto) {
 
-                Coincidencia::create([
-                    'cliente_id' => $cliente->id,
-                    'auto_id' => $auto->id,
-                ]);
-            }
+                    Coincidencia::create([
+                        'cliente_id' => $cliente->id,
+                        'auto_id' => $auto->id,
+                    ]);
+                }
 
-            if ($this->autoService->buscarCoincidencias($data)) {
                 return redirect()->route('clientes.index')->with('Creado-Coincidencias', 'Se encontraron coincidencias.');
             }
 

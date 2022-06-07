@@ -16,10 +16,10 @@ class AutoService
             ->where('estado','Activado')
             ->where('marca_id', $data['marca'])
             ->where('modelo_id', $data['modelo'])
-            ->orWhere(function ($query) use ($data) {
+            /* ->orWhere(function ($query) use ($data) {
                 $query->where('precio', $data['precioEstimado'])
                     ->where('tipo', $data['tipo']);
-            })
+            }) */
         ->get();
 
         return $autos;

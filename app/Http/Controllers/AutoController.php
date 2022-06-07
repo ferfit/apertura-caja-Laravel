@@ -173,7 +173,7 @@ class AutoController extends Controller
 
             $clientes = $this->clienteService->buscarCoincidenciasClientes($data);
 
-            if ($clientes) {
+            if ($clientes && count($clientes)>0) {
                 foreach ($clientes as $cliente) {
 
                     Coincidencia::create([

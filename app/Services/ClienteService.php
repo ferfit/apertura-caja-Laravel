@@ -16,10 +16,10 @@ class ClienteService
             ->where('estadocliente','Activado')
             ->where('marca_id', $data['marca'])
             ->where('modelo_id', $data['modelo'])
-            ->orWhere(function ($query) use ($data) {
+            /* ->orWhere(function ($query) use ($data) {
                 $query->where('precioEstimado', $data['precio'])
                     ->where('tipo', $data['tipo']);
-            })
+            }) */
         ->get();
 
         return $clientes;
