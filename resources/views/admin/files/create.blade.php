@@ -59,7 +59,7 @@
       headers:{
         'X-CSRF-TOKEN' : "{{csrf_token()}}"
       },
-      autoProcessQueue:false,
+      autoProcessQueue:true,
       clickable:true,
       dictDefaultMessage: "Seleccionar imágenes",
       acceptedFiles : "image/*",
