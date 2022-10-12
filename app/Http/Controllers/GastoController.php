@@ -10,12 +10,16 @@ use Illuminate\Http\Request;
 
 class GastoController extends Controller
 {
+
+
     public function index (Auto $auto){
 
+        $autos = Auto::all();
+        //dd($autos);
         $gastos = $auto->gastos;
         $total = $gastos->sum('monto');
 
-        return view('admin.autos.gastos.index',compact('gastos','auto','total'));
+        return view('admin.autos.gastos.index',compact('gastos','auto','total','autos'));
     }
 
 

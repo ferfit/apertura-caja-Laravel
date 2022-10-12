@@ -87,11 +87,14 @@ thead{
     transform: scale(0);
     transition: all 600ms ease-in-out;
     z-index: 1000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .whatsapp__icono{
-    font-size: 50px;
+    font-size: 40px;
     color: #fff;
 }
 
@@ -110,7 +113,7 @@ thead{
     }
 
     .whatsapp__icono{
-        font-size: 90px;
+        font-size: 50px;
     }
 
 }
@@ -124,7 +127,7 @@ thead{
         height: 70px;
     }
     .whatsapp__icono{
-        font-size: 70px;
+        font-size: 60px;
     }
  }
 

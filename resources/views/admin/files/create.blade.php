@@ -20,6 +20,7 @@
 
         <div class="new_property_form">
             <form action="{{route('files.store',$auto)}}" class="dropzone shadow" id="my-great-dropzone" method="POST"></form>
+
             @livewire('create-file',['auto' => $auto])
 
             <div class="col-lg-12 my-3">
@@ -54,6 +55,11 @@
 @livewireScripts
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js"></script>
+<x-laravel-blade-sortable::scripts/>
+
 <script>
     Dropzone.options.myGreatDropzone = { // camelized version of the `id`
       headers:{
@@ -78,6 +84,8 @@
         else { done(); }
       }
     };
-  </script>
+</script>
+
+
 
 @stop

@@ -270,6 +270,10 @@
     <script src="{{ asset('js/dashboard-script.js') }}"></script>
     <!-- Custom script for all pages -->
     <script src="{{ asset('js/script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script>
+        window.Sortable = require('sortablejs').default
+    </script>
 
     @yield('css')
     @yield('js')

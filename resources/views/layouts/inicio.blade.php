@@ -12,7 +12,8 @@
         venta de autos en reconquista,
         autos usados ,
         autos 0km">
-    <meta name="description" content="En Pereson Automotores siempre pensamos en vos. Sabemos que la compra de un auto es importante y por eso tenemos varias marcas, para ayudarte.">
+    <meta name="description"
+        content="En Pereson Automotores siempre pensamos en vos. Sabemos que la compra de un auto es importante y por eso tenemos varias marcas, para ayudarte.">
 
     <!-- css file -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -24,13 +25,13 @@
     <title>Pereson Automotores</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" />
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
 
     <!-- FlexSlider -->
     <link rel="stylesheet" href="{{ asset('vendor/flexSlider/flexslider.css') }}">
 
-    <link rel="stylesheet" href="{{asset('css/slick.css')}}">
-    <link rel="stylesheet" href="{{asset('css/slick-theme.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}">
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
@@ -47,8 +48,20 @@
         .form-select {
             font-size: 13px;
         }
-
     </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTJ2V6SBXB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-KTJ2V6SBXB');
+    </script>
 
 </head>
 
@@ -67,8 +80,9 @@
         <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
         <!--                                                                     Whatsapp                                                                         -->
         <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
-        <a class="whatsapp position-fixed shadow" href="https://api.whatsapp.com/send/?phone=5493482313609&text&app_absent=0"
-            target="_blank" id="whatsapp" aria-colspan="d-block">
+        <a class="whatsapp position-fixed shadow"
+            href="https://api.whatsapp.com/send/?phone=5493482313609&text&app_absent=0" target="_blank" id="whatsapp"
+            aria-colspan="d-block">
             <i class='bx bxl-whatsapp whatsapp__icono'></i>
         </a>
 
@@ -97,7 +111,7 @@
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('vendor/flexSlider/jquery.flexslider-min.js') }}"></script>
     <script src="{{ asset('js/whatsapp.js') }}"></script>
-    <script src="{{asset('js/slick.min.js')}}"></script>
+    <script src="{{ asset('js/slick.min.js') }}"></script>
 
     @yield('js')
     @livewireScripts

@@ -50,7 +50,7 @@ class Auto extends Model
 
     public function files()
     {
-        return $this->hasMany('App\Models\File');
+        return $this->hasMany('App\Models\File')->orderBy('orden');
     }
 
 

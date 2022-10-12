@@ -1,5 +1,5 @@
 (function($) {
-    
+
     "use strict";
 
     /* ----- Preloader ----- */
@@ -87,7 +87,7 @@
             }
         };
     });
-    
+
     $(".mouse_scroll").on('click', function() {
         $('html, body').animate({
             scrollTop: $("#feature-property, #property-city").offset().top
@@ -97,16 +97,16 @@
 
 
     function makeTimer() {
-    //  var endTime = new Date("20 Dec 2021 9:56:00 GMT+01:00");  
-        var endTime = new Date("20 Dec 2021 9:56:00 GMT+01:00");      
+    //  var endTime = new Date("20 Dec 2021 9:56:00 GMT+01:00");
+        var endTime = new Date("20 Dec 2021 9:56:00 GMT+01:00");
         endTime = (Date.parse(endTime) / 1000);
         var now = new Date();
         now = (Date.parse(now) / 1000);
         var timeLeft = endTime - now;
-        var days = Math.floor(timeLeft / 86400); 
+        var days = Math.floor(timeLeft / 86400);
         var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
         var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
-        var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));  
+        var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
         if (hours < "10") { hours = "0" + hours; }
         if (minutes < "10") { minutes = "0" + minutes; }
         if (seconds < "10") { seconds = "0" + seconds; }
@@ -116,7 +116,7 @@
         $(".seconds").html(seconds + "<span>Seconds</span>");
     }
     setInterval(function() { makeTimer(); }, 1000);
-    
+
     /* ----- Blog innerpage sidebar according ----- */
     $(document).on('ready', function() {
         $('.collapse').on('show.bs.collapse', function () {
@@ -125,7 +125,7 @@
         $('.collapse').on('hide.bs.collapse', function () {
             $(this).siblings('.card-header').removeClass('active');
         });
-        
+
     });
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
@@ -152,7 +152,7 @@
     $('#countdown').countdown({
         year: cd
     });
-    
+
     /* ----- fact-counter ----- */
     function counterNumber() {
         $('div.timer').counterUp({
@@ -166,7 +166,7 @@
     $(function() {
         $('nav#menu').mmenu();
     });
-    
+
     $(function () {
       $("#switcher-id").change(function () {
         if ($(this).is(":checked")) {
@@ -178,7 +178,7 @@
         }
       });
     });
-    
+
     /* ----- Candidate SIngle Page Price Slider ----- */
     $(function() {
         $("#slider-range").slider({
@@ -306,13 +306,13 @@
     };
 
     jQuery(document).on('ready',function(){
-        jQuery(window).stellar({ 
+        jQuery(window).stellar({
             horizontalScrolling: false,
             hideDistantElements: true,
             verticalScrolling: !isMobile.any(),
             scrollProperty: 'scroll',
             responsive: true
-        });          
+        });
     });
 
     /* ----- MagnificPopup ----- */
@@ -364,7 +364,7 @@
             new WOW().init();
         })
     }
-    
+
     /* ----- Date & time Picker ----- */
     if($('.datepicker').length){
         $('.datepicker').datetimepicker();
@@ -434,7 +434,7 @@
         }
       })();
     });
-    
+
 
     /* ----- Home Maximage Slider ----- */
     if($('#maximage').length){
@@ -450,10 +450,10 @@
                 jQuery('#cycle-loader').hide();
                 jQuery('#maximage').fadeIn('fast');
             }
-        });        
+        });
         // Helper function to Fill and Center the HTML5 Video
         jQuery('#html5video').maximage('maxcover');
-            
+
         // To show it is dynamic html text
         jQuery('.in-slide-content').delay(2000).fadeIn();
     }
@@ -1384,14 +1384,14 @@
                 $('.scrollToHome').fadeOut();
             }
         });
-        
+
         //Click event to scroll to top
         $('.scrollToHome').on('click',function(){
             $('html, body').animate({scrollTop : 0},800);
             return false;
         });
     }
-    
+
     /* ----- Mega Dropdown Content ----- */
     $(document).on('ready', function(){
         $("#show_advbtn, #show_advbtn2").on('click',function(){
@@ -1448,12 +1448,12 @@
         $(".mega_tags_dropdown").on('click', function(){
             $(".tag_dropdown_content").toggle(500);
         });
-        
+
         $('.sticky-nav-tabs-container li').on('click', function(){
             $('.sticky-nav-tabs-container li').removeClass('active');
             $(this).addClass('active');
         });
-        
+
     });
 
     $(document).on("ready",function(){
@@ -1485,7 +1485,7 @@
         wowAnimation();
         mobileNavToggle();
 
-        
+
         // extending for text toggle
         $.fn.extend({
             toggleText: function(a, b){
@@ -1506,7 +1506,7 @@
                 return this.text(this.text() == b ? a : b);
             }
         });
-    
+
         if ($('.showBtns').length) {
             $('.showBtns').on('click', function() {
                 $(this).toggleText2('Show Filter', 'Hide Filter');
@@ -1516,7 +1516,7 @@
         }
 
     });
-    
+
 /* ======
    When document is loading, do
    ====== */
@@ -1525,7 +1525,7 @@
         // add your functions
         counterNumber();
         preloaderLoad();
-        
+
     });
     // window on Scroll function
     $(window).on('scroll', function() {

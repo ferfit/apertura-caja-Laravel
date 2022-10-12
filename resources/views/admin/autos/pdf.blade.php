@@ -36,7 +36,9 @@
 <body>
 
 
-    <img src="{{ public_path('/imagenes/agentcar.png') }}" alt="" style="display: block; margin:auto; width:30%;">
+    <img src="{{ public_path('/images/logo.png') }}" alt="" style="display: block; margin:auto; width:30%;">
+    {{-- <img src="{{Storage::url($dato->imagen)}}" alt="" style="display: block; margin:auto; width:30%;"> --}}
+
 
     <h1>{{ $dato->nombre }}</h1>
 

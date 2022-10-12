@@ -3,7 +3,8 @@
 
 
 @section('contenido')
-    <div class="row">
+    {{$autos}}
+    {{-- <div class="row">
         <div class="col-xl-8">
             <div class="col-lg-12 mb50">
                 <div class="breadcrumb_content">
@@ -103,7 +104,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 
