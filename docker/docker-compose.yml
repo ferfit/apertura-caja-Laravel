@@ -1,0 +1,57 @@
+version: "3.7"
+
+services:
+  php:
+    container_name: php_1
+    build:
+      context: ./php-fpm
+      dockerfile: Dockerfile
+    volumes:
+      - ./../:/var/www/
+    networks:
+      - php_1
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+      XDEBUG_MODE: "debug"
+      XDEBUG_CLIENT_HOST: host.docker.internal
+      XDEBUG_CLIENT_PORT: 9003
+
+  nginx:
+    container_name: php_1-nginx
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile
+    depends_on:
+      - php
+    networks:
+      - php_1
+    volumes:
+      - ./../:/var/www/
+    ports:
+      - "8000:80"
+
+  mysql:
+    image: mysql:5.7.22
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - mysql-data:/var/lib/mysql/
+    networks:
+      - php_1
+
+volumes:
+  mysql-data:
+    driver: local
+
+networks:
+  php_1:
+    external: true

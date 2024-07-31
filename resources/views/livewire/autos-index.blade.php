@@ -36,9 +36,10 @@
                                             <a
                                                 href="{{ route('autos.show', $auto) }}">{{ $auto->marca->nombre }}
                                                 - {{ $auto->modelo->nombre }}</a></h6>
-                                        <h5 class="price">
+                                        {{-- <h5 class="price">
                                             ${{ number_format($auto->precio, 2, ',', '.') }}
-                                        </h5>
+                                        </h5> --}}
+                                        <h5 class="price">$0</h5>
                                     </div>
                                 </div>
                             </th>
